@@ -224,7 +224,7 @@ class ReportSummarizer:
 
         # Initialize the appropriate model
         if self.model_type == "local":
-            self.model = ChatOllama(model="llama3.2:70b", temperature=self.temperature)
+            self.model = ChatOllama(model="llama3.3:latest", temperature=self.temperature)
             embeddings = OllamaEmbeddings(model="nomic-embed-text")
         elif self.model_type == "gpt":
             self.model = ChatOpenAI(model="gpt-4", temperature=self.temperature)

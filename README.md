@@ -16,8 +16,9 @@ git push -u origin master
 Add other necessary installations based on your models and embeddings
 
 
-## Relavant literature:
+## Relavant literature: 1) unstructured text to embedding; 2) unstructured to structured text to embedding
     - Expert-guided knowledge for something oncology (JCO Precision Oncology)
+    - LLM-For-Survival-Analysis (https://github.com/yujing1997/LLM-For-Survival-Analysis/tree/main)
     - See Google slides notes
 
 ## Purpose: transforming unstructured reports to more structured data

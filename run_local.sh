@@ -8,4 +8,4 @@ python /Data/Yujing/HNC_OutcomePred/Reports_Agents/summarize_reports.py \
     --temperature 0.8 \
     --input_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/input_reports \
     --output_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/output_dir \
-    --embedding_model openai
+    --embedding_model ollama
