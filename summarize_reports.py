@@ -6,8 +6,8 @@ This script reads pathology report and consultation note text files, generates c
 with key information using the Llama 3.2 model via LangChain, performs quality control, generates
 embeddings for the summaries, and converts these summaries into structured tabular data.
 
-Author: Your Name
-Date: YYYY-MM-DD
+Author: Yujing Zou
+Date: Dec, 2024
 """
 
 import os
