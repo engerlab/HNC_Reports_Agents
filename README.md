@@ -68,6 +68,6 @@ Add other necessary installations based on your models and embeddings
 - consultation note example taken from
     - /media/yujing/One Touch3/HNC_Reports/ConsultRedacted/1259610.txt
 
-### prompts 
+### Prompts 
 - Each JSON file contains a "prompts" key with a list of different prompts tailored to the respective report type.
 - {context} is a placeholder that will be replaced with the actual report text during processing.
