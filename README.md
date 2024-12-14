@@ -71,3 +71,7 @@ Add other necessary installations based on your models and embeddings
 ### Prompts 
 - Each JSON file contains a "prompts" key with a list of different prompts tailored to the respective report type.
 - {context} is a placeholder that will be replaced with the actual report text during processing.
+
+
+Note:
+- ollama run llama3.3 ongoing... if not finished downaloading in the linux terminal, just run this command again, it will continue downloading from where it stopped. 
