@@ -51,18 +51,3 @@ git push -u origin master
 10. Logging and Error Handling
 - Maintain comprehensive logs detailing the processing status of each report, including successful summaries and any encountered errors or validation failures.
 
-### Methodology (for manuscript)
-We developed an automated pipeline to summarize pathology reports and consultation notes, extracting key clinical information for further analysis. The workflow commenced with the ingestion of .txt files containing unstructured pathology reports and consultation notes from a designated input directory. To facilitate targeted summarization, a separate configuration file (prompts.json) was employed to define specific prompts tailored to each report type, enabling flexibility and ease of modification.
-
-The initialization of the language model was contingent upon user selection, supporting models such as Llama 3.2 via Ollama, OpenAI’s GPT-4, and Google’s Gemini 1.5-flash. Parameters like temperature were configurable to control the variability and creativity of the generated summaries. Utilizing LangChain’s framework, each report was processed by feeding its text alongside the corresponding prompt into the selected language model, resulting in concise summaries that encapsulated only the essential information.
-
-To ensure the reliability and accuracy of the summaries, an automated quality control mechanism was implemented. This involved validating the presence and correct formatting of all required fields within each summary using predefined regular expressions. Any summaries failing these checks were logged for manual inspection, ensuring that only high-quality data proceeded to subsequent stages.
-
-The post-processing phase involved extracting structured data from the validated summaries. This was achieved through the application of regular expressions designed to capture specific fields such as Diagnosis, Tumor Size, Grade, and Biomarkers for pathology reports, and Patient Concerns, Recommendations, and Follow-up Actions for consultation notes. The extracted data was then normalized to maintain consistency, which included converting tumor sizes to a uniform unit of millimeters, handling missing values, and standardizing categorical data entries.
-
-Subsequently, embeddings were generated for each summary to facilitate advanced analytical tasks such as clustering and similarity searches. Depending on the user's choice, embedding models like OpenAI Embeddings, Ollama Embeddings, or Google Generative AI Embeddings were utilized. These embeddings were stored in a pickle file (summary_embeddings.pkl) for efficient retrieval and future use.
-
-Finally, all processed data, including the generated summaries, extracted and normalized tabular data, and embeddings, were saved into designated output directories in appropriate formats (e.g., CSV for tabular data and summaries, pickle for embeddings). Comprehensive logging ensured that the entire process was transparent and that any errors or validation failures were systematically recorded for subsequent review.
-
-This methodology provided a robust and scalable solution for transforming unstructured clinical reports into structured, analyzable data, thereby facilitating enhanced data management and supporting downstream clinical and research applications.
-
