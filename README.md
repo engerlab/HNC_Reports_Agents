@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# HNC_Reports_Agents
-HNC Reports Agents for pathology reports &amp; consultation notes 
-=======
 # HNC clinical reports agents for extraction key info
 
 # Created a Github repository for the project named HNC_Reports_Agents:
