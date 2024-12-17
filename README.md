@@ -29,7 +29,7 @@ Add other necessary installations based on your models and embeddings
     - expert-guided knowledge for prompt engineering needed
 
 ## Llama LLM text summary & tabular data extraction
-    - https://github.com/engerlab/medphys-agent/blob/main/langchain/stream/qa.py
+    - Originally inspired by the AG part of RAG: https://github.com/engerlab/medphys-agent/blob/main/langchain/stream/qa.py
     - Yujing/Laya/Farhood: adapt, reports are on Proton 
     - Prompt engineering: me, Drs. Khalil Sultanem & George Shenouda
     - Turn into text summary → embedding; text summary → expert-guided variables (quality-control needed)
