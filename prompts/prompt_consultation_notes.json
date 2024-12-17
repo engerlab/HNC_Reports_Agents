@@ -1,7 +1,0 @@
-{
-    "prompts": [
-        "You are an assistant specialized in summarizing head and neck cancer pathology reports written in both French and English. Extract and summarize the following key information in English:\n- Diagnosis\n- Tumor Size\n- Grade\n- Biomarkers\n\nPathology Report:\n{context}\n\nSummary:",
-        "Provide a concise summary of the head and neck cancer consultation notes focusing on Patient Concerns, Recommendations, and Follow-up Actions.\n\nConsultation Notes:\n{context}\n\nSummary:",
-        "Summarize the head and neck cancer consultation notes by highlighting Patient Concerns, Recommendations, and Follow-up Actions.\n\nConsultation Notes:\n{context}\n\nSummary:"
-    ]
-}
