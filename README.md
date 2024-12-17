@@ -12,7 +12,9 @@ git push -u origin master
 ## Create virtual environment for this 
 `python3 -m venv env`
 `source env/bin/activate`
-`pip install langchain chromadb openai google-generative-ai tqdm pandas`
+or
+`conda activate segment2`
+`conda install langchain chromadb openai google-generative-ai tqdm pandas`
 Add other necessary installations based on your models and embeddings
 
 
