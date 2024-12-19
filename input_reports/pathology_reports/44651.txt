@@ -1,0 +1,93 @@
+Rapport de Pathologie Final Pathology Report
+ 
+Renseignements Cliniques-Clinical History         
+88 year old woman with left alveolar cancer;  #1  anterior lateral;  #2 anterior medial;  #3 medial palate;
+ #4 lateral cheek;  #5 posterior retromolar trigone;  #6 deep margin;  #7 left superior alveolar mass,
+fresh & biobank;  #8 left neck dissection, level 1,2,3, fresh & biobank; #9 left node of star, fresh &
+biobank       
+ 
+Consultation Peroperatoire-Intraoperative Consultation              
+ 
+FS1-FS6:  Anterior lateral & anterior medial & medial palate & lateral cheek & posterior retromolar
+trigone & deep margin:
+                 -  Margins, sites as stated: negative for neoplasia x 6        ([PERSON]) 
+   
+ 
+Diagnostic Anatomique-Anatomical Diagnosis         
+#1-6:    As per frozen sections
+Specimen #7:
+Specimen site:   upper gingiva / alveolus
+Procedure:    partial maxillectomy
+Specimen laterality:   left
+Tumor site:    upper gingiva / alveolus
+Tumor size:    2.8 x 1.9 x 0.7 cm
+Tumor thickness:   7 mm  
+Histologic type:   squamous cell carcinoma
+Histologic grade:   well differentiated
+Microscopic tumor extension:  extensive tumor involvement around tooth socket, with superficial
+bone invasion
+Margins:    peripheral mucosal margins involved by invasive carcinoma (slide
+    I, anterolateral) (see FS1)   
+     deep margin involved by invasive carcinoma (slide I,
+                                                               anterolateral)        
+Lymph-vascular invasion:  not identified
+Perineural invasion:    not identified
+
+Specimen #8:
+Specimen site:   left neck, level I, II, III
+Procedure:      lymph node dissection
+     number of lymph nodes examined: 31
+     number of lymph nodes involved: 0
+Submandibular gland:  no significant pathological alteration
+Specimen #9:
+Specimen site:   left node of Stahr
+Procedure:      excision
+     number of lymph nodes examined: 1
+     number of lymph nodes involved: 0
+Pathologic staging (pTNM):
+TNM descriptors:   not applicable
+Primary tumor (pT):    pT2: tumor more than 2 cm but not more than 4 cm in greatest
+dimension.
+Regional lymph nodes (pN):  pN0: no regional lymph node metastasis  
+Distant metastasis (pM):  not applicable
+    
+ 
+Examen Macroscopique-Macroscopic Description     
+#1  Received fresh. Labelled 'ANTERIOR LATERAL ALVEOLAR FROZEN SECTION #1', consists of
+a fragment of soft tissue measuring 0.5 x 0.3 x 0.1 cm. Submitted in toto in 1 cassette labelled "1FS
+FOR PERMANENT".
+#2 Received fresh.  Labelled 'FROZEN SECTION #2 ANTERIOR MEDIAL ALVEOLAR", consists of a
+fragment of soft tissue measuring 0.5 x 0.3 x 0.1 cm. Submitted in toto in 1 cassette labelled "2FS
+FOR PERMANENT".
+#3 Received fresh. Labelled 'FROZEN SECTION #3 MEDIAL PALATE", consists of a fragment of soft
+tissue measuring 0.6 x 0.3 x 0.1 cm. Submitted in toto in 1 cassette labelled "3FS FOR
+PERMANENT".
+#4  Received fresh. Labelled 'FROZEN SECTION #4 LATERAL CHEEK', consists of a fragment of
+soft tissue measuring 0.4 x 0.3 x 0.1 cm. Submitted in toto in 1 cassette labelled '4FS FOR
+PERMANENT'.
+#5  Received fresh.  Labelled 'FROZEN SECTION #5 POSTERIOR RETROMOLAR TRIGON',
+consists of a fragment of soft tissue measuring 0.7 x 0.2  x 0.1 cm. Submitted in toto in 1 cassette
+#6 Received fresh. Labelled 'FROZEN SECTION #6 DEEP MARGIN", consists of a fragment of soft
+tissue measuring 0.3 x 0.2 x 0.1 cm. Submitted in toto in 1 cassette labelled "6FS FOR
+PERMANENT".
+#7  Received fresh. Labelled 'LEFT SUPERIOR ALVEOLAR MASS'. consists of an oriented ovoid
+fragment of mucosa and submucosal tissue. The specimen includes 1 tooth socket. Specimen is partly
+friable and fragile. Specimen is oriented by short suture anteriorly and long lateral. Specimen measures
+3.8 x 3.4 x 0.8 cm.  The mucosal surface shows a slightly raised, endophytic, moderately defined,
+white, grey, firm tumor involving the area around the tooth socket.  The tumor measures 2.8 x 1.9 x 0.7
+cm. The tumor is focally grossly involving the margin laterally and deep around the tooth socket.  The
+rest of the mucosal surface is mostly white. The margin is inked black and yellow ink is added along
+the tooth socket towards medial aspect. Specimen is radially sectioned and submitted in toto as shown
+on diagram and as follows:  A - posterolateral margin;  B-J  - rest of the specimen, epicentered around
+the tooth socket, starting posterolaterally and clockwise.
+#8  Received fresh. Labelled 'LEFT NECK DISSECTION LEVEL1,2,3', consists of a salivary gland
+measuring 3.7 x 2.7 x 1.5 cm and of multiple fragments of fibrofatty tissue measuring in aggregate 5 x
+3 x 0.8 cm.  On sectioning the gland, it is grossly unremarkable. On sectioning the rest of the fibrofatty
+tissue, multiple well-circumscribed, beige, grey rubbery lymph nodes are identified, the largest
+measuring 1.3 cm in diameter.  Rep. section submitted:  A - rep. section from salivary gland;  B&C -
+multiple lymph nodes;  D - one bisected lymph node; E-G - the rest of the fibrofatty tissue. 
+#9  Labelled 'LEFT NODE OF STAHR",  consists of a well-circumscribed, yellowish, grey, rubbery
+lymph node measuring 1 cm in diameter. The node is bisected and submitted in toto in 1 cassette.  
+No tissue submitted for biobank from this case.              EY/sc 
+   
+     

@@ -1,0 +1,58 @@
+DIAGNOSIS: Squamous cell carcinoma of unknown primary of the head and neck
+ID: [PERSON] is a [AGE] lady from Chateauguay.
+REASON FOR CONSULT: The patient was referred to us for consideration of further management for newly diagnosed
+squamous cell carcinoma of the head and neck with unknown primary.
+PAST MEDICAL HISTORY: Remote cholecystectomy at the age of 17, nasal bridge repair, right forearm fracture
+followed by internal fixation, arthritis and disk.
+ALLERGIES: Codeine.
+MEDICATION: Naproxen.
+HABITS: The patient smokes half a pack per day for the past 40 years. She drinks alcohol on an occasional basis.
+SOCIAL HISTORY: The patient used to work at the bank. The patient is divorced, and she has [CHILDREN].
+FAMILY HISTORY: The patient's mother was diagnosed with breast cancer at the age of 59, and the patient's sister had
+cervical cancer.
+HISTORY OF PRESENT ILLNESS: The patient reported that three years ago she noticed a right neck lump, for which
+she sought medical attention. She was seen by her family physician who referred her to the ENT Clinic following an exam
+as well as scan. She was told that it was likely to be a fat lump, and the patient was started on antibiotics by her family
+physician, and the lump decreased in size a bit. However, over the past three months, the patient noticed this lump
+started to increase in size. She sought medical attention, and she was referred to [PERSON] who started investigation.
+FNAC from the right neck mass revealed squamous cell carcinoma, and the patient underwent CT scan of the head and
+neck on [DATE] which revealed a 4 x 4.5 x 3.2-cm large lymph node at the right jugulodigastric area and other
+smaller nodes were noted in the same area. There were no significant large lymph nodes in the contralateral area,
+however, there was a 9-mm node documented in the right supraclavicular area and another few subcentimetric lymph
+nodes at level 3 and 4. CT examination of the larynx, nasopharynx and the thyroid and the lung was documented to be
+normal. The patient underwent a PET scan, which documented the lymph node at the right jugulodigastric area
+measuring 4.3 x 3.8 cm with high SUV uptake of 10.5, and another smaller node of 12 mm with high SUV of 6.3 and a few
+other subcentimetric lymph nodes with SUV ranging from 2.7 to 3.7, all on the right side. No metastatic disease was seen
+on the PET scan.
+Following the PET scan and the CT scan, the patient underwent fine-needle aspirate, which documented the squamous
+cell carcinoma from the right neck mass.
+The patient denies any weight loss, dysphagia or any change of the voice. No change in the pattern of coughing and no
+sign of aspiration, however, over the past few weeks the patient is experiencing more anxiety at night to the point where it
+is affecting her sleep and other activities.
+The patient was referred to us for consideration of further management.
+PHYSICAL EXAMINATION: The patient looks in no distress. KPS 100. Head and neck examination revealed about a 5
+x 4-cm mobile neck mass at the right jugulodigastric area. The mass itself is firm but it is mobile, not attached to the skin.
+There is a smaller mass, just beneath it, about 1.5 cm. Examination of the contralateral neck did not reveal any palpable
+mass. Examination of the oropharynx revealed normal mucosa with no visible or palpable lesions. The patient is wearing
+dentures.
+Flexible endoscopic examination was unremarkable.
+Cardiovascular and pulmonary auscultation was unremarkable.
+In summary, [PERSON] is a [AGE] lady with a newly diagnosed squamous cell carcinoma of the head and neck
+with an unknown primary. At this point, based on the CT scan and PET scan, staged as Tx, N2b, [PERSON].
+CONSULTATION REQUESTED: We have requested Medical Oncology consultation as well as ENT, Psychology,
+Nutrition. We requested a GI consult for a PEG tube.
+IMPRESSION AND PLAN: [PERSON] is a [AGE] lady with a newly diagnosed squamous cell carcinoma of the
+head and neck with unknown primary. She underwent a PET scan as well as a CT scan of the head and neck, which did
+not show any primary site. We have discussed with the patient and her family the need to explore the primary site of the
+disease and that is usually done with a PET scan, which she already had, as well as panendoscopy. For that, we
+requested a consultation with the Head and Neck surgeon to arrange for that. If the primary site is identified, the
+treatment will be dictated based on that. Otherwise, the patient will receive concurrent chemoradiation therapy to the
+bilateral neck as the potential site of the primary. Likely the patient will receive 30 fractions of radiation with concurrent
+chemotherapy once a week. The rationale of the treatment as well as the expected side effects, acute and chronic side
+effects, were explained to the patient and her family, who agreed to the proposed treatment plan. The patient will be
+called shortly for planning CT scan for preparation of the radiation.
+Thank you for the courtesy of this referral.
+A. Alsuhaibani,[PERSON][PERSON]
+AA/Transmed
+DD: [DATE]
+DT: [DATE]

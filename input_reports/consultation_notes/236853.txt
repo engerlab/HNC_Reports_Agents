@@ -1,0 +1,35 @@
+DIAGNOSIS: Maxillary sinus squamous cell carcinoma
+[PERSON] is a [AGE] gentleman referred to our department for consideration of adjuvant radiation status post
+surgical resection of a locally advanced squamous cell carcinoma of the right maxillary sinus.
+HISTORY OF PRESENT ILLNESS: The patient had undergone recently a dental extraction at [JOB] following which
+he noticed erythema and swelling of the right face and also bleeding through the mouth, for which he presented at the
+Emergency and on investigation, a CT was done on [DATE] revealing an aggressive process involving the right
+entire hemimaxilla extending to the alveolar ridge, hard palate, and maxillary sinus wall, transgressing the floor of the orbit
+and extending into the right inferior periorbital tissue, involving the pterygopalatine fossa, highly suggestive of a
+malignancy. An MRI done on [DATE] confirms those findings. A biopsy done on [DATE] showed high-grade
+carcinoma in the submucosal. Further investigation included a chest x-ray, which was unremarkable, equally a PET scan,
+which revealed a destructive process in the right hemimaxilla involving the alveolar ridge, hard palate and maxillary sinus
+wall, possibly involvement of the right node of Rouviere. Also noted is a suspicious focal hypermetabolism seen in the
+prostate.
+The patient then underwent on [DATE] a right maxillectomy with palatectomy and a fibular free flap, for which the
+pathology revealed non-keratinizing squamous cell carcinoma, poorly differentiated, measuring 4.5 x 3.5 cm with positive
+margins at the level of the posterior skeletal muscle and anterior periosseous tissue. Lymphovascular invasion is seen,
+p16 is negative. One lymph node removed ipsilaterally during the preparation for the flap was positive for malignancy with
+a deposit of 1.2 cm, but no extracapsular extension.
+The patient is recovering well from his surgery. He denies any symptoms at the moment. Specifically, no audiology or
+visual symptoms.
+PAST MEDICAL HISTORY: Diabetes mellitus type 2, high blood pressure, hypercholesterolemia, benign prostate
+hyperplasia.
+MEDICATION: Unfortunately, the patient does not have his list of medication today, but from the chart we can assess
+that the patient is taking finasteride, amlodipine, atorvastatin, metformin. No history of allergies to medications.
+PHYSICAL EXAMINATION: An elderly gentleman in no acute distress. Performance status is evaluated at 90. The
+maxillectomy scar is well healed. The patient is edentulous on the side of the surgery. Oral cavity and oropharynx are
+normal. Neck is clear without lymphadenopathy palpated. Cranial nerve examination is unremarkable.
+In conclusion, this is a [AGE] gentleman status post surgical resection of a stage T3, N1 poorly differentiated
+squamous cell carcinoma of the right maxillary sinus. We do recommend adjuvant radiation to the surgical bed, ipsilateral
+neck and contralateral level 2. This will be combined with weekly chemotherapy as a radiosensitizer. Treatment rationale
+and side effects were fully explained to the patient, and he agrees to receive the treatment.
+[PERSON]
+KS/Transmed
+DD:[DATE]
+DT:[DATE]

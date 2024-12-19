@@ -1,0 +1,20 @@
+Rapport de Pathologie - Pathology Report
+
+RENSEIGNEMENTS CLINIQUES CLINICAL HISTORY:
+74 year old man with right maxillary sinus/nasal cavity tumor. Patient scheduled for surgery in 10 days. Need path
+ASAP. Right alveolar ridge.
+EXAMEN MACROSCOPIQUE MACROSCOPIC DESCRIPTION:
+Consists of 3 fragments of tissue measuring 1.0 x 1.0 x 0.3 cm. Submitted in toto in 1 cassette. GS/mc
+DIAGNOSTIC ANATOMIQUE ANATOMICAL DIAGNOSIS:
+RIGHT ALVEOLAR RIDGE (BIOPSY):
+- INVASIVE, NON-KERATINIZING SQUAMOUS CELL CARCINOMA, HIGH-GRADE, IN SUBMUCOSA
+- PERINEURAL INVASION: NOT IDENTIFIED
+- LYMPHOVASCULAR INVASION: SUSPICIOUS
+- p16 IMMUNOHISTOCHEMISTRY: NEGATIVE
+- EVB PROBE (EBER): NEGATIVE
+NOTES:
+- The overlaying squamous epithelium is uninvolved.
+- Tumor shows focal intercellular bridges
+- The immunohistochemical profile of the tumor cells is: AE1/AE3(+), CK5/6(+), CK8/18(+), CK7(+, focal),
+CK20(-), p63(+), CD31(-) and D2-40 (-).
+[PERSON], PATHOLOGIST

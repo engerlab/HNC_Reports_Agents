@@ -1,0 +1,39 @@
+DIAGNOSIS: PAROTID CA.
+IDENTIFICATION: This is a [AGE] female.
+REASON FOR REFERRAL: Consideration of adjuvant radiotherapy.
+PAST MEDICAL HISTORY: Past medical history is remarkable for left-sided breast cancer treated with lumpectomy
+alone in [DATE]. The patient did not receive any adjuvant therapy. The patient is also known for hypothyroidism, anemia,
+and hypercholesterolemia.
+MEDICATIONS: Medications include Synthroid, ferrous sulfate, and a hyperlipidemia medication the name of which the
+patient does not recall.
+ALLERGIES: Nil.
+FAMILY HISTORY: Nil.
+SOCIAL HISTORY: The patient is a nondrinker and a nonsmoker. She lives alone in a seniors' home and is fully
+autonomous.
+HISTORY OF PRESENT ILLNESS: The patient noted a mass at the angle of the mandible in [DATE]. This mass
+was eventually biopsied in [DATE], fine-needle aspiration did demonstrate the presence of undifferentiated
+carcinoma. The patient was taken to the operating room on [DATE], for a right parotid superficial lobe
+excision. The pathology noted adenocarcinoma high grade with mixed mild epithelial and invasive glandular components
+measuring 2 x 1.5 x 1.3 centimeters, no lymphovascular invasion or perineural invasion was noted. However, the margins
+were focally positive with tumor cells. The patient had an uncomplicated postoperative course. Presently, [PERSON]
+states she feels quite well. She notes mild xerostomia. She denies any dysphagia or odynophagia. The remainder of the
+review of systems is noncontributory.
+PHYSICAL EXAMINATION: On examination, this is a well-appearing lady in no acute distress. ECOG performance
+status is 0. On head and neck examination, there is a well-healed surgical scar at the angle of the mandible on the right
+side. There is no palpable adenopathy on neck and head examination. The examination of the oral cavity is
+unremarkable. The patient was unable to lie supine for a physical examination. She states she experiences vertigo when
+supine.
+LABORATORIES/IMAGING: The patient did have a CT scan of the neck performed on [DATE], which did note
+the known lesion with no evidence of lymphadenopathy. A CT scan of the chest and abdomen performed on [DATE], noted no evidence of metastatic disease.
+IMPRESSION AND PLAN: In summary, this is a [AGE] lady with a diagnosis of high-grade adenocarcinoma of the
+right parotid gland. The patient is status postsuperficial lobe excision with focally-positive margins. The rationale and
+potential side effects of radiotherapy were described to the patient and after some discussion, the patient has elected to
+proceed with treatment. As the patient is unable to lie supine due to vertigo, we positioned the patient with an incline of
+approximately 30 degrees, and the patient was fine in this position. The patient will be CT simulated in this position with
+the initiation of radiotherapy shortly thereafter.
+Thank you for the courtesy of this referral.
+[PERSON]/[PERSON]
+[PERSON]
+DD: [DATE]
+DT: [DATE]
+Cc: [PERSON]

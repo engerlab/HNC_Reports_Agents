@@ -1,0 +1,29 @@
+DIAGNOSIS:
+This lady is referred to our department for consideration of management with a diagnosis of a left buccal mucosa minor
+salivary gland tumor.
+PAST MEDICAL HISTORY: Nil significant except for hypothyroidism and hypercholesterolemia.
+MEDICATION: Synthroid, Lipitor. Allergies to iodine contrast.
+SOCIAL HISTORY: The patient does not smoke or drink.
+HISTORY OF PRESENT ILLNESS: The patient noticed over the last year a painless mass at the upper level of the left
+cheek that measures about 1 to 2 cm in diameter. No evidence of progression over time. Because of this mass, the
+patient consulted [JOB], and was then referred to [PERSON]. A needle biopsy done on [DATE] revealed
+hypercellular salivary gland tumor favoring pleomorphic adenoma, but cannot rule out low-grade carcinoma. The patient
+underwent an excisional resection on [DATE] with the pathology revealing salivary gland adenocarcinoma, low-
+grade, positive for lymphovascular invasion, no perineural invasion seen. The tumor was removed in a fragmented
+fashion, with the fragments measuring about 1.5 cm. It is of note that the patient has undergone before surgery an MRI of
+the head and neck region revealing a 1.4 x 1.6-cm enhancing lesion in the left buccal space in close proximity to the left
+maxillary alveolar bone, but no evidence of bony invasion. Also of note is an abnormal enhancement along the course of
+the fifth nerve (V3) of unknown etiology.
+The patient recovered well from surgery. She does not have any complaints. On review of systems, mentions about a
+20-pound weight loss of unknown etiology. The patient denies any GI or GU symptomatology.
+PHYSICAL EXAMINATION: A healthy lady in no acute distress. Performance status is evaluated at 100. Neck is clear
+with no lymphadenopathy palpated. Oral cavity and oropharynx are normal on inspection. On palpation, of note is a
+residual 1-cm mass on the upper aspect of the left buccal mucosa extending into the gingivobuccal sulcus, seems to be
+tethered to the maxillary bone. This is suspicious of residual disease, although surgical scarring cannot be ruled out.
+After a discussion with [PERSON], we do recommend a post-op MRI to investigate any residual disease. Depending on the
+results of the MRI, we will discuss either an adjuvant course of external beam radiotherapy or consider surgical re-
+resection if feasible. The patient will be assessed with her MRI.
+[PERSON]
+KS/Transmed
+DD:[DATE]
+DT:[DATE]
