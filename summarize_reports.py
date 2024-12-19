@@ -2,12 +2,15 @@
 """
 Pathology Report and Consultation Notes Summarizer using Llama 3.2 and LangChain
 
-This script reads pathology report and consultation note text files, generates concise summaries
-with key information using the Llama 3.2 model via LangChain, performs quality control, generates
-embeddings for the summaries, and converts these summaries into structured tabular data.
+This script reads pathology report and consultation note text files organized in separate
+subdirectories, generates concise summaries with key information using the specified model,
+performs quality control, generates embeddings for the summaries, converts these summaries
+into structured tabular data, and encodes the data for survival analysis models.
 
-Author: Yujing Zou
-Date: Dec, 2024
+It outputs:
+1. Text summaries and their embeddings for each report type.
+2. Structured data tables for each report type.
+3. Encoded structured data tables suitable for survival analysis.
 """
 
 import os
@@ -21,17 +24,18 @@ import random
 
 import pandas as pd
 from tqdm import tqdm
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.impute import SimpleImputer
 
 # LangChain and Model-specific Imports
 from langchain.vectorstores import Chroma
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.prompts import ChatPromptTemplate
 from langchain.output_parsers import StrOutputParser
-from langchain.text_splitters import RecursiveCharacterTextSplitter
 from langchain.chains import LLMChain
 from langchain.runnables import RunnablePassthrough
 
-# Model-specific imports
+# Model-specific imports (assuming you have these modules; replace with actual imports)
 from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_openai import ChatOpenAI
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
@@ -40,35 +44,36 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGener
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 logger = logging.getLogger(__name__)
 
-# Paths Configuration
-PATHS = {
-    "chroma_embeddings": "/path/to/chroma_embeddings",  # Update with your path
-    "input_dir": "/path/to/input_reports",              # Directory containing .txt files
-    "output_dir": "/path/to/output_dir",                # Directory to save outputs
-    "log_file": "/path/to/output_dir/summarizer.log"    # Log file path
-}
-
-# Ensure output directory exists
-os.makedirs(PATHS["output_dir"], exist_ok=True)
-
-# Update Logging to File and Console
-file_handler = logging.FileHandler(PATHS["log_file"])
-file_handler.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(levelname)s: %(message)s')
-file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
-
 # Regular Expressions for Post-Processing
 PATTERNS = {
+    # Consultation Notes
+    "Yes/No/Cannot Infer": r"Categorical Data:\s*(Yes|No|Cannot Infer)",
+    "Grade": r"Grades?:\s*(Grade\s*\d+)",
+    "Tumor Size": r"Tumor Size\s*\(mm\):\s*(\d+\.?\d*)",
+    "SUV from PET scans": r"SUV from PET scans\s*:\s*(\d+\.?\d*)",
+    "Pack Years": r"Pack Years\s*:\s*(\d+)",
+    "Alcohol Consumption": r"Alcohol Consumption\s*:\s*(Never drank|Ex-drinker|Drinker)",
+    "HPV Status": r"HPV Status\s*:\s*(Positive|Negative)",
+    "Charlson Comorbidity Score": r"Charlson Comorbidity Score\s*:\s*(\d+)",
+    "ECOG Performance Status": r"ECOG Performance Status\s*:\s*(\d+)",
+    "Karnofsky Performance Status": r"Karnofsky Performance Status\s*:\s*(\d+)",
+
+    # Pathology Reports
+    "Clinical TNM Staging": r"Clinical TNM Staging\s*:\s*([T]\d+[N]\d+[M]\d+)",
+    "Pathological TNM Staging": r"Pathological TNM Staging\s*:\s*([T]\d+[N]\d+[M]\d+)",
+    "Lymph Node Status": r"Lymph Node Status\s*:\s*(Presence|Absence),?\s*(?:Number of Lymph Nodes\s*:\s*(\d+))?,?\s*(?:Extranodal Extension\s*:\s*(Yes|No))?",
+    "Resection Margins": r"Resection Margins\s*:\s*(Positive|Negative)",
+    "Biomarkers": r"Biomarkers?:\s*(.*)",
+
+    # General Patterns
     "Diagnosis": r"Diagnosis:\s*(.*)",
-    "Tumor Size": r"Tumor Size:\s*([\d\.]+\s*\w+)",
-    "Grade": r"Grade:\s*(\d+)",
-    "Biomarkers": r"Biomarkers:\s*(.*)",
     "Patient Concerns": r"Patient Concerns:\s*(.*)",
     "Recommendations": r"Recommendations:\s*(.*)",
-    "Follow-up Actions": r"Follow-up Actions:\s*(.*)"
-}
+    "Follow-up Actions": r"Follow-up Actions:\s*(.*)",
 
+    # Others
+    "Others": r"Others\s*:\s*(.*)"
+}
 
 def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
     """
@@ -79,13 +84,38 @@ def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
         report_type (str): Type of the report ('pathology_report' or 'consultation_notes').
 
     Returns:
-        Dict[str, Any]: Extracted key information.
+        Dict[str, Any]: Extracted key information with missing fields marked as 'was not inferred'.
     """
     extracted = {}
     if report_type == "pathology_report":
-        fields = ["Diagnosis", "Tumor Size", "Grade", "Biomarkers"]
+        fields = [
+            "Diagnosis",
+            "Grade",
+            "Tumor Size",
+            "Clinical TNM Staging",
+            "Pathological TNM Staging",
+            "Lymph Node Status",
+            "Resection Margins",
+            "Biomarkers",
+            "Others"
+        ]
     elif report_type == "consultation_notes":
-        fields = ["Patient Concerns", "Recommendations", "Follow-up Actions"]
+        fields = [
+            "Yes/No/Cannot Infer",
+            "Grade",
+            "Tumor Size",
+            "SUV from PET scans",
+            "Pack Years",
+            "Patient Concerns",
+            "Recommendations",
+            "Follow-up Actions",
+            "Alcohol Consumption",
+            "HPV Status",
+            "Charlson Comorbidity Score",
+            "ECOG Performance Status",
+            "Karnofsky Performance Status",
+            "Others"
+        ]
     else:
         logger.warning(f"Unknown report type: {report_type}")
         return extracted
@@ -93,11 +123,20 @@ def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
     for key in fields:
         pattern = PATTERNS.get(key)
         if pattern:
-            match = re.search(pattern, summary, re.IGNORECASE)
+            match = re.search(pattern, summary, re.IGNORECASE | re.DOTALL)
             if match:
-                extracted[key] = match.group(1).strip()
+                if key == "Lymph Node Status":
+                    extracted[key] = {
+                        "Presence": match.group(1).strip() if match.group(1) else "was not inferred",
+                        "Number of Lymph Nodes": match.group(2).strip() if match.group(2) else "was not inferred",
+                        "Extranodal Extension": match.group(3).strip() if match.group(3) else "was not inferred"
+                    }
+                elif key == "Others":
+                    extracted[key] = match.group(1).strip() if match.group(1) else "was not inferred"
+                else:
+                    extracted[key] = match.group(1).strip()
             else:
-                extracted[key] = None
+                extracted[key] = "was not inferred"
     return extracted
 
 def validate_extracted_data(data: Dict[str, Any], report_type: str) -> bool:
@@ -112,35 +151,138 @@ def validate_extracted_data(data: Dict[str, Any], report_type: str) -> bool:
         bool: True if data is valid, False otherwise.
     """
     if report_type == "pathology_report":
-        required_fields = ["Diagnosis", "Tumor Size", "Grade", "Biomarkers"]
+        required_fields = [
+            "Diagnosis",
+            "Grade",
+            "Tumor Size",
+            "Clinical TNM Staging",
+            "Pathological TNM Staging",
+            "Lymph Node Status",
+            "Resection Margins",
+            "Biomarkers"
+        ]
         # Validation rules
-        size_pattern = r"^\d+(\.\d+)?\s*(mm|cm|in)$"
+        tumor_size_pattern = r"^\d+(\.\d+)?$"  # Tumor Size in mm as a number
         grade_pattern = r"^[1-3]$"  # Assuming grades 1-3
+        tnm_pattern = r"^[T]\d+[N]\d+[M]\d+$"  # Simplistic TNM staging format
     elif report_type == "consultation_notes":
-        required_fields = ["Patient Concerns", "Recommendations", "Follow-up Actions"]
-        # Validation rules can be added as needed
-        size_pattern = None
-        grade_pattern = None
+        required_fields = [
+            "Yes/No/Cannot Infer",
+            "Grade",
+            "Tumor Size",
+            "SUV from PET scans",
+            "Pack Years",
+            "Patient Concerns",
+            "Recommendations",
+            "Follow-up Actions",
+            "Alcohol Consumption",
+            "HPV Status",
+            "Charlson Comorbidity Score",
+            "ECOG Performance Status",
+            "Karnofsky Performance Status",
+            "Others"
+        ]
+        # Validation rules
+        tumor_size_pattern = r"^\d+(\.\d+)?$"  # Tumor Size in mm as a number
+        grade_pattern = r"^[1-3]$"  # Assuming grades 1-3
     else:
         logger.warning(f"Unknown report type: {report_type}")
         return False
 
     # Check for presence of all required fields
     for field in required_fields:
-        if not data.get(field):
-            logger.debug(f"Missing field '{field}' in data: {data}")
+        if field not in data or data[field] in [None, ""]:
+            logger.debug(f"Missing or empty field '{field}' in data: {data}")
             return False
 
     # Specific validations
     if report_type == "pathology_report":
-        # Validate Tumor Size format
-        if not re.match(size_pattern, data["Tumor Size"], re.IGNORECASE):
-            logger.debug(f"Invalid Tumor Size format: {data['Tumor Size']}")
+        # Validate Tumor Size as numerical
+        if not re.match(tumor_size_pattern, data["Tumor Size"]):
+            logger.debug(f"Invalid Tumor Size value: {data['Tumor Size']}")
             return False
 
         # Validate Grade
-        if not re.match(grade_pattern, data["Grade"], re.IGNORECASE):
+        if not re.match(grade_pattern, data["Grade"]):
             logger.debug(f"Invalid Grade value: {data['Grade']}")
+            return False
+
+        # Validate TNM Staging formats
+        if not re.match(tnm_pattern, data["Clinical TNM Staging"]):
+            logger.debug(f"Invalid Clinical TNM Staging format: {data['Clinical TNM Staging']}")
+            return False
+        if not re.match(tnm_pattern, data["Pathological TNM Staging"]):
+            logger.debug(f"Invalid Pathological TNM Staging format: {data['Pathological TNM Staging']}")
+            return False
+
+        # Validate Lymph Node Status
+        lymph_status = data.get("Lymph Node Status", {})
+        if not isinstance(lymph_status, dict):
+            logger.debug(f"Lymph Node Status should be a dictionary: {lymph_status}")
+            return False
+        if lymph_status.get("Presence") not in ["Presence", "Absence", "was not inferred"]:
+            logger.debug(f"Invalid Lymph Node Presence value: {lymph_status.get('Presence')}")
+            return False
+        if lymph_status.get("Extranodal Extension") not in ["Yes", "No", "was not inferred"]:
+            logger.debug(f"Invalid Extranodal Extension value: {lymph_status.get('Extranodal Extension')}")
+            return False
+        if lymph_status.get("Number of Lymph Nodes") != "was not inferred":
+            try:
+                int(lymph_status.get("Number of Lymph Nodes"))
+            except (ValueError, TypeError):
+                logger.debug(f"Invalid Number of Lymph Nodes value: {lymph_status.get('Number of Lymph Nodes')}")
+                return False
+
+    elif report_type == "consultation_notes":
+        # Validate Numerical Fields
+        numerical_fields = ["Tumor Size", "SUV from PET scans", "Pack Years"]
+        for field in numerical_fields:
+            if data[field] != "was not inferred":
+                try:
+                    float(data[field]) if field != "Pack Years" else int(data[field])
+                except (ValueError, TypeError):
+                    logger.debug(f"Invalid {field} value: {data[field]}")
+                    return False
+
+        # Validate Grade
+        if not re.match(grade_pattern, data["Grade"]):
+            logger.debug(f"Invalid Grade value: {data['Grade']}")
+            return False
+
+        # Validate Categorical Data
+        if data["Yes/No/Cannot Infer"] not in ["Yes", "No", "Cannot Infer"]:
+            logger.debug(f"Invalid Categorical Data value: {data['Yes/No/Cannot Infer']}")
+            return False
+
+        # Validate Alcohol Consumption
+        valid_alcohol = ["Never drank", "Ex-drinker", "Drinker", "was not inferred"]
+        if data["Alcohol Consumption"] not in valid_alcohol:
+            logger.debug(f"Invalid Alcohol Consumption value: {data['Alcohol Consumption']}")
+            return False
+
+        # Validate HPV Status
+        valid_hpv = ["Positive", "Negative", "was not inferred"]
+        if data["HPV Status"] not in valid_hpv:
+            logger.debug(f"Invalid HPV Status value: {data['HPV Status']}")
+            return False
+
+        # Validate Performance & Comorbidity Scores
+        try:
+            if data["ECOG Performance Status"] != "was not inferred":
+                if not (0 <= int(data["ECOG Performance Status"]) <= 5):
+                    logger.debug(f"Invalid ECOG Performance Status value: {data['ECOG Performance Status']}")
+                    return False
+        except (ValueError, TypeError):
+            logger.debug(f"Invalid ECOG Performance Status value: {data['ECOG Performance Status']}")
+            return False
+
+        try:
+            if data["Karnofsky Performance Status"] != "was not inferred":
+                if not (0 <= int(data["Karnofsky Performance Status"]) <= 100):
+                    logger.debug(f"Invalid Karnofsky Performance Status value: {data['Karnofsky Performance Status']}")
+                    return False
+        except (ValueError, TypeError):
+            logger.debug(f"Invalid Karnofsky Performance Status value: {data['Karnofsky Performance Status']}")
             return False
 
     return True
@@ -157,42 +299,95 @@ def normalize_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
         pd.DataFrame: Cleaned and normalized data.
     """
     if report_type == "pathology_report":
-        def convert_size(size_str):
-            match = re.match(r"([\d\.]+)\s*(mm|cm|in)", size_str, re.IGNORECASE)
-            if not match:
-                return None
-            size, unit = match.groups()
-            size = float(size)
-            unit = unit.lower()
-            if unit == "cm":
-                return size * 10  # Convert to mm
-            elif unit == "in":
-                return size * 25.4  # Convert to mm
-            return size  # mm
+        # Convert Tumor Size to float (already in mm)
+        df['Tumor Size (mm)'] = pd.to_numeric(df['Tumor Size'], errors='coerce')
+        df['Tumor Size (mm)'] = df['Tumor Size (mm)'].apply(lambda x: x if not pd.isna(x) else "was not inferred")
 
-        df['Tumor Size (mm)'] = df['Tumor Size'].apply(convert_size)
-
-        # Convert Grade to integer
+        # Convert Grades to integer
         df['Grade'] = pd.to_numeric(df['Grade'], errors='coerce').astype('Int64')
+        df['Grade'] = df['Grade'].apply(lambda x: x if not pd.isna(x) else "was not inferred")
+
+        # Normalize Clinical TNM Staging
+        df['Clinical TNM Staging'] = df['Clinical TNM Staging'].str.upper().str.replace(" ", "").fillna("was not inferred")
+
+        # Normalize Pathological TNM Staging
+        df['Pathological TNM Staging'] = df['Pathological TNM Staging'].str.upper().str.replace(" ", "").fillna("was not inferred")
+
+        # Normalize Lymph Node Status
+        def normalize_lymph_status(status_dict):
+            if not isinstance(status_dict, dict):
+                return {"Presence": "was not inferred", "Number of Lymph Nodes": "was not inferred", "Extranodal Extension": "was not inferred"}
+            return {
+                "Presence": status_dict.get("Presence", "was not inferred"),
+                "Number of Lymph Nodes": int(status_dict.get("Number of Lymph Nodes")) if isinstance(status_dict.get("Number of Lymph Nodes"), str) and status_dict.get("Number of Lymph Nodes") != "was not inferred" else status_dict.get("Number of Lymph Nodes"),
+                "Extranodal Extension": status_dict.get("Extranodal Extension", "was not inferred")
+            }
+
+        df['Lymph Node Status'] = df['Lymph Node Status'].apply(normalize_lymph_status)
+
+        # Normalize Resection Margins
+        df['Resection Margins'] = df['Resection Margins'].str.capitalize().fillna("was not inferred")
 
         # Handle missing Biomarkers
-        df['Biomarkers'] = df['Biomarkers'].fillna('None')
+        df['Biomarkers'] = df['Biomarkers'].fillna("was not inferred")
 
-        # Drop original Tumor Size column
-        df = df.drop(columns=['Tumor Size'])
+        # Handle "Others" if present
+        if 'Others' in df.columns:
+            df['Others'] = df['Others'].fillna("was not inferred")
 
     elif report_type == "consultation_notes":
-        # Add normalization steps if needed
-        pass
+        # Convert Grades to integer
+        df['Grade'] = pd.to_numeric(df['Grade'], errors='coerce').astype('Int64')
+        df['Grade'] = df['Grade'].apply(lambda x: x if not pd.isna(x) else "was not inferred")
+
+        # Convert Tumor Size to float
+        df['Tumor Size'] = pd.to_numeric(df['Tumor Size'], errors='coerce')
+        df['Tumor Size'] = df['Tumor Size'].apply(lambda x: x if not pd.isna(x) else "was not inferred")
+
+        # Convert SUV from PET scans to float
+        df['SUV from PET scans'] = pd.to_numeric(df['SUV from PET scans'], errors='coerce')
+        df['SUV from PET scans'] = df['SUV from PET scans'].apply(lambda x: x if not pd.isna(x) else "was not inferred")
+
+        # Convert Pack Years to integer
+        df['Pack Years'] = pd.to_numeric(df['Pack Years'], errors='coerce').astype('Int64')
+        df['Pack Years'] = df['Pack Years'].apply(lambda x: x if not pd.isna(x) else "was not inferred")
+
+        # Normalize Categorical Data
+        df['Yes/No/Cannot Infer'] = df['Yes/No/Cannot Infer'].str.capitalize().fillna("was not inferred")
+
+        # Normalize Lifestyle Factors
+        df['Smoking History'] = df['Pack Years'].apply(
+            lambda x: 'Never Smoked' if x == 0 else ('More Than 10 Years' if isinstance(x, int) and x > 10 else ('10 Years Smoking, 1 Pack/Day' if isinstance(x, int) and 0 < x <= 10 else "was not inferred"))
+        )
+        df['Alcohol Consumption'] = df['Alcohol Consumption'].str.capitalize().fillna("was not inferred")
+
+        # Normalize HPV Status
+        df['HPV Status'] = df['HPV Status'].str.capitalize().fillna("was not inferred")
+
+        # Normalize Performance & Comorbidity Scores
+        df['Charlson Comorbidity Score'] = pd.to_numeric(df['Charlson Comorbidity Score'], errors='coerce').astype('Int64')
+        df['Charlson Comorbidity Score'] = df['Charlson Comorbidity Score'].apply(lambda x: x if not pd.isna(x) else "was not inferred")
+
+        df['ECOG Performance Status'] = pd.to_numeric(df['ECOG Performance Status'], errors='coerce').astype('Int64')
+        df['ECOG Performance Status'] = df['ECOG Performance Status'].apply(lambda x: x if not pd.isna(x) else "was not inferred")
+
+        df['Karnofsky Performance Status'] = pd.to_numeric(df['Karnofsky Performance Status'], errors='coerce').astype('Int64')
+        df['Karnofsky Performance Status'] = df['Karnofsky Performance Status'].apply(lambda x: x if not pd.isna(x) else "was not inferred")
+
+        # Handle "Others" if present
+        if 'Others' in df.columns:
+            df['Others'] = df['Others'].fillna("was not inferred")
 
     return df
 
 class ReportSummarizer:
     """
     Summarizes pathology reports and consultation notes, performs quality control,
-    generates embeddings, and converts summaries into structured tabular data.
+    generates embeddings, converts summaries into structured tabular data, and encodes
+    the structured data for survival analysis models.
     """
-    def __init__(self, prompts_dir: str, model_type: str = "local", temperature: float = 0.8):
+
+    def __init__(self, prompts_dir: str, model_type: str = "local", temperature: float = 0.3):
         """
         Initializes the summarizer with the specified model and prompts.
 
@@ -237,9 +432,9 @@ class ReportSummarizer:
             raise ValueError(f"Unsupported model type: {model_type}")
 
         # Initialize Vector Store (optional since retrieval is not used)
-        # Here, it's not essential, but initializing in case it's needed for embeddings
-        self.vectorstore = Chroma(embedding_function=embeddings, persist_directory=PATHS["chroma_embeddings"])
-        logger.info(f"Initialized vector store at {PATHS['chroma_embeddings']} using {model_type} embeddings.")
+        # Update the persist_directory to your actual path
+        self.vectorstore = Chroma(embedding_function=embeddings, persist_directory="/path/to/chroma_embeddings")  # Update this path accordingly
+        logger.info(f"Initialized vector store using {model_type} embeddings.")
 
         # Initialize Prompt Templates
         self.chain_map = {}
@@ -249,12 +444,7 @@ class ReportSummarizer:
             # Select a random prompt from the list
             selected_prompt = random.choice(prompt_list)
             prompt = ChatPromptTemplate.from_template(selected_prompt)
-            chain = (
-                RunnablePassthrough.assign(context=lambda input: input["context"])
-                | prompt
-                | self.model
-                | StrOutputParser()
-            )
+            chain = LLMChain(llm=self.model, prompt=prompt)
             self.chain_map[report_type] = chain
 
         logger.info(f"Initialized LLM chains for report types: {list(self.chain_map.keys())}")
@@ -276,102 +466,205 @@ class ReportSummarizer:
                 return None
 
             chain = self.chain_map[report_type]
-            summary = chain.invoke({"context": report_text})
+            summary = chain.run({"context": report_text})
             return summary.strip()
         except Exception as e:
             logger.error(f"Error generating summary for report type {report_type}: {e}")
             return None
 
-    def process_reports(self, input_dir: str, output_dir: str) -> None:
+    def encode_structured_data(self, df: pd.DataFrame, report_type: str) -> pd.DataFrame:
         """
-        Processes all .txt reports in the input directory.
+        Encodes structured data for survival analysis models.
 
         Args:
-            input_dir (str): Directory containing .txt files.
+            df (pd.DataFrame): Structured data DataFrame.
+            report_type (str): Type of the report ('pathology_report' or 'consultation_notes').
+
+        Returns:
+            pd.DataFrame: Encoded DataFrame ready for survival analysis.
+        """
+        df_encoded = df.copy()
+
+        # Define categorical and numerical columns based on report type
+        if report_type == "pathology_report":
+            categorical_cols = [
+                "Diagnosis",
+                "Clinical TNM Staging",
+                "Pathological TNM Staging",
+                "Lymph Node Status.Presence",
+                "Lymph Node Status.Extranodal Extension",
+                "Resection Margins",
+                "Biomarkers",
+                "Others"
+            ]
+            numerical_cols = [
+                "Grade",
+                "Tumor Size (mm)",
+                "Lymph Node Status.Number of Lymph Nodes"
+            ]
+        elif report_type == "consultation_notes":
+            categorical_cols = [
+                "Yes/No/Cannot Infer",
+                "Smoking History",
+                "Alcohol Consumption",
+                "HPV Status",
+                "Others"
+            ]
+            numerical_cols = [
+                "Grade",
+                "Tumor Size",
+                "SUV from PET scans",
+                "Pack Years",
+                "Charlson Comorbidity Score",
+                "ECOG Performance Status",
+                "Karnofsky Performance Status"
+            ]
+        else:
+            logger.warning(f"Unknown report type for encoding: {report_type}")
+            return df_encoded
+
+        # Handle missing numerical data
+        numerical_imputer = SimpleImputer(strategy='median')
+        df_encoded[numerical_cols] = numerical_imputer.fit_transform(df_encoded[numerical_cols])
+
+        # Replace 'was not inferred' with a placeholder for encoding
+        df_encoded.replace("was not inferred", "Missing", inplace=True)
+
+        # Encode Categorical Variables using One-Hot Encoding
+        encoder = OneHotEncoder(drop='first', sparse=False, handle_unknown='ignore')
+        encoded_categorical = encoder.fit_transform(df_encoded[categorical_cols])
+
+        # Create DataFrame for Encoded Categorical Variables
+        encoded_categorical_df = pd.DataFrame(
+            encoded_categorical,
+            columns=encoder.get_feature_names_out(categorical_cols)
+        )
+
+        # Combine Numerical and Encoded Categorical Data
+        df_final = pd.concat([df_encoded[numerical_cols].reset_index(drop=True), encoded_categorical_df], axis=1)
+
+        # Optionally, handle 'Others' with text data by further processing or leaving as is
+        # For simplicity, it's treated as a categorical variable
+
+        return df_final
+
+    def process_reports(self, input_dir: str, output_dir: str) -> None:
+        """
+        Processes all .txt reports in the input directory and its subdirectories.
+
+        Args:
+            input_dir (str): Directory containing subdirectories for report types.
             output_dir (str): Directory to save summaries, embeddings, and tabular data.
         """
         summaries = []
         tabular_data = []
         invalid_entries = []
 
-        txt_files = [f for f in os.listdir(input_dir) if f.endswith(".txt")]
-        logger.info(f"Found {len(txt_files)} .txt files to process.")
+        # Recursively traverse the input directory to find all .txt files
+        for root, dirs, files in os.walk(input_dir):
+            for filename in files:
+                if filename.endswith(".txt"):
+                    file_path = os.path.join(root, filename)
+                    try:
+                        with open(file_path, 'r', encoding='utf-8') as f:
+                            report_text = f.read()
 
-        for filename in tqdm(txt_files, desc="Processing Reports"):
-            file_path = os.path.join(input_dir, filename)
-            try:
-                with open(file_path, 'r') as f:
-                    report_text = f.read()
+                        # Determine report_type based on the parent directory name
+                        parent_dir = os.path.basename(os.path.dirname(file_path)).lower()
+                        if parent_dir == "pathology_reports":
+                            report_type = "pathology_report"
+                        elif parent_dir == "consultation_notes":
+                            report_type = "consultation_notes"
+                        else:
+                            logger.warning(f"Unknown report type for file: {filename}. Skipping.")
+                            invalid_entries.append({"file": filename, "reason": "Unknown report type"})
+                            continue
 
-                # Determine report type from filename
-                if filename.lower().startswith("pathology_report"):
-                    report_type = "pathology_report"
-                elif filename.lower().startswith("consultation_notes"):
-                    report_type = "consultation_notes"
-                else:
-                    logger.warning(f"Unknown report type for file: {filename}. Skipping.")
-                    invalid_entries.append({"file": filename, "reason": "Unknown report type"})
-                    continue
+                        # Generate summary
+                        summary = self.summarize_report(report_text, report_type)
+                        if not summary:
+                            logger.warning(f"Failed to generate summary for {filename}.")
+                            invalid_entries.append({"file": filename, "reason": "Summary generation failed"})
+                            continue
 
-                # Generate summary
-                summary = self.summarize_report(report_text, report_type)
-                if not summary:
-                    logger.warning(f"Failed to generate summary for {filename}.")
-                    invalid_entries.append({"file": filename, "reason": "Summary generation failed"})
-                    continue
+                        # Extract tabular data
+                        extracted = extract_tabular_data(summary, report_type)
 
-                # Extract tabular data
-                extracted = extract_tabular_data(summary, report_type)
+                        # Validate extracted data
+                        if validate_extracted_data(extracted, report_type):
+                            summaries.append({"file": filename, "report_type": report_type, "summary": summary})
+                            tabular_data.append({"file": filename, "report_type": report_type, "data": extracted})
+                        else:
+                            logger.warning(f"Validation failed for {filename}. Summary may be incomplete.")
+                            invalid_entries.append({"file": filename, "reason": "Validation failed"})
+                            summaries.append({"file": filename, "report_type": report_type, "summary": summary})  # Still save the summary
+                            tabular_data.append({"file": filename, "report_type": report_type, "data": extracted})    # Save whatever was extracted
 
-                # Validate extracted data
-                if validate_extracted_data(extracted, report_type):
-                    summaries.append({"file": filename, "summary": summary})
-                    tabular_data.append(extracted)
-                else:
-                    logger.warning(f"Validation failed for {filename}. Summary may be incomplete.")
-                    invalid_entries.append({"file": filename, "reason": "Validation failed"})
-                    summaries.append({"file": filename, "summary": summary})  # Still save the summary
+                        # Determine base filename without extension
+                        base_filename = os.path.splitext(filename)[0]
 
-            except Exception as e:
-                logger.error(f"Error processing {filename}: {e}")
-                invalid_entries.append({"file": filename, "reason": str(e)})
+                        # Create subfolder path based on base_filename
+                        summary_dir = os.path.join(output_dir, "text_summaries", base_filename)
+                        os.makedirs(summary_dir, exist_ok=True)
+                        summary_filename = f"{report_type}_summary.txt"
+                        summary_path = os.path.join(summary_dir, summary_filename)
+                        with open(summary_path, 'w', encoding='utf-8') as f:
+                            f.write(summary)
+                        logger.info(f"Summary saved to {summary_path}")
 
-        # Save Summaries
-        summaries_df = pd.DataFrame(summaries)
-        summaries_csv = os.path.join(output_dir, "summaries.csv")
-        summaries_df.to_csv(summaries_csv, index=False)
-        logger.info(f"Summaries saved to {summaries_csv}")
+                        # Generate and Save Embeddings
+                        embedding_dir = os.path.join(output_dir, "embeddings", base_filename)
+                        os.makedirs(embedding_dir, exist_ok=True)
+                        embedding_filename = f"{report_type}_embedding.pkl"
+                        embedding_path = os.path.join(embedding_dir, embedding_filename)
+                        try:
+                            embeddings = self.vectorstore.embedding_function.embed_documents([summary])[0]
+                            with open(embedding_path, 'wb') as f:
+                                pickle.dump(embeddings, f)
+                            logger.info(f"Embedding saved to {embedding_path}")
+                        except Exception as e:
+                            logger.error(f"Error generating/saving embeddings for {filename}: {e}")
+                            invalid_entries.append({"file": filename, "reason": "Embedding generation failed"})
 
-        # Save Tabular Data
-        tabular_df = pd.DataFrame(tabular_data)
-        tabular_csv = os.path.join(output_dir, "tabular_data.csv")
-        tabular_df.to_csv(tabular_csv, index=False)
-        logger.info(f"Tabular data saved to {tabular_csv}")
+                        # Save Structured Data
+                        structured_dir = os.path.join(output_dir, "structured_data", base_filename)
+                        os.makedirs(structured_dir, exist_ok=True)
+                        structured_filename = f"{report_type}_structured.csv"
+                        structured_path = os.path.join(structured_dir, structured_filename)
+                        structured_df = pd.DataFrame([extracted])
+                        structured_df.to_csv(structured_path, index=False)
+                        logger.info(f"Structured data saved to {structured_path}")
 
-        # Normalize Tabular Data
-        # Handle each report type separately
-        for report_type in self.prompts.keys():
-            if report_type == "pathology_report":
-                if not {"Diagnosis", "Tumor Size", "Grade", "Biomarkers"}.issubset(tabular_df.columns):
-                    logger.warning(f"Missing expected columns for {report_type}. Skipping normalization.")
-                    continue
-                df_subset = tabular_df[["Diagnosis", "Tumor Size", "Grade", "Biomarkers"]].copy()
-                df_normalized = normalize_data(df_subset, report_type)
-                normalized_csv = os.path.join(output_dir, f"tabular_data_normalized_{report_type}.csv")
-                df_normalized.to_csv(normalized_csv, index=False)
-                logger.info(f"Normalized tabular data saved to {normalized_csv}")
-            elif report_type == "consultation_notes":
-                if not {"Patient Concerns", "Recommendations", "Follow-up Actions"}.issubset(tabular_df.columns):
-                    logger.warning(f"Missing expected columns for {report_type}. Skipping normalization.")
-                    continue
-                df_subset = tabular_df[["Patient Concerns", "Recommendations", "Follow-up Actions"]].copy()
-                # Add normalization steps if needed
-                df_normalized = df_subset  # Placeholder for potential normalization
-                normalized_csv = os.path.join(output_dir, f"tabular_data_normalized_{report_type}.csv")
-                df_normalized.to_csv(normalized_csv, index=False)
-                logger.info(f"Normalized tabular data saved to {normalized_csv}")
-            else:
-                continue  # Handle other report types if added in the future
+                        # Encode and Save Structured Data for Survival Analysis
+                        encoded_dir = os.path.join(output_dir, "structured_data_encoded", base_filename)
+                        os.makedirs(encoded_dir, exist_ok=True)
+                        encoded_filename = f"{report_type}_structured_encoded.csv"
+                        encoded_path = os.path.join(encoded_dir, encoded_filename)
+                        try:
+                            encoded_df = self.encode_structured_data(structured_df, report_type)
+                            encoded_df.to_csv(encoded_path, index=False)
+                            logger.info(f"Encoded structured data saved to {encoded_path}")
+                        except Exception as e:
+                            logger.error(f"Error encoding structured data for {filename}: {e}")
+                            invalid_entries.append({"file": filename, "reason": "Structured data encoding failed"})
+
+                    except Exception as e:
+                        logger.error(f"Error processing {filename}: {e}")
+                        invalid_entries.append({"file": filename, "reason": str(e)})
+
+        # Save Summaries Metadata (Optional)
+        if summaries:
+            summaries_df = pd.DataFrame(summaries)
+            summaries_csv = os.path.join(output_dir, "summaries_metadata.csv")
+            summaries_df.to_csv(summaries_csv, index=False)
+            logger.info(f"Summaries metadata saved to {summaries_csv}")
+
+        # Save Tabular Data Metadata (Optional)
+        if tabular_data:
+            tabular_df = pd.DataFrame(tabular_data)
+            tabular_csv = os.path.join(output_dir, "tabular_data_metadata.csv")
+            tabular_df.to_csv(tabular_csv, index=False)
+            logger.info(f"Tabular data metadata saved to {tabular_csv}")
 
         # Save Invalid Entries Log
         if invalid_entries:
@@ -379,50 +672,6 @@ class ReportSummarizer:
             invalid_log = os.path.join(output_dir, "invalid_entries.log")
             invalid_df.to_csv(invalid_log, index=False)
             logger.info(f"Invalid entries logged to {invalid_log}")
-
-    def generate_embeddings(self, output_dir: str, embedding_model_type: Optional[str] = "openai") -> None:
-        """
-        Generates embeddings for the summaries and saves them.
-
-        Args:
-            output_dir (str): Directory where summaries.csv is located.
-            embedding_model_type (Optional[str]): Type of embedding model to use ('openai', 'ollama', 'google').
-        """
-        summaries_csv = os.path.join(output_dir, "summaries.csv")
-        embeddings_pickle = os.path.join(output_dir, "summary_embeddings.pkl")
-
-        if not os.path.isfile(summaries_csv):
-            logger.error(f"Summaries file not found at {summaries_csv}. Cannot generate embeddings.")
-            return
-
-        summaries_df = pd.read_csv(summaries_csv)
-        logger.info(f"Loaded {len(summaries_df)} summaries for embedding generation.")
-
-        # Initialize Embedding Model
-        if embedding_model_type.lower() == "openai":
-            embedding_model = OpenAIEmbeddings()
-        elif embedding_model_type.lower() == "ollama":
-            embedding_model = OllamaEmbeddings(model="nomic-embed-text")
-        elif embedding_model_type.lower() == "google":
-            embedding_model = GoogleGenerativeAIEmbeddings(model="models/embedding-001", task_type="retrieval_document")
-        else:
-            logger.error(f"Unsupported embedding model type: {embedding_model_type}. Using OpenAIEmbeddings by default.")
-            embedding_model = OpenAIEmbeddings()
-
-        # Generate Embeddings
-        try:
-            embeddings = embedding_model.embed_documents(summaries_df['summary'].tolist())
-        except Exception as e:
-            logger.error(f"Error generating embeddings: {e}")
-            return
-
-        # Add embeddings to DataFrame
-        summaries_df['embedding'] = embeddings
-
-        # Save Embeddings
-        with open(embeddings_pickle, 'wb') as f:
-            pickle.dump(summaries_df[['file', 'embedding']].to_dict(orient='records'), f)
-        logger.info(f"Embeddings saved to {embeddings_pickle}")
 
 def main():
     """
@@ -446,14 +695,14 @@ def main():
     parser.add_argument(
         '--temperature',
         type=float,
-        default=0.8,
+        default=0.3,
         help='Sampling temperature for the language model.'
     )
     parser.add_argument(
         '--input_dir',
         type=str,
         required=True,
-        help='Directory containing .txt pathology report and consultation note files.'
+        help='Directory containing subdirectories for consultation_notes and pathology_reports with .txt files.'
     )
     parser.add_argument(
         '--output_dir',
@@ -480,8 +729,7 @@ def main():
     # Process Reports
     summarizer.process_reports(input_dir=args.input_dir, output_dir=args.output_dir)
 
-    # Generate Embeddings
-    summarizer.generate_embeddings(output_dir=args.output_dir, embedding_model_type=args.embedding_model)
+    # Note: Encoding is handled within process_reports method
 
 if __name__ == "__main__":
     main()

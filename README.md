@@ -93,3 +93,27 @@ project_directory/
 │   └── consultation_notes_head_and_neck_cancer_example.txt
 └── output_dir/
 
+### Input Directory Structure 
+
+### Desired Output Directory Structure
+results/
+├── text_summaries/
+│   ├── 129701/
+│   │   ├── consultation_notes_summary.txt
+│   │   └── pathology_report_summary.txt
+│   └── ...
+├── embeddings/
+│   ├── 129701/
+│   │   ├── consultation_notes_embedding.pkl
+│   │   └── pathology_report_embedding.pkl
+│   └── ...
+├── structured_data/
+│   ├── 129701/
+│   │   ├── consultation_notes_structured.csv
+│   │   └── pathology_report_structured.csv
+│   └── ...
+└── structured_data_encoded/
+    ├── 129701/
+    │   ├── consultation_notes_structured_encoded.csv
+    │   └── pathology_report_structured_encoded.csv
+    └── ...
