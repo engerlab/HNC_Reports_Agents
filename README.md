@@ -17,6 +17,12 @@ or
 `conda install langchain chromadb openai google-generative-ai tqdm pandas`
 Add other necessary installations based on your models and embeddings
 
+## Package requirements quirks:
+`conda install pip`
+`pip install --upgrade pip`, `pip install -U langchain-ollama`, `pip show langchain-ollama`
+`pip install -qU langchain-openai`
+
+
 
 ## Relavant literature: 1) unstructured text to embedding; 2) unstructured to structured text to embedding
     - Expert-guided knowledge for something oncology (JCO Precision Oncology)

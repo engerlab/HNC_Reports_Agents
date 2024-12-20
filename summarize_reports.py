@@ -28,16 +28,14 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.impute import SimpleImputer
 
 # LangChain and Model-specific Imports
-from langchain_community.vectorstores import Chroma  # Remove if not needed
-from langchain_community.embeddings import OpenAIEmbeddings
 from langchain.prompts import ChatPromptTemplate
-from langchain.output_parsers import RegexParser  # Replaced StrOutputParser
-from langchain.chains import LLMChain
-from langchain_core.runnables import RunnablePassthrough
+from langchain.output_parsers import RegexParser
+# from langchain.runnables import RunnableSequence, RunnableLambda
+from langchain_core.runnables import RunnableSequence,RunnableLambda
 
 # Model-specific imports (assuming you have these modules; replace with actual imports)
 from langchain_ollama import OllamaEmbeddings, ChatOllama
-from langchain_openai import ChatOpenAI
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 
 # Configure Logging
@@ -230,7 +228,7 @@ def validate_extracted_data(data: Dict[str, Any], report_type: str) -> bool:
             try:
                 int(lymph_status.get("Number of Lymph Nodes"))
             except (ValueError, TypeError):
-                logger.debug(f"Invalid Number of Lymph Nodes value: {lymph_status.get('Number of Lymph Nodes')}")
+                logger.debug(f"Invalid Number of Lymph Nodes value: {data['Lymph Node Status']['Number of Lymph Nodes']}")
                 return False
 
     elif report_type == "consultation_notes":
@@ -255,20 +253,20 @@ def validate_extracted_data(data: Dict[str, Any], report_type: str) -> bool:
             return False
 
         # Validate Alcohol Consumption
-        valid_alcohol = ["Never drank", "Ex-drinker", "Drinker", "was not inferred"]
+        valid_alcohol = ["Never drank", "Ex-drinker", "Drinker", "Missing"]
         if data["Alcohol Consumption"] not in valid_alcohol:
             logger.debug(f"Invalid Alcohol Consumption value: {data['Alcohol Consumption']}")
             return False
 
         # Validate HPV Status
-        valid_hpv = ["Positive", "Negative", "was not inferred"]
+        valid_hpv = ["Positive", "Negative", "Missing"]
         if data["HPV Status"] not in valid_hpv:
             logger.debug(f"Invalid HPV Status value: {data['HPV Status']}")
             return False
 
         # Validate Performance & Comorbidity Scores
         try:
-            if data["ECOG Performance Status"] != "was not inferred":
+            if data["ECOG Performance Status"] != "Missing":
                 if not (0 <= int(data["ECOG Performance Status"]) <= 5):
                     logger.debug(f"Invalid ECOG Performance Status value: {data['ECOG Performance Status']}")
                     return False
@@ -277,7 +275,7 @@ def validate_extracted_data(data: Dict[str, Any], report_type: str) -> bool:
             return False
 
         try:
-            if data["Karnofsky Performance Status"] != "was not inferred":
+            if data["Karnofsky Performance Status"] != "Missing":
                 if not (0 <= int(data["Karnofsky Performance Status"]) <= 100):
                     logger.debug(f"Invalid Karnofsky Performance Status value: {data['Karnofsky Performance Status']}")
                     return False
@@ -417,24 +415,23 @@ class ReportSummarizer:
                 logger.warning(f"Prompt file {prompt_file} not found for report type {report_type}.")
                 self.prompts[report_type] = []
 
-        # Initialize the appropriate model
+        # Initialize the appropriate model and embeddings
         if self.model_type == "local":
-            self.model = ChatOllama(model="llama3.3:latest", temperature=self.temperature)
-            embeddings = OllamaEmbeddings(model="nomic-embed-text")
+            self.model = ChatOllama(model="llama3.2:latest", temperature=self.temperature)
+            self.embeddings = OllamaEmbeddings(model="nomic-embed-text")
         elif self.model_type == "gpt":
             self.model = ChatOpenAI(model="gpt-4", temperature=self.temperature)
-            embeddings = OpenAIEmbeddings()
+            self.embeddings = OpenAIEmbeddings()
         elif self.model_type == "gemini":
             self.model = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=self.temperature)
-            embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", task_type="retrieval_document")
+            self.embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", task_type="retrieval_document")
         else:
             logger.error(f"Unsupported model type: {model_type}")
             raise ValueError(f"Unsupported model type: {model_type}")
 
-        # Removed Vector Store initialization
         logger.info(f"Initialized embedding function using {model_type} embeddings.")
 
-        # Initialize Prompt Templates
+        # Initialize Prompt Templates using RunnableSequence
         self.chain_map = {}
         for report_type, prompt_list in self.prompts.items():
             if not prompt_list:
@@ -442,8 +439,17 @@ class ReportSummarizer:
             # Select a random prompt from the list
             selected_prompt = random.choice(prompt_list)
             prompt = ChatPromptTemplate.from_template(selected_prompt)
-            chain = LLMChain(llm=self.model, prompt=prompt)
-            self.chain_map[report_type] = chain
+
+            # Define a Runnable for the LLM
+            def llm_runnable(inputs):
+                return self.model.generate(inputs["context"])
+
+            llm_lambda = RunnableLambda(llm_runnable)
+
+            # Define the sequence
+            sequence = RunnableSequence(runnables=[llm_lambda])
+
+            self.chain_map[report_type] = sequence
 
         logger.info(f"Initialized LLM chains for report types: {list(self.chain_map.keys())}")
 
@@ -464,7 +470,7 @@ class ReportSummarizer:
                 return None
 
             chain = self.chain_map[report_type]
-            summary = chain.run({"context": report_text})
+            summary = chain.invoke({"context": report_text})  # Use .invoke instead of .run
             return summary.strip()
         except Exception as e:
             logger.error(f"Error generating summary for report type {report_type}: {e}")
@@ -541,9 +547,6 @@ class ReportSummarizer:
         # Combine Numerical and Encoded Categorical Data
         df_final = pd.concat([df_encoded[numerical_cols].reset_index(drop=True), encoded_categorical_df], axis=1)
 
-        # Optionally, handle 'Others' with text data by further processing or leaving as is
-        # For simplicity, it's treated as a categorical variable
-
         return df_final
 
     def process_reports(self, input_dir: str, output_dir: str) -> None:
@@ -617,7 +620,7 @@ class ReportSummarizer:
                         embedding_path = os.path.join(embedding_dir, embedding_filename)
                         try:
                             # Directly use the embeddings object to generate embeddings
-                            embeddings_generated = embeddings.embed_documents([summary])[0]
+                            embeddings_generated = self.embeddings.embed_documents([summary])[0]
                             with open(embedding_path, 'wb') as f:
                                 pickle.dump(embeddings_generated, f)
                             logger.info(f"Embedding saved to {embedding_path}")
