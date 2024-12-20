@@ -28,12 +28,12 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.impute import SimpleImputer
 
 # LangChain and Model-specific Imports
-from langchain.vectorstores import Chroma
-from langchain.embeddings import OpenAIEmbeddings
+from langchain_community.vectorstores import Chroma  # Remove if not needed
+from langchain_community.embeddings import OpenAIEmbeddings
 from langchain.prompts import ChatPromptTemplate
-from langchain.output_parsers import StrOutputParser
+from langchain.output_parsers import RegexParser  # Replaced StrOutputParser
 from langchain.chains import LLMChain
-from langchain.runnables import RunnablePassthrough
+from langchain_core.runnables import RunnablePassthrough
 
 # Model-specific imports (assuming you have these modules; replace with actual imports)
 from langchain_ollama import OllamaEmbeddings, ChatOllama
@@ -431,10 +431,8 @@ class ReportSummarizer:
             logger.error(f"Unsupported model type: {model_type}")
             raise ValueError(f"Unsupported model type: {model_type}")
 
-        # Initialize Vector Store (optional since retrieval is not used)
-        # Update the persist_directory to your actual path
-        self.vectorstore = Chroma(embedding_function=embeddings, persist_directory="/path/to/chroma_embeddings")  # Update this path accordingly
-        logger.info(f"Initialized vector store using {model_type} embeddings.")
+        # Removed Vector Store initialization
+        logger.info(f"Initialized embedding function using {model_type} embeddings.")
 
         # Initialize Prompt Templates
         self.chain_map = {}
@@ -618,9 +616,10 @@ class ReportSummarizer:
                         embedding_filename = f"{report_type}_embedding.pkl"
                         embedding_path = os.path.join(embedding_dir, embedding_filename)
                         try:
-                            embeddings = self.vectorstore.embedding_function.embed_documents([summary])[0]
+                            # Directly use the embeddings object to generate embeddings
+                            embeddings_generated = embeddings.embed_documents([summary])[0]
                             with open(embedding_path, 'wb') as f:
-                                pickle.dump(embeddings, f)
+                                pickle.dump(embeddings_generated, f)
                             logger.info(f"Embedding saved to {embedding_path}")
                         except Exception as e:
                             logger.error(f"Error generating/saving embeddings for {filename}: {e}")
