@@ -115,6 +115,7 @@ def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
             "Others"
         ]
     else:
+        logger.info(f"Unknown report type: {report_type}")
         logger.warning(f"Unknown report type: {report_type}")
         return extracted
 
@@ -418,6 +419,7 @@ class ReportSummarizer:
         # Initialize the appropriate model and embeddings
         if self.model_type == "local":
             self.model = ChatOllama(model="llama3.2:latest", temperature=self.temperature)
+            logger.info(f"Initialized Llama 3.2 model.")
             self.embeddings = OllamaEmbeddings(model="nomic-embed-text")
         elif self.model_type == "gpt":
             self.model = ChatOpenAI(model="gpt-4", temperature=self.temperature)
@@ -445,9 +447,16 @@ class ReportSummarizer:
                 return self.model.generate(inputs["context"])
 
             llm_lambda = RunnableLambda(llm_runnable)
-
+            # Reference: https://python.langchain.com/api_reference/core/runnables/langchain_core.runnables.base.RunnableSequence.html
+            
             # Define the sequence
-            sequence = RunnableSequence(runnables=[llm_lambda])
+            # sequence = RunnableSequence(runnables=[llm_lambda])
+            sequence = llm_lambda
+            
+            # sequence.invoke(1)
+            # await sequence.ainvoke(1)
+
+            
 
             self.chain_map[report_type] = sequence
 
@@ -589,6 +598,9 @@ class ReportSummarizer:
                             continue
 
                         # Extract tabular data
+                        # If report_type is ...txt, only extract the filename without .txt
+                        logger.info(f"Extracting tabular data for {filename} ({report_type})")
+                        report_type = report_type.replace(".txt", "")
                         extracted = extract_tabular_data(summary, report_type)
 
                         # Validate extracted data
