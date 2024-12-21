@@ -30,10 +30,10 @@ from sklearn.impute import SimpleImputer
 # LangChain and Model-specific Imports
 from langchain.prompts import ChatPromptTemplate
 from langchain.output_parsers import RegexParser
-# from langchain.runnables import RunnableSequence, RunnableLambda
-from langchain_core.runnables import RunnableSequence,RunnableLambda
+from langchain_core.runnables import RunnableSequence, RunnableLambda
+from langchain_core.messages import HumanMessage, SystemMessage
 
-# Model-specific imports (assuming you have these modules; replace with actual imports)
+# Model-specific imports (ensure these are installed and correctly referenced)
 from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
@@ -115,7 +115,6 @@ def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
             "Others"
         ]
     else:
-        logger.info(f"Unknown report type: {report_type}")
         logger.warning(f"Unknown report type: {report_type}")
         return extracted
 
@@ -442,21 +441,23 @@ class ReportSummarizer:
             selected_prompt = random.choice(prompt_list)
             prompt = ChatPromptTemplate.from_template(selected_prompt)
 
-            # Define a Runnable for the LLM
+            # Define a RunnableLambda for summarization
             def llm_runnable(inputs):
-                return self.model.generate(inputs["context"])
+                context = inputs["context"]
+                try:
+                    # Pass the context as a single string with an instruction
+                    prompt_text = f"Please summarize the following report:\n\n{context}"
+                    response = self.model.generate(prompt_text)
+                    return {"summary": response}
+                except Exception as e:
+                    logger.error(f"Error in LLM generation: {e}")
+                    return {"summary": ""}
 
             llm_lambda = RunnableLambda(llm_runnable)
-            # Reference: https://python.langchain.com/api_reference/core/runnables/langchain_core.runnables.base.RunnableSequence.html
-            
-            # Define the sequence
+
+            # Create a RunnableSequence with the summarization runnable
             # sequence = RunnableSequence(runnables=[llm_lambda])
             sequence = llm_lambda
-            
-            # sequence.invoke(1)
-            # await sequence.ainvoke(1)
-
-            
 
             self.chain_map[report_type] = sequence
 
@@ -479,8 +480,9 @@ class ReportSummarizer:
                 return None
 
             chain = self.chain_map[report_type]
-            summary = chain.invoke({"context": report_text})  # Use .invoke instead of .run
-            return summary.strip()
+            summary_output = chain.invoke({"context": report_text})
+            summary = summary_output.get("summary", "").strip()
+            return summary if summary else None
         except Exception as e:
             logger.error(f"Error generating summary for report type {report_type}: {e}")
             return None
@@ -598,9 +600,7 @@ class ReportSummarizer:
                             continue
 
                         # Extract tabular data
-                        # If report_type is ...txt, only extract the filename without .txt
                         logger.info(f"Extracting tabular data for {filename} ({report_type})")
-                        report_type = report_type.replace(".txt", "")
                         extracted = extract_tabular_data(summary, report_type)
 
                         # Validate extracted data
@@ -727,7 +727,7 @@ def main():
     parser.add_argument(
         '--embedding_model',
         type=str,
-        default='openai',
+        default='ollama',
         choices=['openai', 'ollama', 'google'],
         help='Type of embedding model to use for generating embeddings: openai, ollama, google'
     )

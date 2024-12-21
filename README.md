@@ -86,18 +86,23 @@ Note:
 - ollama run llama3.3 ongoing... if not finished downaloading in the linux terminal, just run this command again, it will continue downloading from where it stopped. 
 
 ### Project directory 
-project_directory/
-├── summarize_reports.py
-├── prompts/
-│   ├── prompt_pathology_reports.json
-│   └── prompt_consultation_notes.json
-├── run_local.sh
-├── run_gpt.sh
-├── run_gemini.sh
+/Data/Yujing/HNC_OutcomePred/Reports_Agents/
 ├── input_reports/
-│   ├── pathology_report_head_and_neck_cancer_example.txt
-│   └── consultation_notes_head_and_neck_cancer_example.txt
+│   ├── consultation_notes/
+│   │   ├── consultation_notes_example1.txt
+│   │   ├── consultation_notes_example2.txt
+│   │   └── subfolder/
+│   │       └── consultation_notes_example3.txt
+│   └── pathology_reports/
+│       ├── pathology_report_example1.txt
+│       ├── pathology_report_example2.txt
+│       └── subfolder/
+│           └── pathology_report_example3.txt
+├── prompts/
+│   ├── prompt_consultation_notes.json
+│   └── prompt_pathology_report.json
 └── output_dir/
+    └── ...
 
 ### Input Directory Structure 
 
