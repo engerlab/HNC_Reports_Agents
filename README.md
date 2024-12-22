@@ -153,10 +153,6 @@ results/
         - Compared outputs from llama3.2 and llama3.3 with the same report & prompt. No significant output difference, but llama3.3 was slightly better structured, so will continue to use that. 
         - Look back on the PATTERNS in summarie_reports.py and the overlaps with the key info included in the prompts itself. How to simplify this to make the prompts more straightforward? Like the prompt modifications above. 
         - If we were to strictly convert the key summarized texts (though structured) into (encoded) tabular data, there risks lots of "missing fields" for the expert-enhanced prompts derieved variables. What to do with this limitation and discuss. 
-        - The next immediate extension of this would come back to the Retrieval-Generated-Augmentation (RAG) and Chain-of-Thought (CoT) short paper idea:
-            - One must define a fair evaluation metric scheme. And an endpoint. Since Overall Survival (OS) is limited with only ~10%, we should also focus on Failure
-            - For example, ask RAG-Enhanced agents from knowledge of reports to predict 2 year of 5 year survival (binary, AUC), or survival analysis, compared with resident/RadOnc predictions by human case reviews. Inspired by Lammbert et.al. from literature for such knowledge. (paper 3): how to parition people and time. Ultimately, what does this help with or useful other than a thought experiment? 
-            - For the last PhD paper, RAG-enhanced reports could also be integrated into the images-included multimodal system for failure prediction, CT (deep Radiomics), PET, with external validation cohorts (public datasets TCIA, GDC, & somewhere else possibly), histopathology whole slide images (WSI), clinical variables, planning dosimetry RT files, also deals with missing modality problem, fusion integration techniques with a CLIP alignment module, for the prediction of OS, Locoregional/distant failures of Head and Neck Cancers. 
 
 - Find "paired" pathology reports and consultation notes of the same patient 
     - at /media/yujing/One Touch3/HNC_Reports/PathologyReports, and /media/yujing/One Touch3/HNC_Reports/ConsultRedacted
@@ -167,4 +163,13 @@ results/
     - local LLM on a 64Gb 2 GPU Nvidia 
     - de-identified original reports before automation step by llama3.3 with 70B parameters (the latest as of Dec, 2024)
 
+- What if we did an ***extremely early fusion***? 
+    - What if we were to morph the clinical variable tabular data to texts then together combined with pathology reports & consultation notes? Then embeddings? How would you fine-tune these embeddings 
+    - Intermediate & late fusions are perhaps more feasible for non-text or non-tabular data? To be answered! 
 
+
+#### The next Ph.D. papers:
+        - The next immediate extension of this would come back to the Retrieval-Generated-Augmentation (RAG) and Chain-of-Thought (CoT) short paper idea:
+            - One must define a fair evaluation metric scheme. And an endpoint. Since Overall Survival (OS) is limited with only ~10%, we should also focus on Failure
+            - For example, ask RAG-Enhanced agents from knowledge of reports to predict 2 year of 5 year survival (binary, AUC), or survival analysis, compared with resident/RadOnc predictions by human case reviews. Inspired by Lammbert et.al. from literature for such knowledge. (paper 3): how to parition people and time. Ultimately, what does this help with or useful other than a thought experiment? 
+            - For the last PhD paper, RAG-enhanced reports could also be integrated into the images-included multimodal system for failure prediction, CT (deep Radiomics), PET, with external validation cohorts (public datasets TCIA, GDC, & somewhere else possibly), histopathology whole slide images (WSI), clinical variables, planning dosimetry RT files, also deals with missing modality problem, fusion integration techniques with a CLIP alignment module, for the prediction of OS, Locoregional/distant failures of Head and Neck Cancers. 
