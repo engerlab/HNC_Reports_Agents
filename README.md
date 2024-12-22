@@ -136,8 +136,35 @@ results/
 
 #### Prompt Engineering
 ##### Pathology reports modifications:
-- if I want structured data to encode the following for the summarized pathology report: quantitative or numerical metrics, atient history and status, anatomic site of lesion, 
-... lymph node status: presence/absence, number of lymph nodes, extranodal extension, resection margin: positive or negative, HPV or p16 status: positive or negative, smoking hito
-... ry: never smoked, or 10 years smoking 1 pack a day or more than 10 years, or alcohol consultion. do not make up any information. structure the response. if something was not  
-... inferred from the original report, say not inferred. here's the summarized pathology report: This is a final pathology report for an 88-year-old woman with left alveolar cance
-... r.
+- if I want structured data to encode the following for the summarized pathology report: quantitative or numerical metrics, atient history and status, anatomic site of lesion, lymph node status: presence/absence, number of lymph nodes, extranodal extension, resection margin: positive or negative, HPV or p16 status: positive or negative, smoking hitory: never smoked, or 10 years smoking 1 pack a day or more than 10 years, or alcohol consultion. do not make up any information. structure the response. if something was not  inferred from the original report, say not inferred. Any specific immunohistochemetry biomarker results. here's the summarized pathology report: 
+
+#### Improvements: 12/22/2024
+- Output folder structure: 
+    - should be e.g.: output_dir/text_summaries/consultation_notes/patient_id/consultation_notes_summary.txt
+        - rather than output_dir/text_summaires/patient_id/consultation_notes_summary.txt 
+- Reults improvements:
+    - Double check: is the output_dir/embeddings directly llama embeddings of the very original pathology reports/consultation notes and not the summarized version? 
+    - output_dir/embeddings worked 
+    - output_dir/structured_data does not work yet 
+    - output_dir/structured_data_encoded does not work yet 
+    - output_dir/text_summaries works but prompts need further tuning to make results more succinct (further eliminate unneeded info)
+- ouput_dir/text_summaries:
+    - the structure of outputs may be different (some more free-form than the other). E.g.: ./text_summaries/129701/pathology_reports_summary.txt **versus** Reports_Agents/output_dir/text_summaries/44651/pathology_reports_summary.txt. ***Need to write in the prompts the specific strucutre desired in the outputs.***
+        - Compared outputs from llama3.2 and llama3.3 with the same report & prompt. No significant output difference, but llama3.3 was slightly better structured, so will continue to use that. 
+        - Look back on the PATTERNS in summarie_reports.py and the overlaps with the key info included in the prompts itself. How to simplify this to make the prompts more straightforward? Like the prompt modifications above. 
+        - If we were to strictly convert the key summarized texts (though structured) into (encoded) tabular data, there risks lots of "missing fields" for the expert-enhanced prompts derieved variables. What to do with this limitation and discuss. 
+        - The next immediate extension of this would come back to the Retrieval-Generated-Augmentation (RAG) and Chain-of-Thought (CoT) short paper idea:
+            - One must define a fair evaluation metric scheme. And an endpoint. Since Overall Survival (OS) is limited with only ~10%, we should also focus on Failure
+            - For example, ask RAG-Enhanced agents from knowledge of reports to predict 2 year of 5 year survival (binary, AUC), or survival analysis, compared with resident/RadOnc predictions by human case reviews. Inspired by Lammbert et.al. from literature for such knowledge. (paper 3): how to parition people and time. Ultimately, what does this help with or useful other than a thought experiment? 
+            - For the last PhD paper, RAG-enhanced reports could also be integrated into the images-included multimodal system for failure prediction, CT (deep Radiomics), PET, with external validation cohorts (public datasets TCIA, GDC, & somewhere else possibly), histopathology whole slide images (WSI), clinical variables, planning dosimetry RT files, also deals with missing modality problem, fusion integration techniques with a CLIP alignment module, for the prediction of OS, Locoregional/distant failures of Head and Neck Cancers. 
+
+- Find "paired" pathology reports and consultation notes of the same patient 
+    - at /media/yujing/One Touch3/HNC_Reports/PathologyReports, and /media/yujing/One Touch3/HNC_Reports/ConsultRedacted
+    - look at them side by side and think about the inter-connections between these two types of reports: 
+        - would it actually make sense to "combine" (when both are available for the same patient), then "combine" the key info asked to both report types *once*, since sometimes the same info might be repeated twice. But this won't lead to  
+        - would you actually call pathology reports vs. consultation notes two text modalities? 
+- Highlight privacy-preserving in this step:
+    - local LLM on a 2GPU Nvidia 
+    - de-identified original reports before automation step by llama3.3 with 70B parameters (the latest as of Dec, 2024)
+
+
