@@ -164,7 +164,7 @@ results/
         - would it actually make sense to "combine" (when both are available for the same patient), then "combine" the key info asked to both report types *once*, since sometimes the same info might be repeated twice. But this won't lead to  
         - would you actually call pathology reports vs. consultation notes two text modalities? 
 - Highlight privacy-preserving in this step:
-    - local LLM on a 2GPU Nvidia 
+    - local LLM on a 64Gb 2 GPU Nvidia 
     - de-identified original reports before automation step by llama3.3 with 70B parameters (the latest as of Dec, 2024)
 
 
