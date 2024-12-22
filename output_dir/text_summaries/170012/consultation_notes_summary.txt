@@ -1,0 +1,31 @@
+Here's a summary of the report:
+
+**Patient Information**
+
+* Age: Not specified (female)
+* Medical History: Left-sided breast cancer, hypothyroidism, anemia, and hypercholesterolemia
+* Current Medications: Synthroid, ferrous sulfate, and a hyperlipidemia medication
+
+**Current Illness**
+
+* Diagnosed with high-grade adenocarcinoma of the right parotid gland
+* Underwent superficial lobe excision on [DATE]
+* Pathology report showed tumor cells at the margins, but no lymphovascular or perineural invasion
+* Currently experiencing mild xerostomia (dry mouth), but no other significant symptoms
+
+**Physical Examination**
+
+* Well-appearing lady in no acute distress
+* ECOG performance status is 0 (fully functional)
+* Well-healed surgical scar at the angle of the mandible on the right side
+* No palpable adenopathy or other abnormalities
+
+**Imaging and Labs**
+
+* CT scan of the neck showed no evidence of lymphadenopathy
+* CT scan of the chest and abdomen showed no evidence of metastatic disease
+
+**Treatment Plan**
+
+* Patient has elected to undergo adjuvant radiotherapy due to focally-positive margins
+* Radiotherapy will be initiated shortly, with the patient positioned at an incline of approximately 30 degrees to accommodate her vertigo when lying supine.

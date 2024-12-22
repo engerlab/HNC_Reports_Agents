@@ -1,0 +1,27 @@
+Here's a summary of the report:
+
+**Patient Profile**
+
+* A [AGE]-year-old gentleman with a history of diabetes, high blood pressure, hypercholesterolemia, and benign prostate hyperplasia.
+* Recently underwent dental extraction, which led to the discovery of a tumor in his right maxillary sinus.
+
+**Diagnosis**
+
+* Maxillary sinus squamous cell carcinoma (a type of cancer) that is poorly differentiated and non-keratinizing.
+* The tumor is locally advanced, measuring 4.5 x 3.5 cm, with positive margins and lymphovascular invasion.
+
+**Treatment**
+
+* Underwent a right maxillectomy (surgical removal of the maxilla bone) with palatectomy and a fibular free flap on [DATE].
+* Pathology report showed cancer in one lymph node, but no extracapsular extension.
+* Adjuvant radiation therapy is recommended to the surgical bed, ipsilateral neck, and contralateral level 2, combined with weekly chemotherapy as a radiosensitizer.
+
+**Current Status**
+
+* The patient is recovering well from surgery and denies any symptoms, including audiology or visual symptoms.
+* His performance status is evaluated at 90, indicating that he is able to carry out daily activities with some effort.
+* The maxillectomy scar is well healed, and there is no lymphadenopathy (enlarged lymph nodes) in the neck.
+
+**Recommendation**
+
+* Adjuvant radiation therapy with chemotherapy is recommended to reduce the risk of cancer recurrence. The patient has agreed to receive this treatment after being fully informed of the rationale and potential side effects.

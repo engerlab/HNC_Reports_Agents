@@ -1,0 +1,19 @@
+Here's a summary of the pathology report:
+
+**Patient:** A 74-year-old man with a tumor in his right maxillary sinus/nasal cavity.
+
+**Biopsy Results:**
+
+* The biopsy was taken from the right alveolar ridge.
+* The diagnosis is an invasive, non-keratinizing squamous cell carcinoma (a type of cancer) that is high-grade and located in the submucosa.
+* There is no perineural invasion (cancer spread to nerves), but lymphovascular invasion (cancer spread to blood or lymph vessels) is suspicious.
+* Additional tests:
+	+ p16 immunohistochemistry: negative
+	+ EBV probe (EBER): negative
+
+**Tumor Characteristics:**
+
+* The tumor has focal intercellular bridges and the overlaying squamous epithelium is not involved.
+* The tumor cells have a specific immunohistochemical profile, which includes positivity for certain markers (AE1/AE3, CK5/6, CK8/18, CK7, p63) and negativity for others (CK20, CD31, D2-40).
+
+Overall, the report indicates that the patient has a high-grade squamous cell carcinoma in his right alveolar ridge, with suspicious lymphovascular invasion. The results will likely guide further treatment decisions, including surgery scheduled for 10 days from the report date.

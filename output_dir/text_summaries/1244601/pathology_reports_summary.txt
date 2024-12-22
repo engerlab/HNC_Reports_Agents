@@ -1,0 +1,15 @@
+Here is a summary of the pathology report:
+
+**Clinical History:** The patient had a biopsy of their left tonsil and a fine-needle aspiration (FNAB) of a mass in their left neck.
+
+**Diagnosis:**
+
+* **Left Tonsil Biopsy:** Invasive, poorly differentiated squamous cell carcinoma (a type of cancer) was found. The tumor tested positive for P16, which is a marker that can help identify certain types of cancer.
+* **Left Neck FNAB:** Unfortunately, only blood was obtained from the aspiration, and no diagnostic tissue or cells were found.
+
+**Macroscopic Description:**
+
+* **Tonsil Biopsy:** The biopsy sample consisted of a small, fragile piece of tissue (1.1 x 0.6 x 0.6 cm) that was sectioned and submitted for further examination.
+* **Neck FNAB:** Only a small amount of black sediment (likely blood) was obtained from the aspiration.
+
+In summary, the report confirms the presence of invasive squamous cell carcinoma in the left tonsil, but the FNAB of the neck mass did not yield any diagnostic tissue or cells.

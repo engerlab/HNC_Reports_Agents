@@ -1,0 +1,26 @@
+Here is a summary of the report:
+
+**Patient Profile**
+
+* Age: Not specified (referred to as an "elderly gentleman")
+* Medical History: Rectal cancer, liver cirrhosis, hypercholesterolemia, high blood pressure, coronary artery disease
+* Recent Surgery: Transanal resection of localized rectal cancer
+
+**Current Diagnosis**
+
+* Hypopharyngeal squamous cell carcinoma (stage T2, N2b)
+* Cancer is located in the left piriform sinus and has spread to multiple lymph nodes in the left neck
+
+**Symptoms**
+
+* Mild dysphagia (difficulty swallowing) for over a year
+* Painless mass in the left neck for several months
+* Weight loss (attributed to recent surgery)
+
+**Treatment Plan**
+
+* The patient's case will be discussed at Tumor Board to consider treatment options
+* Concomitant chemoradiation is likely to be recommended
+* An MRI has been requested to complete staging and assess the extent of the tumor
+
+Overall, the patient has a locally advanced hypopharyngeal cancer that requires further evaluation and treatment. The treatment plan will likely involve a combination of chemotherapy and radiation therapy.

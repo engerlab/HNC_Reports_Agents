@@ -1,0 +1,266 @@
+file,report_type,summary
+187518.txt,consultation_notes,"Here's a summary of the report:
+
+**Patient Information**
+
+* A [AGE]-year-old woman from Chateauguay, Canada
+* Diagnosed with squamous cell carcinoma of unknown primary origin in the head and neck region
+* Has a history of smoking (half a pack per day for 40 years) and occasional alcohol consumption
+
+**Medical History**
+
+* Previous surgeries: cholecystectomy, nasal bridge repair, right forearm fracture with internal fixation
+* Medical conditions: arthritis, disk problems
+* Allergies: codeine
+* Medications: naproxen
+
+**Current Condition**
+
+* A 5 x 4-cm mobile neck mass at the right jugulodigastric area, confirmed as squamous cell carcinoma through fine-needle aspirate
+* No visible primary site of the cancer on CT or PET scans
+* No symptoms such as weight loss, dysphagia, or voice changes, but experiencing anxiety and sleep disturbances
+
+**Treatment Plan**
+
+* Consultations requested with Medical Oncology, ENT, Psychology, Nutrition, and GI for a PEG tube
+* Likely treatment: concurrent chemoradiation therapy to the bilateral neck (30 fractions of radiation with weekly chemotherapy)
+* If primary site is identified, treatment will be adjusted accordingly
+* Patient and family have agreed to the proposed treatment plan
+
+**Next Steps**
+
+* Planning CT scan for radiation preparation
+* Follow-up appointment to discuss treatment progress and address any concerns."
+170012.txt,consultation_notes,"Here's a summary of the report:
+
+**Patient Information**
+
+* Age: Not specified (female)
+* Medical History: Left-sided breast cancer, hypothyroidism, anemia, and hypercholesterolemia
+* Current Medications: Synthroid, ferrous sulfate, and a hyperlipidemia medication
+
+**Current Illness**
+
+* Diagnosed with high-grade adenocarcinoma of the right parotid gland
+* Underwent superficial lobe excision on [DATE]
+* Pathology report showed tumor cells at the margins, but no lymphovascular or perineural invasion
+* Currently experiencing mild xerostomia (dry mouth), but no other significant symptoms
+
+**Physical Examination**
+
+* Well-appearing lady in no acute distress
+* ECOG performance status is 0 (fully functional)
+* Well-healed surgical scar at the angle of the mandible on the right side
+* No palpable adenopathy or other abnormalities
+
+**Imaging and Labs**
+
+* CT scan of the neck showed no evidence of lymphadenopathy
+* CT scan of the chest and abdomen showed no evidence of metastatic disease
+
+**Treatment Plan**
+
+* Patient has elected to undergo adjuvant radiotherapy due to focally-positive margins
+* Radiotherapy will be initiated shortly, with the patient positioned at an incline of approximately 30 degrees to accommodate her vertigo when lying supine."
+236853.txt,consultation_notes,"Here's a summary of the report:
+
+**Patient Profile**
+
+* A [AGE]-year-old gentleman with a history of diabetes, high blood pressure, hypercholesterolemia, and benign prostate hyperplasia.
+* Recently underwent dental extraction, which led to the discovery of a tumor in his right maxillary sinus.
+
+**Diagnosis**
+
+* Maxillary sinus squamous cell carcinoma (a type of cancer) that is poorly differentiated and non-keratinizing.
+* The tumor is locally advanced, measuring 4.5 x 3.5 cm, with positive margins and lymphovascular invasion.
+
+**Treatment**
+
+* Underwent a right maxillectomy (surgical removal of the maxilla bone) with palatectomy and a fibular free flap on [DATE].
+* Pathology report showed cancer in one lymph node, but no extracapsular extension.
+* Adjuvant radiation therapy is recommended to the surgical bed, ipsilateral neck, and contralateral level 2, combined with weekly chemotherapy as a radiosensitizer.
+
+**Current Status**
+
+* The patient is recovering well from surgery and denies any symptoms, including audiology or visual symptoms.
+* His performance status is evaluated at 90, indicating that he is able to carry out daily activities with some effort.
+* The maxillectomy scar is well healed, and there is no lymphadenopathy (enlarged lymph nodes) in the neck.
+
+**Recommendation**
+
+* Adjuvant radiation therapy with chemotherapy is recommended to reduce the risk of cancer recurrence. The patient has agreed to receive this treatment after being fully informed of the rationale and potential side effects."
+consultation_notes_example.txt,consultation_notes,"Here is a summary of the report:
+
+**Patient Profile**
+
+* Age: Not specified (referred to as an ""elderly gentleman"")
+* Medical History: Rectal cancer, liver cirrhosis, hypercholesterolemia, high blood pressure, coronary artery disease
+* Recent Surgery: Transanal resection of localized rectal cancer
+
+**Current Diagnosis**
+
+* Hypopharyngeal squamous cell carcinoma (stage T2, N2b)
+* Cancer is located in the left piriform sinus and has spread to multiple lymph nodes in the left neck
+
+**Symptoms**
+
+* Mild dysphagia (difficulty swallowing) for over a year
+* Painless mass in the left neck for several months
+* Weight loss (attributed to recent surgery)
+
+**Treatment Plan**
+
+* The patient's case will be discussed at Tumor Board to consider treatment options
+* Concomitant chemoradiation is likely to be recommended
+* An MRI has been requested to complete staging and assess the extent of the tumor
+
+Overall, the patient has a locally advanced hypopharyngeal cancer that requires further evaluation and treatment. The treatment plan will likely involve a combination of chemotherapy and radiation therapy."
+1259610.txt,consultation_notes,"Here is a summary of the report:
+
+**Patient Profile**
+
+* A gentleman in his [AGE] with a history of rectal cancer, liver cirrhosis, hypercholesterolemia, high blood pressure, and coronary artery disease.
+* Recently quit smoking and drinking.
+
+**Current Diagnosis**
+
+* Hypopharyngeal squamous cell carcinoma (a type of throat cancer) located in the left piriform sinus, with multiple lymph nodes involved in the left neck.
+* The tumor is approximately 1.7 cm in size and has spread to lymph nodes on the left side of the neck.
+
+**Symptoms**
+
+* Mild difficulty swallowing (dysphagia) for over a year
+* Painless mass in the left neck for several months
+* Weight loss, mostly due to recent surgery
+
+**Treatment Plan**
+
+* The patient's case will be discussed at Tumor Board to determine the best course of treatment.
+* Concomitant chemoradiation (a combination of chemotherapy and radiation therapy) is likely to be recommended.
+* An MRI has been ordered to complete the staging and assess the extent of the tumor.
+
+**Performance Status**
+
+* The patient's performance status is evaluated at 90%, indicating that he is able to carry out daily activities with some limitations."
+62806.txt,consultation_notes,"Here's a summary of the report:
+
+**Patient Profile:**
+
+* A lady with a history of hypothyroidism and hypercholesterolemia, taking Synthroid and Lipitor, and allergic to iodine contrast.
+* Non-smoker and non-drinker.
+
+**Current Illness:**
+
+* Diagnosed with a left buccal mucosa minor salivary gland tumor, which was initially thought to be a pleomorphic adenoma but later revealed to be a low-grade salivary gland adenocarcinoma after excisional resection.
+* The tumor was removed in fragments, and pathology showed lymphovascular invasion but no perineural invasion.
+
+**Previous Investigations:**
+
+* MRI of the head and neck region before surgery showed a 1.4 x 1.6-cm enhancing lesion in the left buccal space, close to the maxillary alveolar bone, with no bony invasion.
+* Abnormal enhancement was seen along the course of the fifth nerve (V3) of unknown etiology.
+
+**Current Status:**
+
+* The patient has recovered well from surgery and has no complaints, but reports a 20-pound weight loss of unknown etiology.
+* Physical examination shows a residual 1-cm mass on the upper aspect of the left buccal mucosa, which is suspicious of residual disease.
+
+**Recommended Next Steps:**
+
+* Post-operative MRI to investigate any residual disease.
+* Depending on the MRI results, either adjuvant external beam radiotherapy or surgical re-resection may be considered."
+44651.txt,pathology_reports,"This is a final pathology report for an 88-year-old woman with left alveolar cancer. Here's a summary of the key findings:
+
+**Clinical History:**
+The patient has left alveolar cancer, and the report includes the examination of multiple specimens from different locations in the mouth and neck.
+
+**Specimen #1-6 (Frozen Sections):**
+These specimens were taken during surgery to check for cancer cells at the margins of the tumor. All six specimens showed no evidence of neoplasia (cancer) at the margins.
+
+**Specimen #7 (Left Superior Alveolar Mass):**
+This specimen was a partial maxillectomy (removal of part of the upper jawbone) and included a tumor in the upper gingiva/alveolus. The tumor was:
+
+* 2.8 x 1.9 x 0.7 cm in size
+* Well-differentiated squamous cell carcinoma (a type of cancer)
+* Involved the tooth socket with superficial bone invasion
+* Had involved margins, both peripheral and deep
+
+**Specimen #8 (Left Neck Dissection):**
+This specimen included 31 lymph nodes from levels I, II, and III of the neck. None of the lymph nodes showed evidence of cancer.
+
+**Specimen #9 (Left Node of Stahr):**
+This was a single lymph node that was examined, and it did not show any evidence of cancer.
+
+**Pathologic Staging:**
+The tumor was classified as pT2 (tumor more than 2 cm but not more than 4 cm in greatest dimension), and there was no regional lymph node metastasis (pN0).
+
+Overall, the report indicates that the patient has a well-differentiated squamous cell carcinoma of the left alveolar ridge with involved margins, but no evidence of lymph node metastasis."
+pathology_report_example.txt,pathology_reports,"Here's a summary of the pathology report:
+
+**Patient Information:**
+The patient is a 74-year-old man with a tumor in his right maxillary sinus/nasal cavity. A biopsy was taken from the right alveolar ridge.
+
+**Diagnosis:**
+The diagnosis is an invasive, non-keratinizing squamous cell carcinoma (a type of cancer) that is high-grade and located in the submucosa (the layer of tissue beneath the mucous membrane).
+
+**Additional Findings:**
+
+* Perineural invasion (cancer spreading to nerves) was not identified.
+* Lymphovascular invasion (cancer spreading to blood or lymph vessels) is suspicious, but not confirmed.
+* The tumor tested negative for p16 and EBV (Epstein-Barr virus), which can be associated with certain types of cancer.
+* The overlaying squamous epithelium (the layer of skin-like cells on top of the tumor) is uninvolved, meaning it does not show signs of cancer.
+
+**Immunohistochemical Profile:**
+The tumor cells tested positive for certain proteins (AE1/AE3, CK5/6, CK8/18, p63) and negative for others (CK20, CD31, D2-40), which can help identify the type of cancer."
+236853.txt,pathology_reports,"Here's a summary of the pathology report:
+
+**Patient:** A 74-year-old man with a tumor in his right maxillary sinus/nasal cavity.
+
+**Biopsy Results:**
+
+* The biopsy was taken from the right alveolar ridge.
+* The diagnosis is an invasive, non-keratinizing squamous cell carcinoma (a type of cancer) that is high-grade and located in the submucosa.
+* There is no perineural invasion (cancer spread to nerves), but lymphovascular invasion (cancer spread to blood or lymph vessels) is suspicious.
+* Additional tests:
+	+ p16 immunohistochemistry: negative
+	+ EBV probe (EBER): negative
+
+**Tumor Characteristics:**
+
+* The tumor has focal intercellular bridges and the overlaying squamous epithelium is not involved.
+* The tumor cells have a specific immunohistochemical profile, which includes positivity for certain markers (AE1/AE3, CK5/6, CK8/18, CK7, p63) and negativity for others (CK20, CD31, D2-40).
+
+Overall, the report indicates that the patient has a high-grade squamous cell carcinoma in his right alveolar ridge, with suspicious lymphovascular invasion. The results will likely guide further treatment decisions, including surgery scheduled for 10 days from the report date."
+1244601.txt,pathology_reports,"Here is a summary of the pathology report:
+
+**Clinical History:** The patient had a biopsy of their left tonsil and a fine-needle aspiration (FNAB) of a mass in their left neck.
+
+**Diagnosis:**
+
+* **Left Tonsil Biopsy:** Invasive, poorly differentiated squamous cell carcinoma (a type of cancer) was found. The tumor tested positive for P16, which is a marker that can help identify certain types of cancer.
+* **Left Neck FNAB:** Unfortunately, only blood was obtained from the aspiration, and no diagnostic tissue or cells were found.
+
+**Macroscopic Description:**
+
+* **Tonsil Biopsy:** The biopsy sample consisted of a small, fragile piece of tissue (1.1 x 0.6 x 0.6 cm) that was sectioned and submitted for further examination.
+* **Neck FNAB:** Only a small amount of black sediment (likely blood) was obtained from the aspiration.
+
+In summary, the report confirms the presence of invasive squamous cell carcinoma in the left tonsil, but the FNAB of the neck mass did not yield any diagnostic tissue or cells."
+129701.txt,pathology_reports,"Here's a summary of the report:
+
+The patient is a 51-year-old male with a mass in his right tongue base that has spread to the left side, measuring approximately 3 cm. The initial impression was carcinoma (cancer) and possible lymphoma. 
+
+During an intraoperative consultation (while surgery was being performed), a frozen section analysis of the tissue from the right tongue base revealed invasive squamous cell carcinoma.
+
+Further examination of the tissue fragments confirmed the diagnosis of basaloid squamous cell carcinoma in the submucosa of the right tongue base. 
+
+Additionally, a subsequent test for p16 (a protein associated with human papillomavirus) was conducted and came back positive. This suggests that the cancer may be related to HPV infection."
+166906.txt,pathology_reports,"Here is a summary of the pathology report:
+
+An 85-year-old man had a biopsy taken from an ulcer on the midline of his soft palate due to suspicion of squamous cell carcinoma (SCCA). The final diagnosis is:
+
+* Invasive, moderately differentiated squamous cell carcinoma (a type of cancer)
+* The tumor's thickness could not be measured due to the fragmented nature of the specimen
+* p16 immunostaining was negative (this test can help determine if the cancer is related to human papillomavirus)
+* No infectious organisms were found on special stains
+
+The report was reviewed and agreed upon by an internal consultant. The biopsy consisted of two small tissue fragments, which were submitted for examination in a single container."

@@ -1,0 +1,17 @@
+Here's a summary of the pathology report:
+
+**Patient Information:**
+The patient is a 74-year-old man with a tumor in his right maxillary sinus/nasal cavity. A biopsy was taken from the right alveolar ridge.
+
+**Diagnosis:**
+The diagnosis is an invasive, non-keratinizing squamous cell carcinoma (a type of cancer) that is high-grade and located in the submucosa (the layer of tissue beneath the mucous membrane).
+
+**Additional Findings:**
+
+* Perineural invasion (cancer spreading to nerves) was not identified.
+* Lymphovascular invasion (cancer spreading to blood or lymph vessels) is suspicious, but not confirmed.
+* The tumor tested negative for p16 and EBV (Epstein-Barr virus), which can be associated with certain types of cancer.
+* The overlaying squamous epithelium (the layer of skin-like cells on top of the tumor) is uninvolved, meaning it does not show signs of cancer.
+
+**Immunohistochemical Profile:**
+The tumor cells tested positive for certain proteins (AE1/AE3, CK5/6, CK8/18, p63) and negative for others (CK20, CD31, D2-40), which can help identify the type of cancer.

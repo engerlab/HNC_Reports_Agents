@@ -1,0 +1,26 @@
+This is a final pathology report for an 88-year-old woman with left alveolar cancer. Here's a summary of the key findings:
+
+**Clinical History:**
+The patient has left alveolar cancer, and the report includes the examination of multiple specimens from different locations in the mouth and neck.
+
+**Specimen #1-6 (Frozen Sections):**
+These specimens were taken during surgery to check for cancer cells at the margins of the tumor. All six specimens showed no evidence of neoplasia (cancer) at the margins.
+
+**Specimen #7 (Left Superior Alveolar Mass):**
+This specimen was a partial maxillectomy (removal of part of the upper jawbone) and included a tumor in the upper gingiva/alveolus. The tumor was:
+
+* 2.8 x 1.9 x 0.7 cm in size
+* Well-differentiated squamous cell carcinoma (a type of cancer)
+* Involved the tooth socket with superficial bone invasion
+* Had involved margins, both peripheral and deep
+
+**Specimen #8 (Left Neck Dissection):**
+This specimen included 31 lymph nodes from levels I, II, and III of the neck. None of the lymph nodes showed evidence of cancer.
+
+**Specimen #9 (Left Node of Stahr):**
+This was a single lymph node that was examined, and it did not show any evidence of cancer.
+
+**Pathologic Staging:**
+The tumor was classified as pT2 (tumor more than 2 cm but not more than 4 cm in greatest dimension), and there was no regional lymph node metastasis (pN0).
+
+Overall, the report indicates that the patient has a well-differentiated squamous cell carcinoma of the left alveolar ridge with involved margins, but no evidence of lymph node metastasis.

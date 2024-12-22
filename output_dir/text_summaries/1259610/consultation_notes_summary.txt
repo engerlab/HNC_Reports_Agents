@@ -1,0 +1,27 @@
+Here is a summary of the report:
+
+**Patient Profile**
+
+* A gentleman in his [AGE] with a history of rectal cancer, liver cirrhosis, hypercholesterolemia, high blood pressure, and coronary artery disease.
+* Recently quit smoking and drinking.
+
+**Current Diagnosis**
+
+* Hypopharyngeal squamous cell carcinoma (a type of throat cancer) located in the left piriform sinus, with multiple lymph nodes involved in the left neck.
+* The tumor is approximately 1.7 cm in size and has spread to lymph nodes on the left side of the neck.
+
+**Symptoms**
+
+* Mild difficulty swallowing (dysphagia) for over a year
+* Painless mass in the left neck for several months
+* Weight loss, mostly due to recent surgery
+
+**Treatment Plan**
+
+* The patient's case will be discussed at Tumor Board to determine the best course of treatment.
+* Concomitant chemoradiation (a combination of chemotherapy and radiation therapy) is likely to be recommended.
+* An MRI has been ordered to complete the staging and assess the extent of the tumor.
+
+**Performance Status**
+
+* The patient's performance status is evaluated at 90%, indicating that he is able to carry out daily activities with some limitations.
