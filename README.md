@@ -128,3 +128,16 @@ results/
     │   ├── consultation_notes_structured_encoded.csv
     │   └── pathology_report_structured_encoded.csv
     └── ...
+
+
+#### Notes on pathology reports:
+- some were done as "Peroperatoire-Intraoperative Consultation"
+    - which means that it was taken during the surgery, sent to pathology labs, from which the real accurate lymph status (positive or negative) and the number of them can be determined. Exmpale: /Data/Yujing/HNC_OutcomePred/Reports_Agents/output_dir/text_summaries/44651/pathology_reports_summary.txt
+
+#### Prompt Engineering
+##### Pathology reports modifications:
+- if I want structured data to encode the following for the summarized pathology report: quantitative or numerical metrics, atient history and status, anatomic site of lesion, 
+... lymph node status: presence/absence, number of lymph nodes, extranodal extension, resection margin: positive or negative, HPV or p16 status: positive or negative, smoking hito
+... ry: never smoked, or 10 years smoking 1 pack a day or more than 10 years, or alcohol consultion. do not make up any information. structure the response. if something was not  
+... inferred from the original report, say not inferred. here's the summarized pathology report: This is a final pathology report for an 88-year-old woman with left alveolar cance
+... r.
