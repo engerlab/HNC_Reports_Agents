@@ -154,6 +154,11 @@ results/
         - Look back on the PATTERNS in summarie_reports.py and the overlaps with the key info included in the prompts itself. How to simplify this to make the prompts more straightforward? Like the prompt modifications above. 
         - If we were to strictly convert the key summarized texts (though structured) into (encoded) tabular data, there risks lots of "missing fields" for the expert-enhanced prompts derieved variables. What to do with this limitation and discuss. 
 
+**SIMPLIFY, SIMPLIFY, SIMPLIFY!!!**
+
+- Improvements to Pathology Report templates: extracting structured 
+    - Inspired by publication by Trhnh et.al. 
+
 - Find "paired" pathology reports and consultation notes of the same patient 
     - at /media/yujing/One Touch3/HNC_Reports/PathologyReports, and /media/yujing/One Touch3/HNC_Reports/ConsultRedacted
     - look at them side by side and think about the inter-connections between these two types of reports: 
