@@ -108,24 +108,36 @@ This project focuses on transforming unstructured clinical reports (e.g., pathol
 ---
 
 ## Installation
-### Virtual Environment Setup
-1. Create a virtual environment:
-   ```bash
-   python3 -m venv env
-   source env/bin/activate
-   ```
-   OR
-   ```bash
-   conda create --name segment2 python=3.8
-   conda activate segment2
-   ```
+### Repository Setup
+```bash
+cd /Data/Yujing/HNC_OutcomePred/Reports_Agents
+git init
+git remote add origin https://github.com/yujing1997/HNC_Reports_Agents.git
+git add .
+git commit -m "Initial commit"
+git push -u origin master
+```
 
-2. Install dependencies:
-   ```bash
-   conda install langchain chromadb openai google-generative-ai tqdm pandas
-   pip install -U langchain-ollama
-   pip install -qU langchain-openai
-   ```
+### Virtual Environment Setup
+```bash
+python3 -m venv env
+source env/bin/activate
+```
+OR
+```bash
+conda activate segment2
+conda install langchain chromadb openai google-generative-ai tqdm pandas
+```
+Add other necessary installations based on your models and embeddings.
+
+### Package Requirements Quirks
+```bash
+conda install pip
+pip install --upgrade pip
+pip install -U langchain-ollama
+pip show langchain-ollama
+pip install -qU langchain-openai
+```
 
 ---
 
