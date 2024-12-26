@@ -1,3 +1,13 @@
-I'm ready to help. What is the pathology report text? 
-
-Please provide the report, and I will extract the structured information according to the specified field labels. If you also specify what the field labels are, that would be great. Otherwise, please let me know what fields you want me to extract (e.g., Diagnosis, Tumor Size, Lymph Node Status, etc.).
+Anatomic_Site_of_Lesion: Upper gingiva / alveolus
+Cancer_Staging: Not inferred
+Pathological_TNM: pT2N0 
+Clinical_TNM: Not inferred
+Tumor_Size: 2.8 x 1.9 x 0.7 cm
+Pathology_Details: Squamous cell carcinoma, well differentiated, with superficial bone invasion
+Lymph_Node_Status:
+  - Presence_Absence: Absence
+  - Number_of_Lymph_Nodes: 32 
+  - Extranodal_Extension: Not identified
+Resection_Margins: Peripheral mucosal margins and deep margin involved by invasive carcinoma
+HPV_Status: Not inferred
+Immunohistochemical_profile: Not inferred

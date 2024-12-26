@@ -1,1 +1,13 @@
-I'm ready to extract the information. What is the pathology report?
+Anatomic_Site_of_Lesion: Midline soft palate
+Cancer_Staging: Not inferred
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Tumor_Size: Not inferred
+Pathology_Details: Invasive, moderately differentiated squamous cell carcinoma
+Lymph_Node_Status:
+  - Presence_Absence: Not inferred
+  - Number_of_Lymph_Nodes: Not inferred
+  - Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+HPV_Status: Not directly stated, but p16 immunostaining negative
+Immunohistochemical_profile: p16 immunostaining negative

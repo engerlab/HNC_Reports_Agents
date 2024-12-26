@@ -1,2 +1,59 @@
 Anatomic_Site_of_Lesion,Cancer_Staging,Pathological_TNM,Clinical_TNM,Tumor_Size,Pathology_Details,Lymph_Node_Status_Presence_Absence,Lymph_Node_Status_Number_of_Lymph_Nodes,Lymph_Node_Status_Extranodal_Extension,Resection_Margins,HPV_Status,Immunohistochemical_profile,Others
-Not Inferred,Not Inferred,Not Inferred,Not Inferred,Not inferred,Not Inferred,Not Inferred,Not inferred,Not Inferred,Not Inferred,Not Inferred,Not Inferred,Not Inferred
+"Right Alveolar Ridge
+Cancer_Staging: Not Inferred
+Pathological_Tnm: Not Inferred
+Clinical_Tnm: Not Inferred
+Tumor_Size: 1.0 X 1.0 X 0.3 Cm
+Pathology_Details: Invasive, Non-Keratinizing Squamous Cell Carcinoma, High-Grade, In Submucosa
+Lymph_Node_Status: 
+  - Presence_Absence: Not Inferred
+  - Number_Of_Lymph_Nodes: Not Inferred
+  - Extranodal_Extension: Not Inferred
+Resection_Margins: Not Inferred
+Hpv_Status: Negative (Inferred From P16 Immunohistochemistry)
+Immunohistochemical_Profile: Ae1/Ae3(+), Ck5/6(+), Ck8/18(+), Ck7(+, Focal), Ck20(-), P63(+), Cd31(-), D2-40(-)","Not Inferred
+Pathological_Tnm: Not Inferred
+Clinical_Tnm: Not Inferred
+Tumor_Size: 1.0 X 1.0 X 0.3 Cm
+Pathology_Details: Invasive, Non-Keratinizing Squamous Cell Carcinoma, High-Grade, In Submucosa
+Lymph_Node_Status: 
+  - Presence_Absence: Not Inferred
+  - Number_Of_Lymph_Nodes: Not Inferred
+  - Extranodal_Extension: Not Inferred
+Resection_Margins: Not Inferred
+Hpv_Status: Negative (Inferred From P16 Immunohistochemistry)
+Immunohistochemical_Profile: Ae1/Ae3(+), Ck5/6(+), Ck8/18(+), Ck7(+, Focal), Ck20(-), P63(+), Cd31(-), D2-40(-)","Not Inferred
+Clinical_Tnm: Not Inferred
+Tumor_Size: 1.0 X 1.0 X 0.3 Cm
+Pathology_Details: Invasive, Non-Keratinizing Squamous Cell Carcinoma, High-Grade, In Submucosa
+Lymph_Node_Status: 
+  - Presence_Absence: Not Inferred
+  - Number_Of_Lymph_Nodes: Not Inferred
+  - Extranodal_Extension: Not Inferred
+Resection_Margins: Not Inferred
+Hpv_Status: Negative (Inferred From P16 Immunohistochemistry)
+Immunohistochemical_Profile: Ae1/Ae3(+), Ck5/6(+), Ck8/18(+), Ck7(+, Focal), Ck20(-), P63(+), Cd31(-), D2-40(-)","Not Inferred
+Tumor_Size: 1.0 X 1.0 X 0.3 Cm
+Pathology_Details: Invasive, Non-Keratinizing Squamous Cell Carcinoma, High-Grade, In Submucosa
+Lymph_Node_Status: 
+  - Presence_Absence: Not Inferred
+  - Number_Of_Lymph_Nodes: Not Inferred
+  - Extranodal_Extension: Not Inferred
+Resection_Margins: Not Inferred
+Hpv_Status: Negative (Inferred From P16 Immunohistochemistry)
+Immunohistochemical_Profile: Ae1/Ae3(+), Ck5/6(+), Ck8/18(+), Ck7(+, Focal), Ck20(-), P63(+), Cd31(-), D2-40(-)","1.0 x 1.0 x 0.3 cm
+Pathology_Details: Invasive, non-keratinizing squamous cell carcinoma, high-grade, in submucosa
+Lymph_Node_Status: 
+  - Presence_Absence: Not inferred
+  - Number_of_Lymph_Nodes: Not inferred
+  - Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+HPV_Status: Negative (inferred from p16 immunohistochemistry)
+Immunohistochemical_profile: AE1/AE3(+), CK5/6(+), CK8/18(+), CK7(+, focal), CK20(-), p63(+), CD31(-), D2-40(-)","Invasive, Non-Keratinizing Squamous Cell Carcinoma, High-Grade, In Submucosa
+Lymph_Node_Status: 
+  - Presence_Absence: Not Inferred
+  - Number_Of_Lymph_Nodes: Not Inferred
+  - Extranodal_Extension: Not Inferred
+Resection_Margins: Not Inferred
+Hpv_Status: Negative (Inferred From P16 Immunohistochemistry)
+Immunohistochemical_Profile: Ae1/Ae3(+), Ck5/6(+), Ck8/18(+), Ck7(+, Focal), Ck20(-), P63(+), Cd31(-), D2-40(-)",Not Inferred,Not inferred,No,Not Inferred,Negative,Ae1,Not Inferred

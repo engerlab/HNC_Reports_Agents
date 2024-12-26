@@ -1,3 +1,13 @@
-I'm ready to extract the information. What is the pathology report? Please provide the text of the report in French or English. I will fill in the fields as specified. 
-
-Please provide the field labels that need to be filled. If not provided, please let me know what type of information you would like me to extract (e.g. diagnosis, tumor size, location, etc.) so I can assist accordingly.
+Anatomic_Site_of_Lesion: Right alveolar ridge
+Cancer_Staging: Not inferred
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Tumor_Size: 1.0 x 1.0 x 0.3 cm
+Pathology_Details: Invasive, non-keratinizing squamous cell carcinoma, high-grade, in submucosa
+Lymph_Node_Status: 
+  - Presence_Absence: Not inferred
+  - Number_of_Lymph_Nodes: Not inferred
+  - Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+HPV_Status: Negative (inferred from p16 immunohistochemistry)
+Immunohistochemical_profile: AE1/AE3(+), CK5/6(+), CK8/18(+), CK7(+, focal), CK20(-), p63(+), CD31(-), D2-40(-)

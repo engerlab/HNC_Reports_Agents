@@ -1,2 +1,59 @@
 Anatomic_Site_of_Lesion,Cancer_Staging,Pathological_TNM,Clinical_TNM,Tumor_Size,Pathology_Details,Lymph_Node_Status_Presence_Absence,Lymph_Node_Status_Number_of_Lymph_Nodes,Lymph_Node_Status_Extranodal_Extension,Resection_Margins,HPV_Status,Immunohistochemical_profile,Others
-Not Inferred,Not Inferred,Not Inferred,Not Inferred,Not inferred,Not Inferred,Not Inferred,Not inferred,Not Inferred,Not Inferred,Not Inferred,Not Inferred,Not Inferred
+"Midline Soft Palate
+Cancer_Staging: Not Inferred
+Pathological_Tnm: Not Inferred
+Clinical_Tnm: Not Inferred
+Tumor_Size: Not Inferred
+Pathology_Details: Invasive, Moderately Differentiated Squamous Cell Carcinoma
+Lymph_Node_Status:
+  - Presence_Absence: Not Inferred
+  - Number_Of_Lymph_Nodes: Not Inferred
+  - Extranodal_Extension: Not Inferred
+Resection_Margins: Not Inferred
+Hpv_Status: Not Directly Stated, But P16 Immunostaining Negative
+Immunohistochemical_Profile: P16 Immunostaining Negative","Not Inferred
+Pathological_Tnm: Not Inferred
+Clinical_Tnm: Not Inferred
+Tumor_Size: Not Inferred
+Pathology_Details: Invasive, Moderately Differentiated Squamous Cell Carcinoma
+Lymph_Node_Status:
+  - Presence_Absence: Not Inferred
+  - Number_Of_Lymph_Nodes: Not Inferred
+  - Extranodal_Extension: Not Inferred
+Resection_Margins: Not Inferred
+Hpv_Status: Not Directly Stated, But P16 Immunostaining Negative
+Immunohistochemical_Profile: P16 Immunostaining Negative","Not Inferred
+Clinical_Tnm: Not Inferred
+Tumor_Size: Not Inferred
+Pathology_Details: Invasive, Moderately Differentiated Squamous Cell Carcinoma
+Lymph_Node_Status:
+  - Presence_Absence: Not Inferred
+  - Number_Of_Lymph_Nodes: Not Inferred
+  - Extranodal_Extension: Not Inferred
+Resection_Margins: Not Inferred
+Hpv_Status: Not Directly Stated, But P16 Immunostaining Negative
+Immunohistochemical_Profile: P16 Immunostaining Negative","Not Inferred
+Tumor_Size: Not Inferred
+Pathology_Details: Invasive, Moderately Differentiated Squamous Cell Carcinoma
+Lymph_Node_Status:
+  - Presence_Absence: Not Inferred
+  - Number_Of_Lymph_Nodes: Not Inferred
+  - Extranodal_Extension: Not Inferred
+Resection_Margins: Not Inferred
+Hpv_Status: Not Directly Stated, But P16 Immunostaining Negative
+Immunohistochemical_Profile: P16 Immunostaining Negative","Not inferred
+Pathology_Details: Invasive, moderately differentiated squamous cell carcinoma
+Lymph_Node_Status:
+  - Presence_Absence: Not inferred
+  - Number_of_Lymph_Nodes: Not inferred
+  - Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+HPV_Status: Not directly stated, but p16 immunostaining negative
+Immunohistochemical_profile: p16 immunostaining negative","Invasive, Moderately Differentiated Squamous Cell Carcinoma
+Lymph_Node_Status:
+  - Presence_Absence: Not Inferred
+  - Number_Of_Lymph_Nodes: Not Inferred
+  - Extranodal_Extension: Not Inferred
+Resection_Margins: Not Inferred
+Hpv_Status: Not Directly Stated, But P16 Immunostaining Negative
+Immunohistochemical_Profile: P16 Immunostaining Negative",Not Inferred,Not inferred,No,Not Inferred,Not Inferred,P16 Immunostaining Negative,Not Inferred

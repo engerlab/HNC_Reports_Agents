@@ -1,15 +1,13 @@
-I'm ready to extract the information. What is the pathology report? 
-
-Please provide the report, and I will fill in the fields as requested. 
-
-Field labels: 
-Tumor_Type: 
-Tumor_Site: 
-Grade: 
-TNM: 
-Lymph Nodes: 
-Margins: 
-Other_Findings: 
-Diagnostic_Impression: 
-Additional_Studies: 
-Tumor_Stage:
+Anatomic_Site_of_Lesion: Left tonsil, left neck 
+Cancer_Staging: Not inferred 
+Pathological_TNM: Not inferred 
+Clinical_TNM: Not inferred 
+Tumor_Size: 1.1 x 0.6 x 0.6 cm 
+Pathology_Details: Invasive, poorly differentiated squamous cell carcinoma 
+Lymph_Node_Status: 
+  - Presence_Absence: Not inferred 
+  - Number_of_Lymph_Nodes: Not inferred 
+  - Extranodal_Extension: Not inferred 
+Resection_Margins: Not inferred 
+HPV_Status: Not inferred 
+Immunohistochemical_profile: P16 positive
