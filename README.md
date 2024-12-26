@@ -129,6 +129,57 @@ results/
     │   └── pathology_report_structured_encoded.csv
     └── ...
 
+### Modified output directory structure 
+output_dir/
+├── text_summaries/
+│   ├── consultation_notes/
+│   │   ├── patient_id1/
+│   │   │   └── consultation_notes_summary.txt
+│   │   └── patient_id2/
+│   │       └── consultation_notes_summary.txt
+│   └── pathology_reports/
+│       ├── patient_id1/
+│       │   └── pathology_reports_summary.txt
+│       └── patient_id2/
+│           └── pathology_reports_summary.txt
+├── embeddings/
+│   ├── consultation_notes/
+│   │   ├── patient_id1/
+│   │   │   └── consultation_notes_embedding.pkl
+│   │   └── patient_id2/
+│   │       └── consultation_notes_embedding.pkl
+│   └── pathology_reports/
+│       ├── patient_id1/
+│       │   └── pathology_reports_embedding.pkl
+│       └── patient_id2/
+│           └── pathology_reports_embedding.pkl
+├── structured_data/
+│   ├── consultation_notes/
+│   │   ├── patient_id1/
+│   │   │   └── consultation_notes_structured.csv
+│   │   └── patient_id2/
+│   │       └── consultation_notes_structured.csv
+│   └── pathology_reports/
+│       ├── patient_id1/
+│       │   └── pathology_reports_structured.csv
+│       └── patient_id2/
+│           └── pathology_reports_structured.csv
+├── structured_data_encoded/
+│   ├── consultation_notes/
+│   │   ├── patient_id1/
+│   │   │   └── consultation_notes_structured_encoded.csv
+│   │   └── patient_id2/
+│   │       └── consultation_notes_structured_encoded.csv
+│   └── pathology_reports/
+│       ├── patient_id1/
+│       │   └── pathology_reports_structured_encoded.csv
+│       └── patient_id2/
+│           └── pathology_reports_structured_encoded.csv
+├── summaries_metadata.csv
+├── tabular_data_metadata.csv
+└── invalid_entries.log
+
+
 
 #### Notes on pathology reports:
 - some were done as "Peroperatoire-Intraoperative Consultation"
