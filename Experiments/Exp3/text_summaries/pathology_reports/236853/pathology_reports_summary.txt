@@ -1,0 +1,3 @@
+I'm ready to extract the information. What is the pathology report? Please provide the text of the report in French or English. I will fill in the fields as specified. 
+
+Please provide the field labels that need to be filled. If not provided, please let me know what type of information you would like me to extract (e.g. diagnosis, tumor size, location, etc.) so I can assist accordingly.

@@ -1,0 +1,3 @@
+I'm ready to help. What is the pathology report text? 
+
+Please provide the report, and I will extract the structured information according to the specified field labels. If you also specify what the field labels are, that would be great. Otherwise, please let me know what fields you want me to extract (e.g., Diagnosis, Tumor Size, Lymph Node Status, etc.).

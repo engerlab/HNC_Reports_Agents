@@ -1,0 +1,15 @@
+I'm ready to extract the information. What is the pathology report? 
+
+Please provide the report, and I will fill in the fields as requested. 
+
+Field labels: 
+Tumor_Type: 
+Tumor_Site: 
+Grade: 
+TNM: 
+Lymph Nodes: 
+Margins: 
+Other_Findings: 
+Diagnostic_Impression: 
+Additional_Studies: 
+Tumor_Stage:

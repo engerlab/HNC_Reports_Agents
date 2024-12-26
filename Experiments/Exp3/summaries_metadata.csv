@@ -1,0 +1,179 @@
+file,report_type,summary
+187518.txt,consultation_notes,"Yes_No_Cannot_Infer: Not inferred
+Grade: Not inferred
+Tumor_Size: 4 x 4.5 x 3.2-cm
+SUV_from_PET_scans: 10.5
+Pack_Years: 20
+Patient_Concerns: Anxiety at night, affecting sleep and other activities
+Recommendations: Concurrent chemoradiation therapy to the bilateral neck
+Follow_up_Actions: Planning CT scan for preparation of the radiation
+Alcohol_Consumption_Consult: Occasional drinker
+HPV_Status: Not inferred
+Charlson_Comorbidity_Score: Not inferred
+ECOG_Performance_Status: Not inferred
+Karnofsky_Performance_Status: 100
+Patient_History_Status_Former_Status_of_Patient: Smoker
+Patient_History_Status_Similar_Conditions: Arthritis, disk problems, cholecystectomy, nasal bridge repair, right forearm fracture
+Patient_History_Status_Previous_Treatments: Antibiotics, remote cholecystectomy, nasal bridge repair, internal fixation for right forearm fracture
+Clinical_Assessments_Radiological_Lesions: Large lymph node at the right jugulodigastric area and other smaller nodes in the same area
+Clinical_Assessments_SUV_from_PET_Scans: 10.5
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: Not inferred
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: 100
+Cancer_Staging_Pathological_TNM: Tx, N2b
+Cancer_Staging_Clinical_TNM: Tx, N2b
+Cancer_Staging_Tumor_Size: 4 x 4.5 x 3.2-cm
+Others: Not inferred"
+170012.txt,consultation_notes,"Yes_No_Cannot_Infer: Not inferred
+Grade: High
+Tumor_Size: 2 x 1.5 x 1.3 centimeters
+SUV_from_PET_scans: Not inferred
+Pack_Years: Not inferred
+Patient_Concerns: Mild xerostomia, vertigo when supine
+Recommendations: Proceed with radiotherapy
+Follow_up_Actions: CT simulation and initiation of radiotherapy
+Alcohol_Consumption_Consult: Nondrinker
+HPV_Status: Not inferred
+Charlson_Comorbidity_Score: Not inferred
+ECOG_Performance_Status: 0
+Karnofsky_Performance_Status: Not inferred
+Patient_History_Status_Former_Status_of_Patient: Nonsmoker
+Patient_History_Status_Similar_Conditions: Left-sided breast cancer, hypothyroidism, anemia, hypercholesterolemia
+Patient_History_Status_Previous_Treatments: Lumpectomy, superficial lobe excision
+Clinical_Assessments_Radiological_Lesions: No evidence of lymphadenopathy or metastatic disease
+Clinical_Assessments_SUV_from_PET_Scans: Not inferred
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: 0
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: Not inferred
+Cancer_Staging_Pathological_TNM: Not inferred
+Cancer_Staging_Clinical_TNM: Not inferred
+Cancer_Staging_Tumor_Size: 2 x 1.5 x 1.3 centimeters
+Others: Not inferred"
+236853.txt,consultation_notes,"Yes_No_Cannot_Infer: Not inferred
+Grade: 3
+Tumor_Size: 4.5cm
+SUV_from_PET_scans: Not inferred
+Pack_Years: Not inferred
+Patient_Concerns: No symptoms at the moment
+Recommendations: Adjuvant radiation to the surgical bed, ipsilateral neck and contralateral level 2 with weekly chemotherapy
+Follow_up_Actions: Not inferred
+Alcohol_Consumption_Consult: Not inferred
+HPV_Status: Negative (p16 is negative)
+Charlson_Comorbidity_Score: Not inferred
+ECOG_Performance_Status: Not inferred
+Karnofsky_Performance_Status: 90
+Patient_History_Status_Former_Status_of_Patient: Not inferred
+Patient_History_Status_Similar_Conditions: Diabetes mellitus type 2, high blood pressure, hypercholesterolemia, benign prostate hyperplasia
+Patient_History_Status_Previous_Treatments: Surgery (right maxillectomy with palatectomy and fibular free flap)
+Clinical_Assessments_Radiological_Lesions: Destructive process in the right hemimaxilla involving the alveolar ridge, hard palate and maxillary sinus wall
+Clinical_Assessments_SUV_from_PET_Scans: Not inferred
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: Not inferred
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: 90
+Cancer_Staging_Pathological_TNM: T3N1M0
+Cancer_Staging_Clinical_TNM: T3N1M0
+Cancer_Staging_Tumor_Size: 4.5cm
+Others: Not inferred"
+consultation_notes_example.txt,consultation_notes,"Yes_No_Cannot_Infer: Not inferred
+Grade: Not inferred
+Tumor_Size: 1.7 cm
+SUV_from_PET_scans: Not inferred
+Pack_Years: Not inferred
+Patient_Concerns: Mild dysphagia, painless mass in the left neck, weight loss
+Recommendations: Concomitant chemoradiation
+Follow_up_Actions: Discuss at Tumor Board, preparation for concomitant chemoradiation
+Alcohol_Consumption_Consult: Ex-drinker
+HPV_Status: Not inferred
+Charlson_Comorbidity_Score: Not inferred
+ECOG_Performance_Status: Not inferred
+Karnofsky_Performance_Status: 90
+Patient_History_Status_Former_Status_of_Patient: Former smoker, former drinker
+Patient_History_Status_Similar_Conditions: Rectal cancer, liver cirrhosis, hypercholesterolemia, high blood pressure, coronary artery disease
+Patient_History_Status_Previous_Treatments: Transanal resection of localized rectal cancer
+Clinical_Assessments_Radiological_Lesions: Thickening of the left piriform sinus, multiple left lymphadenopathy involving levels 3 and 4
+Clinical_Assessments_SUV_from_PET_Scans: Not inferred
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: Not inferred
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: 90
+Cancer_Staging_Pathological_TNM: T2, N2b
+Cancer_Staging_Clinical_TNM: T2, N2b
+Cancer_Staging_Tumor_Size: 1.7 cm
+Others: Not inferred"
+1259610.txt,consultation_notes,"Yes_No_Cannot_Infer: Not inferred
+Grade: Not inferred
+Tumor_Size: 1.7 cm
+SUV_from_PET_scans: Not inferred
+Pack_Years: Not inferred
+Patient_Concerns: Mild dysphagia, painless mass in the left neck, weight loss
+Recommendations: Concomitant chemoradiation
+Follow_up_Actions: Discuss at Tumor Board, MRI to complete staging
+Alcohol_Consumption_Consult: Ex-drinker
+HPV_Status: Not inferred
+Charlson_Comorbidity_Score: Not inferred
+ECOG_Performance_Status: Not inferred
+Karnofsky_Performance_Status: 90
+Patient_History_Status_Former_Status_of_Patient: Former smoker
+Patient_History_Status_Similar_Conditions: Rectal cancer, liver cirrhosis, hypercholesterolemia, high blood pressure, coronary artery disease
+Patient_History_Status_Previous_Treatments: Transanal resection of rectal cancer
+Clinical_Assessments_Radiological_Lesions: Thickening of the left piriform sinus, multiple left lymphadenopathy
+Clinical_Assessments_SUV_from_PET_Scans: Not inferred
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: Not inferred
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: 90
+Cancer_Staging_Pathological_TNM: Not inferred
+Cancer_Staging_Clinical_TNM: T2, N2b
+Cancer_Staging_Tumor_Size: 1.7 cm
+Others: Not inferred"
+62806.txt,consultation_notes,"Yes_No_Cannot_Infer: Not inferred
+Grade: Low-grade
+Tumor_Size: 1.5 cm
+SUV_from_PET_scans: Not inferred
+Pack_Years: 0
+Patient_Concerns: 20-pound weight loss
+Recommendations: Post-op MRI, possible adjuvant external beam radiotherapy or surgical re-resection
+Follow_up_Actions: Schedule post-op MRI
+Alcohol_Consumption_Consult: Non-drinker
+HPV_Status: Not inferred
+Charlson_Comorbidity_Score: Not inferred
+ECOG_Performance_Status: 0
+Karnofsky_Performance_Status: 100
+Patient_History_Status_Former_Status_of_Patient: Non-smoker
+Patient_History_Status_Similar_Conditions: Hypothyroidism, hypercholesterolemia
+Patient_History_Status_Previous_Treatments: Excisional resection
+Clinical_Assessments_Radiological_Lesions: 1.4 x 1.6-cm enhancing lesion in the left buccal space
+Clinical_Assessments_SUV_from_PET_Scans: Not inferred
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: 0
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: 100
+Cancer_Staging_Pathological_TNM: Not inferred
+Cancer_Staging_Clinical_TNM: Not inferred
+Cancer_Staging_Tumor_Size: 1.5 cm
+Others: Not inferred"
+44651.txt,pathology_reports,"I'm ready to help. What is the pathology report text? 
+
+Please provide the report, and I will extract the structured information according to the specified field labels. If you also specify what the field labels are, that would be great. Otherwise, please let me know what fields you want me to extract (e.g., Diagnosis, Tumor Size, Lymph Node Status, etc.)."
+pathology_report_example.txt,pathology_reports,I'm ready to extract the information. What is the pathology report?
+236853.txt,pathology_reports,"I'm ready to extract the information. What is the pathology report? Please provide the text of the report in French or English. I will fill in the fields as specified. 
+
+Please provide the field labels that need to be filled. If not provided, please let me know what type of information you would like me to extract (e.g. diagnosis, tumor size, location, etc.) so I can assist accordingly."
+1244601.txt,pathology_reports,"I'm ready to extract the information. What is the pathology report? 
+
+Please provide the report, and I will fill in the fields as requested. 
+
+Field labels: 
+Tumor_Type: 
+Tumor_Site: 
+Grade: 
+TNM: 
+Lymph Nodes: 
+Margins: 
+Other_Findings: 
+Diagnostic_Impression: 
+Additional_Studies: 
+Tumor_Stage:"
+129701.txt,pathology_reports,"I'm ready to extract the information. What is the pathology report? 
+
+Please provide the report, and I will fill in the fields as instructed. 
+
+If you would like to specify the field labels, please do so, and I'll be happy to assist. Otherwise, I'll wait for your confirmation before proceeding."
+166906.txt,pathology_reports,I'm ready to extract the information. What is the pathology report?

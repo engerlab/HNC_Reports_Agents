@@ -1,0 +1,2 @@
+Anatomic_Site_of_Lesion,Cancer_Staging,Pathological_TNM,Clinical_TNM,Tumor_Size,Pathology_Details,Lymph_Node_Status_Presence_Absence,Lymph_Node_Status_Number_of_Lymph_Nodes,Lymph_Node_Status_Extranodal_Extension,Resection_Margins,HPV_Status,Immunohistochemical_profile,Others
+Not Inferred,Not Inferred,Not Inferred,Not Inferred,Not inferred,Not Inferred,Not Inferred,Not inferred,Not Inferred,Not Inferred,Not Inferred,Not Inferred,Not Inferred

@@ -1,0 +1,5 @@
+I'm ready to extract the information. What is the pathology report? 
+
+Please provide the report, and I will fill in the fields as instructed. 
+
+If you would like to specify the field labels, please do so, and I'll be happy to assist. Otherwise, I'll wait for your confirmation before proceeding.
