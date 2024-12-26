@@ -1,0 +1,34 @@
+Here's a summary of the pathology report:
+
+**Patient Information**
+
+* 88-year-old woman with left alveolar cancer (cancer of the gum)
+
+**Surgical Specimens**
+
+* The patient underwent several surgical procedures, including:
+	+ Partial maxillectomy (removal of part of the upper jaw)
+	+ Lymph node dissection in the left neck
+	+ Excision of a lymph node in the left neck
+
+**Pathology Findings**
+
+* The tumor was located in the upper gingiva/alveolus (gum and surrounding bone) and measured 2.8 x 1.9 x 0.7 cm.
+* The tumor was a well-differentiated squamous cell carcinoma, which is a type of cancer that originates from the lining of the mouth.
+* The tumor had invaded the surrounding bone and had extensive involvement around the tooth socket.
+* The margins of the specimen were involved by invasive carcinoma, meaning that the cancer had spread to the edges of the tissue removed during surgery.
+* No lymph-vascular invasion (spread of cancer through blood vessels or lymphatic vessels) was identified.
+* No perineural invasion (spread of cancer along nerves) was identified.
+
+**Lymph Node Evaluation**
+
+* 31 lymph nodes were examined from the left neck dissection, and none of them showed evidence of cancer.
+* A separate lymph node (node of Stahr) was also excised and found to be free of cancer.
+
+**Pathologic Staging**
+
+* The primary tumor was classified as pT2, meaning that it was more than 2 cm but not more than 4 cm in greatest dimension.
+* There was no regional lymph node metastasis (pN0).
+* Distant metastasis (spread of cancer to other parts of the body) was not applicable.
+
+Overall, the patient has a locally advanced squamous cell carcinoma of the left alveolar ridge with involvement of the surrounding bone and margins. However, there is no evidence of lymph node metastasis or distant spread.

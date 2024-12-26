@@ -1,0 +1,27 @@
+Here is a summary of the report:
+
+**Patient Information**
+
+* A gentleman in his [age] with a history of rectal cancer, liver cirrhosis, hypercholesterolemia, high blood pressure, and coronary artery disease.
+* Recently underwent transanal resection of localized rectal cancer without adjuvant therapy.
+
+**Current Diagnosis**
+
+* Diagnosed with locally advanced hypopharyngeal squamous cell carcinoma (stage T2, N2b).
+* PET scan showed increased uptake in the left piriform sinus and lymphadenopathy in the left neck.
+* CT scan confirmed thickening of the left piriform sinus and multiple lymph nodes in the left neck.
+* Biopsy of a lymph node confirmed squamous cell carcinoma.
+
+**Symptoms**
+
+* Mild dysphagia (difficulty swallowing) for over a year.
+* Painless mass in the left neck for a few months.
+* Weight loss, mostly due to recent surgery.
+
+**Treatment Plan**
+
+* The patient's case will be discussed at Tumor Board to consider treatment options.
+* Concomitant chemoradiation is likely to be recommended.
+* An MRI has been requested to complete staging and assess the extent of the tumor.
+
+Overall, the patient has a locally advanced hypopharyngeal cancer that requires further evaluation and discussion of treatment options.

@@ -1,0 +1,32 @@
+Here's a summary of the report:
+
+**Diagnosis:** Maxillary sinus squamous cell carcinoma (a type of cancer)
+
+**Patient Profile:**
+
+* Age: [Not specified]
+* Male
+* Medical history: Diabetes, high blood pressure, hypercholesterolemia, benign prostate hyperplasia
+* Medications: Finasteride, amlodipine, atorvastatin, metformin
+
+**Cancer Details:**
+
+* Location: Right maxillary sinus
+* Type: Poorly differentiated squamous cell carcinoma (stage T3, N1)
+* Size: 4.5 x 3.5 cm
+* Positive margins and lymphovascular invasion
+* One lymph node was positive for cancer with a deposit of 1.2 cm
+
+**Treatment:**
+
+* Underwent right maxillectomy (surgical removal of the maxilla bone) with palatectomy and fibular free flap on [Date]
+* Recovering well from surgery
+* Recommended adjuvant radiation therapy to the surgical bed, ipsilateral neck, and contralateral level 2, combined with weekly chemotherapy as a radiosensitizer
+
+**Current Status:**
+
+* Patient is in no acute distress and has a performance status of 90
+* No audiology or visual symptoms
+* Physical examination shows a well-healed maxillectomy scar, edentulous (toothless) on the side of surgery, and no lymphadenopathy (swollen lymph nodes)
+
+The patient has agreed to receive the recommended treatment, which aims to reduce the risk of cancer recurrence.

@@ -1,0 +1,30 @@
+Here's a summary of the report:
+
+**Patient Profile**
+
+* Age: Not specified (female)
+* Past medical history: Left-sided breast cancer, hypothyroidism, anemia, and hypercholesterolemia
+* Current condition: Diagnosed with high-grade adenocarcinoma of the right parotid gland
+
+**History of Present Illness**
+
+* Noted a mass at the angle of the mandible in [DATE]
+* Biopsy confirmed undifferentiated carcinoma
+* Underwent right parotid superficial lobe excision on [DATE]
+* Pathology report showed adenocarcinoma with focally positive margins, but no lymphovascular or perineural invasion
+
+**Current Status**
+
+* Patient feels well, with mild xerostomia (dry mouth)
+* Denies dysphagia (difficulty swallowing) or odynophagia (painful swallowing)
+* Well-healed surgical scar, no palpable adenopathy (swollen lymph nodes)
+
+**Treatment Plan**
+
+* Considering adjuvant radiotherapy due to focally positive margins
+* Patient has elected to proceed with radiotherapy after discussion of potential side effects and benefits
+* Due to vertigo when lying supine, patient will be positioned at an incline of approximately 30 degrees during radiation therapy
+
+**Imaging and Laboratory Results**
+
+* CT scans of the neck, chest, and abdomen showed no evidence of metastatic disease or lymphadenopathy

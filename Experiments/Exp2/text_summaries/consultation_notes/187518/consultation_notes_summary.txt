@@ -1,0 +1,29 @@
+Here is a summary of the report:
+
+**Patient Information**
+
+* A [AGE]-year-old woman from Chateauguay with a history of smoking (half a pack per day for 40 years) and occasional alcohol consumption.
+* She has a past medical history of cholecystectomy, nasal bridge repair, right forearm fracture, arthritis, and disk problems.
+* She is allergic to codeine and takes naproxen.
+
+**Current Condition**
+
+* The patient was diagnosed with squamous cell carcinoma of the head and neck with an unknown primary site.
+* She noticed a lump in her right neck three years ago, which was initially thought to be a fat lump. However, the lump increased in size over the past three months, leading to further investigation.
+* A fine-needle aspirate (FNAC) revealed squamous cell carcinoma, and CT and PET scans showed a large lymph node at the right jugulodigastric area with high SUV uptake, indicating cancer.
+
+**Physical Examination**
+
+* The patient has a 5x4-cm mobile neck mass at the right jugulodigastric area, which is firm but not attached to the skin.
+* There are no palpable masses on the contralateral neck, and the oropharynx examination revealed normal mucosa with no visible or palpable lesions.
+
+**Treatment Plan**
+
+* The patient will undergo concurrent chemoradiation therapy to the bilateral neck as the potential site of the primary cancer.
+* She will receive 30 fractions of radiation with concurrent chemotherapy once a week.
+* A consultation with a Head and Neck surgeon has been requested to arrange for panendoscopy to explore the primary site of the disease.
+* The patient will also be seen by Medical Oncology, Psychology, Nutrition, and GI for further evaluation and management.
+
+**Staging**
+
+* The cancer is staged as Tx, N2b, indicating an unknown primary site with metastasis to the lymph nodes in the neck.

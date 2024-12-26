@@ -1,0 +1,11 @@
+Here is a summary of the final pathology report:
+
+The patient underwent two procedures: 
+
+1. A biopsy of the left tonsil, which showed:
+	* Invasive, poorly differentiated squamous cell carcinoma (a type of cancer)
+	* P16 positive, which suggests that the cancer may be related to the human papillomavirus (HPV)
+2. A fine-needle aspiration biopsy (FNAB) of a left neck mass and lymph node, which showed:
+	* Only blood was obtained, with no abnormal cells or tissue present
+
+The report describes the appearance of the tonsil biopsy sample as a fragile, beige-colored fragment, and the FNAB sample as a small amount of black sediment. Overall, the report confirms the presence of squamous cell carcinoma in the left tonsil, but does not find any cancer cells in the neck mass or lymph node.
