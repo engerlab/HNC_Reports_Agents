@@ -1,27 +1,29 @@
-Here is a summary of the report:
+Here's a summary of the report:
 
-**Patient Information**
+**Patient Profile:**
 
-* A gentleman in his [age] with a history of rectal cancer, liver cirrhosis, hypercholesterolemia, high blood pressure, and coronary artery disease.
+* An elderly gentleman with a history of rectal cancer, liver cirrhosis, hypercholesterolemia, high blood pressure, and coronary artery disease.
 * Recently underwent transanal resection of localized rectal cancer without adjuvant therapy.
 
-**Current Diagnosis**
+**Current Diagnosis:**
 
-* Diagnosed with locally advanced hypopharyngeal squamous cell carcinoma (stage T2, N2b).
-* PET scan showed increased uptake in the left piriform sinus and lymphadenopathy in the left neck.
-* CT scan confirmed thickening of the left piriform sinus and multiple lymph nodes in the left neck.
-* Biopsy of a lymph node confirmed squamous cell carcinoma.
+* Hypopharyngeal squamous cell carcinoma (cancer of the lower part of the throat) with lymph node involvement in the left neck.
+* The tumor is approximately 1.7 cm in size and has spread to multiple lymph nodes on the left side of the neck.
 
-**Symptoms**
+**Symptoms:**
 
-* Mild dysphagia (difficulty swallowing) for over a year.
+* Mild difficulty swallowing (dysphagia) for over a year.
 * Painless mass in the left neck for a few months.
 * Weight loss, mostly due to recent surgery.
 
-**Treatment Plan**
+**Physical Examination:**
 
-* The patient's case will be discussed at Tumor Board to consider treatment options.
-* Concomitant chemoradiation is likely to be recommended.
+* The patient is in no acute distress and has a performance status of 90%.
+* Multiple lymph nodes are palpable on the left side of the neck.
+* Flexible nasopharyngolaryngoscopy reveals submucosal fullness and thickening of the post-cricoid space.
+
+**Conclusion:**
+
+* The patient has stage T2, N2b hypopharyngeal cancer.
 * An MRI has been requested to complete staging and assess the extent of the tumor.
-
-Overall, the patient has a locally advanced hypopharyngeal cancer that requires further evaluation and discussion of treatment options.
+* The case will be discussed at Tumor Board to consider treatment options, with concomitant chemoradiation being a likely choice.

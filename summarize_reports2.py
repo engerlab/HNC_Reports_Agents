@@ -46,43 +46,43 @@ logger = logging.getLogger(__name__)
 PATTERNS = {
     # Pathology Reports Structured Prompt Patterns
     "Quantitative_Numerical_Metrics": r"Quantitative/Numerical Metrics:\s*(.*)",
-    "Patient_History_and_Status": r"Patient History and Status:\s*(.*)",
-    "Anatomic_Site_of_Lesion": r"Anatomic Site of Lesion:\s*(.*)",
-    "Lymph_Node_Status_Presence_Absence": r"Presence/Absence:\s*(Presence|Absence|Not inferred)",
-    "Lymph_Node_Status_Number_of_Lymph_Nodes": r"Number of Lymph Nodes:\s*(\d+|Not inferred)",
-    "Lymph_Node_Status_Extranodal_Extension": r"Extranodal Extension:\s*(Yes|No|Not inferred)",
-    "Resection_Margin": r"Resection Margin:\s*(Positive|Negative|Not inferred)",
-    "HPV_or_p16_Status": r"HPV or p16 Status:\s*(Positive|Negative|Not inferred)",
-    "Smoking_History": r"Smoking History:\s*(Never smoked|10 years smoking 1 pack a day|More than 10 years|Not inferred)",
-    "Alcohol_Consumption": r"Alcohol Consumption:\s*(Never drank|Ex-drinker|Drinker|Not inferred)",
-    "Specific_Immunohistochemistry_Biomarkers": r"Specific Immunohistochemistry Biomarkers:\s*(.*|Not inferred)",
+    "Patient_History_and_Status": r"Patient_History_and_Status:\s*(.*)",
+    "Anatomic_Site_of_Lesion": r"Anatomic_Site_of_Lesion:\s*(.*)",
+    "Lymph_Node_Status_Presence_Absence": r"Presence_Absence:\s*(Presence|Absence|Not inferred)",
+    "Lymph_Node_Status_Number_of_Lymph_Nodes": r"Number_of_Lymph_Nodes:\s*(\d+|Not inferred)",
+    "Lymph_Node_Status_Extranodal_Extension": r"Extranodal_Extension:\s*(Yes|No|Not inferred)",
+    "Resection_Margin": r"Resection_Margin:\s*(Positive|Negative|Not inferred)",
+    "HPV_or_p16_Status": r"HPV_or_p16_Status:\s*(Positive|Negative|Not inferred)",
+    "Smoking_History": r"Smoking_History:\s*(Never smoked|10 years smoking 1 pack a day|More than 10 years|Not inferred)",
+    "Alcohol_Consumption": r"Alcohol_Consumption:\s*(Never drank|Ex-drinker|Drinker|Not inferred)",
+    "Specific_Immunohistochemistry_Biomarkers": r"Specific_Immunohistochemistry_Biomarkers:\s*([A-Za-z0-9\+\(\),\s\-]+|Not inferred)",
     "Others": r"Others:\s*(.*)",
 
     # Consultation Notes Structured Prompt Patterns
-    "Yes_No_Cannot_Infer": r"Yes/No/Cannot Infer:\s*(Yes|No|Cannot Infer)",
+    "Yes_No_Cannot_Infer": r"Yes_No_Cannot_Infer:\s*(Yes|No|Cannot Infer)",
     "Grade": r"Grade:\s*([1-3]|Not inferred)",
-    "Tumor_Size": r"Tumor Size:\s*(\d+(\.\d+)?|Not inferred)",
-    "SUV_from_PET_scans": r"SUV from PET scans:\s*(\d+(\.\d+)?|Not inferred)",
-    "Pack_Years": r"Pack Years:\s*(\d+|Not inferred)",
-    "Patient_Concerns": r"Patient Concerns:\s*(.*)",
+    "Tumor_Size": r"Tumor_Size:\s*(\d+(\.\d+)?|Not inferred)",
+    "SUV_from_PET_scans": r"SUV_from_PET_scans:\s*(\d+(\.\d+)?|Not inferred)",
+    "Pack_Years": r"Pack_Years:\s*(\d+|Not inferred)",
+    "Patient_Concerns": r"Patient_Concerns:\s*(.*)",
     "Recommendations": r"Recommendations:\s*(.*)",
-    "Follow_up_Actions": r"Follow-up Actions:\s*(.*)",
-    "Alcohol_Consumption": r"Alcohol Consumption:\s*(Never drank|Ex-drinker|Drinker|Not inferred)",
-    "HPV_Status": r"HPV Status:\s*(Positive|Negative|Not inferred)",
-    "Charlson_Comorbidity_Score": r"Charlson Comorbidity Score:\s*(\d+|Not inferred)",
-    "ECOG_Performance_Status": r"ECOG Performance Status:\s*(0|1|4|Not inferred)",
-    "Karnofsky_Performance_Status": r"Karnofsky Performance Status:\s*(100|0|Not inferred)",
-    "Patient_History_Status_Former_Status_of_Patient": r"Former Status of Patient:\s*(.*)",
-    "Patient_History_Status_Similar_Conditions": r"Similar Conditions:\s*(.*)",
-    "Patient_History_Status_Previous_Treatments": r"Previous Treatments:\s*(Radiation|Chemotherapy|Surgery|None|Not inferred)",
-    "Clinical_Assessments_Radiological_Lesions": r"Radiological Lesions:\s*(.*)",
-    "Clinical_Assessments_SUV_from_PET_Scans": r"SUV from PET Scans:\s*(\d+(\.\d+)?|Not inferred)",
-    "Performance_Comorbidity_Scores_Charlson_Comorbidity_Score": r"Charlson Comorbidity Score:\s*(\d+|Not inferred)",
-    "Performance_Comorbidity_Scores_ECOG_Performance_Status": r"ECOG Performance Status:\s*(0|1|4|Not inferred)",
-    "Performance_Comorbidity_Scores_Karnofsky_Performance_Status": r"Karnofsky Performance Status:\s*(100|0|Not inferred)",
-    "Cancer_Staging_Pathological_TNM": r"Pathological TNM \(pTNM\):\s*([T]\d+[N]\d+[M]\d+|Not inferred)",
-    "Cancer_Staging_Clinical_TNM": r"Clinical TNM:\s*([T]\d+[N]\d+[M]\d+|Not inferred)",
-    "Cancer_Staging_Tumor_Size": r"Tumor Size:\s*(\d+(\.\d+)?|Not inferred)"
+    "Follow_up_Actions": r"Follow_up_Actions:\s*(.*)",
+    "Alcohol_Consumption_Consult": r"Alcohol_Consumption:\s*(Never drank|Ex-drinker|Drinker|Not inferred)",
+    "HPV_Status": r"HPV_Status:\s*(Positive|Negative|Not inferred)",
+    "Charlson_Comorbidity_Score": r"Charlson_Comorbidity_Score:\s*(\d+|Not inferred)",
+    "ECOG_Performance_Status": r"ECOG_Performance_Status:\s*(0|1|4|Not inferred)",
+    "Karnofsky_Performance_Status": r"Karnofsky_Performance_Status:\s*(100|0|Not inferred)",
+    "Patient_History_Status_Former_Status_of_Patient": r"Patient_History_Status_Former_Status_of_Patient:\s*(.*)",
+    "Patient_History_Status_Similar_Conditions": r"Patient_History_Status_Similar_Conditions:\s*(.*)",
+    "Patient_History_Status_Previous_Treatments": r"Patient_History_Status_Previous_Treatments:\s*(Radiation|Chemotherapy|Surgery|None|Not inferred)",
+    "Clinical_Assessments_Radiological_Lesions": r"Clinical_Assessments_Radiological_Lesions:\s*(.*)",
+    "Clinical_Assessments_SUV_from_PET_Scans": r"Clinical_Assessments_SUV_from_PET_Scans:\s*(\d+(\.\d+)?|Not inferred)",
+    "Performance_Comorbidity_Scores_Charlson_Comorbidity_Score": r"Performance_Comorbidity_Scores_Charlson_Comorbidity_Score:\s*(\d+|Not inferred)",
+    "Performance_Comorbidity_Scores_ECOG_Performance_Status": r"Performance_Comorbidity_Scores_ECOG_Performance_Status:\s*(0|1|4|Not inferred)",
+    "Performance_Comorbidity_Scores_Karnofsky_Performance_Status": r"Performance_Comorbidity_Scores_Karnofsky_Performance_Status:\s*(100|0|Not inferred)",
+    "Cancer_Staging_Pathological_TNM": r"Cancer_Staging_Pathological_TNM:\s*([T]\d+[N]\d+[M]\d+|Not inferred)",
+    "Cancer_Staging_Clinical_TNM": r"Cancer_Staging_Clinical_TNM:\s*([T]\d+[N]\d+[M]\d+|Not inferred)",
+    "Cancer_Staging_Tumor_Size": r"Cancer_Staging_Tumor_Size:\s*(\d+(\.\d+)?|Not inferred)"
 }
 
 def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
@@ -122,7 +122,7 @@ def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
             "Patient_Concerns",
             "Recommendations",
             "Follow_up_Actions",
-            "Alcohol_Consumption",
+            "Alcohol_Consumption_Consult",
             "HPV_Status",
             "Charlson_Comorbidity_Score",
             "ECOG_Performance_Status",
@@ -195,7 +195,7 @@ def validate_extracted_data(data: Dict[str, Any], report_type: str) -> bool:
             "Patient_Concerns",
             "Recommendations",
             "Follow_up_Actions",
-            "Alcohol_Consumption",
+            "Alcohol_Consumption_Consult",
             "HPV_Status",
             "Charlson_Comorbidity_Score",
             "ECOG_Performance_Status",
@@ -226,9 +226,9 @@ def validate_extracted_data(data: Dict[str, Any], report_type: str) -> bool:
 
     # Specific validations
     if report_type == "pathology_reports":
-        # Example: Validate that "Quantitative/Numerical_Metrics" is a number or 'Not inferred'
+        # Example: Validate that "Quantitative_Numerical_Metrics" is a number or 'Not inferred'
         if data["Quantitative_Numerical_Metrics"] != "Not inferred":
-            if not re.match(r"^\d+(\.\d+)?$", data["Quantitative_Numerical_Metrics"]):
+            if not re.match(r"^\d+(\.\d+)?\s*(mm|cm|in)?$", data["Quantitative_Numerical_Metrics"]):
                 logger.debug(f"Invalid Quantitative/Numerical Metrics value: {data['Quantitative_Numerical_Metrics']}")
                 return False
 
@@ -281,9 +281,9 @@ def normalize_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
         pd.DataFrame: Cleaned and normalized data.
     """
     if report_type == "pathology_reports":
-        # Convert Quantitative/Numerical Metrics to float
+        # Convert Quantitative_Numerical_Metrics to float
         df['Quantitative_Numerical_Metrics'] = pd.to_numeric(df['Quantitative_Numerical_Metrics'], errors='coerce')
-        df['Quantitative_Numerical_Metrics'] = df['Quantitative_Numerical_Metrics'].apply(lambda x: x if not pd.isna(x) else "Not inferred")
+        # Do NOT replace NaN with "Not inferred"
 
         # Normalize Categorical Fields
         categorical_fields = [
@@ -297,24 +297,21 @@ def normalize_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
             "Alcohol_Consumption"
         ]
         for field in categorical_fields:
-            df[field] = df[field].str.title().fillna("Not inferred")
+            df[field] = df[field].str.title().fillna("Missing")
 
         # Handle Specific Immunohistochemistry Biomarkers
-        df['Specific_Immunohistochemistry_Biomarkers'] = df['Specific_Immunohistochemistry_Biomarkers'].fillna("Not inferred")
-
-        # Handle "Not inferred"
-        df.replace("Not inferred", "Missing", inplace=True)
+        df['Specific_Immunohistochemistry_Biomarkers'] = df['Specific_Immunohistochemistry_Biomarkers'].fillna("Missing")
 
     elif report_type == "consultation_notes":
         # Convert numerical fields
         numerical_fields = ["Grade", "Tumor_Size", "SUV_from_PET_scans", "Pack_Years", "Charlson_Comorbidity_Score", "ECOG_Performance_Status", "Karnofsky_Performance_Status"]
         for field in numerical_fields:
-            df[field] = pd.to_numeric(df[field], errors='coerce').fillna("Missing")
+            df[field] = pd.to_numeric(df[field], errors='coerce').fillna(pd.NA)
 
         # Normalize Categorical Fields
         categorical_fields = [
             "Yes_No_Cannot_Infer",
-            "Alcohol_Consumption",
+            "Alcohol_Consumption_Consult",
             "HPV_Status",
             "Patient_History_Status_Former_Status_of_Patient",
             "Patient_History_Status_Similar_Conditions",
@@ -332,10 +329,92 @@ def normalize_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
         for field in categorical_fields:
             df[field] = df[field].str.title().fillna("Missing")
 
-        # Handle "Missing"
-        df.replace("Missing", "Missing", inplace=True)
-
     return df
+
+def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
+    """
+    Encodes structured data for survival analysis models.
+
+    Args:
+        df (pd.DataFrame): Structured data DataFrame.
+        report_type (str): Type of the report ('pathology_reports' or 'consultation_notes').
+
+    Returns:
+        pd.DataFrame: Encoded DataFrame ready for survival analysis.
+    """
+    df_encoded = df.copy()
+
+    # Define categorical and numerical columns based on report type
+    if report_type == "pathology_reports":
+        categorical_cols = [
+            "Patient_History_and_Status",
+            "Anatomic_Site_of_Lesion",
+            "Lymph_Node_Status_Presence_Absence",
+            "Lymph_Node_Status_Extranodal_Extension",
+            "Resection_Margin",
+            "HPV_or_p16_Status",
+            "Smoking_History",
+            "Alcohol_Consumption",
+            "Specific_Immunohistochemistry_Biomarkers",
+            "Others"
+        ]
+        numerical_cols = [
+            "Quantitative_Numerical_Metrics"
+        ]
+    elif report_type == "consultation_notes":
+        categorical_cols = [
+            "Yes_No_Cannot_Infer",
+            "Alcohol_Consumption_Consult",
+            "HPV_Status",
+            "Patient_History_Status_Former_Status_of_Patient",
+            "Patient_History_Status_Similar_Conditions",
+            "Patient_History_Status_Previous_Treatments",
+            "Clinical_Assessments_Radiological_Lesions",
+            "Clinical_Assessments_SUV_from_PET_Scans",
+            "Performance_Comorbidity_Scores_Charlson_Comorbidity_Score",
+            "Performance_Comorbidity_Scores_ECOG_Performance_Status",
+            "Performance_Comorbidity_Scores_Karnofsky_Performance_Status",
+            "Cancer_Staging_Pathological_TNM",
+            "Cancer_Staging_Clinical_TNM",
+            "Cancer_Staging_Tumor_Size",
+            "Others"
+        ]
+        numerical_cols = [
+            "Grade",
+            "Tumor_Size",
+            "SUV_from_PET_scans",
+            "Pack_Years",
+            "Charlson_Comorbidity_Score",
+            "ECOG_Performance_Status",
+            "Karnofsky_Performance_Status"
+        ]
+    else:
+        logger.warning(f"Unknown report type for encoding: {report_type}")
+        return df_encoded
+
+    # Handle missing numerical data
+    numerical_imputer = SimpleImputer(strategy='median')
+    if numerical_cols:
+        # The numerical columns already have pd.NA where data is missing
+        df_encoded[numerical_cols] = numerical_imputer.fit_transform(df_encoded[numerical_cols])
+
+    # Encode Categorical Variables using One-Hot Encoding
+    encoder = OneHotEncoder(drop='first', sparse=False, handle_unknown='ignore')
+    if categorical_cols:
+        encoded_categorical = encoder.fit_transform(df_encoded[categorical_cols])
+
+        # Create DataFrame for Encoded Categorical Variables
+        encoded_categorical_df = pd.DataFrame(
+            encoded_categorical,
+            columns=encoder.get_feature_names_out(categorical_cols)
+        )
+    else:
+        encoded_categorical_df = pd.DataFrame()
+
+    # Combine Numerical and Encoded Categorical Data
+    df_final = pd.concat([pd.DataFrame(df_encoded[numerical_cols], columns=numerical_cols).reset_index(drop=True), encoded_categorical_df], axis=1)
+
+    return df_final
 
 class ReportSummarizer:
     """
@@ -376,6 +455,8 @@ class ReportSummarizer:
 
         # Initialize the appropriate model and embeddings
         if self.model_type == "local":
+            # Update the model name based on available models in Ollama
+            # Replace "llama-3.3" with the exact model name as listed by `ollama list`
             self.model = ChatOllama(model="llama3.3:latest", temperature=self.temperature)
             logger.info(f"Initialized Llama 3.3 model.")
             self.embeddings = OllamaEmbeddings(model="nomic-embed-text")
@@ -477,7 +558,7 @@ class ReportSummarizer:
         elif report_type == "consultation_notes":
             categorical_cols = [
                 "Yes_No_Cannot_Infer",
-                "Alcohol_Consumption",
+                "Alcohol_Consumption_Consult",
                 "HPV_Status",
                 "Patient_History_Status_Former_Status_of_Patient",
                 "Patient_History_Status_Similar_Conditions",
@@ -508,12 +589,8 @@ class ReportSummarizer:
         # Handle missing numerical data
         numerical_imputer = SimpleImputer(strategy='median')
         if numerical_cols:
-            # Replace 'Missing' with NaN for imputation
-            df_encoded[numerical_cols] = df_encoded[numerical_cols].replace("Missing", pd.NA)
+            # The numerical columns already have pd.NA where data is missing
             df_encoded[numerical_cols] = numerical_imputer.fit_transform(df_encoded[numerical_cols])
-
-        # Replace 'Missing' with a placeholder for encoding (already handled)
-        df_encoded.replace("Missing", "Missing", inplace=True)
 
         # Encode Categorical Variables using One-Hot Encoding
         encoder = OneHotEncoder(drop='first', sparse=False, handle_unknown='ignore')
@@ -629,6 +706,7 @@ class ReportSummarizer:
                         structured_path = os.path.join(paths["structured_data"], structured_filename)
                         try:
                             structured_df = pd.DataFrame([extracted])
+                            structured_df = normalize_data(structured_df, report_type)
                             structured_df.to_csv(structured_path, index=False)
                             logger.info(f"Structured data saved to {structured_path}")
                         except Exception as e:
@@ -640,7 +718,7 @@ class ReportSummarizer:
                         encoded_filename = f"{report_type}_structured_encoded.csv"
                         encoded_path = os.path.join(paths["structured_data_encoded"], encoded_filename)
                         try:
-                            encoded_df = self.encode_structured_data(structured_df, report_type)
+                            encoded_df = encode_structured_data(structured_df, report_type)
                             encoded_df.to_csv(encoded_path, index=False)
                             logger.info(f"Encoded structured data saved to {encoded_path}")
                         except Exception as e:

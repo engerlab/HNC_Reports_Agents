@@ -2,33 +2,31 @@ Here's a summary of the pathology report:
 
 **Patient Information**
 
-* 88-year-old woman with left alveolar cancer (cancer of the gum)
+* 88-year-old woman with left alveolar cancer (cancer of the upper gum)
 
-**Surgical Specimens**
+**Specimens Examined**
 
-* The patient underwent several surgical procedures, including:
-	+ Partial maxillectomy (removal of part of the upper jaw)
-	+ Lymph node dissection in the left neck
-	+ Excision of a lymph node in the left neck
+1. Multiple frozen sections (#1-6) from various sites in the mouth, including anterior lateral, anterior medial, medial palate, lateral cheek, posterior retromolar trigone, and deep margin.
+2. Left superior alveolar mass (#7)
+3. Left neck dissection, levels I, II, III (#8)
+4. Left node of Stahr (#9)
 
-**Pathology Findings**
+**Results**
 
-* The tumor was located in the upper gingiva/alveolus (gum and surrounding bone) and measured 2.8 x 1.9 x 0.7 cm.
-* The tumor was a well-differentiated squamous cell carcinoma, which is a type of cancer that originates from the lining of the mouth.
-* The tumor had invaded the surrounding bone and had extensive involvement around the tooth socket.
-* The margins of the specimen were involved by invasive carcinoma, meaning that the cancer had spread to the edges of the tissue removed during surgery.
-* No lymph-vascular invasion (spread of cancer through blood vessels or lymphatic vessels) was identified.
-* No perineural invasion (spread of cancer along nerves) was identified.
-
-**Lymph Node Evaluation**
-
-* 31 lymph nodes were examined from the left neck dissection, and none of them showed evidence of cancer.
-* A separate lymph node (node of Stahr) was also excised and found to be free of cancer.
+* Frozen sections (#1-6): Negative for neoplasia (cancer) at all margins
+* Specimen #7 (Left superior alveolar mass):
+	+ Tumor size: 2.8 x 1.9 x 0.7 cm
+	+ Histologic type: Squamous cell carcinoma, well-differentiated
+	+ Microscopic tumor extension: Extensive involvement around tooth socket with superficial bone invasion
+	+ Margins: Involved by invasive carcinoma (both peripheral mucosal and deep margins)
+* Specimen #8 (Left neck dissection):
+	+ 31 lymph nodes examined, none involved by cancer
+	+ Submandibular gland: No significant pathological alteration
+* Specimen #9 (Left node of Stahr): Single lymph node examined, not involved by cancer
 
 **Pathologic Staging**
 
-* The primary tumor was classified as pT2, meaning that it was more than 2 cm but not more than 4 cm in greatest dimension.
-* There was no regional lymph node metastasis (pN0).
-* Distant metastasis (spread of cancer to other parts of the body) was not applicable.
+* Primary tumor (pT): pT2 (tumor more than 2 cm but not more than 4 cm in greatest dimension)
+* Regional lymph nodes (pN): pN0 (no regional lymph node metastasis)
 
-Overall, the patient has a locally advanced squamous cell carcinoma of the left alveolar ridge with involvement of the surrounding bone and margins. However, there is no evidence of lymph node metastasis or distant spread.
+Overall, the report suggests that the patient has a well-differentiated squamous cell carcinoma of the upper gum with extensive local involvement and superficial bone invasion. The cancer was found to involve both peripheral mucosal and deep margins, but no lymph node metastases were detected in the neck dissection specimens.

@@ -1,16 +1,18 @@
 Here is a summary of the pathology report:
 
-**Patient Information**: A 74-year-old man with a tumor in his right maxillary sinus/nasal cavity, scheduled for surgery.
+**Patient Information:**
+A 74-year-old man with a tumor in his right maxillary sinus/nasal cavity, scheduled for surgery.
 
-**Biopsy Results**: The biopsy consists of 3 tissue fragments from the right alveolar ridge. The diagnosis is:
+**Biopsy Results:**
 
-* **Invasive, non-keratinizing squamous cell carcinoma**, a type of cancer that is high-grade (aggressive) and located in the submucosa (a layer of tissue beneath the mucous membrane).
-* No perineural invasion (cancer spreading to nerves) was identified.
-* Lymphovascular invasion (cancer spreading to blood vessels or lymphatic vessels) is suspicious, but not confirmed.
-* Additional tests:
-	+ p16 immunohistochemistry: negative
-	+ EBV probe (EBER): negative
+* The biopsy was taken from the right alveolar ridge.
+* The diagnosis is an invasive, non-keratinizing squamous cell carcinoma (a type of skin cancer) that is high-grade and located in the submucosa.
+* There is no evidence of perineural invasion (cancer spreading to nerves), but lymphovascular invasion (cancer spreading through blood or lymph vessels) is suspected.
+* Additional tests were negative for certain markers, including p16 and EBV (Epstein-Barr virus).
 
-**Tumor Characteristics**: The tumor has focal intercellular bridges and an immunohistochemical profile that is consistent with squamous cell carcinoma. The overlying squamous epithelium is not involved.
+**Tumor Characteristics:**
 
-Overall, the report indicates that the patient has a high-grade, invasive cancer in his right alveolar ridge, which will require prompt surgical attention.
+* The tumor has focal intercellular bridges and an immunohistochemical profile that suggests it is a squamous cell carcinoma.
+* The overlaying squamous epithelium (the top layer of skin) is not involved.
+
+Overall, the report indicates that the patient has a high-grade, invasive cancer in his right alveolar ridge, which requires prompt surgical attention.

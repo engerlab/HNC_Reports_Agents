@@ -1,0 +1,25 @@
+Yes_No_Cannot_Infer: Not inferred
+Grade: High
+Tumor_Size: 2 x 1.5 x 1.3 centimeters
+SUV_from_PET_scans: Not inferred
+Pack_Years: Not inferred
+Patient_Concerns: Mild xerostomia, vertigo when supine
+Recommendations: Proceed with radiotherapy
+Follow_up_Actions: CT simulation and initiation of radiotherapy
+Alcohol_Consumption_Consult: Nondrinker
+HPV_Status: Not inferred
+Charlson_Comorbidity_Score: Not inferred
+ECOG_Performance_Status: 0
+Karnofsky_Performance_Status: Not inferred
+Patient_History_Status_Former_Status_of_Patient: Nonsmoker
+Patient_History_Status_Similar_Conditions: Left-sided breast cancer, hypothyroidism, anemia, hypercholesterolemia
+Patient_History_Status_Previous_Treatments: Lumpectomy, superficial lobe excision
+Clinical_Assessments_Radiological_Lesions: No evidence of lymphadenopathy or metastatic disease
+Clinical_Assessments_SUV_from_PET_Scans: Not inferred
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: 0
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: Not inferred
+Cancer_Staging_Pathological_TNM: Not inferred
+Cancer_Staging_Clinical_TNM: Not inferred
+Cancer_Staging_Tumor_Size: 2 x 1.5 x 1.3 centimeters
+Others: Not inferred

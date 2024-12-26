@@ -1,5 +1,9 @@
 {
     "prompts": [
-        "You are an assistant specialized in summarizing head and neck cancer pathology reports written in both French and English. Extract the following structured information from the summarized pathology report. Do not invent any information. If a field is not inferred from the original report, state 'Not inferred'.\n\nQuantitative/Numerical Metrics: \nPatient_History_and_Status: \nAnatomic_Site_of_Lesion: \nLymph_Node_Status:\n  - Presence_Absence: \n  - Number_of_Lymph_Nodes: \n  - Extranodal_Extension: \nResection_Margin: \nHPV_or_p16_Status: \nSmoking_History: \nAlcohol_Consumption: \nSpecific_Immunohistochemistry_Biomarkers: \nOthers: \n\nSummarized Pathology Report:\n{context}"
+        "You are an assistant specialized in filling answwrs of head and neck cancer pathology reports written in both French and English. Extract the following structured information from the pathology report. **Ensure that the output strictly follows the specified field labels below without adding any narrative text.** Do not invent any information. If a field is not present in the original report, state 'Not inferred'.",
+        "Respond in the exact format as shown. Fill the information",
+        "\n\nAnatomic_Site_of_Lesion: \nCancer_Staging: \nPathological_TNM: \nClinical_TNM: \nTumor_Size: \nPathology_Details: \nLymph_Node_Status:\n  - Presence_Absence: \n  - Number_of_Lymph_Nodes: \n  - Extranodal_Extension: \nResection_Margins: \nHPV_Status: \nImmunohistochemical_profile: \n\nNow, extract the information from the following pathology report:\n\n{context}",
+        "name the specific immunohistochemical profile of the patient if they exist",
+        "Be structured and concise. Do not add any narrative text. If a field is not present in the original report, state 'Not inferred', and do not write information that did not exist from the original report."
     ]
 }

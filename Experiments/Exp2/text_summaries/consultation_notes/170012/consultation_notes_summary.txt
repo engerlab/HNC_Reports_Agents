@@ -1,30 +1,23 @@
-Here's a summary of the report:
+Here is a summary of the report:
 
-**Patient Profile**
+**Patient Information**
 
-* Age: Not specified (female)
-* Past medical history: Left-sided breast cancer, hypothyroidism, anemia, and hypercholesterolemia
-* Current condition: Diagnosed with high-grade adenocarcinoma of the right parotid gland
+* A [AGE]-year-old female with a history of left-sided breast cancer, hypothyroidism, anemia, and hypercholesterolemia.
+* She is a nonsmoker and nondrinker, living alone in a seniors' home.
 
-**History of Present Illness**
+**Current Illness**
 
-* Noted a mass at the angle of the mandible in [DATE]
-* Biopsy confirmed undifferentiated carcinoma
-* Underwent right parotid superficial lobe excision on [DATE]
-* Pathology report showed adenocarcinoma with focally positive margins, but no lymphovascular or perineural invasion
-
-**Current Status**
-
-* Patient feels well, with mild xerostomia (dry mouth)
-* Denies dysphagia (difficulty swallowing) or odynophagia (painful swallowing)
-* Well-healed surgical scar, no palpable adenopathy (swollen lymph nodes)
+* The patient was diagnosed with high-grade adenocarcinoma of the right parotid gland after a mass was found at the angle of the mandible.
+* She underwent a superficial lobe excision, but the margins were focally positive for tumor cells.
+* The patient is experiencing mild xerostomia (dry mouth) but no other significant symptoms.
 
 **Treatment Plan**
 
-* Considering adjuvant radiotherapy due to focally positive margins
-* Patient has elected to proceed with radiotherapy after discussion of potential side effects and benefits
-* Due to vertigo when lying supine, patient will be positioned at an incline of approximately 30 degrees during radiation therapy
+* The patient has elected to undergo adjuvant radiotherapy to treat the cancer.
+* Due to vertigo when lying supine, the patient will be positioned at an incline of approximately 30 degrees during radiation therapy.
+* A CT simulation will be performed in this position, and radiation therapy will begin shortly thereafter.
 
-**Imaging and Laboratory Results**
+**Overall Assessment**
 
-* CT scans of the neck, chest, and abdomen showed no evidence of metastatic disease or lymphadenopathy
+* The patient is a well-appearing lady with no acute distress, and her performance status is good (ECOG 0).
+* There is no evidence of metastatic disease or lymphadenopathy on imaging studies.

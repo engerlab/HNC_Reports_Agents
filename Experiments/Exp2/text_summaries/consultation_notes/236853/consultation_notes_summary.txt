@@ -1,32 +1,27 @@
 Here's a summary of the report:
 
-**Diagnosis:** Maxillary sinus squamous cell carcinoma (a type of cancer)
+**Patient Information:**
 
-**Patient Profile:**
+* A [AGE]-year-old gentleman with a history of diabetes, high blood pressure, hypercholesterolemia, and benign prostate hyperplasia.
+* Recently underwent dental extraction, which led to the discovery of a tumor in the right maxillary sinus.
 
-* Age: [Not specified]
-* Male
-* Medical history: Diabetes, high blood pressure, hypercholesterolemia, benign prostate hyperplasia
-* Medications: Finasteride, amlodipine, atorvastatin, metformin
+**Diagnosis:**
 
-**Cancer Details:**
-
-* Location: Right maxillary sinus
-* Type: Poorly differentiated squamous cell carcinoma (stage T3, N1)
-* Size: 4.5 x 3.5 cm
-* Positive margins and lymphovascular invasion
-* One lymph node was positive for cancer with a deposit of 1.2 cm
+* Maxillary sinus squamous cell carcinoma (a type of cancer)
+* Tumor was locally advanced, involving the entire hemimaxilla, hard palate, and maxillary sinus wall, with extension into the orbit and periorbital tissue.
+* Biopsy confirmed high-grade carcinoma, and further testing showed positive lymph nodes and possible involvement of the prostate.
 
 **Treatment:**
 
-* Underwent right maxillectomy (surgical removal of the maxilla bone) with palatectomy and fibular free flap on [Date]
-* Recovering well from surgery
-* Recommended adjuvant radiation therapy to the surgical bed, ipsilateral neck, and contralateral level 2, combined with weekly chemotherapy as a radiosensitizer
+* Underwent a right maxillectomy (surgical removal of the tumor) with palatectomy and reconstruction using a fibular free flap.
+* Pathology report showed poorly differentiated squamous cell carcinoma with positive margins and lymphovascular invasion.
 
 **Current Status:**
 
-* Patient is in no acute distress and has a performance status of 90
-* No audiology or visual symptoms
-* Physical examination shows a well-healed maxillectomy scar, edentulous (toothless) on the side of surgery, and no lymphadenopathy (swollen lymph nodes)
+* Patient is recovering well from surgery, with no current symptoms.
+* Physical examination shows a well-healed scar, clear oral cavity and oropharynx, and no lymphadenopathy (enlarged lymph nodes).
 
-The patient has agreed to receive the recommended treatment, which aims to reduce the risk of cancer recurrence.
+**Recommended Treatment:**
+
+* Adjuvant radiation therapy to the surgical bed, ipsilateral neck, and contralateral level 2, combined with weekly chemotherapy as a radiosensitizer.
+* Patient has agreed to receive treatment after being informed of the rationale and potential side effects.

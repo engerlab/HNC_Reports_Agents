@@ -1,13 +1,28 @@
 Here is a summary of the report:
 
-**Diagnosis:** Hypopharyngeal cancer (squamous cell carcinoma) in an elderly gentleman.
+**Patient Profile:**
 
-**Medical History:** The patient has a history of rectal cancer, liver cirrhosis, high blood pressure, coronary artery disease, and hypercholesterolemia. He recently underwent surgery for rectal cancer and was found to have hypopharyngeal cancer during staging.
+* An elderly gentleman with a history of rectal cancer, liver cirrhosis, high blood pressure, coronary artery disease, and hypercholesterolemia.
+* He quit smoking 4 years ago and recently stopped drinking.
 
-**Symptoms:** The patient experiences mild difficulty swallowing (dysphagia) and has a painless mass in his left neck. He also reports weight loss, mostly due to his recent surgery.
+**Current Diagnosis:**
 
-**Physical Examination:** The patient has multiple lymph nodes in his left neck and a small lymph node in the supraclavicular region. A flexible nasopharyngolaryngoscopy reveals thickening of the postcricoid space and left piriform sinus, with pooling of secretions.
+* Locally advanced hypopharyngeal squamous cell carcinoma (stage T2, N2b) with a tumor in the left piriform sinus extending to the postcricoid space and multiple lymph nodes in the left neck.
+* The cancer was discovered during staging for his recent rectal cancer surgery.
 
-**Staging:** The cancer is staged as T2, N2b, indicating a moderately sized tumor with multiple lymph nodes involved on one side of the neck.
+**Symptoms:**
 
-**Treatment Plan:** The patient's case will be discussed at Tumor Board to consider treatment options. Concomitant chemoradiation is likely, and preparation for this treatment will begin. An MRI has been requested to complete staging and assess the extent of the tumor.
+* Mild difficulty swallowing (dysphagia) for over a year
+* Painless mass in the left neck for several months
+* Weight loss, mostly due to recent surgery
+
+**Physical Examination:**
+
+* Multiple lymph nodes in the left neck and one in the supraclavicular region
+* Submucosal fullness and thickening of the postcricoid space and left piriform sinus on flexible nasopharyngolaryngoscopy
+* Vocal cords are mobile
+
+**Next Steps:**
+
+* An MRI has been requested to complete staging and assess the tumor's extent.
+* The case will be discussed at Tumor Board to consider treatment options, with concomitant chemoradiation being a likely choice.
