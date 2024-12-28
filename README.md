@@ -72,6 +72,14 @@ This project focuses on transforming unstructured clinical reports (e.g., pathol
 └── invalid_entries.log
 ```
 
+## Scripts 
+- `summarize_reports3.py`
+- `run_local.sh`: testing scripts with ollama llama3.3:latest
+- `run_local_all.sh`: running for all pathology reports & consultation notes
+   - input parent dir: /Data/Yujing/HNC_OutcomePred/HNC_Reports
+   - results output dir: /Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp1
+
+
 ---
 
 ## Workflow
