@@ -12,13 +12,9 @@ This project focuses on transforming unstructured clinical reports (e.g., pathol
 │   ├── consultation_notes/
 │   │   ├── consultation_notes_example1.txt
 │   │   ├── consultation_notes_example2.txt
-│   │   └── subfolder/
-│   │       └── consultation_notes_example3.txt
 │   └── pathology_reports/
 │       ├── pathology_report_example1.txt
 │       ├── pathology_report_example2.txt
-│       └── subfolder/
-│           └── pathology_report_example3.txt
 ├── prompts/
 │   ├── prompt_consultation_notes.json
 │   └── prompt_pathology_report.json
@@ -73,7 +69,7 @@ This project focuses on transforming unstructured clinical reports (e.g., pathol
 ```
 
 ## Scripts 
-- `summarize_reports3.py`
+- `summarize_reports3.py`: Expert-guided LLM extraction of Pathology & Consultation Notes
 - `run_local.sh`: testing scripts with ollama llama3.3:latest
 - `run_local_all.sh`: running for all pathology reports & consultation notes
    - input parent dir: /Data/Yujing/HNC_OutcomePred/HNC_Reports
