@@ -1,13 +1,18 @@
-Anatomic_Site_of_Lesion: Left tonsil, left neck 
-Cancer_Staging: Not inferred 
-Pathological_TNM: Not inferred 
-Clinical_TNM: Not inferred 
-Tumor_Size: 1.1 x 0.6 x 0.6 cm 
-Pathology_Details: Invasive, poorly differentiated squamous cell carcinoma 
-Lymph_Node_Status: 
-  - Presence_Absence: Not inferred 
-  - Number_of_Lymph_Nodes: Not inferred 
-  - Extranodal_Extension: Not inferred 
-Resection_Margins: Not inferred 
-HPV_Status: Not inferred 
-Immunohistochemical_profile: P16 positive
+Age: Not inferred
+Sex: Not inferred
+Anatomic_Site_of_Lesion: Left tonsil and left neck
+Cancer_Staging: Not inferred
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 1.1 x 0.6 x 0.6 cm
+Pathology_Details: Invasive, poorly differentiated squamous cell carcinoma
+Lymph_Node_Status_Presence_Absence: Not inferred
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: Not inferred
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Other_Tumor_Description: Left neck mass and left cervical lymphadenopathy, FNAB of left neck showed blood only.

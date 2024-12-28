@@ -1,6 +1,6 @@
 Yes_No_Cannot_Infer: Not inferred
 Grade: High
-Tumor_Size: 2 x 1.5 x 1.3 cm
+Tumor_Size: 2 x 1.5 x 1.3 centimeters
 SUV_from_PET_scans: Not inferred
 Pack_Years: Not inferred
 Patient_Concerns: Mild xerostomia, vertigo when supine
@@ -21,5 +21,5 @@ Performance_Comorbidity_Scores_ECOG_Performance_Status: 0
 Performance_Comorbidity_Scores_Karnofsky_Performance_Status: Not inferred
 Cancer_Staging_Pathological_TNM: Not inferred
 Cancer_Staging_Clinical_TNM: Not inferred
-Cancer_Staging_Tumor_Size: 2 x 1.5 x 1.3 cm
+Cancer_Staging_Tumor_Size: 2 x 1.5 x 1.3 centimeters
 Others: Not inferred
