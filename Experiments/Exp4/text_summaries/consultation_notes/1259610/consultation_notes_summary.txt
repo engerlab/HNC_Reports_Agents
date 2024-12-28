@@ -1,0 +1,19 @@
+Smoking_History: Quit smoking four years ago
+Alcohol_Consumption: Quit drinking recently
+Pack_Years: Not inferred
+Patient_Concerns: Mild dysphagia, painless mass in the left neck, weight loss
+Recommendations: Concomitant chemoradiation
+Follow_up_Actions: Discussion at Tumor Board, MRI to complete staging
+HPV_Status: Not inferred (P16 negative)
+Patient_History_Status_Former_Status_of_Patient: Rectal cancer, liver cirrhosis, hypercholesterolemia, high blood pressure, coronary artery disease
+Patient_History_Status_Similar_Conditions: Not inferred
+Patient_History_Status_Previous_Treatments: Transanal resection of localized rectal cancer without adjuvant therapy
+Clinical_Assessments_Radiological_Lesions: Thickening of the left piriform sinus measuring 1.7 cm, multiple left lymphadenopathy involving levels 3 and 4
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: 90% (performance status)
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: Not inferred
+Cancer_Staging_Pathological_TNM: Not inferred
+Cancer_Staging_Clinical_TNM: T2, N2b
+Cancer_Staging_Tumor_Size: 1.7 cm
+Others: Not inferred

@@ -1,0 +1,18 @@
+Age: 85
+Sex: Male
+Anatomic_Site_of_Lesion: Midline soft palate
+Cancer_Staging: Not inferred
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: Not inferred
+Pathology_Details: Invasive, moderately differentiated squamous cell carcinoma
+Lymph_Node_Status_Presence_Absence: Not inferred
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: Not inferred
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: p16 immunostaining negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Other_Tumor_Description: Tumor thickness cannot be assessed (fragmented specimen)

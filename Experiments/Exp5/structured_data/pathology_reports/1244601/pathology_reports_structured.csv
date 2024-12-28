@@ -1,0 +1,2 @@
+Age,Sex,Anatomic_Site_of_Lesion,Cancer_Staging,Pathological_TNM,Clinical_TNM,Primary_Tumor_Size,Pathology_Details,Lymph_Node_Status_Presence_Absence,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,Lymph_Node_Status_Extranodal_Extension,Resection_Margins,p16_Status,Immunohistochemical_profile,EBER_Status,Lymphovascular_Invasion_Status,Perineural_Invasion_Status,Other_Tumor_Description
+,,Left tonsil and left neck,,,,1.1 x 0.6 x 0.6 cm,"Invasive, poorly differentiated squamous cell carcinoma",,,,,Positive,,,,,

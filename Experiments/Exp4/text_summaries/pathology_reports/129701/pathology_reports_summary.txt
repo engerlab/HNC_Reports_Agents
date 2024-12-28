@@ -1,0 +1,18 @@
+Age: 51
+Sex: Male
+Anatomic_Site_of_Lesion: Right tongue base
+Cancer_Staging: Not inferred
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: Approximately 3 cm
+Pathology_Details: Basaloid squamous cell carcinoma in submucosa
+Lymph_Node_Status_Presence_Absence: Not inferred
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: Not inferred
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Other_Tumor_Description: Submucosal, extended to left side

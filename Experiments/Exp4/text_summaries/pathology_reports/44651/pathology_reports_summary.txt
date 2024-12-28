@@ -1,0 +1,18 @@
+Age: 88
+Sex: Female
+Anatomic_Site_of_Lesion: Upper gingiva / alveolus
+Cancer_Staging: Not inferred
+Pathological_TNM: pT2N0
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 2.8 x 1.9 x 0.7 cm
+Pathology_Details: Squamous cell carcinoma, well differentiated
+Lymph_Node_Status_Presence_Absence: Absence
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Involved by invasive carcinoma (peripheral mucosal margins and deep margin)
+p16_Status: Not inferred
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not identified
+Perineural_Invasion_Status: Not identified
+Other_Tumor_Description: Extensive tumor involvement around tooth socket, with superficial bone invasion

@@ -1,0 +1,24 @@
+DIAGNOSIS: Squamous cell carcinoma ofupper gingiva.
+REFERRING DOCTOR: [PERSON]
+ID: [PERSON] is a [AGE] patient, was seen today for T2 N0 M0 well differentiated squamous cell carcinoma of the
+left upper gingiva.
+History of present illness: the pt presented with a self felt mass over the left upper gingiva that has increased in size, no other
+symptoms, on examination, she was found to have 2 by 3 cm lesion of the left upper gingiva appearance suggestive of verrucous
+carcinoma, bipsy confirmed well diff SCC. CT scan done on the 30 of august revealed 1.6 by 2.7 cm mass in the left posterior
+maxillary gingivawith no gross bony invasion. CXR unremarkable. Surgery done on the24 of oct revealed 2.8 by 1.9 well diff SCC
+with superficial bone involvement on the tooth socket, positive deep and peripheral margins, no LVI or PNI. 0 out of 32 LN removed.
+Review of systems unremarkable
+Medications: multivaitamins, actonel
+Past medical history: nil
+Past surgical history:
+Social history: quit smoking 40 years ago.
+Examination: Performance Status: 100%, neck is clear. On oral cavity examination, surgical scarring is noted on the left hard palate
+with central exophytic lesion, granulation tissue?, a biopsy taken today to RO recurrent disease. Pt is edentulous on the upper gingive,
+has good teeth hygiene of the lower gingiva.
+In summary, [PERSON] is a [AGE] patient with T2 N0 M0 well differentiated squamous cell carcinoma of the
+upper gingiva with positive margins postop.
+Patient will be treated with post-operative radiotherapy. Both acute and long term side-effects were explained to the patient and
+accompanying family. . He will be seen by dentistry.
+He will be seen next in planning. The results of the bipsy done today to rule out persisitent disease will be checked
+Thank you for the courtesy of the consultation.
+[PERSON]

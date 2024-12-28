@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """
 Summarize Pathology & Consultation Notes
-using line-by-line regex matching (re.MULTILINE) 
-with anchored patterns (^FieldName: ...$).
-Debug logs for pattern matching & DF shape,
-but NOT printing the entire prompt or input text.
+using line-by-line regex matching (re.MULTILINE) with anchored patterns,
+logs debug details, saves embeddings, structured CSV, encoded CSV,
+replaces "Not inferred" with NaN, and logs the processing time per report.
 """
 
 import os
@@ -14,7 +13,8 @@ import argparse
 import logging
 import pickle
 from typing import Dict, Any, Optional
-
+import time
+import numpy as np  # for np.nan
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.impute import SimpleImputer
@@ -57,19 +57,13 @@ PATHOLOGY_FIELDS = [
 ]
 
 CONSULTATION_FIELDS = [
-    "Yes_No_Cannot_Infer",
-    "Grade",
-    "Tumor_Size",
-    "SUV_from_PET_scans",
+    "Smoking_History",
+    "Alcohol_Consumption",
     "Pack_Years",
     "Patient_Concerns",
     "Recommendations",
     "Follow_up_Actions",
-    "Alcohol_Consumption_Consult",
     "HPV_Status",
-    "Charlson_Comorbidity_Score",
-    "ECOG_Performance_Status",
-    "Karnofsky_Performance_Status",
     "Patient_History_Status_Former_Status_of_Patient",
     "Patient_History_Status_Similar_Conditions",
     "Patient_History_Status_Previous_Treatments",
@@ -89,7 +83,7 @@ CONSULTATION_FIELDS = [
 ##############################################################################
 PATTERNS = {
     # -------------------------
-    # Pathology (line-by-line)
+    # Pathology fields
     # -------------------------
     "Age": r"^Age:\s*(\d+|Not inferred)\s*$",
     "Sex": r"^Sex:\s*(Male|Female|Other|Not inferred)\s*$",
@@ -111,26 +105,21 @@ PATTERNS = {
     "Other_Tumor_Description": r"^Other_Tumor_Description:\s*(.*)$",
 
     # -------------------------
-    # Consultation (line-by-line)
+    # Consultation (revised)
     # -------------------------
-    "Yes_No_Cannot_Infer": r"^Yes_No_Cannot_Infer:\s*(Yes|No|Cannot Infer|Not inferred)\s*$",
-    "Grade": r"^Grade:\s*(\d+|Not inferred)\s*$",
-    "Tumor_Size": r"^Tumor_Size:\s*(\d+(\.\d+)?|Not inferred)\s*$",
-    "SUV_from_PET_scans": r"^SUV_from_PET_scans:\s*(\d+(\.\d+)?|Not inferred)\s*$",
+    "Smoking_History": r"^Smoking_History:\s*(Never smoked|10 years smoking 1 pack a day|More than 10 years|Not inferred)\s*$",
+    "Alcohol_Consumption": r"^Alcohol_Consumption:\s*(Never drank|Ex-drinker|Drinker|Occassional-Drinker|Not inferred)\s*$",
     "Pack_Years": r"^Pack_Years:\s*(\d+|Not inferred)\s*$",
+
     "Patient_Concerns": r"^Patient_Concerns:\s*(.*)$",
     "Recommendations": r"^Recommendations:\s*(.*)$",
     "Follow_up_Actions": r"^Follow_up_Actions:\s*(.*)$",
-    "Alcohol_Consumption_Consult": r"^Alcohol_Consumption_Consult:\s*(Never drank|Ex-drinker|Drinker|Not inferred)\s*$",
     "HPV_Status": r"^HPV_Status:\s*(Positive|Negative|Not inferred)\s*$",
-    "Charlson_Comorbidity_Score": r"^Charlson_Comorbidity_Score:\s*(\d+|Not inferred)\s*$",
-    "ECOG_Performance_Status": r"^ECOG_Performance_Status:\s*(0|1|2|3|4|Not inferred)\s*$",
-    "Karnofsky_Performance_Status": r"^Karnofsky_Performance_Status:\s*(100|90|80|70|60|50|40|30|20|10|0|Not inferred)\s*$",
     "Patient_History_Status_Former_Status_of_Patient": r"^Patient_History_Status_Former_Status_of_Patient:\s*(.*)$",
     "Patient_History_Status_Similar_Conditions": r"^Patient_History_Status_Similar_Conditions:\s*(.*)$",
     "Patient_History_Status_Previous_Treatments": r"^Patient_History_Status_Previous_Treatments:\s*(Radiation|Chemotherapy|Surgery|None|Not inferred)\s*$",
     "Clinical_Assessments_Radiological_Lesions": r"^Clinical_Assessments_Radiological_Lesions:\s*(.*)$",
-    "Clinical_Assessments_SUV_from_PET_Scans": r"^Clinical_Assessments_SUV_from_PET_Scans:\s*(\d+(\.\d+)?|Not inferred)\s*$",
+    "Clinical_Assessments_SUV_from_PET_scans": r"^Clinical_Assessments_SUV_from_PET_Scans:\s*(\d+(\.\d+)?|Not inferred)\s*$",
     "Performance_Comorbidity_Scores_Charlson_Comorbidity_Score": r"^Performance_Comorbidity_Scores_Charlson_Comorbidity_Score:\s*(\d+|Not inferred)\s*$",
     "Performance_Comorbidity_Scores_ECOG_Performance_Status": r"^Performance_Comorbidity_Scores_ECOG_Performance_Status:\s*(0|1|2|3|4|Not inferred)\s*$",
     "Performance_Comorbidity_Scores_Karnofsky_Performance_Status": r"^Performance_Comorbidity_Scores_Karnofsky_Performance_Status:\s*(100|90|80|70|60|50|40|30|20|10|0|Not inferred)\s*$",
@@ -161,7 +150,7 @@ def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
             match = re.search(pattern, summary, re.IGNORECASE | re.MULTILINE)
             if match:
                 extracted_value = match.group(1).strip()
-                logger.debug(f"[{report_type}] Matched '{field}': {extracted_value[:80]}...")  # Just a snippet
+                logger.debug(f"[{report_type}] Matched '{field}': {extracted_value[:80]}...")
                 extracted[field] = extracted_value
             else:
                 logger.debug(f"[{report_type}] No match for '{field}'. Setting 'Not inferred'")
@@ -172,12 +161,13 @@ def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
     return extracted
 
 def validate_extracted_data(data: Dict[str, Any], report_type: str) -> bool:
-    """Basic presence check."""
+    """Basic presence check of fields in data."""
     if report_type == "pathology_reports":
         required_fields = PATHOLOGY_FIELDS
     elif report_type == "consultation_notes":
         required_fields = CONSULTATION_FIELDS
     else:
+        logger.debug(f"[{report_type}] Not recognized in validation.")
         return False
 
     for field in required_fields:
@@ -187,15 +177,22 @@ def validate_extracted_data(data: Dict[str, Any], report_type: str) -> bool:
     return True
 
 def normalize_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
-    """Strip whitespace, etc."""
+    """
+    Replaces all 'Not inferred' with np.nan, then strips whitespace.
+    """
+    # Convert all "Not inferred" to NaN
+    df = df.replace("Not inferred", np.nan)
+
     for col in df.columns:
         if df[col].dtype == object:
             df[col] = df[col].str.strip()
+
     return df
 
 def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
     """
-    Example numeric/categorical encoding with logs to diagnose shape mismatches.
+    Numeric/categorical encoding with debug logs,
+    including newly revised fields for consultation.
     """
     logger.debug(f"[{report_type}] Starting encode with shape: {df.shape}")
     df_encoded = df.copy()
@@ -212,12 +209,19 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
 
     elif report_type == "consultation_notes":
         cat_cols = [
-            "Yes_No_Cannot_Infer", "Patient_Concerns", "Recommendations", "Follow_up_Actions",
-            "Alcohol_Consumption_Consult", "HPV_Status", "Patient_History_Status_Former_Status_of_Patient",
-            "Patient_History_Status_Similar_Conditions", "Patient_History_Status_Previous_Treatments",
-            "Clinical_Assessments_Radiological_Lesions", "Others"
+            "Smoking_History",
+            "Alcohol_Consumption",
+            "Patient_Concerns",
+            "Recommendations",
+            "Follow_up_Actions",
+            "HPV_Status",
+            "Patient_History_Status_Former_Status_of_Patient",
+            "Patient_History_Status_Similar_Conditions",
+            "Patient_History_Status_Previous_Treatments",
+            "Clinical_Assessments_Radiological_Lesions",
+            "Others"
         ]
-        num_cols = ["Grade", "Tumor_Size", "SUV_from_PET_scans", "Pack_Years"]
+        num_cols = ["Pack_Years"]
     else:
         logger.debug(f"[{report_type}] Unknown report type for encoding. Returning unmodified.")
         return df_encoded
@@ -233,7 +237,7 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
         imp = SimpleImputer(strategy='median')
         df_encoded[num_cols] = imp.fit_transform(df_encoded[num_cols])
 
-    # Filter missing columns
+    # Filter out missing categorical columns
     cat_cols_existing = [c for c in cat_cols if c in df_encoded.columns]
     if cat_cols_existing:
         enc = OneHotEncoder(drop='first', sparse=False, handle_unknown='ignore')
@@ -311,12 +315,11 @@ class ReportSummarizer:
 
     def make_llm_runnable(self, prompt: str) -> RunnableLambda:
         def llm_runnable(inputs: Dict[str, str]) -> Dict[str, str]:
-            # We'll avoid printing the entire final_prompt or input text
-            # Just log a short message
-            context_len = len(inputs["context"])
-            logger.debug(f"Summarizing a {context_len}-char input for a specific report_type (prompt not fully shown).")
+            context = inputs["context"]
+            logger.debug(f"Summarizing text of length {len(context)} for {inputs.get('report_type', 'unknown')}")
             try:
-                result = self.model.invoke([HumanMessage(content=prompt.replace("{context}", inputs["context"]))]).content
+                final_prompt = prompt.replace("{context}", context)
+                result = self.model.invoke([HumanMessage(content=final_prompt)]).content
                 return {"summary": result}
             except Exception as e:
                 logger.error(f"Error generating summary: {e}")
@@ -328,7 +331,7 @@ class ReportSummarizer:
             logger.warning(f"No prompt found for {report_type}")
             return None
         runnable = self.chain_map[report_type]
-        resp = runnable.invoke({"context": report_text})
+        resp = runnable.invoke({"context": report_text, "report_type": report_type})
         summary = resp.get("summary", "").strip()
         logger.debug(f"[{report_type}] Summarize output (first 80 chars): {summary[:80]}...")
         return summary if summary else None
@@ -339,7 +342,9 @@ class ReportSummarizer:
         tabular_data = []
         invalid_entries = []
 
-        # Typically subfolders named "pathology_reports" or "consultation_notes"
+        # We'll also store time data if you want (from previous example)
+        time_data = []
+
         report_type_map = {
             "pathology_reports": "pathology_reports",
             "consultation_notes": "consultation_notes"
@@ -354,6 +359,8 @@ class ReportSummarizer:
                     continue
                 path = os.path.join(root, fname)
                 logger.info(f"Processing file: {fname} in folder: {parent}")
+
+                start_time = time.time()
 
                 try:
                     with open(path, 'r', encoding='utf-8') as f:
@@ -394,9 +401,13 @@ class ReportSummarizer:
 
                     # Save summary
                     summary_path = os.path.join(subdirs["text_summaries"], f"{rtype}_summary.txt")
-                    with open(summary_path, 'w', encoding='utf-8') as sf:
-                        sf.write(summary)
-                    logger.info(f"Summary saved to {summary_path}")
+                    try:
+                        with open(summary_path, 'w', encoding='utf-8') as sf:
+                            sf.write(summary)
+                        logger.info(f"Summary saved to {summary_path}")
+                    except Exception as e:
+                        invalid_entries.append({"file": fname, "reason": f"Failed to save summary: {e}"})
+                        logger.error(f"Could not save summary for {fname}: {e}")
 
                     # Embeddings
                     emb_path = os.path.join(subdirs["embeddings"], f"{rtype}_embedding.pkl")
@@ -411,54 +422,96 @@ class ReportSummarizer:
 
                     # Structured CSV
                     df_struct = pd.DataFrame([extracted])
-                    df_struct = normalize_data(df_struct, rtype)
+                    df_struct = normalize_data(df_struct, rtype)  # replaces 'Not inferred' => NaN
                     struct_path = os.path.join(subdirs["structured_data"], f"{rtype}_structured.csv")
                     logger.debug(f"Saving structured data to {struct_path}, shape: {df_struct.shape}")
-                    df_struct.to_csv(struct_path, index=False)
-                    logger.info(f"Structured data saved to {struct_path}")
+                    try:
+                        df_struct.to_csv(struct_path, index=False)
+                        logger.info(f"Structured data saved to {struct_path}")
+                    except Exception as e:
+                        invalid_entries.append({"file": fname, "reason": f"Failed to save structured CSV: {e}"})
+                        logger.error(f"Could not save structured CSV for {fname}: {e}")
+                        continue
 
                     # Encoded CSV
                     df_encoded = encode_structured_data(df_struct, rtype)
                     encoded_path = os.path.join(subdirs["structured_data_encoded"], f"{rtype}_structured_encoded.csv")
                     logger.debug(f"Saving encoded data to {encoded_path}, shape: {df_encoded.shape}")
-                    df_encoded.to_csv(encoded_path, index=False)
-                    logger.info(f"Encoded structured data saved to {encoded_path}")
+                    try:
+                        df_encoded.to_csv(encoded_path, index=False)
+                        logger.info(f"Encoded structured data saved to {encoded_path}")
+                    except Exception as e:
+                        invalid_entries.append({"file": fname, "reason": f"Failed to save encoded CSV: {e}"})
+                        logger.error(f"Could not save encoded CSV for {fname}: {e}")
 
                 except Exception as e:
                     invalid_entries.append({"file": fname, "reason": str(e)})
                     logger.error(f"Error processing {fname}: {e}")
 
+                end_time = time.time()
+                process_time = end_time - start_time
+                # If you want to track times in a CSV, etc.
+                time_data.append({
+                    "file": fname,
+                    "report_type": rtype if rtype else "unknown",
+                    "process_time_seconds": round(process_time, 3)
+                })
+                logger.info(f"Processed {fname} in {round(process_time, 3)} seconds.")
+
         # Summaries metadata
         if summaries:
             summaries_csv = os.path.join(output_dir, "summaries_metadata.csv")
-            pd.DataFrame(summaries).to_csv(summaries_csv, index=False)
-            logger.info(f"Summaries metadata saved to {summaries_csv}")
+            try:
+                pd.DataFrame(summaries).to_csv(summaries_csv, index=False)
+                logger.info(f"Summaries metadata saved to {summaries_csv}")
+            except Exception as e:
+                logger.error(f"Failed to save summaries metadata: {e}")
 
         # Tabular data metadata
         if tabular_data:
             tabular_csv = os.path.join(output_dir, "tabular_data_metadata.csv")
-            pd.DataFrame(tabular_data).to_csv(tabular_csv, index=False)
-            logger.info(f"Tabular data metadata saved to {tabular_csv}")
+            try:
+                pd.DataFrame(tabular_data).to_csv(tabular_csv, index=False)
+                logger.info(f"Tabular data metadata saved to {tabular_csv}")
+            except Exception as e:
+                logger.error(f"Failed to save tabular data metadata: {e}")
 
         # Invalid
         if invalid_entries:
             invalid_log = os.path.join(output_dir, "invalid_entries.log")
-            pd.DataFrame(invalid_entries).to_csv(invalid_log, index=False)
-            logger.info(f"Invalid entries logged to {invalid_log}")
+            try:
+                pd.DataFrame(invalid_entries).to_csv(invalid_log, index=False)
+                logger.info(f"Invalid entries logged to {invalid_log}")
+            except Exception as e:
+                logger.error(f"Failed to save invalid entries log: {e}")
+
+        # Optionally store time_data
+        times_csv = os.path.join(output_dir, "processing_times.csv")
+        try:
+            df_times = pd.DataFrame(time_data)
+            if os.path.isfile(times_csv):
+                existing_times = pd.read_csv(times_csv)
+                combined = pd.concat([existing_times, df_times], ignore_index=True)
+                combined.to_csv(times_csv, index=False)
+            else:
+                df_times.to_csv(times_csv, index=False)
+            logger.info(f"Processing times saved/updated in {times_csv}")
+        except Exception as e:
+            logger.error(f"Failed to save processing_times CSV: {e}")
 
 def main():
-    parser = argparse.ArgumentParser(description="Summarize HNC Pathology & Consultation Notes, with debug logs & minimal prompt printing.")
-    parser.add_argument("--prompts_dir", required=True, help="Directory with JSON prompt files (prompt_pathology_reports.json, prompt_consultation_notes.json)")
-    parser.add_argument("--model_type", default="local", choices=["local","gpt","gemini"], help="LLM backend to use")
-    parser.add_argument("--temperature", type=float, default=0.3, help="Sampling temperature for LLM responses")
-    parser.add_argument("--input_dir", required=True, help="Directory with subfolders: pathology_reports/ and consultation_notes/")
-    parser.add_argument("--output_dir", required=True, help="Output directory for summaries, embeddings, CSVs")
+    parser = argparse.ArgumentParser(description="Summarize HNC Pathology & Consultation Notes + replace 'Not inferred' with NaN.")
+    parser.add_argument("--prompts_dir", required=True, help="Directory containing prompt JSON files.")
+    parser.add_argument("--model_type", default="local", choices=["local","gpt","gemini"], help="LLM backend to use.")
+    parser.add_argument("--temperature", type=float, default=0.3, help="Sampling temperature for LLM responses.")
+    parser.add_argument("--input_dir", required=True, help="Directory with subfolders: pathology_reports/ and consultation_notes/.")
+    parser.add_argument("--output_dir", required=True, help="Output directory for summaries, embeddings, CSVs.")
     parser.add_argument(
         "--embedding_model",
         type=str,
         default="ollama",
         choices=["ollama","openai","google"],
-        help="Embedding model to use (ollama, openai, google)"
+        help="Embedding model to use (ollama, openai, google)."
     )
     args = parser.parse_args()
 
