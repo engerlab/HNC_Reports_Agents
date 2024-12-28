@@ -16,4 +16,4 @@ Performance_Comorbidity_Scores_Karnofsky_Performance_Status: Not inferred
 Cancer_Staging_Pathological_TNM: T3, N1
 Cancer_Staging_Clinical_TNM: Not inferred
 Cancer_Staging_Tumor_Size: 4.5 x 3.5 cm
-Others: Suspicious focal hypermetabolism seen in the prostate
+Others: Suspicious focal hypermetabolism seen in the prostate, lymphovascular invasion is seen, one lymph node removed ipsilaterally during the preparation for the flap was positive for malignancy with a deposit of 1.2 cm, but no extracapsular extension

@@ -2,7 +2,7 @@
 
 # Bash script to run the summarizer with the local ollama models
 
-python /Data/Yujing/HNC_OutcomePred/Reports_Agents/summarize_reports3.py \
+python /Data/Yujing/HNC_OutcomePred/Reports_Agents/summarize_reports4.py \
     --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
     --model_type local \
     --temperature 0.8 \

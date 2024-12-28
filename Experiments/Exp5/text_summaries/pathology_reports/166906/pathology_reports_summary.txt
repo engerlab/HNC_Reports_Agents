@@ -15,4 +15,4 @@ Immunohistochemical_profile: p16 immunostaining negative
 EBER_Status: Not inferred
 Lymphovascular_Invasion_Status: Not inferred
 Perineural_Invasion_Status: Not inferred
-Other_Tumor_Description: Tumor thickness cannot be assessed (fragmented specimen)
+Other_Tumor_Description: No organisms identified on special stains, tumor thickness cannot be assessed (fragmented specimen)

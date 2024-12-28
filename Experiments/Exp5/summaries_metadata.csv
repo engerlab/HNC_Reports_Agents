@@ -1,0 +1,320 @@
+file,report_type,summary
+44651.txt,consultation_notes,"Smoking_History: Quit smoking 40 years ago
+Alcohol_Consumption: Not inferred
+Pack_Years: Not inferred
+Patient_Concerns: Not inferred
+Recommendations: Post-operative radiotherapy
+Follow_up_Actions: Will be seen next in planning, will be checked for results of biopsy done today
+HPV_Status: Not inferred
+Patient_History_Status_Former_Status_of_Patient: Nil past medical history
+Patient_History_Status_Similar_Conditions: Not inferred
+Patient_History_Status_Previous_Treatments: Surgery done on October 24
+Clinical_Assessments_Radiological_Lesions: CT scan revealed 1.6 by 2.7 cm mass in the left posterior maxillary gingiva, CXR unremarkable
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: 100% Performance Status
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: Not inferred
+Cancer_Staging_Pathological_TNM: T2 N0 M0
+Cancer_Staging_Clinical_TNM: Not inferred
+Cancer_Staging_Tumor_Size: 2 by 3 cm, 2.8 by 1.9 cm after surgery
+Others: Patient is edentulous on the upper gingiva, has good teeth hygiene of the lower gingiva"
+187518.txt,consultation_notes,"Smoking_History: The patient smokes half a pack per day for the past 40 years.
+Alcohol_Consumption: The patient drinks alcohol on an occasional basis.
+Pack_Years: 20
+Patient_Concerns: Anxiety at night affecting sleep and other activities.
+Recommendations: Concurrent chemoradiation therapy to the bilateral neck.
+Follow_up_Actions: Medical Oncology consultation, ENT consultation, Psychology consultation, Nutrition consultation, GI consult for a PEG tube, planning CT scan for radiation preparation.
+HPV_Status: Not inferred
+Patient_History_Status_Former_Status_of_Patient: Remote cholecystectomy at the age of 17, nasal bridge repair, right forearm fracture followed by internal fixation, arthritis and disk.
+Patient_History_Status_Similar_Conditions: Family history of breast cancer (mother) and cervical cancer (sister).
+Patient_History_Status_Previous_Treatments: Antibiotics for the neck lump.
+Clinical_Assessments_Radiological_Lesions: 4 x 4.5 x 3.2-cm large lymph node at the right jugulodigastric area, smaller nodes in the same area, 9-mm node in the right supraclavicular area, subcentimetric lymph nodes at level 3 and 4.
+Clinical_Assessments_SUV_from_PET_scans: High SUV uptake of 10.5 for the main lymph node, SUV of 6.3 for a smaller node, SUV ranging from 2.7 to 3.7 for other subcentimetric lymph nodes.
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: Not inferred
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: 100
+Cancer_Staging_Pathological_TNM: Not inferred
+Cancer_Staging_Clinical_TNM: Tx, N2b
+Cancer_Staging_Tumor_Size: Not directly stated for the primary tumor as it is unknown, but sizes of lymph nodes are provided.
+Others: The patient has allergies to Codeine and is taking Naproxen."
+170012.txt,consultation_notes,"Smoking_History: Nonsmoker
+Alcohol_Consumption: Nondrinker
+Pack_Years: Not inferred
+Patient_Concerns: Mild xerostomia, vertigo when supine
+Recommendations: Adjuvant radiotherapy
+Follow_up_Actions: CT simulation and initiation of radiotherapy
+HPV_Status: Not inferred
+Patient_History_Status_Former_Status_of_Patient: Left-sided breast cancer, hypothyroidism, anemia, hypercholesterolemia
+Patient_History_Status_Similar_Conditions: Not inferred
+Patient_History_Status_Previous_Treatments: Lumpectomy for left-sided breast cancer
+Clinical_Assessments_Radiological_Lesions: Known lesion with no evidence of lymphadenopathy on CT scan of the neck, no evidence of metastatic disease on CT scan of the chest and abdomen
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: 0
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: Not inferred
+Cancer_Staging_Pathological_TNM: Not inferred
+Cancer_Staging_Clinical_TNM: Not inferred
+Cancer_Staging_Tumor_Size: 2 x 1.5 x 1.3 centimeters
+Others: Not inferred"
+236853.txt,consultation_notes,"Smoking_History: Not inferred
+Alcohol_Consumption: Not inferred
+Pack_Years: Not inferred
+Patient_Concerns: Not inferred
+Recommendations: Adjuvant radiation to the surgical bed, ipsilateral neck and contralateral level 2, combined with weekly chemotherapy as a radiosensitizer
+Follow_up_Actions: Not inferred
+HPV_Status: p16 is negative
+Patient_History_Status_Former_Status_of_Patient: Diabetes mellitus type 2, high blood pressure, hypercholesterolemia, benign prostate hyperplasia
+Patient_History_Status_Similar_Conditions: Not inferred
+Patient_History_Status_Previous_Treatments: Right maxillectomy with palatectomy and a fibular free flap
+Clinical_Assessments_Radiological_Lesions: Aggressive process involving the right entire hemimaxilla extending to the alveolar ridge, hard palate, and maxillary sinus wall, transgressing the floor of the orbit and extending into the right inferior periorbital tissue, involving the pterygopalatine fossa
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: 90
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: Not inferred
+Cancer_Staging_Pathological_TNM: T3, N1
+Cancer_Staging_Clinical_TNM: Not inferred
+Cancer_Staging_Tumor_Size: 4.5 x 3.5 cm
+Others: Suspicious focal hypermetabolism seen in the prostate, lymphovascular invasion is seen, one lymph node removed ipsilaterally during the preparation for the flap was positive for malignancy with a deposit of 1.2 cm, but no extracapsular extension"
+consultation_notes_example.txt,consultation_notes,"Smoking_History: Quit smoking four years ago
+Alcohol_Consumption: Quit drinking recently
+Pack_Years: Not inferred
+Patient_Concerns: Mild dysphagia, painless mass in the left neck, weight loss
+Recommendations: Concomitant chemoradiation
+Follow_up_Actions: MRI to complete staging, discussion at Tumor Board
+HPV_Status: Not inferred
+Patient_History_Status_Former_Status_of_Patient: Rectal cancer, liver cirrhosis, hypercholesterolemia, high blood pressure, coronary artery disease
+Patient_History_Status_Similar_Conditions: Not inferred
+Patient_History_Status_Previous_Treatments: Transanal resection of localized rectal cancer without adjuvant therapy
+Clinical_Assessments_Radiological_Lesions: Thickening of the left piriform sinus measuring 1.7 cm, multiple left lymphadenopathy involving levels 3 and 4
+Clinical_Assessments_SUV_from_PET_scans: Increased uptake at the level of the hypopharynx
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: 90% performance status
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: Not inferred
+Cancer_Staging_Pathological_TNM: Not inferred
+Cancer_Staging_Clinical_TNM: T2, N2b
+Cancer_Staging_Tumor_Size: 1.7 cm
+Others: Edentulous patient, submucosal fullness and thickening of the post cricoid space, vocal cord seems mobile"
+1302380.txt,consultation_notes,"Smoking_History: heavy smoker
+Alcohol_Consumption: social drinker
+Pack_Years: Not inferred
+Patient_Concerns: progressive dysphagia and dysphonia
+Recommendations: post-operative chemoradiotherapy
+Follow_up_Actions: patient will be seen next in planning
+HPV_Status: Not inferred
+Patient_History_Status_Former_Status_of_Patient: Not inferred
+Patient_History_Status_Similar_Conditions: Not inferred
+Patient_History_Status_Previous_Treatments: total laryngectomy with bilateral lymphnodal dissection
+Clinical_Assessments_Radiological_Lesions: transglottic neoplasm, invasion of the thyroid cartilage, strap muscle and perilaryngeal soft tissue
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: 90% (as a percentage of normal function, but note that ECOG is typically scored from 0 to 5)
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: Not inferred
+Cancer_Staging_Pathological_TNM: T4a N3b M0
+Cancer_Staging_Clinical_TNM: Not inferred
+Cancer_Staging_Tumor_Size: Not inferred
+Others: hypertension, CAD post angioplasty, medications include salbutamol, flovent, temisartan, meoprololrocaltrol, synthroid, finasteride, atorvastatin"
+1259610.txt,consultation_notes,"Smoking_History: Quit smoking four years ago
+Alcohol_Consumption: Quit drinking recently
+Pack_Years: Not inferred
+Patient_Concerns: Mild dysphagia, painless mass in the left neck, weight loss
+Recommendations: Concomitant chemoradiation
+Follow_up_Actions: Discussion at Tumor Board, preparation for concomitant chemoradiation, MRI to complete staging
+HPV_Status: Not inferred (P16 negative mentioned but this refers to HPV status in relation to the tumor, which is a different context)
+Patient_History_Status_Former_Status_of_Patient: Rectal cancer, liver cirrhosis, hypercholesterolemia, high blood pressure, coronary artery disease
+Patient_History_Status_Similar_Conditions: Not inferred
+Patient_History_Status_Previous_Treatments: Transanal resection of localized rectal cancer without adjuvant therapy
+Clinical_Assessments_Radiological_Lesions: Thickening of the left piriform sinus measuring 1.7 cm, multiple left lymphadenopathy involving levels 3 and 4
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: 90% performance status, but the scale is not explicitly mentioned as ECOG
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: Not inferred (90% performance status mentioned but it's not clear if it refers to Karnofsky)
+Cancer_Staging_Pathological_TNM: Not inferred
+Cancer_Staging_Clinical_TNM: T2, N2b
+Cancer_Staging_Tumor_Size: 1.7 cm
+Others: Not inferred"
+62806.txt,consultation_notes,"Smoking_History: The patient does not smoke
+Alcohol_Consumption: The patient does not drink
+Pack_Years: Not inferred
+Patient_Concerns: 20-pound weight loss of unknown etiology
+Recommendations: Post-op MRI to investigate any residual disease, possible adjuvant course of external beam radiotherapy or surgical re-resection
+Follow_up_Actions: Assessment with MRI results
+HPV_Status: Not inferred
+Patient_History_Status_Former_Status_of_Patient: Hypothyroidism and hypercholesterolemia
+Patient_History_Status_Similar_Conditions: Not inferred
+Patient_History_Status_Previous_Treatments: Excisional resection, needle biopsy
+Clinical_Assessments_Radiological_Lesions: 1.4 x 1.6-cm enhancing lesion in the left buccal space, abnormal enhancement along the course of the fifth nerve (V3)
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
+Performance_Comorbidity_Scores_ECOG_Performance_Status: 100
+Performance_Comorbidity_Scores_Karnofsky_Performance_Status: Not inferred
+Cancer_Staging_Pathological_TNM: Not inferred
+Cancer_Staging_Clinical_TNM: Not inferred
+Cancer_Staging_Tumor_Size: 1 to 2 cm in diameter, 1.5 cm (fragments after resection)
+Others: Allergies to iodine contrast, medications include Synthroid and Lipitor"
+44651.txt,pathology_reports,"Age: 88
+Sex: Female
+Anatomic_Site_of_Lesion: Upper gingiva / alveolus
+Cancer_Staging: Not inferred
+Pathological_TNM: pT2N0
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 2.8 x 1.9 x 0.7 cm
+Pathology_Details: Squamous cell carcinoma, well differentiated
+Lymph_Node_Status_Presence_Absence: Absence
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Involved by invasive carcinoma (peripheral mucosal margins and deep margin)
+p16_Status: Not inferred
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not identified
+Perineural_Invasion_Status: Not identified
+Other_Tumor_Description: Extensive tumor involvement around tooth socket, with superficial bone invasion"
+pathology_report_example.txt,pathology_reports,"Age: 74
+Sex: Male
+Anatomic_Site_of_Lesion: Right alveolar ridge
+Cancer_Staging: Not inferred
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 1.0 x 1.0 x 0.3 cm
+Pathology_Details: Invasive, non-keratinizing squamous cell carcinoma, high-grade, in submucosa
+Lymph_Node_Status_Presence_Absence: Not inferred
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: Not inferred
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: AE1/AE3(+), CK5/6(+), CK8/18(+), CK7(+, focal), CK20(-), p63(+), CD31(-), D2-40(-)
+EBER_Status: Negative
+Lymphovascular_Invasion_Status: Suspicious
+Perineural_Invasion_Status: Not identified
+Other_Tumor_Description: Overlaying squamous epithelium is uninvolved, tumor shows focal intercellular bridges"
+236853.txt,pathology_reports,"Age: 74
+Sex: Male
+Anatomic_Site_of_Lesion: Right alveolar ridge
+Cancer_Staging: Not inferred
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 1.0 x 1.0 x 0.3 cm
+Pathology_Details: Invasive, non-keratinizing squamous cell carcinoma, high-grade, in submucosa
+Lymph_Node_Status_Presence_Absence: Not inferred
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: Not inferred
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: AE1/AE3(+), CK5/6(+), CK8/18(+), CK7(+, focal), CK20(-), p63(+), CD31(-), D2-40(-)
+EBER_Status: Negative
+Lymphovascular_Invasion_Status: Suspicious
+Perineural_Invasion_Status: Not identified
+Other_Tumor_Description: The overlaying squamous epithelium is uninvolved, tumor shows focal intercellular bridges"
+1244601.txt,pathology_reports,"Age: Not inferred
+Sex: Not inferred
+Anatomic_Site_of_Lesion: Left tonsil and left neck
+Cancer_Staging: Not inferred
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 1.1 x 0.6 x 0.6 cm
+Pathology_Details: Invasive, poorly differentiated squamous cell carcinoma
+Lymph_Node_Status_Presence_Absence: Not inferred
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: Not inferred
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Other_Tumor_Description: Not inferred"
+129701.txt,pathology_reports,"Age: 51
+Sex: Male
+Anatomic_Site_of_Lesion: Right tongue base
+Cancer_Staging: Not inferred
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: Approximately 3 cm
+Pathology_Details: Basaloid squamous cell carcinoma in submucosa
+Lymph_Node_Status_Presence_Absence: Not inferred
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: Not inferred
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Other_Tumor_Description: Submucosal, invasive squamous cell carcinoma initially described, with a supplemental diagnosis of basaloid squamous cell carcinoma"
+166906.txt,pathology_reports,"Age: 85
+Sex: Male
+Anatomic_Site_of_Lesion: Midline soft palate
+Cancer_Staging: Not inferred
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: Not inferred
+Pathology_Details: Invasive, moderately differentiated squamous cell carcinoma
+Lymph_Node_Status_Presence_Absence: Not inferred
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: Not inferred
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: p16 immunostaining negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Other_Tumor_Description: No organisms identified on special stains, tumor thickness cannot be assessed (fragmented specimen)"
+1302380.txt,pathology_reports,"Based on the provided text, I will attempt to extract relevant information for each specimen. Here are my findings:
+
+1. **Specimen #1**
+	* Type: Laryngectomy
+	* Tissue type: Laryngeal tissue
+	* Margins:
+		+ Tracheal margin (A)
+		+ Epiglottis interface vallecular margin (B)
+		+ Right epiglottic fold (C)
+		+ Left aryepiglottic fold (D)
+	* Sections submitted: Multiple sections from different parts of the larynx and surrounding tissues
+2. **Specimen #2**
+	* Type: Frozen section
+	* Tissue type: Parathyroid gland vs. lymph node
+	* Location: Left paratracheal area
+	* Number of fragments: 3 tiny fragments
+	* Size: 0.2 x 0.2 x 0.1cm each
+3. **Specimen #3**
+	* Type: Lymph node dissection
+	* Tissue type: Fibrofatty tissue with lymph nodes
+	* Location: Left neck (Level 2A)
+	* Number of lymph nodes: Multiple, largest measures 1.7cm in diameter
+4. **Specimen #4**
+	* Type: Lymph node dissection
+	* Tissue type: Fibrofatty tissue with possible lymph nodes
+	* Location: Left neck (Level 2B)
+	* Number of possible lymph nodes: 3, largest measures 0.4cm in diameter
+5. **Specimen #5**
+	* Type: Lymph node dissection
+	* Tissue type: Fibrofatty tissue with lymph nodes
+	* Location: Left neck (Levels 3 and 4)
+	* Number of lymph nodes: Multiple, largest measures 0.9cm in diameter
+6. **Specimen #6**
+	* Type: Lymph node dissection
+	* Tissue type: Fibrofatty tissue with possible lymph nodes
+	* Location: Right neck (Level 2A)
+	* Number of possible lymph nodes: 5, largest measures 1.9cm in diameter and is partially cystic
+7. **Specimen #7**
+	* Type: Lymph node dissection
+	* Tissue type: Fibrofatty tissue with a possible lymph node
+	* Location: Right neck (Level 2B)
+	* Number of possible lymph nodes: 1, measuring 0.3cm in diameter
+8. **Specimen #8**
+	* Type: Lymph node dissection
+	* Tissue type: Fibrofatty tissue with lymph nodes
+	* Location: Right neck (Level 3)
+	* Number of lymph nodes: Multiple, largest measures 0.8cm in diameter
+9. **Specimen #9**
+	* Type: Lymph node dissection
+	* Tissue type: Fibrofatty tissue with possible lymph nodes
+	* Location: Right neck (Level 4)
+	* Number of possible lymph nodes: 5, largest measures 0.8cm in diameter
+10. **Specimen #10**
+	* Type: Blood vessel segment
+	* Tissue type: Possible blood vessel (internal jugular vein)
+	* Location: Right side
+	* Size: 1.4cm in length x 0.4cm in circumference
+
+Please let me know if I have missed any important information or if you would like me to clarify any of the points mentioned above."

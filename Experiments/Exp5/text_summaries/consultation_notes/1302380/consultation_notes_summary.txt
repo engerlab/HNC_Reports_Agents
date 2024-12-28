@@ -3,17 +3,17 @@ Alcohol_Consumption: social drinker
 Pack_Years: Not inferred
 Patient_Concerns: progressive dysphagia and dysphonia
 Recommendations: post-operative chemoradiotherapy
-Follow_up_Actions: will be seen next in planning
+Follow_up_Actions: patient will be seen next in planning
 HPV_Status: Not inferred
-Patient_History_Status_Former_Status_of_Patient: hypertension, CAD post angioplasty
+Patient_History_Status_Former_Status_of_Patient: Not inferred
 Patient_History_Status_Similar_Conditions: Not inferred
 Patient_History_Status_Previous_Treatments: total laryngectomy with bilateral lymphnodal dissection
-Clinical_Assessments_Radiological_Lesions: transglottic neoplasm, invasion of the thyroid cartilage, strap muscle and perilaryngeal soft tissue, bilateral level 2 and 3 lymphnodal involvement
+Clinical_Assessments_Radiological_Lesions: transglottic neoplasm, invasion of the thyroid cartilage, strap muscle and perilaryngeal soft tissue
 Clinical_Assessments_SUV_from_PET_scans: Not inferred
 Performance_Comorbidity_Scores_Charlson_Comorbidity_Score: Not inferred
-Performance_Comorbidity_Scores_ECOG_Performance_Status: 90% (interpreted from Performance Status)
+Performance_Comorbidity_Scores_ECOG_Performance_Status: 90% (as a percentage of normal function, but note that ECOG is typically scored from 0 to 5)
 Performance_Comorbidity_Scores_Karnofsky_Performance_Status: Not inferred
 Cancer_Staging_Pathological_TNM: T4a N3b M0
 Cancer_Staging_Clinical_TNM: Not inferred
 Cancer_Staging_Tumor_Size: Not inferred
-Others: medications - salbutamol, flovent, temisartan, meoprololrocaltrol, synthroid, finasteride, atorvastatin
+Others: hypertension, CAD post angioplasty, medications include salbutamol, flovent, temisartan, meoprololrocaltrol, synthroid, finasteride, atorvastatin

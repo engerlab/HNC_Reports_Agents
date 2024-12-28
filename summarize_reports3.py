@@ -4,6 +4,9 @@ Summarize Pathology & Consultation Notes
 using line-by-line regex matching (re.MULTILINE) with anchored patterns,
 logs debug details, saves embeddings, structured CSV, encoded CSV,
 replaces "Not inferred" with NaN, and logs the processing time per report.
+
+Approach #1 for ignoring unknown subfolders:
+If a subfolder is not "consultation_notes" or "pathology_reports", we skip it.
 """
 
 import os
@@ -105,7 +108,7 @@ PATTERNS = {
     "Other_Tumor_Description": r"^Other_Tumor_Description:\s*(.*)$",
 
     # -------------------------
-    # Consultation (revised)
+    # Consultation fields
     # -------------------------
     "Smoking_History": r"^Smoking_History:\s*(Never smoked|10 years smoking 1 pack a day|More than 10 years|Not inferred)\s*$",
     "Alcohol_Consumption": r"^Alcohol_Consumption:\s*(Never drank|Ex-drinker|Drinker|Occassional-Drinker|Not inferred)\s*$",
@@ -132,9 +135,7 @@ PATTERNS = {
 ##############################################################################
 # 3. Extraction & Validation
 ##############################################################################
-
 def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
-    """Apply line-anchored regex for each field, using re.MULTILINE."""
     if report_type == "pathology_reports":
         fields = PATHOLOGY_FIELDS
     elif report_type == "consultation_notes":
@@ -161,7 +162,6 @@ def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
     return extracted
 
 def validate_extracted_data(data: Dict[str, Any], report_type: str) -> bool:
-    """Basic presence check of fields in data."""
     if report_type == "pathology_reports":
         required_fields = PATHOLOGY_FIELDS
     elif report_type == "consultation_notes":
@@ -177,23 +177,14 @@ def validate_extracted_data(data: Dict[str, Any], report_type: str) -> bool:
     return True
 
 def normalize_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
-    """
-    Replaces all 'Not inferred' with np.nan, then strips whitespace.
-    """
-    # Convert all "Not inferred" to NaN
+    """Replaces all 'Not inferred' with np.nan, then strips whitespace."""
     df = df.replace("Not inferred", np.nan)
-
     for col in df.columns:
         if df[col].dtype == object:
             df[col] = df[col].str.strip()
-
     return df
 
 def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
-    """
-    Numeric/categorical encoding with debug logs,
-    including newly revised fields for consultation.
-    """
     logger.debug(f"[{report_type}] Starting encode with shape: {df.shape}")
     df_encoded = df.copy()
 
@@ -226,28 +217,28 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
         logger.debug(f"[{report_type}] Unknown report type for encoding. Returning unmodified.")
         return df_encoded
 
-    # Convert numeric
     for col in num_cols:
         if col in df_encoded.columns:
             df_encoded[col] = pd.to_numeric(df_encoded[col], errors='coerce')
             logger.debug(f"[{report_type}] Numeric conversion '{col}' => {df_encoded[col].head(2).tolist()}")
 
-    # Impute numeric
     if num_cols:
         imp = SimpleImputer(strategy='median')
         df_encoded[num_cols] = imp.fit_transform(df_encoded[num_cols])
 
-    # Filter out missing categorical columns
     cat_cols_existing = [c for c in cat_cols if c in df_encoded.columns]
     if cat_cols_existing:
         enc = OneHotEncoder(drop='first', sparse=False, handle_unknown='ignore')
         arr = enc.fit_transform(df_encoded[cat_cols_existing])
         encoded_df = pd.DataFrame(arr, columns=enc.get_feature_names_out(cat_cols_existing))
+
         df_encoded.drop(columns=cat_cols_existing, inplace=True)
         df_encoded.reset_index(drop=True, inplace=True)
         encoded_df.reset_index(drop=True, inplace=True)
+
         if len(df_encoded) != len(encoded_df):
             logger.debug(f"[{report_type}] Mismatch rows after encoding => df_encoded={len(df_encoded)}, encoded_df={len(encoded_df)}")
+
         df_encoded = pd.concat([df_encoded, encoded_df], axis=1)
 
     logger.debug(f"[{report_type}] Final shape after encoding: {df_encoded.shape}")
@@ -256,7 +247,6 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
 ##############################################################################
 # 4. Summarizer Class
 ##############################################################################
-
 class ReportSummarizer:
     def __init__(
         self,
@@ -269,11 +259,11 @@ class ReportSummarizer:
         self.temperature = temperature
         self.embedding_model = embedding_model.lower()
 
-        # Load prompts
         if not os.path.isdir(prompts_dir):
             raise ValueError(f"Invalid prompts_dir: {prompts_dir}")
 
         self.prompts = {}
+        # Load prompts for each known folder type
         for rtype in ["pathology_reports", "consultation_notes"]:
             pfile = os.path.join(prompts_dir, f"prompt_{rtype}.json")
             if os.path.isfile(pfile):
@@ -285,7 +275,7 @@ class ReportSummarizer:
                 logger.warning(f"No prompt file found for {rtype}")
                 self.prompts[rtype] = []
 
-        # Initialize LLM
+        # Initialize model
         if self.model_type == "local":
             self.model = ChatOllama(model="llama3.3:latest", temperature=self.temperature)
         elif self.model_type == "gpt":
@@ -295,7 +285,7 @@ class ReportSummarizer:
         else:
             raise ValueError(f"Unsupported model type: {model_type}")
 
-        # Initialize Embeddings
+        # Initialize embeddings
         if self.embedding_model == "ollama":
             self.embeddings = OllamaEmbeddings(model="nomic-embed-text")
         elif self.embedding_model == "openai":
@@ -341,10 +331,10 @@ class ReportSummarizer:
         summaries = []
         tabular_data = []
         invalid_entries = []
-
-        # We'll also store time data if you want (from previous example)
         time_data = []
 
+        # We'll only process subfolders named "consultation_notes" or "pathology_reports"
+        # Others => skip
         report_type_map = {
             "pathology_reports": "pathology_reports",
             "consultation_notes": "consultation_notes"
@@ -352,11 +342,13 @@ class ReportSummarizer:
 
         for root, dirs, files in os.walk(input_dir):
             parent = os.path.basename(root).lower()
+            # If parent is recognized, rtype is set; else None
             rtype = report_type_map.get(parent, None)
 
             for fname in files:
                 if not fname.endswith(".txt"):
-                    continue
+                    continue  # skip non-.txt
+
                 path = os.path.join(root, fname)
                 logger.info(f"Processing file: {fname} in folder: {parent}")
 
@@ -366,29 +358,30 @@ class ReportSummarizer:
                     with open(path, 'r', encoding='utf-8') as f:
                         text = f.read()
 
+                    # If subfolder is not 'consultation_notes' or 'pathology_reports', skip
                     if not rtype:
                         invalid_entries.append({"file": fname, "reason": "Unknown folder for report type"})
                         logger.warning(f"Skipping {fname}, unknown folder {parent}")
                         continue
 
-                    # Summarize
+                    # Summarize with LLM
                     summary = self.summarize_report(text, rtype)
                     if not summary:
                         invalid_entries.append({"file": fname, "reason": "No summary produced"})
                         logger.warning(f"Failed to generate summary for {fname}")
                         continue
 
-                    # Extract line-by-line
+                    # Extract from summary
                     extracted = extract_tabular_data(summary, rtype)
                     if not validate_extracted_data(extracted, rtype):
                         invalid_entries.append({"file": fname, "reason": "Validation failed"})
                         logger.debug(f"[{rtype}] Validation failed for {fname}")
 
-                    # Keep track
+                    # Record data
                     summaries.append({"file": fname, "report_type": rtype, "summary": summary})
                     tabular_data.append({"file": fname, "report_type": rtype, "data": extracted})
 
-                    # Prepare output subfolders
+                    # Make subdirs
                     patient_id = os.path.splitext(fname)[0]
                     subdirs = {
                         "text_summaries": os.path.join(output_dir, "text_summaries", rtype, patient_id),
@@ -420,9 +413,9 @@ class ReportSummarizer:
                         invalid_entries.append({"file": fname, "reason": f"Embedding error: {e}"})
                         logger.error(f"Embedding error for {fname}: {e}")
 
-                    # Structured CSV
+                    # Create DataFrame from extracted
                     df_struct = pd.DataFrame([extracted])
-                    df_struct = normalize_data(df_struct, rtype)  # replaces 'Not inferred' => NaN
+                    df_struct = normalize_data(df_struct, rtype)
                     struct_path = os.path.join(subdirs["structured_data"], f"{rtype}_structured.csv")
                     logger.debug(f"Saving structured data to {struct_path}, shape: {df_struct.shape}")
                     try:
@@ -450,7 +443,6 @@ class ReportSummarizer:
 
                 end_time = time.time()
                 process_time = end_time - start_time
-                # If you want to track times in a CSV, etc.
                 time_data.append({
                     "file": fname,
                     "report_type": rtype if rtype else "unknown",
@@ -500,7 +492,9 @@ class ReportSummarizer:
             logger.error(f"Failed to save processing_times CSV: {e}")
 
 def main():
-    parser = argparse.ArgumentParser(description="Summarize HNC Pathology & Consultation Notes + replace 'Not inferred' with NaN.")
+    parser = argparse.ArgumentParser(
+        description="Summarize HNC Pathology & Consultation Notes with approach #1 to skip unknown subfolders."
+    )
     parser.add_argument("--prompts_dir", required=True, help="Directory containing prompt JSON files.")
     parser.add_argument("--model_type", default="local", choices=["local","gpt","gemini"], help="LLM backend to use.")
     parser.add_argument("--temperature", type=float, default=0.3, help="Sampling temperature for LLM responses.")

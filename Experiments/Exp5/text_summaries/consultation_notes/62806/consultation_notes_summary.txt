@@ -1,8 +1,8 @@
 Smoking_History: The patient does not smoke
 Alcohol_Consumption: The patient does not drink
 Pack_Years: Not inferred
-Patient_Concerns: 20-pound weight loss of unknown etiology, a painless mass at the upper level of the left cheek
-Recommendations: Post-op MRI to investigate any residual disease, possible adjuvant course of external beam radiotherapy or surgical re-resection if feasible
+Patient_Concerns: 20-pound weight loss of unknown etiology
+Recommendations: Post-op MRI to investigate any residual disease, possible adjuvant course of external beam radiotherapy or surgical re-resection
 Follow_up_Actions: Assessment with MRI results
 HPV_Status: Not inferred
 Patient_History_Status_Former_Status_of_Patient: Hypothyroidism and hypercholesterolemia
@@ -15,5 +15,5 @@ Performance_Comorbidity_Scores_ECOG_Performance_Status: 100
 Performance_Comorbidity_Scores_Karnofsky_Performance_Status: Not inferred
 Cancer_Staging_Pathological_TNM: Not inferred
 Cancer_Staging_Clinical_TNM: Not inferred
-Cancer_Staging_Tumor_Size: 1 to 2 cm in diameter, 1.5 cm (fragments after excisional resection)
+Cancer_Staging_Tumor_Size: 1 to 2 cm in diameter, 1.5 cm (fragments after resection)
 Others: Allergies to iodine contrast, medications include Synthroid and Lipitor

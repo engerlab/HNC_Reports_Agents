@@ -1,6 +1,6 @@
 Age: 74
 Sex: Male
-Anatomic_Site_of_Lesion: Right maxillary sinus/nasal cavity, Right alveolar ridge
+Anatomic_Site_of_Lesion: Right alveolar ridge
 Cancer_Staging: Not inferred
 Pathological_TNM: Not inferred
 Clinical_TNM: Not inferred
