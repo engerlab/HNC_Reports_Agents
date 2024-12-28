@@ -45,19 +45,24 @@ logger = logging.getLogger(__name__)
 # Regular Expressions for Post-Processing
 PATTERNS = {
     # Pathology Reports Structured Prompt Patterns
+    "Age": r"Age:\s*(\d+|Not inferred)",
+    "Sex": r"Sex:\s*(Male|Female|Other|Not inferred)",
     "Anatomic_Site_of_Lesion": r"Anatomic_Site_of_Lesion:\s*(.*)",
     "Cancer_Staging": r"Cancer_Staging:\s*(.*)",
     "Pathological_TNM": r"Pathological_TNM:\s*(.*)",
     "Clinical_TNM": r"Clinical_TNM:\s*(.*)",
-    "Tumor_Size": r"Tumor_Size:\s*(.*)",
+    "Primary_Tumor_Size": r"Primary_Tumor_Size:\s*(.*)",
     "Pathology_Details": r"Pathology_Details:\s*(.*)",
-    "Lymph_Node_Status_Presence_Absence": r"Presence_Absence:\s*(Presence|Absence|Not inferred)",
-    "Lymph_Node_Status_Number_of_Lymph_Nodes": r"Number_of_Lymph_Nodes:\s*(\d+|Not inferred)",
+    "Lymph_Node_Status_Presence_Absence": r"Presence_Absence:\s*(Presence|Absence|Suspected|Not inferred)",
+    "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes": r"Number_of_Positve_Lymph_Nodes:\s*(\d+|Not inferred)",
     "Lymph_Node_Status_Extranodal_Extension": r"Extranodal_Extension:\s*(Yes|No|Not inferred)",
     "Resection_Margins": r"Resection_Margins:\s*(Positive|Negative|Not inferred)",
-    "HPV_Status": r"HPV_Status:\s*(Positive|Negative|Not inferred)",
+    "p16_Status": r"p16_Status:\s*(Positive|Negative|Not inferred)",
     "Immunohistochemical_profile": r"Immunohistochemical_profile:\s*([A-Za-z0-9\+\(\),\s\-]+|Not inferred)",
-    "Others": r"Others:\s*(.*)"
+    "EBER_Status": r"EBER_Status:\s*(Positive|Negative|Not inferred)",
+    "Lymphovascular_Invasion_Status": r"Lymphovascular_Invasion_Status:\s*(Present|Absent|Not inferred)",
+    "Perineural_Invasion_Status": r"Perineural_Invasion_Status:\s*(Present|Absent|Not inferred)",
+    "Other_Tumor_Description": r"Other_Tumor_Description:\s*(.*)"
 }
 
 def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
@@ -74,19 +79,24 @@ def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
     extracted = {}
     if report_type == "pathology_reports":
         fields = [
+            "Age",
+            "Sex",
             "Anatomic_Site_of_Lesion",
             "Cancer_Staging",
             "Pathological_TNM",
             "Clinical_TNM",
-            "Tumor_Size",
+            "Primary_Tumor_Size",
             "Pathology_Details",
             "Lymph_Node_Status_Presence_Absence",
-            "Lymph_Node_Status_Number_of_Lymph_Nodes",
+            "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes",
             "Lymph_Node_Status_Extranodal_Extension",
             "Resection_Margins",
-            "HPV_Status",
+            "p16_Status",
             "Immunohistochemical_profile",
-            "Others"
+            "EBER_Status",
+            "Lymphovascular_Invasion_Status",
+            "Perineural_Invasion_Status",
+            "Other_Tumor_Description"
         ]
     else:
         # Handle other report types if necessary
@@ -120,18 +130,24 @@ def validate_extracted_data(data: Dict[str, Any], report_type: str) -> bool:
     """
     if report_type == "pathology_reports":
         required_fields = [
+            "Age",
+            "Sex",
             "Anatomic_Site_of_Lesion",
             "Cancer_Staging",
             "Pathological_TNM",
             "Clinical_TNM",
-            "Tumor_Size",
+            "Primary_Tumor_Size",
             "Pathology_Details",
             "Lymph_Node_Status_Presence_Absence",
-            "Lymph_Node_Status_Number_of_Lymph_Nodes",
+            "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes",
             "Lymph_Node_Status_Extranodal_Extension",
             "Resection_Margins",
-            "HPV_Status",
-            "Immunohistochemical_profile"
+            "p16_Status",
+            "Immunohistochemical_profile",
+            "EBER_Status",
+            "Lymphovascular_Invasion_Status",
+            "Perineural_Invasion_Status",
+            "Other_Tumor_Description"
         ]
     else:
         logger.warning(f"Unknown report type: {report_type}")
@@ -145,17 +161,47 @@ def validate_extracted_data(data: Dict[str, Any], report_type: str) -> bool:
 
     # Specific validations for Pathology Reports
     if report_type == "pathology_reports":
-        # Validate "Tumor_Size" format (e.g., "1.0 x 1.0 x 0.3 cm")
-        if data["Tumor_Size"] != "Not inferred":
-            if not re.match(r"^\d+(\.\d+)?\s*x\s*\d+(\.\d+)?\s*x\s*\d+(\.\d+)?\s*(mm|cm|in)?$", data["Tumor_Size"], re.IGNORECASE):
-                logger.debug(f"Invalid Tumor_Size value: {data['Tumor_Size']}")
+        # Validate "Age" format (e.g., numeric or 'Not inferred')
+        if data["Age"] != "Not inferred":
+            if not re.match(r"^\d+$", data["Age"]):
+                logger.debug(f"Invalid Age value: {data['Age']}")
                 return False
 
-        # Validate "HPV_Status" if it contains additional info
-        if "based on" in data["HPV_Status"].lower():
+        # Validate "Sex" values
+        if data["Sex"] != "Not inferred":
+            if data["Sex"].lower() not in ["male", "female", "other", "not inferred"]:
+                logger.debug(f"Invalid Sex value: {data['Sex']}")
+                return False
+
+        # Validate "Primary_Tumor_Size" format (e.g., "1.0 x 1.0 x 0.3 cm")
+        if data["Primary_Tumor_Size"] != "Not inferred":
+            if not re.match(r"^\d+(\.\d+)?\s*x\s*\d+(\.\d+)?\s*x\s*\d+(\.\d+)?\s*(mm|cm|in)?$", data["Primary_Tumor_Size"], re.IGNORECASE):
+                logger.debug(f"Invalid Primary_Tumor_Size value: {data['Primary_Tumor_Size']}")
+                return False
+
+        # Validate "p16_Status" if it contains additional info
+        if "based on" in data["p16_Status"].lower():
             # Example: "Negative (based on p16 immunohistochemistry)"
-            if not re.match(r"^(Positive|Negative)\s*\(based on p16 immunohistochemistry\)$", data["HPV_Status"], re.IGNORECASE):
-                logger.debug(f"Invalid HPV_Status value: {data['HPV_Status']}")
+            if not re.match(r"^(Positive|Negative)\s*\(based on p16 immunohistochemistry\)$", data["p16_Status"], re.IGNORECASE):
+                logger.debug(f"Invalid p16_Status value: {data['p16_Status']}")
+                return False
+
+        # Validate "Lymphovascular_Invasion_Status"
+        if data["Lymphovascular_Invasion_Status"] != "Not inferred":
+            if data["Lymphovascular_Invasion_Status"] not in ["Present", "Absent", "Not inferred"]:
+                logger.debug(f"Invalid Lymphovascular_Invasion_Status value: {data['Lymphovascular_Invasion_Status']}")
+                return False
+
+        # Validate "Perineural_Invasion_Status"
+        if data["Perineural_Invasion_Status"] != "Not inferred":
+            if data["Perineural_Invasion_Status"] not in ["Present", "Absent", "Not inferred"]:
+                logger.debug(f"Invalid Perineural_Invasion_Status value: {data['Perineural_Invasion_Status']}")
+                return False
+
+        # Validate "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes"
+        if data["Lymph_Node_Status_Number_of_Positve_Lymph_Nodes"] != "Not inferred":
+            if not re.match(r"^\d+$", data["Lymph_Node_Status_Number_of_Positve_Lymph_Nodes"]):
+                logger.debug(f"Invalid Number_of_Positve_Lymph_Nodes value: {data['Lymph_Node_Status_Number_of_Positve_Lymph_Nodes']}")
                 return False
 
         # Add more validations as needed
@@ -176,17 +222,23 @@ def normalize_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
     if report_type == "pathology_reports":
         # Normalize Categorical Fields
         categorical_fields = [
+            "Age",
+            "Sex",
             "Anatomic_Site_of_Lesion",
             "Cancer_Staging",
             "Pathological_TNM",
             "Clinical_TNM",
             "Pathology_Details",
             "Lymph_Node_Status_Presence_Absence",
+            "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes",
             "Lymph_Node_Status_Extranodal_Extension",
             "Resection_Margins",
-            "HPV_Status",
+            "p16_Status",
             "Immunohistochemical_profile",
-            "Others"
+            "EBER_Status",
+            "Lymphovascular_Invasion_Status",
+            "Perineural_Invasion_Status",
+            "Other_Tumor_Description"
         ]
         for field in categorical_fields:
             df[field] = df[field].str.title().fillna("Missing")
@@ -209,20 +261,27 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
     # Define categorical and numerical columns based on report type
     if report_type == "pathology_reports":
         categorical_cols = [
+            "Age",
+            "Sex",
             "Anatomic_Site_of_Lesion",
             "Cancer_Staging",
             "Pathological_TNM",
             "Clinical_TNM",
             "Pathology_Details",
             "Lymph_Node_Status_Presence_Absence",
+            "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes",
             "Lymph_Node_Status_Extranodal_Extension",
             "Resection_Margins",
-            "HPV_Status",
+            "p16_Status",
             "Immunohistochemical_profile",
-            "Others"
+            "EBER_Status",
+            "Lymphovascular_Invasion_Status",
+            "Perineural_Invasion_Status",
+            "Other_Tumor_Description"
         ]
         numerical_cols = [
-            "Tumor_Size"  # Kept as string; consider extracting numerical values if needed
+            "Primary_Tumor_Size",  # Consider extracting numerical values if needed
+            "Age"  # If treating Age as numerical, additional processing is required
         ]
     else:
         logger.warning(f"Unknown report type for encoding: {report_type}")
@@ -307,29 +366,29 @@ class ReportSummarizer:
         for report_type, prompt_list in self.prompts.items():
             if not prompt_list:
                 continue
-            # Select the only prompt from the list (since there's only one)
+            # Select the first prompt from the list
             selected_prompt = prompt_list[0]
 
             # Define a RunnableLambda for summarization
-            def make_llm_runnable(prompt):
-                def llm_runnable(inputs):
-                    context = inputs["context"]
-                    try:
-                        # Replace {context} with the actual report text
-                        prompt_text = prompt.replace("{context}", context)
-                        response = self.model.invoke([HumanMessage(content=prompt_text)]).content
-                        return {"summary": response}
-                    except Exception as e:
-                        logger.error(f"Error in LLM generation: {e}")
-                        return {"summary": ""}
-                return RunnableLambda(llm_runnable)
-
-            llm_lambda = make_llm_runnable(selected_prompt)
+            llm_lambda = self.make_llm_runnable(selected_prompt)
 
             # Assign RunnableLambda directly to chain_map
             self.chain_map[report_type] = llm_lambda
 
         logger.info(f"Initialized LLM chains for report types: {list(self.chain_map.keys())}")
+
+    def make_llm_runnable(self, prompt):
+        def llm_runnable(inputs):
+            context = inputs["context"]
+            try:
+                # Replace {context} with the actual report text
+                prompt_text = prompt.replace("{context}", context)
+                response = self.model.invoke([HumanMessage(content=prompt_text)]).content
+                return {"summary": response}
+            except Exception as e:
+                logger.error(f"Error in LLM generation: {e}")
+                return {"summary": ""}
+        return RunnableLambda(llm_runnable)
 
     def summarize_report(self, report_text: str, report_type: str) -> Optional[str]:
         """

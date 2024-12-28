@@ -1,0 +1,123 @@
+Rapport de Pathologie Final Pathology Report
+Renseignements Cliniques-Clinical History
+Right transglottic Ca T4aN2cM0 for total laryngectomy + bilateral neck dissection + total thyroidectomy
+- 1) Larynx - Biobank sent fresh @ 14:06 2) Left paratracheal area, parathyroid gland vs node ->
+frozen @ 13:47 3) Left 2A, fresh (Biobank) 4) Left 2B, fresh (Biobank) 5) Left 3+4, fresh (Biobank) 6)
+Right neck 2A, fresh (Biobank) 7) Right neck level 2B, fresh (Biobank) 8) Right neck 3, fresh
+(Biobank) 9) Right neck level 4, fresh (Biobank) 10) Right int, jugular vein (formalin)
+Consultation Peroperatoire-Intraoperative Consultation
+IOC without F.S. - Larynx:
+- Tumor identified
+- Submitted for Biobank ([PERSON])
+Left paratracheal area (F.S.):
+- Parathyroid tissue ([PERSON]) (Consult: [PERSON])
+Diagnostic Anatomique-Anatomical Diagnosis
+SYNOPTIC REPORT: LARYNX
+Specimen site: larynx, thyroid, bilateral neck lymph nodes, levels 2A, 2B, 3 and 4
+Procedure: total laryngectomy, total thyroidectomy, bilateral neck dissection, levels 2A, 2B, 3 and 4
+Primary Tumor:
+Tumor Laterality: bilateral
+Tumor Site: supraglottic larynx, glottis, subglottic larynx
+Tumor Size: 3.4 x 2.8 x 1.9 cm
+Extent of tumor: involves thyroid cartilage, strap muscle and perilaryngeal soft tissue
+Histologic Type: squamous cell carcinoma
+Histologic Grade: moderately to poorly differentiated
+Margins: margins uninvolved by invasive carcinoma, distance from closest mucosal margin: 0.2 cm
+(right epiglottic fold), distance from closest deep margin: 0.3 cm
+Lymph-Vascular Invasion: present
+Perineural Invasion: not identified
+
+Lymph Nodes:
+total number of lymph nodes examined: 45
+total number of lymph nodes involved: 9
+extranodal extension: present in several lymph nodes
+size of the largest metastatic focus in the lymph node: 1.9 cm
+Lymph Nodes by Specific Sites:
+specimen 1: Larynx: no lymph node identified
+specimen 2: Left paratracheal area, parathyroid gland vs node: parathyroid tissue, no lymph node
+identified
+specimen 3: left level 2A, number examined: 8 number involved: 2
+specimen 4: left level 2B, number examined: 3 number involved: 0
+specimen 5: left level 3 and 4, number examined: 9 number involved: 2
+specimen 6: right level 2A, number examined: 6 number involved: 3
+specimen 7: right level 2B, number examined: 3 number involved: 0
+specimen 8: right level 3, number examined: 7 number involved: 2
+specimen 9: right level 4, number examined: 9 number involved: 0
+specimen 10: right int jugular vein: jugular vein with focal involvement by squamous cell carcinoma.
+Pathologic Staging (pTNM):
+Primary Tumor (pT):pT4a: Moderately advanced local disease. Tumor invades through the outer cortex
+of the thyroid cartilage and/or invades tissues beyond the larynx (eg, trachea, cricoid cartilage, soft
+tissues of neck including deep extrinsic muscle of the tongue, strap muscles, thyroid, or esophagus)
+Regional Lymph Nodes (pN): pN3b: Metastasis in a single ipsilateral node, larger than 3 cm in greatest
+dimension and ENE(+); or multiple ipsilateral, contralateral, or bilateral lymph nodes and any with
+ENE(+); or a single contralateral node of any size and ENE(+)
+Examen Macroscopique-Macroscopic Description
+#1. Received fresh, labelled "LARYNX", consists of a total larynx and total thyroid with a segment of
+trachea in 1 block. The specimen is consistent with a total laryngectomy and total thyroidectomy. The
+specimen measures 4.9cm from the anterior commissure to the tip of the epiglottis and 4.8cm from
+the anterior commissure to the tracheal margin. The right thyroid lobe measures 3.6 x 2.0 x 1.0cm.
+The left thyroid lobe measures 3.4 x 2.0 x 1.0cm. The isthmus measures 2.0 x 1.0 x 0.4cm. The
+specimen is inked and opened posteriorly. The specimen shows a slightly raised, ulcerated,
+moderately-defined, solid, white, grey, firm, transglottic tumor. The specimen involves bilateral larynx
+(more on the right side). The tumor grossly involves the thyroid cartilage. The tumor measures 3.4 x
+2.8 x 1.9cm. The tumor is 3.5cm away from the tracheal margin. The tumor is 0.2cm from the right
+epiglottic fold margin. Upon sectioning the thyroid, no nodule is grossly identified. The parenchyma is
+grossly unremarkable. No lymph node is retrieved. The specimen is fixed in formalin and then
+transferred for 48 hours in decalcification solution. The specimen is photographed. Representative
+sections are submitted as follows and as shown on the picture:
+A tracheal margin
+B epiglottis interface vallecular margin
+C right epiglottic fold
+D left aryepiglottic fold
+E-N right larynx starting at right paramedial anteriorly towards posterior
+O-V left larynx starting at left paramedial anteriorly towards posterior
+W right thyroid lobe
+X left thyroid lobe.
+#2. Received fresh, labelled "FROZEN SECTION LEFT PARATRACHEAL AREA PARATHYROID
+GLAND VS NODE", consists of 3 tiny fragments of soft tissue measuring 0.2 x 0.2 x 0.1cm submitted
+in toto for a frozen section. The frozen section is submitted for permanents in a cassette labelled "2A
+FS".
+#3. Received fresh, labelled "LEFT NECK 2A", consists of a fragment of fibrofatty tissue measuring 3.0
+x 2.0 x 0.6cm. Upon sectioning the specimen, multiple lymph nodes are identified. The largest
+measures 1.7cm in diameter. The specimen is submitted in toto as follows:
+A multiple lymph nodes
+B 3 lymph nodes
+C 1 lymph node
+D rest of the fibrofatty tissue.
+#4. Received fresh, labelled "LEFT 2B", consists of a fragment of fibrofatty tissue measuring 2.0 x 1.8
+x 0.7cm. Upon sectioning the specimen, 3 possible lymph nodes are identified. The largest measures
+0.4cm in diameter. The specimen is submitted in toto as follows:
+A 3 possible lymph nodes
+B rest of the fibrofatty tissue.
+#5. Received fresh, labelled "LEFT NECK 3 AND 4", consists of a fragment of fibrofatty tissue
+measuring 5.0 x 3.0 x 0.5cm. Upon sectioning the specimen, multiple lymph nodes are identified. The
+largest measures 0.9cm in diameter. The specimen is submitted in toto as follows:
+A multiple lymph nodes
+B 1 lymph node
+C-E rest of the fat in toto.
+#6. Received fresh, labelled "RIGHT NECK 2A", consists of 2 fragments of fibrofatty tissue measuring
+in aggregate 3.0 x 2.0 x 1.0cm. Upon sectioning the specimen, 5 possible lymph nodes are identified.
+The largest measures 1.9cm in diameter. The largest node is partially cystic. A sample of the largest
+node is submitted for biobanking. The specimen is submitted in toto as follows:
+A 4 possible lymph nodes
+B 1 lymph node (partly submitted for biobanking)
+C & D rest of the fibrofatty tissue in toto.
+#7. Received fresh, labelled "RIGHT LEVEL 2B", consists of a fragment of fibrofatty tissue measuring
+2.0 x 1.5 x 0.5cm. On sectioning the specimen, 1 possible lymph node is identified measuring 0.3cm
+in diameter. The specimen is submitted in toto as follows:
+A 1 lymph node
+B rest of the fibrofatty tissue.
+#8. Received fresh, labelled "RIGHT NECK 3", consists of 2 fragments of fibrofatty tissue measuring in
+aggregate 4.0 x 3.0 x 0.4cm. Upon sectioning the specimen, multiple lymph nodes are identified. The
+largest measures 0.8cm in diameter. The specimen is submitted in toto as follows:
+A multiple lymph nodes
+B 1 lymph node
+C & D rest of the fibrofatty tissue.
+#9. Received fresh, labelled "RIGHT NECK LEVEL 4", consists of a fragment of fibrofatty tissue
+measuring 5.0 x 3.0 x 0.4cm. Upon sectioning the specimen, 5 possible lymph nodes are identified.
+The largest measures 0.8cm in diameter. The specimen is submitted in toto as follows:
+A multiple lymph nodes
+B-D rest of the fibrofatty tissue.
+#10. Labelled "RIGHT INTERNAL JUGULAR VEIN", consists of a segment of possible blood vessel
+measuring 1.4cm in length x 0.4cm in circumference. The specimen is serially cross sectioned and
+submitted in toto in 1 cassette. EY/ha

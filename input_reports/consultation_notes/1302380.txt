@@ -1,0 +1,34 @@
+DIAGNOSIS: Squamous cell carcinoma of oral tongue.
+REFERRING DOCTOR: [PERSON]
+ID: [PERSON] is a [AGE] patient, was seen today for T4a N3b M0 well differentiated squamous cell carcinoma
+of the larynx. for consideration of adjuvant therapy
+History of present illness: the patient presented with progressive dysphagia and dysphonia, found to have a transglottic mass, biopsy
+on the [DATE] revealed SCC
+The patient underwent on the 14 of December total laryngectomy with bilateral lymphnodal dissection.
+Pathology revealed poorly diff SCC, transglottic, invasion of the thyroid cartilage, strap muscle and perilaryngeal soft tissue, bilateral
+level 2 and 3 lymphnodal involvement 9 out of 45 with ECE, LVI present, margins close at 2 mm/
+Patient recovered well from surgery
+Preop MRI revealed transglottic neoplasm, which is stable in size in comparison with previous CT.
+The lesion involves the right true and false cord, anterior commissure and the contralateral true and false cord as described previously.
+There is invasion of the thyroid cartilage and anterior displacement of the strap muscles. There is a small component of subglottic
+extension.
+Superiorly the lesion reaches the petiole of the epiglottis. The right paralaryngeal fat is invaded. There is secondary significant
+narrowing of the airway.
+Redemonstration of pathologic right level 2A and level 3 lymph nodes with internal necrosis. There are also suspicious left level 2 and
+level 3 lymph nodes as was described on the CT scan.
+No other significant change or abnormality identified.
+CT chest is negative
+Review of systems unremarkable otherwise
+Medications: salbutamol, flovent, temisartan, meoprololrocaltrol, synthroid, finasteride, atorvastatin
+Past medical history: hypertension, CAD post angioplasty
+Social history: heavy smoker, social drinker
+Examination: Performance Status: 90%
+Neck is clear, stoma is reovered well, oral cavity and oropharynx are normal, patient edentulous.
+Naso-pharyngo-laryngoscopy was normal.
+In summary, [PERSON] is a [AGE] patient with T4a N3b M0 poorly differentiated squamous cell carcinoma of
+the larynx.
+Patient will be treated with post-operative chemoradiotherapy.. Both acute and long term side-effects were explained to the patient and
+accompanying [CHILDREN].
+He will be seen next in planning.
+Thank you for the courtesy of the consultation.
+[PERSON]
