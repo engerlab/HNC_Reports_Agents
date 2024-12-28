@@ -4,7 +4,8 @@
 This project focuses on transforming unstructured clinical reports (e.g., pathology reports, consultation notes) into structured formats. This involves extracting key information, summarizing texts, and generating structured variables and embeddings for downstream tasks like survival analysis.
 
 <div align="center">
-  <img src="/Data/Yujing/HNC_OutcomePred/Reports_Agents/img/Head & Neck Clinician-AI Meetings.png" alt="Alt text" width="45%">
+  <img src="https://github.com/engerlab/HNC_Reports_Agents/blob/ce9ccf4d829d19f1149476956d70494a31a9224f/img/Head%20%26%20Neck%20Clinician-AI%20Meetings.png" 
+  alt="Alt text" width="75%">
 </div>
 
 
