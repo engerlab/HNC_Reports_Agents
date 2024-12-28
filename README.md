@@ -11,10 +11,10 @@ This project focuses on transforming unstructured clinical reports (e.g., pathol
 ├── input_reports/
 │   ├── consultation_notes/
 │   │   ├── consultation_notes_example1.txt
-│   │   ├── consultation_notes_example2.txt
+         ...
 │   └── pathology_reports/
 │       ├── pathology_report_example1.txt
-│       ├── pathology_report_example2.txt
+│       ...
 ├── prompts/
 │   ├── prompt_consultation_notes.json
 │   └── prompt_pathology_report.json
@@ -23,49 +23,42 @@ This project focuses on transforming unstructured clinical reports (e.g., pathol
 │   │   ├── consultation_notes/
 │   │   │   ├── patient_id1/
 │   │   │   │   └── consultation_notes_summary.txt
-│   │   │   └── patient_id2/
-│   │   │       └── consultation_notes_summary.txt
+            ...
 │   │   └── pathology_reports/
 │   │       ├── patient_id1/
 │   │       │   └── pathology_reports_summary.txt
-│   │       └── patient_id2/
-│   │           └── pathology_reports_summary.txt
+            ...
 │   ├── embeddings/
 │   │   ├── consultation_notes/
 │   │   │   ├── patient_id1/
 │   │   │   │   └── consultation_notes_embedding.pkl
-│   │   │   └── patient_id2/
-│   │   │       └── consultation_notes_embedding.pkl
+            ...
 │   │   └── pathology_reports/
 │   │       ├── patient_id1/
 │   │       │   └── pathology_reports_embedding.pkl
-│   │       └── patient_id2/
-│   │           └── pathology_reports_embedding.pkl
+            ...
 │   ├── structured_data/
 │   │   ├── consultation_notes/
 │   │   │   ├── patient_id1/
 │   │   │   │   └── consultation_notes_structured.csv
-│   │   │   └── patient_id2/
-│   │   │       └── consultation_notes_structured.csv
+            ...
 │   │   └── pathology_reports/
 │   │       ├── patient_id1/
 │   │       │   └── pathology_reports_structured.csv
-│   │       └── patient_id2/
-│   │           └── pathology_reports_structured.csv
+            ...
 │   ├── structured_data_encoded/
 │   │   ├── consultation_notes/
 │   │   │   ├── patient_id1/
 │   │   │   │   └── consultation_notes_structured_encoded.csv
-│   │   │   └── patient_id2/
-│   │   │       └── consultation_notes_structured_encoded.csv
+            ...
 │   │   └── pathology_reports/
 │   │       ├── patient_id1/
 │   │       │   └── pathology_reports_structured_encoded.csv
-│   │       └── patient_id2/
-│   │           └── pathology_reports_structured_encoded.csv
+            ...
 ├── summaries_metadata.csv
 ├── tabular_data_metadata.csv
-└── invalid_entries.log
+├── invalid_entries.log
+└── processing_times.csv
 ```
 
 ## Scripts 
