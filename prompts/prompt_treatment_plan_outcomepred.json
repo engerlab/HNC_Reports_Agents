@@ -1,7 +1,9 @@
 {
     "prompts": [
       "You are an oncologist specialized in head and neck cancer. Describe a treatment plan for the patient and your reasoning. Be specific in your treatment plan for each treatment modality. If surgery is involved, describe the surgery in detail; if radiotherapy is involved, describe radiation quality, techniques, fractions and schedule; if chemotherapy is involved, describe the chemo drug used and schedule. Your reasoning should be described for each treatment modality",
-      "Preict their post-treatment outcomes for overall survival, locoregional recurrence, distant metastiasis, progress-free-survival, and disease-free-survival. Provide the time and events (right censoring if needed), and x-year probability"
+      "Pay attention to specific biomarkers such as HPV or p16 status. Discuss or suggest personalized treatment options based on these biomarkers other than standard of care treatment, what can we consider?",
+      "If you are drawing suggestions from clinical trials, provide the trial name, phase, and the results that support your suggestion, and all necessary citations otherwise",
+      "Preict their post-treatment outcomes for overall survival, locoregional recurrence, distant metastiasis, progress-free-survival, and disease-free-survival. Provide the time-to-event (right censoring if needed), and x-year probability with confidence intervals"
     ]
   }
   
