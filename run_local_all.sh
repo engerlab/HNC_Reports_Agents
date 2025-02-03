@@ -1,40 +1,59 @@
 #!/bin/bash
 
-# Bash script to run the summarizer with local Ollama models
-# while showing:
-# 1) A spinning 'Processing...' sign, AND
-# 2) x/y (Pct%) for pathology_reports, consultation_notes, and treatment_plan_outcomepred
-#
-# This does NOT change the Python code. We parse the logs to see progress.
+# Usage: ./run_local_all.sh [report_type]
+# report_type can be: pathology_reports, consultation_notes, treatment_plan_outcomepred, or "all" (default).
 
-INPUT_DIR="/Data/Yujing/HNC_OutcomePred/HNC_Reports"
-OUTPUT_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp2"
+INPUT_DIR="/media/yujing/One Touch3/HNC_Reports"
+OUTPUT_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp3"
 PROMPTS_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts"
 MODEL_TYPE="local"
 TEMPERATURE="0.8"
 EMBEDDING_MODEL="ollama"
-PYTHON_SCRIPT="/Data/Yujing/HNC_OutcomePred/Reports_Agents/summarize_reports4.py"
+LOCAL_MODEL="llama3.3:latest"
+PYTHON_SCRIPT="/Data/Yujing/HNC_OutcomePred/Reports_Agents/summarize_reports5.py"
 
-# Temporary log file for Python output
-LOGFILE="/tmp/summarizer_progress.log"
-rm -f "$LOGFILE"
+if [ -z "$1" ] || [ "$1" == "all" ]; then
+  REPORT_TYPE="all"
+else
+  REPORT_TYPE="$1"
+fi
 
-# 1) Count how many .txt files for each subfolder
-PAT_TOTAL=$(find "$INPUT_DIR/pathology_reports" -type f -name '*.txt' 2>/dev/null | wc -l)
-CON_TOTAL=$(find "$INPUT_DIR/consultation_notes" -type f -name '*.txt' 2>/dev/null | wc -l)
-TP_TOTAL=$(find "$INPUT_DIR/treatment_plan_outcomepred" -type f -name '*.txt' 2>/dev/null | wc -l)
+# For folder naming:
+# - We use "PathologyReports" for pathology_reports
+# - "ConsultRedacted" for consultation_notes
+# - "PathConsCombined" for treatment_plan_outcomepred
 
-echo "Pathology Reports: $PAT_TOTAL .txt files"
-echo "Consultation Notes: $CON_TOTAL .txt files"
-echo "Treatment Plan Outcome Predictions: $TP_TOTAL .txt files"
+# Count files for each type
+PAT_TOTAL=0
+CON_TOTAL=0
+TP_TOTAL=0
+
+if [[ "$REPORT_TYPE" == *"pathology_reports"* ]] || [ "$REPORT_TYPE" == "all" ]; then
+  PAT_TOTAL=$(find "$INPUT_DIR/PathologyReports" -type f -name '*.txt' 2>/dev/null | wc -l)
+fi
+
+if [[ "$REPORT_TYPE" == *"consultation_notes"* ]] || [ "$REPORT_TYPE" == "all" ]; then
+  CON_TOTAL=$(find "$INPUT_DIR/ConsultRedacted" -type f -name '*.txt' 2>/dev/null | wc -l)
+fi
+
+if [[ "$REPORT_TYPE" == *"treatment_plan_outcomepred"* ]] || [ "$REPORT_TYPE" == "all" ]; then
+  TP_TOTAL=$(find "$INPUT_DIR/PathConsCombined" -type f -name '*.txt' 2>/dev/null | wc -l)
+fi
+
+echo "Pathology Reports (PathologyReports): $PAT_TOTAL .txt files"
+echo "Consultation Notes (ConsultRedacted): $CON_TOTAL .txt files"
+echo "Treatment Plan (PathConsCombined): $TP_TOTAL .txt files"
+
 if [ "$PAT_TOTAL" -eq 0 ] && [ "$CON_TOTAL" -eq 0 ] && [ "$TP_TOTAL" -eq 0 ]; then
-  echo "No .txt files found in pathology_reports, consultation_notes, or treatment_plan_outcomepred. Exiting."
+  echo "No .txt files found in the named subfolders. Exiting."
   exit 1
 fi
 
 echo "Starting Summarizer with local Ollama..."
 
-# 2) Run Python in background, capturing logs
+LOGFILE="/tmp/summarizer_progress.log"
+rm -f "$LOGFILE"
+
 python "$PYTHON_SCRIPT" \
   --prompts_dir "$PROMPTS_DIR" \
   --model_type "$MODEL_TYPE" \
@@ -42,21 +61,25 @@ python "$PYTHON_SCRIPT" \
   --input_dir "$INPUT_DIR" \
   --output_dir "$OUTPUT_DIR" \
   --embedding_model "$EMBEDDING_MODEL" \
+  --report_type "$REPORT_TYPE" \
+  --local_model "$LOCAL_MODEL" \
   >"$LOGFILE" 2>&1 &
 
 PID=$!
 
-# 3) Define a spinner
+# Spinner to show progress
 spin='-\|/'
 i=0
 
-# 4) While python is running, show spinner + subfolder progress
 while kill -0 "$PID" 2>/dev/null; do
   i=$(( (i+1) %4 ))
   spinChar=${spin:$i:1}
-  PAT_PROCESSED=$(grep -c "Processing file: .* in folder: pathology_reports" "$LOGFILE")
-  CON_PROCESSED=$(grep -c "Processing file: .* in folder: consultation_notes" "$LOGFILE")
-  TP_PROCESSED=$(grep -c "Processing file: .* in folder: treatment_plan_outcomepred" "$LOGFILE")
+  
+  # Count processed files:
+  PAT_PROCESSED=$(grep -c "Processing file: .* in folder: PathologyReports" "$LOGFILE")
+  CON_PROCESSED=$(grep -c "Processing file: .* in folder: ConsultRedacted" "$LOGFILE")
+  TP_PROCESSED=$(grep -c "Processing combined file: .* in folder: PathConsCombined" "$LOGFILE")
+
   if [ "$PAT_TOTAL" -gt 0 ]; then
     PAT_PCT=$(( 100 * PAT_PROCESSED / PAT_TOTAL ))
   else
@@ -72,14 +95,16 @@ while kill -0 "$PID" 2>/dev/null; do
   else
     TP_PCT=0
   fi
-  echo -ne "\r[$spinChar] Path: $PAT_PROCESSED/$PAT_TOTAL ($PAT_PCT%)  Cons: $CON_PROCESSED/$CON_TOTAL ($CON_PCT%)  TP: $TP_PROCESSED/$TP_TOTAL ($TP_PCT%)"
+
+  echo -ne "\r[$spinChar] Path: $PAT_PROCESSED/$PAT_TOTAL (${PAT_PCT}%)  Cons: $CON_PROCESSED/$CON_TOTAL (${CON_PCT}%)  TP: $TP_PROCESSED/$TP_TOTAL (${TP_PCT}%)"
   sleep 1
 done
 
-# 5) Once the Python finishes, do one final read
-PAT_PROCESSED=$(grep -c "Processing file: .* in folder: pathology_reports" "$LOGFILE")
-CON_PROCESSED=$(grep -c "Processing file: .* in folder: consultation_notes" "$LOGFILE")
-TP_PROCESSED=$(grep -c "Processing file: .* in folder: treatment_plan_outcomepred" "$LOGFILE")
+# Final read
+PAT_PROCESSED=$(grep -c "Processing file: .* in folder: PathologyReports" "$LOGFILE")
+CON_PROCESSED=$(grep -c "Processing file: .* in folder: ConsultRedacted" "$LOGFILE")
+TP_PROCESSED=$(grep -c "Processing combined file: .* in folder: PathConsCombined" "$LOGFILE")
+
 if [ "$PAT_TOTAL" -gt 0 ]; then
   PAT_PCT=$(( 100 * PAT_PROCESSED / PAT_TOTAL ))
 else
@@ -95,7 +120,6 @@ if [ "$TP_TOTAL" -gt 0 ]; then
 else
   TP_PCT=0
 fi
-echo -e "\r[+] Path: $PAT_PROCESSED/$PAT_TOTAL ($PAT_PCT%), Cons: $CON_PROCESSED/$CON_TOTAL ($CON_PCT%), TP: $TP_PROCESSED/$TP_TOTAL ($TP_PCT%). Done!"
 
-# (Optional) Uncomment the next line to show final logs:
-# echo "Logs are in $LOGFILE"
+echo -e "\r[+] Path: $PAT_PROCESSED/$PAT_TOTAL ($PAT_PCT%), Cons: $CON_PROCESSED/$CON_TOTAL ($CON_PCT%), TP: $TP_PROCESSED/$TP_TOTAL ($TP_PCT%). Done!"
+echo "Logs are in $LOGFILE"

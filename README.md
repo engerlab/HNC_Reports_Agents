@@ -155,8 +155,13 @@ pip install -qU langchain-openai
   - Smoking and alcohol history.
   - Immunohistochemistry results.
 
+### Consultation Notes
+
+### Combined Pathology Reports & Consultation Notes for Medical Reasoning: 
+- Using llama prompt engineering Chiain-of-Thought(CoT), which is simply to ask for adding a step-by-step thinking chain. 
+
 ### Privacy-Preserving Workflow
-- Use local LLMs (e.g., Llama 3.3) on privacy-compliant infrastructure.
+- Use local LLMs (e.g., Llama 3.3) on privacy-compliant infrastructure.[Meta Cookbook](https://github.com/meta-llama/llama-cookbook/blob/main/getting-started/Prompt_Engineering_with_Llama.ipynb); [Meta Prompt Eng](https://www.llama.com/docs/how-to-guides/prompting/)
 
 ---
 
