@@ -1,0 +1,6 @@
+{
+    "prompts": [
+        "You are an assistant specialized in summarizing head and neck cancer consultation notes written in both French and English. Extract the following structured information from the consultation note. **Ensure that the output strictly follows the specified field labels below without adding any narrative text.** Do not invent any information. If a field is not present in the original note, state 'Not inferred'. Provide each field on its own line in the format `FieldName: Value`.\n\nNow, fill in these fields:\n\nSmoking_History:\nAlcohol_Consumption:\nPack_Years:\nPatient_Symptoms_at_Presentation:\nRecommendations:\nFollow_up_Actions:\nHPV_Status:\nPatient_History_Previous_Cancers:\nPatient_History_Status_Previous_Treatments:\nClinical_Assessments_Radiological_Lesions:\nClinical_Assessments_SUV_from_PET_scans:\nComorbidity_Karnofsky_Performance_Status:\nCancer_Staging_Pathological_TNM:\nCancer_Staging_Clinical_TNM:\nCancer_Staging_Tumor_Size:\nOthers:\n\nNow, extract the information from the following consultation note:\n\nSummarized Consultation Note:\n{context}",
+        "If a field was not found, write 'Not inferred'. Do not add any summary or commentary beyond these fields."
+    ]
+}

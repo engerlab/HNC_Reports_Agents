@@ -8,7 +8,7 @@
 # This does NOT change the Python code. We parse the logs to see progress.
 
 INPUT_DIR="/Data/Yujing/HNC_OutcomePred/HNC_Reports"
-OUTPUT_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp1"
+OUTPUT_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp2"
 PROMPTS_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts"
 MODEL_TYPE="local"
 TEMPERATURE="0.8"
