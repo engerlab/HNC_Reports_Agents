@@ -68,12 +68,69 @@ This project focuses on transforming unstructured clinical reports (e.g., pathol
 ```
 
 ## Scripts 
-- `hnc_reports_agent.py`: Expert-guided LLM extraction of Pathology & Consultation Notes. 
+- `hnc_reports_agent2.py`: Expert-guided LLM extraction of Pathology & Consultation Notes, and Treatment Plan & Outcome Prediction medical reasoning with Chain-of-Thought (CoT)
+   - **Modes Supported:**  
+   - **pathology_reports:** Reads from `PathologyReports/`.
+   - **consultation_notes:** Reads from `ConsultRedacted/`.
+   - **treatment_plan_outcomepred:** Uses the original treatment plan prompt from combined reports in `PathConsCombined/`.
+   - **path_consult_reports:** Uses a combined extraction prompt (merging pathology and consultation fields) from `PathConsCombined/`.
+   - **CoT_treatment_plan_outcomepred:** Uses a chain‑of‑thought treatment plan prompt from `PathConsCombined/`.
+   - **Behavior:**  
+   The script normalizes the report type input to lowercase and processes **only** the specified modes. It creates output subfolders for each mode processed.
+
 - `combine_path_cons.py`: combine pathology reports & consultation notes texts inputs into one file per patient. 
 - `run_local.sh`: testing scripts with ollama llama3.3:latest
-- `run_local_all.sh`: running for all pathology reports & consultation notes
+- `run_local_all.sh`: Provides a convenient wrapper to run the Python script with a comma‑separated list of report types.  
    - input parent dir: /Data/Yujing/HNC_OutcomePred/HNC_Reports
    - results output dir: /Data/Yujing/HNC_OutcomePred/Reports_Agents_Results
+      - **Usage Examples:**  
+      - Process only CoT treatment plan mode:  
+         ```bash
+         ./run_local_all2.sh "CoT_treatment_plan_outcomepred"
+         ```
+      - Process both combined extraction and CoT mode:  
+         ```bash
+         ./run_local_all2.sh "path_consult_reports,CoT_treatment_plan_outcomepred"
+         ```
+      - Process all modes:  
+         ```bash
+         ./run_local_all2.sh all
+         ```
+      - **Key Feature:**  
+      The script converts the input to lowercase, splits the report types into exact tokens, and sets booleans for each mode. The dynamic progress display shows only the counts for the requested modes. (Note: If using an output directory from a previous run, old subfolders may remain—consider using a clean output directory.)
+
+### Organize Input Reports Data 
+**Structure input directory as follows**
+/media/yujing/One Touch3/HNC_Reports/
+├── PathologyReports/       # .txt files for pathology reports
+├── ConsultRedacted/        # .txt files for consultation notes
+└── PathConsCombined/       # .txt files for combined reports (used in combined extraction and treatment plan modes)
+
+### Configure JSON Prompts 
+**Place all JSON prompt files in the propmts directory:**
+/Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts/
+  prompt_pathology_reports.json
+  prompt_consultation_notes.json
+  prompt_treatment_plan_outcomepred.json
+  prompt_path_consult_reports.json
+  prompt_CoT_treatment_plan_outcomepred.json
+
+### Running the pipeline:
+1) Optional: to run the `hnc_reports_agent2.py` script directly: 
+`python hnc_reports_agent.py \
+  --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+  --model_type local \
+  --temperature 0.8 \
+  --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+  --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp6" \
+  --embedding_model ollama \
+  --report_type CoT_treatment_plan_outcomepred \
+  --local_model "llama3.3:latest"`
+2) Run the bash script, specify chosen report type(s): 
+- `bash run_local_all2.sh "path_consult_reports, CoT_treatment_plan_outcomepred"`: runs 1) combined fields extractions from merged pathology reports & consultation notes, 2) CoT reasoning of treatment plan and outcome prediction 
+- `bash run_local_all2.sh "path_consult_reports"`: only does 1) above 
+... 
+
 
 ## Reuslts 
 1. /Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp1 and Exp2: initial experiment whose outputs reflected further prompt engineering suggestions by 3 students. 
@@ -83,7 +140,8 @@ This project focuses on transforming unstructured clinical reports (e.g., pathol
       - `bash run_local_all.sh consultation_notes` only consultation notes
       - `bash run_local_all.sh treatment_plan_outcomepred`only treatment plan
       - `bash run_local_all.sh all` to run all report types and prompts (3 above)
-3. /Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp5: pathology & consultation prompts and fields combined structured data outputs from combined path + cons text file per patient. This is due to sometimes the occurence of information fields existing in the other report types, decided to combine them. Also used to Chain-of-Thought prompting for the treatment plan & outcome predictions with references. 
+3. /Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/[Exp_Number]
+- ***Exp11***: pathology & consultation prompts and fields combined structured data outputs from combined path + cons text file per patient. This is due to sometimes the occurence of information fields existing in the other report types, decided to combine them. Also used to Chain-of-Thought prompting for the treatment plan & outcome predictions with references. 
 
 ---
 
