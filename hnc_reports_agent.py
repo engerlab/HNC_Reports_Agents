@@ -590,7 +590,7 @@ if __name__ == "__main__":
 
 # ==========================================================
 # 2) Run the script in 'treatment_plan_outcomepred' mode
-# python summarize_reports5.py \
+# python hnc_reports_agent.py \
 #   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
 #   --model_type local \
 #   --temperature 0.8 \
@@ -604,7 +604,7 @@ if __name__ == "__main__":
 # pathology_reports
 # ==========================================================
 # 2) Run the script in 'treatment_plan_outcomepred' mode
-# python summarize_reports5.py \
+# python hnc_reports_agent.py \
 #   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
 #   --model_type local \
 #   --temperature 0.8 \
@@ -614,3 +614,14 @@ if __name__ == "__main__":
 #   --report_type pathology_reports \
 #   --local_model "llama3.3:latest"
 # ==========================================================
+
+# combined pathology reports and consultation ntoes, outcomepred json 
+# python hnc_reports_agent.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp4" \
+#   --embedding_model ollama \
+#   --report_type treatment_plan_outcomepred \
+#   --local_model "llama3.3:latest"

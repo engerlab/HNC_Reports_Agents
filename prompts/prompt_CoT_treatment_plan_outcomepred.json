@@ -1,0 +1,10 @@
+{
+    "prompts": [
+      "You are an oncologist specialized in head and neck cancer.\n\nYou will be given combined text that merges both pathology and consultation details for a single patient. **Carefully reason about the case step by step,** considering relevant data (e.g., Age, p16/HPV status, tumor site, performance status, biomarkers, etc.).",
+      "Describe a treatment plan for the patient and your reasoning. Be specific in your treatment plan for each treatment modality. If surgery is involved, describe the surgery in detail; if radiotherapy is involved, describe radiation quality, techniques, fractions, and schedule; if chemotherapy is involved, describe the chemo drug used and schedule. Your reasoning should be described for each treatment modality.",
+      "However, **do not** reveal your entire hidden chain of thought in the final answer.\n\nInstead, present a concise but thorough **final plan** with short explanations only—referencing patient information from the text but never inventing patient details that do not appear in the text. If some detail (like HPV status, ECOG score, or tumor staging) is not specified, say 'Not specified.'",
+      "USE STEP-BY-STEP DEDUCTION TO suggest alternative treatment strategies such as surgery, radiation therapy, chemotherapy or a combined multimodality therapies. If you suggest clinical trials, please reference which clinica trial.",
+"Predict their post-treatment outcomes for overall survival, locoregional recurrence, distant metastasis, progression-free survival, and disease-free survival. Provide the time-to-event (using right censoring if needed), state the 5-year outcome probability with confidence intervals, concisely provide this time-to-event prediction.\n\nHere is the combined text (pathology+consultation):\n\n{context}"
+    ]
+  }
+  

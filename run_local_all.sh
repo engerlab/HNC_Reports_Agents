@@ -4,13 +4,13 @@
 # report_type can be: pathology_reports, consultation_notes, treatment_plan_outcomepred, or "all" (default).
 
 INPUT_DIR="/media/yujing/One Touch3/HNC_Reports"
-OUTPUT_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp3"
+OUTPUT_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp5"
 PROMPTS_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts"
 MODEL_TYPE="local"
 TEMPERATURE="0.8"
 EMBEDDING_MODEL="ollama"
 LOCAL_MODEL="llama3.3:latest"
-PYTHON_SCRIPT="/Data/Yujing/HNC_OutcomePred/Reports_Agents/summarize_reports5.py"
+PYTHON_SCRIPT="/Data/Yujing/HNC_OutcomePred/Reports_Agents/hnc_reports_agent.py"
 
 if [ -z "$1" ] || [ "$1" == "all" ]; then
   REPORT_TYPE="all"
