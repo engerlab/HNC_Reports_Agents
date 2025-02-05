@@ -11,62 +11,6 @@ This project focuses on transforming unstructured clinical reports (e.g., pathol
 
 ---
 
-## Repository Structure
-```
-/Data/Yujing/HNC_OutcomePred/Reports_Agents/
-├── input_reports/
-│   ├── consultation_notes/
-│   │   ├── consultation_notes_example1.txt
-         ...
-│   └── pathology_reports/
-│       ├── pathology_report_example1.txt
-│       ...
-├── prompts/
-│   ├── prompt_consultation_notes.json
-│   └── prompt_pathology_report.json
-├── output_dir/
-│   ├── text_summaries/
-│   │   ├── consultation_notes/
-│   │   │   ├── patient_id1/
-│   │   │   │   └── consultation_notes_summary.txt
-            ...
-│   │   └── pathology_reports/
-│   │       ├── patient_id1/
-│   │       │   └── pathology_reports_summary.txt
-            ...
-│   ├── embeddings/
-│   │   ├── consultation_notes/
-│   │   │   ├── patient_id1/
-│   │   │   │   └── consultation_notes_embedding.pkl
-            ...
-│   │   └── pathology_reports/
-│   │       ├── patient_id1/
-│   │       │   └── pathology_reports_embedding.pkl
-            ...
-│   ├── structured_data/
-│   │   ├── consultation_notes/
-│   │   │   ├── patient_id1/
-│   │   │   │   └── consultation_notes_structured.csv
-            ...
-│   │   └── pathology_reports/
-│   │       ├── patient_id1/
-│   │       │   └── pathology_reports_structured.csv
-            ...
-│   ├── structured_data_encoded/
-│   │   ├── consultation_notes/
-│   │   │   ├── patient_id1/
-│   │   │   │   └── consultation_notes_structured_encoded.csv
-            ...
-│   │   └── pathology_reports/
-│   │       ├── patient_id1/
-│   │       │   └── pathology_reports_structured_encoded.csv
-            ...
-├── summaries_metadata.csv
-├── tabular_data_metadata.csv
-├── invalid_entries.log
-└── processing_times.csv
-```
-
 ## Scripts 
 - `hnc_reports_agent2.py`: Expert-guided LLM extraction of Pathology & Consultation Notes, and Treatment Plan & Outcome Prediction medical reasoning with Chain-of-Thought (CoT)
    - **Modes Supported:**  
@@ -234,6 +178,62 @@ pip install -qU langchain-openai
 ### Privacy-Preserving Workflow
 - Use local LLMs (e.g., Llama 3.3) on privacy-compliant infrastructure.[Meta Cookbook](https://github.com/meta-llama/llama-cookbook/blob/main/getting-started/Prompt_Engineering_with_Llama.ipynb); [Meta Prompt Eng](https://www.llama.com/docs/how-to-guides/prompting/); [npj Dig Med CoT and diagnostic reasoning prompts](https://www.nature.com/articles/s41746-024-01010-1/tables/2)
 
+---
+## Repository Structure
+```
+/Data/Yujing/HNC_OutcomePred/Reports_Agents/
+├── input_reports/
+│   ├── consultation_notes/
+│   │   ├── consultation_notes_example1.txt
+         ...
+│   └── pathology_reports/
+│       ├── pathology_report_example1.txt
+│       ...
+├── prompts/
+│   ├── prompt_consultation_notes.json
+│   └── prompt_pathology_report.json
+├── output_dir/
+│   ├── text_summaries/
+│   │   ├── consultation_notes/
+│   │   │   ├── patient_id1/
+│   │   │   │   └── consultation_notes_summary.txt
+            ...
+│   │   └── pathology_reports/
+│   │       ├── patient_id1/
+│   │       │   └── pathology_reports_summary.txt
+            ...
+│   ├── embeddings/
+│   │   ├── consultation_notes/
+│   │   │   ├── patient_id1/
+│   │   │   │   └── consultation_notes_embedding.pkl
+            ...
+│   │   └── pathology_reports/
+│   │       ├── patient_id1/
+│   │       │   └── pathology_reports_embedding.pkl
+            ...
+│   ├── structured_data/
+│   │   ├── consultation_notes/
+│   │   │   ├── patient_id1/
+│   │   │   │   └── consultation_notes_structured.csv
+            ...
+│   │   └── pathology_reports/
+│   │       ├── patient_id1/
+│   │       │   └── pathology_reports_structured.csv
+            ...
+│   ├── structured_data_encoded/
+│   │   ├── consultation_notes/
+│   │   │   ├── patient_id1/
+│   │   │   │   └── consultation_notes_structured_encoded.csv
+            ...
+│   │   └── pathology_reports/
+│   │       ├── patient_id1/
+│   │       │   └── pathology_reports_structured_encoded.csv
+            ...
+├── summaries_metadata.csv
+├── tabular_data_metadata.csv
+├── invalid_entries.log
+└── processing_times.csv
+```
 ---
 
 ## Future Work
