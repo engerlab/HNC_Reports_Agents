@@ -143,6 +143,9 @@ This project focuses on transforming unstructured clinical reports (e.g., pathol
 3. /Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/[Exp_Number]
 - ***Exp11***: pathology & consultation prompts and fields combined structured data outputs from combined path + cons text file per patient. This is due to sometimes the occurence of information fields existing in the other report types, decided to combine them. Also used to Chain-of-Thought prompting for the treatment plan & outcome predictions with references. 
 
+## Evaluation Metrics 
+- Human evaluation agreement metrics
+
 ---
 
 ## Workflow
