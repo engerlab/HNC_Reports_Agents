@@ -244,7 +244,7 @@ pip install -qU langchain-openai
    - Extend the pipeline to include CT/PET images, dosimetry RT files, and histopathology slides.
 
 3. **RAG and CoT Enhancements**
-   - Evaluate Retrieval-Augmented Generation (RAG) and Chain-of-Thought (CoT) approaches for clinical predictions.
+   - Evaluate Retrieval-Augmented Generation (RAG) and Chain-of-Thought (CoT) approaches for clinical predictions. RAG to reference from the NCCN Guidelines for Head and Neck Cancers. 
 
 4. **External Validation**
    - Validate using datasets like TCIA, GDC, and other public datasets.
