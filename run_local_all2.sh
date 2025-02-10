@@ -14,7 +14,7 @@
 #############################
 
 INPUT_DIR="/media/yujing/One Touch3/HNC_Reports"
-OUTPUT_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp11"
+OUTPUT_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp12"
 PROMPTS_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts"
 MODEL_TYPE="local"
 TEMPERATURE="0.8"
