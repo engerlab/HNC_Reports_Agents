@@ -9,6 +9,9 @@
 #   CoT_treatment_plan_outcomepred,
 #   or "all" (default).
 
+# running example:
+# bash /Data/Yujing/HNC_OutcomePred/Reports_Agents/run_local_all2.sh "path_consult_reports"
+
 #############################
 # 1) Configuration
 #############################
