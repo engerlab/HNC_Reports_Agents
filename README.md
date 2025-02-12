@@ -280,4 +280,16 @@ pip install -qU langchain-openai
 ### Prompt Refinement
 - Tailor prompts for more succinct and structured outputs.
 
+
+2025-02-12
+A single Python script (hnc_reports_agent2.py) that supports:
+
+Full‐processing mode (looping through all cases) or a “single‐case” mode (one random file per selected subfolder) via a new flag “--single”.
+Two prompt versions (for example, a “combined” version versus a “separated” version) selectable by a new parameter “--prompt_mode”. The script attempts to load prompt files using the naming convention:
+For a given report type (e.g. path_consult_reports) it first looks for a file named prompt_path_consult_reports_<prompt_mode>.json (e.g. prompt_path_consult_reports_combined.json) and falls back to the default name (prompt_path_consult_reports.json) if that file isn’t found.
+Two separate Bash scripts:
+
+run_full.sh – calls the Python script in full‐processing mode (all cases) with a chosen prompt mode.
+run_prompt_experiment.sh – calls the Python script with the “--single” flag so that only one random case per applicable subfolder is processed for prompt engineering tuning.
+A revised JSON prompt example (for the combined version) that emphasizes outputting “Not inferred” unless deduction is required (for fields such as p16_Status/HPV_Status, Charlson_Comorbidity_Score, and performance scores).
 ---
