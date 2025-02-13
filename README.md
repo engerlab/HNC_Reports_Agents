@@ -280,16 +280,21 @@ pip install -qU langchain-openai
 ### Prompt Refinement
 - Tailor prompts for more succinct and structured outputs.
 
+Feb 13th, 2025: 
 
-2025-02-12
-A single Python script (hnc_reports_agent2.py) that supports:
+- Python Script:
+A single Python script (renamed to `hnc_reports_agent3.py`) that can process all cases or (with the --single flag) one random file per applicable subfolder. It also accepts a new parameter – --prompt_mode – so that you can choose between two prompt versions (for example, “combined” versus “default” or “separated”). In our example we include two JSON prompt files below.
 
-Full‐processing mode (looping through all cases) or a “single‐case” mode (one random file per selected subfolder) via a new flag “--single”.
-Two prompt versions (for example, a “combined” version versus a “separated” version) selectable by a new parameter “--prompt_mode”. The script attempts to load prompt files using the naming convention:
-For a given report type (e.g. path_consult_reports) it first looks for a file named prompt_path_consult_reports_<prompt_mode>.json (e.g. prompt_path_consult_reports_combined.json) and falls back to the default name (prompt_path_consult_reports.json) if that file isn’t found.
-Two separate Bash scripts:
+- JSON Prompt Files:
+Two versions are provided for the combined extraction task:
 
-run_full.sh – calls the Python script in full‐processing mode (all cases) with a chosen prompt mode.
-run_prompt_experiment.sh – calls the Python script with the “--single” flag so that only one random case per applicable subfolder is processed for prompt engineering tuning.
-A revised JSON prompt example (for the combined version) that emphasizes outputting “Not inferred” unless deduction is required (for fields such as p16_Status/HPV_Status, Charlson_Comorbidity_Score, and performance scores).
+`prompt_path_consult_reports.json`: the default (simpler) version
+`prompt_path_consult_reports_combined.json`: the version with detailed deduction instructions for fields that require reasoning (such as p16_Status/HPV_Status, Charlson_Comorbidity_Score, and performance scores).
+Bash Scripts:
+Two bash scripts are provided.
+
+- `run_local_all3.sh`: runs the full‐processing mode (processing all cases)
+run_prompt_experiment.sh: runs in single‑case mode (processing one random file per applicable subfolder) for prompt engineering experiments.
+Both scripts install a termination trap so that if you interrupt (Ctrl‑C), all child processes are killed.
+
 ---
