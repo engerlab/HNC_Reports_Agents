@@ -294,7 +294,7 @@ Bash Scripts:
 Two bash scripts are provided.
 
 - `run_local_all3.sh`: runs the full‐processing mode (processing all cases)
-run_prompt_experiment.sh: runs in single‑case mode (processing one random file per applicable subfolder) for prompt engineering experiments.
+- `run_prompt_experiment.sh`: runs in single‑case mode (processing one random file per applicable subfolder) for prompt engineering experiments. can optionally pass a case ID (via the environment variable CASE_ID or as part of the command line) so that the Python script will process that specific file. (If not given, it picks one random file per folder.)
 Both scripts install a termination trap so that if you interrupt (Ctrl‑C), all child processes are killed.
 
 ---

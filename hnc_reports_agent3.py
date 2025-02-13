@@ -5,7 +5,7 @@ Summarize HNC Reports:
   - Also processes combined reports from PathConsCombined/ in three different modes:
       • treatment_plan_outcomepred (original prompt)
       • path_consult_reports (combined pathology+consultation extraction)
-      • CoT_treatment_plan_outcomepred (chain-of-thought treatment plan prompt)
+      • cot_treatment_plan_outcomepred (chain-of-thought treatment plan prompt)
 
 Usage:
   --report_type: Comma-separated list of report types to process. Options:
@@ -13,9 +13,12 @@ Usage:
       consultation_notes,
       treatment_plan_outcomepred,
       path_consult_reports,
-      CoT_treatment_plan_outcomepred.
+      cot_treatment_plan_outcomepred.
       Default is "all".
   --local_model: If using local model, specify the model name (default: "llama3.3:latest").
+  --prompt_mode: (Optional) Specify the prompt version suffix (e.g., "combined" or "separated"). "combined": deduction for fields such as HPV_Status, ECOG, Charlson_Comorbidity_Score; "separated": no deduction asked, if not explicitly mentioned in the prompt, "Not Inferred" was answered.
+  --single: (Optional flag) If set, process one random file per subfolder.
+  --case_id: (Optional) Specify a case ID (filename without extension) to process only that file.
 """
 
 import os
@@ -30,6 +33,7 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.impute import SimpleImputer
+import random
 import signal
 
 # LangChain
@@ -90,7 +94,7 @@ CONSULTATION_FIELDS = [
     "Cancer_Staging_Tumor_Size"
 ]
 
-# Combined fields: merge pathology and consultation fields (remove duplicates)
+# Combined fields: merge pathology and consultation fields (removing duplicates)
 PATH_CONS_FIELDS = list(dict.fromkeys(PATHOLOGY_FIELDS + CONSULTATION_FIELDS))
 
 ##############################################################################
@@ -165,7 +169,7 @@ def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
     return extracted
 
 def validate_extracted_data(data: Dict[str, Any], report_type: str) -> bool:
-    if report_type in ["treatment_plan_outcomepred", "CoT_treatment_plan_outcomepred"]:
+    if report_type in ["treatment_plan_outcomepred", "cot_treatment_plan_outcomepred"]:
         return True
     if report_type == "pathology_reports":
         required_fields = PATHOLOGY_FIELDS
@@ -258,33 +262,46 @@ class ReportSummarizer:
         model_type: str = "local",
         temperature: float = 0.3,
         embedding_model: str = "ollama",
-        local_model: str = "llama3.3:latest"
+        local_model: str = "llama3.3:latest",
+        prompt_mode: str = "",
+        case_id: str = ""
     ):
         self.model_type = model_type.lower()
         self.temperature = temperature
         self.embedding_model = embedding_model.lower()
         self.local_model = local_model
+        self.prompt_mode = prompt_mode.lower()  # e.g., "combined" or empty for default
+        self.case_id = case_id.strip()  # if provided, process only that case ID
 
         if not os.path.isdir(prompts_dir):
             raise ValueError(f"Invalid prompts_dir: {prompts_dir}")
 
-        # Load prompts for each known report type
+        # Load prompts for each known report type.
+        # If prompt_mode is specified, attempt to load prompt files with that suffix.
         self.prompts = {}
         for rtype in [
             "pathology_reports",
             "consultation_notes",
             "treatment_plan_outcomepred",
             "path_consult_reports",
-            "CoT_treatment_plan_outcomepred"
+            "cot_treatment_plan_outcomepred"
         ]:
-            pfile = os.path.join(prompts_dir, f"prompt_{rtype}.json")
+            filename = f"prompt_{rtype}"
+            if self.prompt_mode:
+                candidate = os.path.join(prompts_dir, f"{filename}_{self.prompt_mode}.json")
+                if os.path.isfile(candidate):
+                    pfile = candidate
+                else:
+                    pfile = os.path.join(prompts_dir, f"{filename}.json")
+            else:
+                pfile = os.path.join(prompts_dir, f"{filename}.json")
             if os.path.isfile(pfile):
                 with open(pfile, 'r') as f:
                     data = json.load(f)
                     self.prompts[rtype] = data.get("prompts", [])
-                logger.info(f"Loaded prompts for {rtype}")
+                logger.info(f"Loaded prompts for {rtype} from {pfile}")
             else:
-                logger.warning(f"No prompt file found for {rtype}")
+                logger.warning(f"No prompt file found for {rtype} (expected {pfile})")
                 self.prompts[rtype] = []
 
         # Initialize the chosen model
@@ -339,323 +356,119 @@ class ReportSummarizer:
         logger.debug(f"[{report_type}] Summarize output (first 80 chars): {summary[:80]}...")
         return summary if summary else None
 
-    def process_reports(self, input_dir: str, output_dir: str, report_types: List[str]):
+    def process_reports(self, input_dir: str, output_dir: str, report_types: List[str], single: bool = False):
         """
-        - 'pathology_reports' => read from PathologyReports/ in input_dir
-        - 'consultation_notes' => read from ConsultRedacted/ in input_dir
-        - 'treatment_plan_outcomepred' => read from PathConsCombined/ in input_dir
-        - 'path_consult_reports' => read from PathConsCombined/ in input_dir (combined extraction)
-        - 'CoT_treatment_plan_outcomepred' => read from PathConsCombined/ in input_dir (chain-of-thought plan)
+        - 'pathology_reports' => read from PathologyReports/ in input_dir.
+        - 'consultation_notes' => read from ConsultRedacted/ in input_dir.
+        - 'treatment_plan_outcomepred', 'path_consult_reports', 'cot_treatment_plan_outcomepred'
+          => read from PathConsCombined/ in input_dir.
+        If single is True, select one random file per subfolder unless a case_id is provided.
+        If case_id is provided, process only the file with that case ID (filename without extension).
         """
         os.makedirs(output_dir, exist_ok=True)
-        summaries = []
-        tabular_data = []
-        invalid_entries = []
-        time_data = []
+        time_data = []  # Record time for generating text summary files only.
 
-        # 1) Pathology Reports
-        if "pathology_reports" in report_types:
-            folder = os.path.join(input_dir, "PathologyReports")
-            if os.path.isdir(folder):
-                for root, _, files in os.walk(folder):
-                    for fname in files:
-                        if not fname.endswith(".txt"):
-                            continue
-                        path = os.path.join(root, fname)
-                        logger.info(f"Processing file: {fname} in folder: PathologyReports")
-                        start_time = time.time()
-                        try:
-                            with open(path, 'r', encoding='utf-8') as f:
-                                text = f.read()
-                            summary = self.summarize_report(text, "pathology_reports")
-                            if not summary:
-                                invalid_entries.append({"file": fname, "reason": "No summary produced"})
-                                continue
-                            extracted = extract_tabular_data(summary, "pathology_reports")
-                            if not validate_extracted_data(extracted, "pathology_reports"):
-                                invalid_entries.append({"file": fname, "reason": "Validation failed"})
-                            summaries.append({"file": fname, "report_type": "pathology_reports", "summary": summary})
-                            tabular_data.append({"file": fname, "report_type": "pathology_reports", "data": extracted})
-                            patient_id = os.path.splitext(fname)[0]
-                            subdirs = {
-                                "text_summaries": os.path.join(output_dir, "text_summaries", "pathology_reports", patient_id),
-                                "embeddings": os.path.join(output_dir, "embeddings", "pathology_reports", patient_id),
-                                "structured_data": os.path.join(output_dir, "structured_data", "pathology_reports", patient_id),
-                                "structured_data_encoded": os.path.join(output_dir, "structured_data_encoded", "pathology_reports", patient_id)
-                            }
-                            for sd in subdirs.values():
-                                os.makedirs(sd, exist_ok=True)
-                            with open(os.path.join(subdirs["text_summaries"], "pathology_reports_summary.txt"), 'w', encoding='utf-8') as sf:
-                                sf.write(summary)
-                            emb = self.embeddings.embed_documents([summary])[0]
-                            with open(os.path.join(subdirs["embeddings"], "pathology_reports_embedding.pkl"), 'wb') as ef:
-                                pickle.dump(emb, ef)
-                            df_struct = pd.DataFrame([extracted])
-                            df_struct = normalize_data(df_struct, "pathology_reports")
-                            df_struct_path = os.path.join(subdirs["structured_data"], "pathology_reports_structured.csv")
-                            df_struct.to_csv(df_struct_path, index=False)
-                            df_encoded = encode_structured_data(df_struct, "pathology_reports")
-                            df_encoded_path = os.path.join(subdirs["structured_data_encoded"], "pathology_reports_structured_encoded.csv")
-                            df_encoded.to_csv(df_encoded_path, index=False)
-                        except Exception as e:
-                            invalid_entries.append({"file": fname, "reason": str(e)})
-                            logger.error(f"Error processing {fname}: {e}")
-                        end_time = time.time()
-                        time_data.append({"file": fname, "report_type": "pathology_reports", "process_time_seconds": round(end_time - start_time, 3)})
+        def process_folder(folder_path: str) -> List[str]:
+            files = []
+            if os.path.isdir(folder_path):
+                files = [os.path.join(root, fname) for root, _, fs in os.walk(folder_path)
+                         for fname in fs if fname.endswith(".txt")]
+                if self.case_id:
+                    files = [f for f in files if os.path.splitext(os.path.basename(f))[0] == self.case_id]
+                    if not files:
+                        logger.warning(f"No file found with case ID {self.case_id} in {folder_path}")
+                elif single and files:
+                    files = [random.choice(files)]
+            return files
 
-        # 2) Consultation Notes
-        if "consultation_notes" in report_types:
-            folder = os.path.join(input_dir, "ConsultRedacted")
-            if os.path.isdir(folder):
-                for root, _, files in os.walk(folder):
-                    for fname in files:
-                        if not fname.endswith(".txt"):
-                            continue
-                        path = os.path.join(root, fname)
-                        logger.info(f"Processing file: {fname} in folder: ConsultRedacted")
-                        start_time = time.time()
-                        try:
-                            with open(path, 'r', encoding='utf-8') as f:
-                                text = f.read()
-                            summary = self.summarize_report(text, "consultation_notes")
-                            if not summary:
-                                invalid_entries.append({"file": fname, "reason": "No summary produced"})
-                                continue
-                            extracted = extract_tabular_data(summary, "consultation_notes")
-                            if not validate_extracted_data(extracted, "consultation_notes"):
-                                invalid_entries.append({"file": fname, "reason": "Validation failed"})
-                            summaries.append({"file": fname, "report_type": "consultation_notes", "summary": summary})
-                            tabular_data.append({"file": fname, "report_type": "consultation_notes", "data": extracted})
-                            patient_id = os.path.splitext(fname)[0]
-                            subdirs = {
-                                "text_summaries": os.path.join(output_dir, "text_summaries", "consultation_notes", patient_id),
-                                "embeddings": os.path.join(output_dir, "embeddings", "consultation_notes", patient_id),
-                                "structured_data": os.path.join(output_dir, "structured_data", "consultation_notes", patient_id),
-                                "structured_data_encoded": os.path.join(output_dir, "structured_data_encoded", "consultation_notes", patient_id)
-                            }
-                            for sd in subdirs.values():
-                                os.makedirs(sd, exist_ok=True)
-                            with open(os.path.join(subdirs["text_summaries"], "consultation_notes_summary.txt"), 'w', encoding='utf-8') as sf:
-                                sf.write(summary)
-                            emb = self.embeddings.embed_documents([summary])[0]
-                            with open(os.path.join(subdirs["embeddings"], "consultation_notes_embedding.pkl"), 'wb') as ef:
-                                pickle.dump(emb, ef)
-                            df_struct = pd.DataFrame([extracted])
-                            df_struct = normalize_data(df_struct, "consultation_notes")
-                            df_struct_path = os.path.join(subdirs["structured_data"], "consultation_notes_structured.csv")
-                            df_struct.to_csv(df_struct_path, index=False)
-                            df_encoded = encode_structured_data(df_struct, "consultation_notes")
-                            df_encoded_path = os.path.join(subdirs["structured_data_encoded"], "consultation_notes_structured_encoded.csv")
-                            df_encoded.to_csv(df_encoded_path, index=False)
-                        except Exception as e:
-                            invalid_entries.append({"file": fname, "reason": str(e)})
-                            logger.error(f"Error processing {fname}: {e}")
-                        end_time = time.time()
-                        time_data.append({"file": fname, "report_type": "consultation_notes", "process_time_seconds": round(end_time - start_time, 3)})
+        folder_map = {
+            "pathology_reports": os.path.join(input_dir, "PathologyReports"),
+            "consultation_notes": os.path.join(input_dir, "ConsultRedacted"),
+            "treatment_plan_outcomepred": os.path.join(input_dir, "PathConsCombined"),
+            "path_consult_reports": os.path.join(input_dir, "PathConsCombined"),
+            "cot_treatment_plan_outcomepred": os.path.join(input_dir, "PathConsCombined")
+        }
 
-        # 3) Old Treatment Plan from PathConsCombined
-        if "treatment_plan_outcomepred" in report_types:
-            folder = os.path.join(input_dir, "PathConsCombined")
-            if not os.path.isdir(folder):
-                logger.warning(f"No 'PathConsCombined' folder found in {input_dir}. Skipping treatment_plan_outcomepred.")
-            else:
-                for root, _, files in os.walk(folder):
-                    for fname in files:
-                        if not fname.endswith(".txt"):
-                            continue
-                        path = os.path.join(root, fname)
-                        logger.info(f"Processing combined file: {fname} in folder: PathConsCombined")
-                        start_time = time.time()
-                        try:
-                            with open(path, 'r', encoding='utf-8') as f:
-                                combined_text = f.read()
-                                print(f"combined_text: {combined_text}")
-                            if not combined_text.strip():
-                                logger.warning(f"No text found for {fname}, skipping.")
-                                continue
-                            summary = self.summarize_report(combined_text, "treatment_plan_outcomepred")
-                            if not summary:
-                                invalid_entries.append({"file": fname, "reason": "No treatment plan summary produced"})
-                                continue
-                            extracted = {"Treatment_Plan_and_Outcome_Prediction": summary}
-                            summaries.append({"file": fname, "report_type": "treatment_plan_outcomepred", "summary": summary})
-                            tabular_data.append({"file": fname, "report_type": "treatment_plan_outcomepred", "data": extracted})
-                            patient_id = os.path.splitext(fname)[0]
-                            subdirs = {
-                                "text_summaries": os.path.join(output_dir, "text_summaries", "treatment_plan_outcomepred", patient_id),
-                                "embeddings": os.path.join(output_dir, "embeddings", "treatment_plan_outcomepred", patient_id),
-                                "structured_data": os.path.join(output_dir, "structured_data", "treatment_plan_outcomepred", patient_id),
-                                "structured_data_encoded": os.path.join(output_dir, "structured_data_encoded", "treatment_plan_outcomepred", patient_id)
-                            }
-                            for sd in subdirs.values():
-                                os.makedirs(sd, exist_ok=True)
-                            with open(os.path.join(subdirs["text_summaries"], "treatment_plan_outcomepred_summary.txt"), 'w', encoding='utf-8') as sf:
-                                sf.write(summary)
-                            emb = self.embeddings.embed_documents([summary])[0]
-                            with open(os.path.join(subdirs["embeddings"], "treatment_plan_outcomepred_embedding.pkl"), 'wb') as ef:
-                                pickle.dump(emb, ef)
-                            df_struct = pd.DataFrame([extracted])
-                            df_struct = normalize_data(df_struct, "treatment_plan_outcomepred")
-                            df_struct_path = os.path.join(subdirs["structured_data"], "treatment_plan_outcomepred_structured.csv")
-                            df_struct.to_csv(df_struct_path, index=False)
-                            df_encoded = encode_structured_data(df_struct, "treatment_plan_outcomepred")
-                            df_encoded_path = os.path.join(subdirs["structured_data_encoded"], "treatment_plan_outcomepred_structured_encoded.csv")
-                            df_encoded.to_csv(df_encoded_path, index=False)
-                        except Exception as e:
-                            invalid_entries.append({"file": fname, "reason": str(e)})
-                            logger.error(f"Error processing {fname}: {e}")
-                        end_time = time.time()
-                        time_data.append({
-                            "file": fname,
-                            "report_type": "treatment_plan_outcomepred",
-                            "process_time_seconds": round(end_time - start_time, 3)
-                        })
+        for rtype in report_types:
+            folder = folder_map.get(rtype)
+            if not folder or not os.path.isdir(folder):
+                logger.warning(f"No valid folder for {rtype} in {input_dir}. Skipping.")
+                continue
+            file_list = process_folder(folder)
+            for path in file_list:
+                fname = os.path.basename(path)
+                logger.info(f"Processing file: {fname} for report type: {rtype}")
+                try:
+                    with open(path, 'r', encoding='utf-8') as f:
+                        text = f.read()
+                    summary = self.summarize_report(text, rtype)
+                    if not summary:
+                        logger.error(f"No summary produced for {fname} in {rtype}")
+                        continue
+                    if rtype in ["pathology_reports", "consultation_notes", "path_consult_reports"]:
+                        extracted = extract_tabular_data(summary, rtype)
+                        if not validate_extracted_data(extracted, rtype):
+                            logger.error(f"Validation failed for {fname} in {rtype}")
+                    else:
+                        extracted = {"Treatment_Plan_and_Outcome_Prediction": summary}
 
-        # 4) Combined Path+Consult Extraction
-        if "path_consult_reports" in report_types:
-            folder = os.path.join(input_dir, "PathConsCombined")
-            if not os.path.isdir(folder):
-                logger.warning(f"No 'PathConsCombined' folder found in {input_dir}. Skipping path_consult_reports.")
-            else:
-                for root, _, files in os.walk(folder):
-                    for fname in files:
-                        if not fname.endswith(".txt"):
-                            continue
-                        path = os.path.join(root, fname)
-                        logger.info(f"Processing combined path+consult file: {fname} in folder: PathConsCombined")
-                        start_time = time.time()
-                        try:
-                            with open(path, 'r', encoding='utf-8') as f:
-                                combined_text = f.read()
-                            if not combined_text.strip():
-                                logger.warning(f"No text found for {fname}, skipping.")
-                                continue
-                            summary = self.summarize_report(combined_text, "path_consult_reports")
-                            if not summary:
-                                invalid_entries.append({"file": fname, "reason": "No summary produced"})
-                                continue
-                            extracted = extract_tabular_data(summary, "path_consult_reports")
-                            if not validate_extracted_data(extracted, "path_consult_reports"):
-                                invalid_entries.append({"file": fname, "reason": "Validation failed"})
-                            summaries.append({"file": fname, "report_type": "path_consult_reports", "summary": summary})
-                            tabular_data.append({"file": fname, "report_type": "path_consult_reports", "data": extracted})
-                            patient_id = os.path.splitext(fname)[0]
-                            subdirs = {
-                                "text_summaries": os.path.join(output_dir, "text_summaries", "path_consult_reports", patient_id),
-                                "embeddings": os.path.join(output_dir, "embeddings", "path_consult_reports", patient_id),
-                                "structured_data": os.path.join(output_dir, "structured_data", "path_consult_reports", patient_id),
-                                "structured_data_encoded": os.path.join(output_dir, "structured_data_encoded", "path_consult_reports", patient_id)
-                            }
-                            for sd in subdirs.values():
-                                os.makedirs(sd, exist_ok=True)
-                            with open(os.path.join(subdirs["text_summaries"], "path_consult_reports_summary.txt"), 'w', encoding='utf-8') as sf:
-                                sf.write(summary)
-                            emb = self.embeddings.embed_documents([summary])[0]
-                            with open(os.path.join(subdirs["embeddings"], "path_consult_reports_embedding.pkl"), 'wb') as ef:
-                                pickle.dump(emb, ef)
-                            df_struct = pd.DataFrame([extracted])
-                            df_struct = normalize_data(df_struct, "path_consult_reports")
-                            struct_path = os.path.join(subdirs["structured_data"], "path_consult_reports_structured.csv")
-                            df_struct.to_csv(struct_path, index=False)
-                            df_encoded = encode_structured_data(df_struct, "path_consult_reports")
-                            encoded_path = os.path.join(subdirs["structured_data_encoded"], "path_consult_reports_structured_encoded.csv")
-                            df_encoded.to_csv(encoded_path, index=False)
-                        except Exception as e:
-                            invalid_entries.append({"file": fname, "reason": str(e)})
-                            logger.error(f"Error processing {fname}: {e}")
-                        end_time = time.time()
-                        time_data.append({"file": fname, "report_type": "path_consult_reports", "process_time_seconds": round(end_time - start_time, 3)})
-
-        # 5) CoT Treatment Plan from PathConsCombined
-        if "cot_treatment_plan_outcomepred" in report_types:
-            folder = os.path.join(input_dir, "PathConsCombined")
-            if not os.path.isdir(folder):
-                logger.warning(f"No 'PathConsCombined' folder found in {input_dir}. Skipping CoT_treatment_plan_outcomepred.")
-            else:
-                for root, _, files in os.walk(folder):
-                    for fname in files:
-                        if not fname.endswith(".txt"):
-                            continue
-                        path = os.path.join(root, fname)
-                        logger.info(f"Processing CoT-based plan: {fname} in folder: PathConsCombined")
-                        start_time = time.time()
-                        try:
-                            with open(path, 'r', encoding='utf-8') as f:
-                                combined_text = f.read()
-                            if not combined_text.strip():
-                                logger.warning(f"No text found for {fname}, skipping.")
-                                continue
-                            summary = self.summarize_report(combined_text, "CoT_treatment_plan_outcomepred")
-                            if not summary:
-                                invalid_entries.append({"file": fname, "reason": "No chain-of-thought plan produced"})
-                                continue
-                            extracted = {"Treatment_Plan_and_Outcome_Prediction": summary}
-                            summaries.append({"file": fname, "report_type": "CoT_treatment_plan_outcomepred", "summary": summary})
-                            tabular_data.append({"file": fname, "report_type": "CoT_treatment_plan_outcomepred", "data": extracted})
-                            patient_id = os.path.splitext(fname)[0]
-                            subdirs = {
-                                "text_summaries": os.path.join(output_dir, "text_summaries", "CoT_treatment_plan_outcomepred", patient_id),
-                                "embeddings": os.path.join(output_dir, "embeddings", "CoT_treatment_plan_outcomepred", patient_id),
-                                "structured_data": os.path.join(output_dir, "structured_data", "CoT_treatment_plan_outcomepred", patient_id),
-                                "structured_data_encoded": os.path.join(output_dir, "structured_data_encoded", "CoT_treatment_plan_outcomepred", patient_id)
-                            }
-                            for sd in subdirs.values():
-                                os.makedirs(sd, exist_ok=True)
-                            with open(os.path.join(subdirs["text_summaries"], "CoT_treatment_plan_outcomepred_summary.txt"), 'w', encoding='utf-8') as sf:
-                                sf.write(summary)
-                            emb = self.embeddings.embed_documents([summary])[0]
-                            with open(os.path.join(subdirs["embeddings"], "CoT_treatment_plan_outcomepred_embedding.pkl"), 'wb') as ef:
-                                pickle.dump(emb, ef)
-                            df_struct = pd.DataFrame([extracted])
-                            df_struct = normalize_data(df_struct, "treatment_plan_outcomepred")
-                            df_struct_path = os.path.join(subdirs["structured_data"], "CoT_treatment_plan_outcomepred_structured.csv")
-                            df_struct.to_csv(df_struct_path, index=False)
-                            df_encoded = encode_structured_data(df_struct, "treatment_plan_outcomepred")
-                            df_encoded_path = os.path.join(subdirs["structured_data_encoded"], "CoT_treatment_plan_outcomepred_structured_encoded.csv")
-                            df_encoded.to_csv(df_encoded_path, index=False)
-                        except Exception as e:
-                            invalid_entries.append({"file": fname, "reason": str(e)})
-                            logger.error(f"Error processing {fname}: {e}")
-                        end_time = time.time()
-                        time_data.append({"file": fname, "report_type": "CoT_treatment_plan_outcomepred", "process_time_seconds": round(end_time - start_time, 3)})
-
-        # Save aggregated metadata
-        for csv_name, data in [
-            ("summaries_metadata.csv", summaries),
-            ("tabular_data_metadata.csv", tabular_data),
-            ("processing_times.csv", time_data)
-        ]:
-            try:
-                pd.DataFrame(data).to_csv(os.path.join(output_dir, csv_name), index=False)
-                logger.info(f"{csv_name} saved to {output_dir}")
-            except Exception as e:
-                logger.error(f"Failed to save {csv_name}: {e}")
-        if invalid_entries:
-            try:
-                pd.DataFrame(invalid_entries).to_csv(os.path.join(output_dir, "invalid_entries.log"), index=False)
-                logger.info(f"Invalid entries logged to {os.path.join(output_dir, 'invalid_entries.log')}")
-            except Exception as e:
-                logger.error(f"Failed to save invalid entries log: {e}")
-
+                    patient_id = os.path.splitext(fname)[0]
+                    subdirs = {
+                        "text_summaries": os.path.join(output_dir, "text_summaries", rtype, patient_id),
+                        "embeddings": os.path.join(output_dir, "embeddings", rtype, patient_id),
+                        "structured_data": os.path.join(output_dir, "structured_data", rtype, patient_id),
+                        "structured_data_encoded": os.path.join(output_dir, "structured_data_encoded", rtype, patient_id)
+                    }
+                    for sd in subdirs.values():
+                        os.makedirs(sd, exist_ok=True)
+                    # Measure time taken to write text summary file.
+                    t_start = time.time()
+                    with open(os.path.join(subdirs["text_summaries"], f"{rtype}_summary.txt"), 'w', encoding='utf-8') as sf:
+                        sf.write(summary)
+                    t_end = time.time()
+                    text_time = round(t_end - t_start, 3)
+                    time_data.append({"file": fname, "report_type": rtype, "text_summary_time_seconds": text_time})
+                    # Save embedding and structured data as before.
+                    emb = self.embeddings.embed_documents([summary])[0]
+                    with open(os.path.join(subdirs["embeddings"], f"{rtype}_embedding.pkl"), 'wb') as ef:
+                        pickle.dump(emb, ef)
+                    df_struct = pd.DataFrame([extracted])
+                    df_struct = normalize_data(df_struct, rtype)
+                    df_struct_path = os.path.join(subdirs["structured_data"], f"{rtype}_structured.csv")
+                    df_struct.to_csv(df_struct_path, index=False)
+                    df_encoded = encode_structured_data(df_struct, rtype)
+                    df_encoded_path = os.path.join(subdirs["structured_data_encoded"], f"{rtype}_structured_encoded.csv")
+                    df_encoded.to_csv(df_encoded_path, index=False)
+                except Exception as e:
+                    logger.error(f"Error processing {fname}: {e}")
+        # Write processing times for text summary generation.
+        times_csv = os.path.join(output_dir, "processing_times.csv")
+        try:
+            pd.DataFrame(time_data).to_csv(times_csv, index=False)
+            logger.info(f"Processing times saved to {times_csv}")
+        except Exception as e:
+            logger.error(f"Failed to save processing times CSV: {e}")
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Summarize HNC Reports. Input directory must have:\n"
+        description="Summarize HNC Reports. Input directory must contain:\n"
                     "  PathologyReports/  => for 'pathology_reports'\n"
                     "  ConsultRedacted/   => for 'consultation_notes'\n"
-                    "  PathConsCombined/  => for 'treatment_plan_outcomepred', 'path_consult_reports', 'CoT_treatment_plan_outcomepred'."
+                    "  PathConsCombined/  => for 'treatment_plan_outcomepred', 'path_consult_reports', 'cot_treatment_plan_outcomepred'."
     )
     parser.add_argument("--prompts_dir", required=True, help="Directory containing prompt JSON files.")
-    parser.add_argument("--model_type", default="local", choices=["local","gpt","gemini"], help="LLM backend.")
+    parser.add_argument("--model_type", default="local", choices=["local", "gpt", "gemini"], help="LLM backend.")
     parser.add_argument("--temperature", type=float, default=0.8, help="LLM sampling temperature.")
     parser.add_argument("--input_dir", required=True, help="Parent directory with subfolders.")
     parser.add_argument("--output_dir", required=True, help="Output directory for results.")
-    parser.add_argument("--embedding_model", type=str, default="ollama", choices=["ollama","openai","google"], help="Embedding model.")
+    parser.add_argument("--embedding_model", type=str, default="ollama", choices=["ollama", "openai", "google"], help="Embedding model.")
     parser.add_argument("--report_type", type=str, default="all", help="Comma-separated list of report types.")
     parser.add_argument("--local_model", type=str, default="llama3.3:latest", help="Local model name if model_type='local'.")
+    parser.add_argument("--single", action="store_true", help="If set, process one random file per subfolder.")
+    parser.add_argument("--prompt_mode", type=str, default="", help="Optional prompt mode (e.g., 'combined' or 'separated').")
+    parser.add_argument("--case_id", type=str, default="", help="Optional: specify a case ID (filename without extension) to process only that file.")
     args = parser.parse_args()
 
-    # Normalize to lowercase, split by commas
     if args.report_type.lower() == "all":
         report_types = [
             "pathology_reports",
@@ -674,14 +487,43 @@ def main():
         model_type=args.model_type,
         temperature=args.temperature,
         embedding_model=args.embedding_model,
-        local_model=args.local_model
+        local_model=args.local_model,
+        prompt_mode=args.prompt_mode,
+        case_id=args.case_id
     )
-    summarizer.process_reports(args.input_dir, args.output_dir, report_types)
-
+    summarizer.process_reports(args.input_dir, args.output_dir, report_types, single=args.single)
 
 if __name__ == "__main__":
-    # Set the process group for proper termination
-        # Python script child processes to be termianted when bash script is terminated.
-    os.setpgrp()
-    # Optionally register signal handlers here if additional cleanup is needed.
+    os.setpgrp()  # Set process group for proper termination
     main()
+
+
+# Usage example: (Full Processing)
+# python hnc_reports_agent3.py --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts --model_type local --temperature 0.8 --input_dir "/media/yujing/One Touch3/HNC_Reports" --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpFull1" --embedding_model ollama --report_type "path_consult_reports" --local_model "llama3.3:latest" --prompt_mode "combined"
+
+# To Process One Random Case (per subfolder):
+# python hnc_reports_agent3.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPrompt \
+#   --embedding_model ollama \
+#   --report_type "path_consult_reports" \
+#   --local_model "llama3.3:latest" \
+#   --prompt_mode "combined" \
+#   --single # do one single random case 
+
+# To Process a Specific Case by its Case ID:
+
+# python hnc_reports_agent3.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPrompt \
+#   --embedding_model ollama \
+#   --report_type "path_consult_reports" \
+#   --local_model "llama3.3:latest" \
+#   --prompt_mode "combined" \
+#   --case_id "1145281"
