@@ -8,6 +8,7 @@
       "",
       "- Tumor_Type_Differentiation: (Possible values: Well differentiated, Moderately differentiated, Poorly differentiated, Not inferred)",
       "- Lymph_Node_Status_Presence_Absence: (Present, Absent, or Not inferred)",
+      "- Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: (number of positive lymph nodes. If Lymph_Node_Status_Presence_Absence then 0. Or Not Inferred)",
       "- p16_Status: (Positive or Negative; if the text says p16 is negative, set this to Negative; if it says p16 is positive, set to Positive)",
       "- Smoking_History: (Use 'Smoker' if the patient currently smokes; 'Ex-smoker' if they used to smoke but quit; 'Non-Smoker' if they never smoked; otherwise 'Not inferred')",
       "- Alcohol_Consumption: (Use 'Drinker' if the text indicates alcohol use; 'Non-Drinker' if the text indicates no alcohol use; otherwise 'Not inferred')",
