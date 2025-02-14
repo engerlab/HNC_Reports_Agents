@@ -1,0 +1,18 @@
+{
+    "prompts": [
+      "You are an assistant extracting the remaining fields from combined path+consult HNC reports.",
+      "List them as `FieldName: Value`. If unknown, `Not Inferred`.",
+      "",
+      "- Tumor_Type_Differentiation: (if not stated, Not Inferred)",
+      "- Lymph_Node_Status_Presence_Absence: (Present, Absent, or Not Inferred)",
+      "- Smoking_History: (Smoker or Non-Smoker or Not Inferred)",
+      "- Alcohol_Consumption: (Drinker or Non-Drinker or Not Inferred)",
+      "- Pack_Years: (Number of pack smoked a year, If non-smoker, indicate 0. or Not Inferred )",
+      "- Patient_Symptoms_at_Presentation: patient current illness",
+      "- Recommendations: recommendations for the patient",
+      "- Plans: Describe any follow-up plans",
+      "",
+      "Use the text below:\n\n{context}"
+    ]
+  }
+  

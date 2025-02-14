@@ -297,4 +297,57 @@ Two bash scripts are provided.
 - `run_prompt_experiment.sh`: runs in single‑case mode (processing one random file per applicable subfolder) for prompt engineering experiments. can optionally pass a case ID (via the environment variable CASE_ID or as part of the command line) so that the Python script will process that specific file. (If not given, it picks one random file per folder.)
 Both scripts install a termination trap so that if you interrupt (Ctrl‑C), all child processes are killed.
 
+Feb 14th, 2025 
+# Two-Step Summarization Workflow (Agent4)
+
+This README describes a **two-step** approach for summarizing and extracting structured data from **combined Pathology+Consultation** reports. The key idea is to use **two separate prompts**:
+1. A **non-CoT** prompt for straightforward extraction.
+2. A **chain-of-thought (CoT)** prompt for fields requiring inference (like **Charlson Comorbidity** scores, **Karnofsky**/ **ECOG** conversions, etc.).
+
+Below are the main script and prompt files involved:
+
+---
+
+## 1. `hnc_reports_agent4.py`
+**What it does**  
+- Reads `.txt` files from:
+  - `PathologyReports/` (pathology reports),
+  - `ConsultRedacted/` (consultation notes),
+  - `PathConsCombined/` (merged pathology + consultation).
+- Summarizes them with a language model (local Llama, GPT, or Google PaLM) by:
+  1. **One-step** approach for `pathology_reports`, `consultation_notes`, and so on, **except**:
+  2. **Two-step** approach for `path_consult_reports`:  
+     - Runs `prompt_path_consult_reports_extraction.json` first (non-CoT).  
+     - Runs `prompt_path_consult_reports_cot.json` second (CoT).  
+     - Merges both partial outputs into one final summary (one line per field).  
+- Outputs:
+  1. **Text Summaries** (`..._summary.txt`) in a standardized line-by-line format.  
+  2. **Embeddings** (`..._embedding.pkl`) if an embedding model is configured.  
+  3. (Optional) **Structured CSV** (`..._structured.csv`) and an **encoded** version for ML pipelines.  
+  4. A global `processing_times.csv` with runtime stats.  
+
+**Key Arguments**  
+- `--report_type`: Which type(s) to process.  
+- `--prompt_mode`: A suffix for your JSON prompts (e.g., `combined`).  
+- `--case_id`: If provided, processes a single `.txt` that matches the case ID.  
+- `--single`: If set, processes only one file per folder (random unless `case_id` is given).  
+- `--model_type`: LLM backend (`local`, `gpt`, or `gemini`).  
+- `--embedding_model`: Embedding model type (`ollama`, `openai`, or `google`).
+
+**Example Usage (single case)**
+```bash
+python hnc_reports_agent4.py \
+  --prompts_dir /Data/HNC/Agents/prompts \
+  --model_type local \
+  --temperature 0.8 \
+  --input_dir "/media/hdd/HNC_Reports" \
+  --output_dir "/Data/HNC/Results/Exp4" \
+  --embedding_model ollama \
+  --report_type "path_consult_reports" \
+  --local_model "llama3.3:latest" \
+  --prompt_mode "combined" \
+  --single \
+  --case_id "1130580"
+
+
 ---

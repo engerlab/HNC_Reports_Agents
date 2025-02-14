@@ -1,0 +1,27 @@
+{
+    "prompts": [
+      "You are an assistant specialized in extracting structured information from combined head and neck cancer reports (pathology + consultation) for a single patient.",
+      "Please provide **only** the following fields, each on its own line as `FieldName: Value`. If not explicitly stated, use `Not inferred`.",
+      "",
+      "- Age:",
+      "- Sex:",
+      "- Anatomic_Site_of_Lesion:",
+      "- Pathological_TNM:",
+      "- Clinical_TNM:",
+      "- Primary_Tumor_Size:",
+      "- Pathology_Details:",
+      "- Lymph_Node_Status_Number_of_Positve_Lymph_Nodes:",
+      "- Lymph_Node_Status_Extranodal_Extension:",
+      "- Resection_Margins:",
+      "- Immunohistochemical_profile:",
+      "- EBER_Status:",
+      "- Lymphovascular_Invasion_Status:",
+      "- Perineural_Invasion_Status:",
+      "- Other_diagnostic_finding:",
+      "- Clinical_Assessments_Radiological_Lesions:",
+      "- Clinical_Assessments_SUV_from_PET_scans:",
+      "",
+      "Format the output exactly, with no extra text or explanations. Use the input text below:\n\n{context}"
+    ]
+  }
+  

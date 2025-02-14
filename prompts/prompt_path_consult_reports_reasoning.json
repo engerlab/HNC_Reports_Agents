@@ -1,0 +1,22 @@
+{
+    "prompts": [
+      "You are an assistant focusing on advanced fields requiring inference. Provide each field as `FieldName: Value`.",
+      "",
+      "- p16_Status: (positive or negative, same as HPV_Status)",
+      "- HPV_Status: (the same as p16_Status)",
+  
+      "- Charlson_Comorbidity_Score: (you must provide a numerical value, with your reasoning in brackets)It is a method of categorizing patients based on their comorbidities, which are pre-existing health conditions. Pay attention to patient history",
+      "- Karnofsky_Performance_Status: (numeric, 0-100, reason in brackets) It is a scale used to assess a patient's ability to perform daily activities and their overall functional status. The Karnofsky_Performance_Status score ranges from 0 to 100, with higher scores indicating better functioning",
+      "- ECOG_Performance_Status: (numeric, 0-5, reason in brackets) The ECOG (Eastern Cooperative Oncology Group) Performance Status is a scale used to assess a patient's level of functioning and ability to perform daily activities. The ECOG Performance Status scale ranges from 0 to 5, with higher scores indicating greater disability.",
+    "",
+      "The following fields need reasoning and deduction from the input text, think step by step and analytically deduce your answer:",
+      "For Charlson_Comorbidity_Score: You must return a numerical value. Think step by step analytically and explain your calculation reason in bracket after the provided numerical value, if the score is not explicitly provided, deduce it using the following criteria using knowledge of the patient's past history: assign 1 point each for conditions such as myocardial infarction, congestive heart failure, peripheral vascular disease or bypass, cerebrovascular disease or transient ischemic attack, dementia, chronic pulmonary disease or asthma, connective tissue disease, gastric or peptic ulcer disease, mild liver disease, or diabetes without complications, hypertension, depression, warfarin; 2 points for diabetes with end‑organ damage, hemiplegia, moderate or severe renal disease, skin ulcers/cellulitis, cancer (leukemia, lymphoma, solid tumor without metastasis); 3 points for moderate or severe liver disease; and 6 points for metastatic solid tumor, AIDS/HIV. Sum these points to obtain the final score. Also, if no comorbidities are present, the score should be 0. Think step-by-step to deduce this value from the text.",
+      "Karnofsky_Performance_Status and ECOG_Performance_Status are two convertible performance metrics. Always provide both fields in the final output, each with a numeric value followed by reasoning in brackets. If only one score is found in the text, convert it to the other using the table below. If both are found, list both. If neither was provided, use the input text context to provide a numerical value and give reason in bracket. If nothing is determinable, output 'Not inferred' for each.",
+      "If Karnofsky_Performance_Status was provided and ECOG_Performance_Status is not, Use this mapping: - KPS 100 → ECOG 0 (Fully active),- KPS 90 → ECOG 0 (Minor symptoms),- KPS 80 → ECOG 1 (Normal activity with effort), - KPS 70 → ECOG 1 (Able to care for self but unable to work), - KPS 60 → ECOG 2 (Requires occasional assistance, capable of self-care) - KPS 50 → ECOG 2 (Requires considerable assistance),- KPS 40 → ECOG 3 (Disabled, confined to bed/chair >50% of waking hours), - KPS 30 → ECOG 3 (Severely disabled, totally confined to bed/chair), - KPS 20 → ECOG 4 (Very sick, hospitalization required), - KPS 10 → ECOG 4 (Moribund), - KPS 0  → ECOG 5 (Deceased), Include a brief reason in parentheses after each numeric score, explaining how you arrived at it (e.g., if it was directly stated, or if it was converted).",    
+      "If ECOG_Performance_Status was provided and Karnofsky_Performance_Status was not, use this approximate mapping to derive KPS: - ECOG 0 → KPS 100 (Fully active, no complaints), - ECOG 1 → KPS 80 (Normal activity with effort), - ECOG 2 → KPS 60 (Requires occasional assistance, capable of self-care), - ECOG 3 → KPS 40 (Disabled, confined to bed/chair >50% of waking hours),- ECOG 4 → KPS 10–20 (Very sick or moribund),- ECOG 5 → KPS 0 (Deceased). Include a brief reason in parentheses after each numeric score explaining whether it was directly stated or converted.",
+    
+      "",
+      "Now, analyze:\n\n{context}"
+    ]
+  }
+  
