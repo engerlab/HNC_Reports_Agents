@@ -12,6 +12,7 @@ Usage:
       path_consult_reports,
       cot_treatment_plan_outcomepred.
       Default is "all".
+
   --local_model: If using local model, specify the model name (default: "llama3.3:latest").
   --prompt_mode: (Optional) If you want to use a specific suffix on your prompt files, set it here.
   --single: (Optional) Process one random file per folder.
@@ -67,7 +68,7 @@ PATHOLOGY_FIELDS = [
     "EBER_Status",
     "Lymphovascular_Invasion_Status",
     "Perineural_Invasion_Status",
-    "Other_diagnostic_finding"
+
 ]
 
 CONSULTATION_FIELDS = [
@@ -102,16 +103,15 @@ PATTERNS = {
     "Primary_Tumor_Size": r"^Primary_Tumor_Size:\s*(.*)$",
     "Tumor_Type_Differentiation": r"^Tumor_Type_Differentiation:\s*(.*)$",
     "Pathology_Details": r"^Pathology_Details:\s*(.*)$",
-    "Lymph_Node_Status_Presence_Absence": r"^Lymph_Node_Status_Presence_Absence:\s*(Presence|Absence|Suspected|Not inferred)\s*$",
+    "Lymph_Node_Status_Presence_Absence": r"^Lymph_Node_Status_Presence_Absence:\s*(Present|Absent|Suspected|Not inferred)\s*$",
     "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes": r"^Lymph_Node_Status_Number_of_Positve_Lymph_Nodes:\s*(\d+|Not inferred)\s*$",
-    "Lymph_Node_Status_Extranodal_Extension": r"^Lymph_Node_Status_Extranodal_Extension:\s*(Yes|No|Not inferred)\s*$",
+    "Lymph_Node_Status_Extranodal_Extension": r"^Lymph_Node_Status_Extranodal_Extension:\s*(Present|Absent|Not inferred)\s*$",
     "Resection_Margins": r"^Resection_Margins:\s*(Positive|Negative|Not inferred)\s*$",
     "p16_Status": r"^p16_Status:\s*(Positive|Negative|Not inferred)\s*$",
     "Immunohistochemical_profile": r"^Immunohistochemical_profile:\s*(.*)$",
     "EBER_Status": r"^EBER_Status:\s*(Positive|Negative|Not inferred)\s*$",
     "Lymphovascular_Invasion_Status": r"^Lymphovascular_Invasion_Status:\s*(Present|Absent|Not inferred)\s*$",
     "Perineural_Invasion_Status": r"^Perineural_Invasion_Status:\s*(Present|Absent|Not inferred)\s*$",
-    "Other_diagnostic_finding": r"^Other_diagnostic_finding:\s*(.*)$",
     "Smoking_History": r"^Smoking_History:\s*(.*)$",
     "Alcohol_Consumption": r"^Alcohol_Consumption:\s*(.*)$",
     "Pack_Years": r"^Pack_Years:\s*(\d+|Not inferred)\s*$",
@@ -193,7 +193,7 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
             "Clinical_TNM", "Pathology_Details", "Lymph_Node_Status_Presence_Absence",
             "Lymph_Node_Status_Extranodal_Extension", "Resection_Margins", "p16_Status",
             "Immunohistochemical_profile", "EBER_Status", "Lymphovascular_Invasion_Status",
-            "Perineural_Invasion_Status", "Other_diagnostic_finding"
+            "Perineural_Invasion_Status"
         ]
         num_cols = ["Age", "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes"]
     elif report_type == "consultation_notes":
@@ -210,7 +210,7 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
             "Clinical_TNM", "Pathology_Details", "Tumor_Type_Differentiation", "Lymph_Node_Status_Presence_Absence",
             "Lymph_Node_Status_Extranodal_Extension", "Resection_Margins", "p16_Status",
             "Immunohistochemical_profile", "EBER_Status", "Lymphovascular_Invasion_Status",
-            "Perineural_Invasion_Status", "Other_diagnostic_finding",
+            "Perineural_Invasion_Status",
             "Smoking_History", "Alcohol_Consumption", "Patient_Symptoms_at_Presentation",
             "Recommendations", "Plans", "HPV_Status", "Patient_History_Status_Prior_Conditions",
             "Patient_History_Status_Previous_Treatments", "Clinical_Assessments_Radiological_Lesions"
@@ -362,7 +362,6 @@ class ReportSummarizer:
            prompt_{rtype}.json
         Returns the combined prompt as a single string or empty if not found.
         """
-        # e.g. prompt_path_consult_reports_extraction_combined.json or prompt_path_consult_reports_extraction.json
         base_filename = f"prompt_{rtype}"
         candidates = []
         if self.prompt_mode:
@@ -419,9 +418,8 @@ class ReportSummarizer:
         # Step 2: CoT extraction
         cot_summary = self.run_llm_prompt("path_consult_reports_cot", report_text)
 
-        # Combine line-by-line. Easiest is to just put them together and then re-run `enforce_format`.
+        # Combine line-by-line. Then enforce final ordering:
         combined_raw = extraction_summary + "\n" + cot_summary
-        # Now enforce the final path_consult_reports field ordering:
         final_text = enforce_format(combined_raw, PATH_CONS_FIELDS)
         return final_text
 
@@ -433,7 +431,6 @@ class ReportSummarizer:
         """
         if report_type == "path_consult_reports":
             # Use the 2-step approach if the sub-prompts exist
-            # If we don't have them, fallback to single-step
             if (self.prompts["path_consult_reports_extraction"] and
                     self.prompts["path_consult_reports_cot"]):
                 summary = self.summarize_path_consult_two_step(report_text)
@@ -470,10 +467,17 @@ class ReportSummarizer:
         def process_folder(folder_path: str) -> List[str]:
             files = []
             if os.path.isdir(folder_path):
-                files = [os.path.join(root, fname) for root, _, fs in os.walk(folder_path)
-                         for fname in fs if fname.endswith(".txt")]
+                files = [
+                    os.path.join(root, fname)
+                    for root, _, fs in os.walk(folder_path)
+                    for fname in fs
+                    if fname.endswith(".txt")
+                ]
                 if case_id:
-                    files = [f for f in files if os.path.splitext(os.path.basename(f))[0] == case_id]
+                    files = [
+                        f for f in files
+                        if os.path.splitext(os.path.basename(f))[0] == case_id
+                    ]
                     if not files:
                         logger.warning(f"No file found with case ID {case_id} in {folder_path}")
                 elif single and files:
@@ -494,28 +498,47 @@ class ReportSummarizer:
                 logger.warning(f"No valid folder for {rtype} in {input_dir}. Skipping.")
                 continue
             file_list = process_folder(folder)
+
             for path in file_list:
                 fname = os.path.basename(path)
                 logger.info(f"Processing file: {fname} for report type: {rtype}")
-                start_time = time.time()
+                # Measure entire pipeline time
+                t0 = time.time()
                 try:
                     with open(path, 'r', encoding='utf-8') as f:
                         text = f.read()
 
+                    # Measure only the text_summaries (LLM call) time
+                    llm_start = time.time()
                     summary = self.summarize_report(text, rtype)
+                    llm_end = time.time()
+                    llm_time_ms = int(round((llm_end - llm_start) * 1000))
+
                     if not summary:
                         logger.warning(f"No summary produced for {fname}.")
                         continue
 
-                    # Timing stats
+                    # The rest of the pipeline (embeddings, CSVs, etc.)
+                    emb = self.embeddings.embed_documents([summary])[0]
+
+                    extracted_data = extract_tabular_data(summary, rtype)
+                    df = pd.DataFrame([extracted_data])
+                    df_normalized = normalize_data(df, rtype)
+                    df_encoded = encode_structured_data(df_normalized, rtype)
+
+                    # Wrap up timing
+                    t1 = time.time()
+                    full_elapsed_ms = int(round((t1 - t0) * 1000))
+
+                    # Record stats
                     num_chars = len(text)
                     num_tokens = len(text.split())
-                    end_time = time.time()
-                    elapsed_ms = int(round((end_time - start_time) * 1000))
+
                     time_data.append({
                         "file": fname,
                         "report_type": rtype,
-                        "process_time_ms": elapsed_ms,
+                        "process_time_ms": full_elapsed_ms,  # entire pipeline
+                        "llm_time_ms": llm_time_ms,          # just the summarization step
                         "num_input_characters": num_chars,
                         "num_input_tokens": num_tokens
                     })
@@ -536,19 +559,13 @@ class ReportSummarizer:
                         sf.write(summary)
 
                     # 2) Save embeddings
-                    emb = self.embeddings.embed_documents([summary])[0]
                     with open(os.path.join(subdirs["embeddings"], f"{rtype}_embedding.pkl"), 'wb') as ef:
                         pickle.dump(emb, ef)
 
-                    # 3) (Optional) Extract structured data CSV
-                    #    You could store or skip if you only want text_summaries + embeddings.
-                    extracted_data = extract_tabular_data(summary, rtype)
-                    df = pd.DataFrame([extracted_data])
-                    df_normalized = normalize_data(df, rtype)
+                    # 3) Save structured CSV
                     df_normalized.to_csv(os.path.join(subdirs["structured_data"], f"{rtype}_structured.csv"), index=False)
 
-                    # 4) (Optional) Encoded CSV
-                    df_encoded = encode_structured_data(df_normalized, rtype)
+                    # 4) Save encoded CSV
                     df_encoded.to_csv(os.path.join(subdirs["structured_data_encoded"], f"{rtype}_structured_encoded.csv"), index=False)
 
                 except Exception as e:
@@ -609,6 +626,7 @@ if __name__ == "__main__":
     os.setpgrp()  # Set process group for proper termination
     main()
 
+
 # Usage example: single case with specific id
 
 # python hnc_reports_agent4.py \
@@ -624,4 +642,30 @@ if __name__ == "__main__":
 #   --single \
 #   --case_id "1130580"
 
+
+# python hnc_reports_agent4.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt8" \
+#   --embedding_model ollama \
+#   --report_type "path_consult_reports" \
+#   --local_model "llama3.3:latest" \
+#   --prompt_mode "combined" \
+#   --single \
+#   --case_id "1150440"
+
+# python hnc_reports_agent4.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt9" \
+#   --embedding_model ollama \
+#   --report_type "path_consult_reports" \
+#   --local_model "llama3.3:latest" \
+#   --prompt_mode "combined" \
+#   --single \
+#   --case_id "1150440"
 
