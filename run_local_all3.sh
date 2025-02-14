@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Usage: ./run_local_all3.sh [report_type] [prompt_mode]
 # report_type can be a comma-separated list of:
 #   pathology_reports,
@@ -11,7 +12,7 @@
 # prompt_mode is optional (e.g., "combined" or leave empty for default).
 #
 # Example:
-#   bash run_local_all3.sh "path_consult_reports" "combined"
+#   bash /Data/Yujing/HNC_OutcomePred/Reports_Agents/run_local_all3.sh "path_consult_reports" "combined"
 
 #############################
 # 1) Configuration

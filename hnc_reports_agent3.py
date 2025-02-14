@@ -16,9 +16,9 @@ Usage:
       cot_treatment_plan_outcomepred.
       Default is "all".
   --local_model: If using local model, specify the model name (default: "llama3.3:latest").
-  --prompt_mode: (Optional) Specify the prompt version suffix (e.g., "combined" or "separated"). "combined": deduction for fields such as HPV_Status, ECOG, Charlson_Comorbidity_Score; "separated": no deduction asked, if not explicitly mentioned in the prompt, "Not Inferred" was answered.
-  --single: (Optional flag) If set, process one random file per subfolder.
-  --case_id: (Optional) Specify a case ID (filename without extension) to process only that file.
+  --prompt_mode: (Optional) Specify the prompt version suffix (e.g., "combined" or leave empty for default).
+  --single: (Optional flag) If set, process one random file per folder.
+  --case_id: (Optional) Specify a case ID (filename without extension) to process a specific case.
 """
 
 import os
@@ -56,7 +56,6 @@ PATHOLOGY_FIELDS = [
     "Age",
     "Sex",
     "Anatomic_Site_of_Lesion",
-    "Cancer_Staging",
     "Pathological_TNM",
     "Clinical_TNM",
     "Primary_Tumor_Size",
@@ -88,10 +87,9 @@ CONSULTATION_FIELDS = [
     "Clinical_Assessments_SUV_from_PET_scans",
     "Charlson_Comorbidity_Score",
     "Karnofsky_Performance_Status",
-    "ECOG",
-    "Cancer_Staging_Pathological_TNM",
-    "Cancer_Staging_Clinical_TNM",
-    "Cancer_Staging_Tumor_Size"
+    "ECOG_Performance_Status",
+
+
 ]
 
 # Combined fields: merge pathology and consultation fields (removing duplicates)
@@ -104,7 +102,6 @@ PATTERNS = {
     "Age": r"^Age:\s*(\d+|Not inferred)\s*$",
     "Sex": r"^Sex:\s*(Male|Female|Other|Not inferred)\s*$",
     "Anatomic_Site_of_Lesion": r"^Anatomic_Site_of_Lesion:\s*(.*)$",
-    "Cancer_Staging": r"^Cancer_Staging:\s*(.*)$",
     "Pathological_TNM": r"^Pathological_TNM:\s*(.*)$",
     "Clinical_TNM": r"^Clinical_TNM:\s*(.*)$",
     "Primary_Tumor_Size": r"^Primary_Tumor_Size:\s*(.*)$",
@@ -133,10 +130,7 @@ PATTERNS = {
     "Clinical_Assessments_SUV_from_PET_scans": r"^Clinical_Assessments_SUV_from_PET_scans:\s*(\d+(\.\d+)?|Not inferred)\s*$",
     "Charlson_Comorbidity_Score": r"^Charlson_Comorbidity_Score:\s*(\d+|Not inferred)\s*$",
     "Karnofsky_Performance_Status": r"^Karnofsky_Performance_Status:\s*(100|90|80|70|60|50|40|30|20|10|0|Not inferred)\s*$",
-    "ECOG": r"^ECOG:\s*(0|1|2|3|4|Not inferred)\s*$",
-    "Cancer_Staging_Pathological_TNM": r"^Cancer_Staging_Pathological_TNM:\s*(.*)$",
-    "Cancer_Staging_Clinical_TNM": r"^Cancer_Staging_Clinical_TNM:\s*(.*)$",
-    "Cancer_Staging_Tumor_Size": r"^Cancer_Staging_Tumor_Size:\s*(\d+(\.\d+)?|Not inferred)\s*$"
+    "ECOG_Performance_Status": r"^ECOG_Performance_Status:\s*(0|1|2|3|4|)\s*$"
 }
 
 ##############################################################################
@@ -198,7 +192,7 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
     df_encoded = df.copy()
     if report_type == "pathology_reports":
         cat_cols = [
-            "Sex", "Anatomic_Site_of_Lesion", "Cancer_Staging", "Pathological_TNM",
+            "Sex", "Anatomic_Site_of_Lesion", "Pathological_TNM",
             "Clinical_TNM", "Pathology_Details", "Lymph_Node_Status_Presence_Absence",
             "Lymph_Node_Status_Extranodal_Extension", "Resection_Margins", "p16_Status",
             "Immunohistochemical_profile", "EBER_Status", "Lymphovascular_Invasion_Status",
@@ -212,10 +206,10 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
             "Patient_History_Status_Previous_Treatments", "Clinical_Assessments_Radiological_Lesions"
         ]
         num_cols = ["Pack_Years", "Clinical_Assessments_SUV_from_PET_scans", "Charlson_Comorbidity_Score"]
-        num_cols += ["Karnofsky_Performance_Status", "ECOG"]
+        num_cols += ["Karnofsky_Performance_Status", "ECOG_Performance_Status"]
     elif report_type == "path_consult_reports":
         cat_cols = [
-            "Sex", "Anatomic_Site_of_Lesion", "Cancer_Staging", "Pathological_TNM",
+            "Sex", "Anatomic_Site_of_Lesion", "Pathological_TNM",
             "Clinical_TNM", "Pathology_Details", "Tumor_Type_Differentiation", "Lymph_Node_Status_Presence_Absence",
             "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes", "Lymph_Node_Status_Extranodal_Extension",
             "Resection_Margins", "p16_Status", "Immunohistochemical_profile", "EBER_Status",
@@ -224,7 +218,7 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
             "Recommendations", "Plans", "HPV_Status", "Patient_History_Status_Prior_Conditions",
             "Patient_History_Status_Previous_Treatments", "Clinical_Assessments_Radiological_Lesions",
             "Clinical_Assessments_SUV_from_PET_scans", "Charlson_Comorbidity_Score",
-            "Karnofsky_Performance_Status", "ECOG"
+            "Karnofsky_Performance_Status", "ECOG_Performance_Status"
         ]
         num_cols = []
     else:
@@ -253,6 +247,32 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
     return df_encoded
 
 ##############################################################################
+# 4. Helper Function to Enforce Format
+##############################################################################
+def enforce_format(summary: str, expected_fields: List[str]) -> str:
+    """
+    Given a summary string (generated by the LLM) and a list of expected field names,
+    enforce that the output contains exactly these fields in order.
+    For each expected field, if a line starting with "FieldName:" is present in the summary,
+    use that line; otherwise, output "FieldName: Not inferred".
+    """
+    lines = summary.splitlines()
+    field_lines = {}
+    for field in expected_fields:
+        found_line = None
+        pattern = f"^{field}:"  # match field name exactly
+        for line in lines:
+            if re.match(pattern, line):
+                found_line = line.strip()
+                break
+        if found_line:
+            field_lines[field] = found_line
+        else:
+            field_lines[field] = f"{field}: Not inferred"
+    # Return the lines in the order of expected_fields
+    return "\n".join([field_lines[field] for field in expected_fields])
+
+##############################################################################
 # 4. Summarizer Class
 ##############################################################################
 class ReportSummarizer:
@@ -263,15 +283,13 @@ class ReportSummarizer:
         temperature: float = 0.3,
         embedding_model: str = "ollama",
         local_model: str = "llama3.3:latest",
-        prompt_mode: str = "",
-        case_id: str = ""
+        prompt_mode: str = ""
     ):
         self.model_type = model_type.lower()
         self.temperature = temperature
         self.embedding_model = embedding_model.lower()
         self.local_model = local_model
         self.prompt_mode = prompt_mode.lower()  # e.g., "combined" or empty for default
-        self.case_id = case_id.strip()  # if provided, process only that case ID
 
         if not os.path.isdir(prompts_dir):
             raise ValueError(f"Invalid prompts_dir: {prompts_dir}")
@@ -354,29 +372,38 @@ class ReportSummarizer:
         resp = runnable.invoke({"context": report_text, "report_type": report_type})
         summary = resp.get("summary", "").strip()
         logger.debug(f"[{report_type}] Summarize output (first 80 chars): {summary[:80]}...")
+        # For structured fields, enforce the format
+        if report_type in ["pathology_reports", "consultation_notes", "path_consult_reports"]:
+            if report_type == "pathology_reports":
+                expected = PATHOLOGY_FIELDS
+            elif report_type == "consultation_notes":
+                expected = CONSULTATION_FIELDS
+            else:
+                expected = PATH_CONS_FIELDS
+            summary = enforce_format(summary, expected)
         return summary if summary else None
 
-    def process_reports(self, input_dir: str, output_dir: str, report_types: List[str], single: bool = False):
+    def process_reports(self, input_dir: str, output_dir: str, report_types: List[str], single: bool = False, case_id: Optional[str] = None):
         """
-        - 'pathology_reports' => read from PathologyReports/ in input_dir.
-        - 'consultation_notes' => read from ConsultRedacted/ in input_dir.
+        - 'pathology_reports' => read from PathologyReports/ in input_dir
+        - 'consultation_notes' => read from ConsultRedacted/ in input_dir
         - 'treatment_plan_outcomepred', 'path_consult_reports', 'cot_treatment_plan_outcomepred'
           => read from PathConsCombined/ in input_dir.
-        If single is True, select one random file per subfolder unless a case_id is provided.
-        If case_id is provided, process only the file with that case ID (filename without extension).
+        If single is True, process only one file per folder.
+        If case_id is provided, process only the file whose basename (without extension) matches that ID.
         """
         os.makedirs(output_dir, exist_ok=True)
-        time_data = []  # Record time for generating text summary files only.
+        time_data = []
 
         def process_folder(folder_path: str) -> List[str]:
             files = []
             if os.path.isdir(folder_path):
                 files = [os.path.join(root, fname) for root, _, fs in os.walk(folder_path)
                          for fname in fs if fname.endswith(".txt")]
-                if self.case_id:
-                    files = [f for f in files if os.path.splitext(os.path.basename(f))[0] == self.case_id]
+                if case_id:
+                    files = [f for f in files if os.path.splitext(os.path.basename(f))[0] == case_id]
                     if not files:
-                        logger.warning(f"No file found with case ID {self.case_id} in {folder_path}")
+                        logger.warning(f"No file found with case ID {case_id} in {folder_path}")
                 elif single and files:
                     files = [random.choice(files)]
             return files
@@ -398,20 +425,27 @@ class ReportSummarizer:
             for path in file_list:
                 fname = os.path.basename(path)
                 logger.info(f"Processing file: {fname} for report type: {rtype}")
+                start_time = time.time()
                 try:
                     with open(path, 'r', encoding='utf-8') as f:
                         text = f.read()
                     summary = self.summarize_report(text, rtype)
                     if not summary:
-                        logger.error(f"No summary produced for {fname} in {rtype}")
+                        logger.warning(f"No summary produced for {fname}.")
                         continue
-                    if rtype in ["pathology_reports", "consultation_notes", "path_consult_reports"]:
-                        extracted = extract_tabular_data(summary, rtype)
-                        if not validate_extracted_data(extracted, rtype):
-                            logger.error(f"Validation failed for {fname} in {rtype}")
-                    else:
-                        extracted = {"Treatment_Plan_and_Outcome_Prediction": summary}
-
+                    # Compute additional metrics
+                    num_chars = len(text)
+                    num_tokens = len(text.split())
+                    end_time = time.time()
+                    elapsed_ms = int(round((end_time - start_time) * 1000))
+                    time_data.append({
+                        "file": fname,
+                        "report_type": rtype,
+                        "process_time_ms": elapsed_ms,
+                        "num_input_characters": num_chars,
+                        "num_input_tokens": num_tokens
+                    })
+                    # Prepare output directories
                     patient_id = os.path.splitext(fname)[0]
                     subdirs = {
                         "text_summaries": os.path.join(output_dir, "text_summaries", rtype, patient_id),
@@ -421,33 +455,21 @@ class ReportSummarizer:
                     }
                     for sd in subdirs.values():
                         os.makedirs(sd, exist_ok=True)
-                    # Measure time taken to write text summary file.
-                    t_start = time.time()
                     with open(os.path.join(subdirs["text_summaries"], f"{rtype}_summary.txt"), 'w', encoding='utf-8') as sf:
                         sf.write(summary)
-                    t_end = time.time()
-                    text_time = round(t_end - t_start, 3)
-                    time_data.append({"file": fname, "report_type": rtype, "text_summary_time_seconds": text_time})
-                    # Save embedding and structured data as before.
                     emb = self.embeddings.embed_documents([summary])[0]
                     with open(os.path.join(subdirs["embeddings"], f"{rtype}_embedding.pkl"), 'wb') as ef:
                         pickle.dump(emb, ef)
-                    df_struct = pd.DataFrame([extracted])
-                    df_struct = normalize_data(df_struct, rtype)
-                    df_struct_path = os.path.join(subdirs["structured_data"], f"{rtype}_structured.csv")
-                    df_struct.to_csv(df_struct_path, index=False)
-                    df_encoded = encode_structured_data(df_struct, rtype)
-                    df_encoded_path = os.path.join(subdirs["structured_data_encoded"], f"{rtype}_structured_encoded.csv")
-                    df_encoded.to_csv(df_encoded_path, index=False)
+                    # For structured outputs, only save processing_times.csv (omit other metadata CSVs)
+                    df_struct = pd.DataFrame()  # We are not saving structured CSVs now.
+                    df_encoded = pd.DataFrame()
                 except Exception as e:
                     logger.error(f"Error processing {fname}: {e}")
-        # Write processing times for text summary generation.
-        times_csv = os.path.join(output_dir, "processing_times.csv")
         try:
-            pd.DataFrame(time_data).to_csv(times_csv, index=False)
-            logger.info(f"Processing times saved to {times_csv}")
+            pd.DataFrame(time_data).to_csv(os.path.join(output_dir, "processing_times.csv"), index=False)
+            logger.info(f"Processing times saved to {output_dir}")
         except Exception as e:
-            logger.error(f"Failed to save processing times CSV: {e}")
+            logger.error(f"Failed to save processing_times.csv: {e}")
 
 def main():
     parser = argparse.ArgumentParser(
@@ -464,9 +486,9 @@ def main():
     parser.add_argument("--embedding_model", type=str, default="ollama", choices=["ollama", "openai", "google"], help="Embedding model.")
     parser.add_argument("--report_type", type=str, default="all", help="Comma-separated list of report types.")
     parser.add_argument("--local_model", type=str, default="llama3.3:latest", help="Local model name if model_type='local'.")
-    parser.add_argument("--single", action="store_true", help="If set, process one random file per subfolder.")
+    parser.add_argument("--single", action="store_true", help="If set, process one random file per folder.")
+    parser.add_argument("--case_id", type=str, default="", help="Optional: specify a case ID (filename without extension) to process a specific case.")
     parser.add_argument("--prompt_mode", type=str, default="", help="Optional prompt mode (e.g., 'combined' or 'separated').")
-    parser.add_argument("--case_id", type=str, default="", help="Optional: specify a case ID (filename without extension) to process only that file.")
     args = parser.parse_args()
 
     if args.report_type.lower() == "all":
@@ -488,10 +510,10 @@ def main():
         temperature=args.temperature,
         embedding_model=args.embedding_model,
         local_model=args.local_model,
-        prompt_mode=args.prompt_mode,
-        case_id=args.case_id
+        prompt_mode=args.prompt_mode
     )
-    summarizer.process_reports(args.input_dir, args.output_dir, report_types, single=args.single)
+    case_id = args.case_id.strip() if args.case_id.strip() else None
+    summarizer.process_reports(args.input_dir, args.output_dir, report_types, single=args.single, case_id=case_id)
 
 if __name__ == "__main__":
     os.setpgrp()  # Set process group for proper termination
@@ -521,9 +543,9 @@ if __name__ == "__main__":
 #   --model_type local \
 #   --temperature 0.8 \
 #   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPrompt \
+#   --output_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt5 \
 #   --embedding_model ollama \
 #   --report_type "path_consult_reports" \
 #   --local_model "llama3.3:latest" \
 #   --prompt_mode "combined" \
-#   --case_id "1145281"
+#   --case_id "1130580"

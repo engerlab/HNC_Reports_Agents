@@ -1,19 +1,20 @@
 #!/bin/bash
-# Usage: ./run_prompt_experiment.sh [report_type] [case_id] [prompt_mode]
-# report_type can be a comma-separated list of:
+
+# Usage: ./run_prompt_experiment.sh [report_type] [prompt_mode] [case_id]
+# report_type can be one of:
 #   pathology_reports,
 #   consultation_notes,
 #   treatment_plan_outcomepred,
 #   path_consult_reports,
-#   cot_treatment_plan_outcomepred,
-#   or "all" (default).
+#   cot_treatment_plan_outcomepred.
 #
-# case_id is optional (filename without extension) to process a specific case.
-# prompt_mode is optional (e.g., "combined" or leave empty for default).
+# prompt_mode is optional (e.g., "combined" or "separated").
+# case_id is optional; if provided, only the file with that case ID (filename without extension) is processed;
+# otherwise, one random file is selected.
 #
 # Examples:
-#   bash run_prompt_experiment.sh "path_consult_reports" "1145281" "combined"
-#   bash run_prompt_experiment.sh "path_consult_reports" "" "combined"  # processes one random file per subfolder
+#   bash run_prompt_experiment.sh "path_consult_reports" "combined"      (process one random case)
+#   bash run_prompt_experiment.sh "path_consult_reports" "combined" "12345" (process case ID 12345)
 
 #############################
 # 1) Configuration
@@ -28,56 +29,100 @@ LOCAL_MODEL="llama3.3:latest"
 PYTHON_SCRIPT="/Data/Yujing/HNC_OutcomePred/Reports_Agents/hnc_reports_agent3.py"
 
 #############################
-# 2) Parse Command-Line Arguments
+# 2) Trap for Process Termination
 #############################
-# First argument: report_type (default "all")
-if [ -z "$1" ] || [ "$1" == "all" ]; then
-  REPORT_TYPE="all"
+trap "echo 'Terminating all processes...'; kill -- -$$; exit 1" SIGINT SIGTERM
+
+#############################
+# 3) Parse Command-Line Arguments
+#############################
+if [ -z "$1" ]; then
+  echo "Error: Please specify a report type."
+  exit 1
 else
   REPORT_TYPE="$1"
 fi
 
-# Second argument: case_id (optional)
-CASE_ID=""
-if [ ! -z "$2" ]; then
-  CASE_ID="$2"
-fi
-
-# Third argument: prompt_mode (optional)
-if [ -z "$3" ]; then
+if [ -z "$2" ]; then
   PROMPT_MODE=""
 else
-  PROMPT_MODE="$3"
+  PROMPT_MODE="$2"
 fi
 
-# Convert report_type to lowercase
-REPORT_TYPE="${REPORT_TYPE,,}"
-
-echo "Starting prompt experiment with report type: $REPORT_TYPE"
-if [ -n "$CASE_ID" ]; then
-  echo "Processing specified case ID: $CASE_ID"
-  python "$PYTHON_SCRIPT" \
-    --prompts_dir "$PROMPTS_DIR" \
-    --model_type "$MODEL_TYPE" \
-    --temperature "$TEMPERATURE" \
-    --input_dir "$INPUT_DIR" \
-    --output_dir "$OUTPUT_DIR" \
-    --embedding_model "$EMBEDDING_MODEL" \
-    --report_type "$REPORT_TYPE" \
-    --local_model "$LOCAL_MODEL" \
-    --prompt_mode "$PROMPT_MODE" \
-    --case_id "$CASE_ID"
+if [ -z "$3" ]; then
+  CASE_ID=""  # if not provided, one random case will be selected
 else
-  echo "Processing one random file per subfolder (single case experiment)"
-  python "$PYTHON_SCRIPT" \
-    --prompts_dir "$PROMPTS_DIR" \
-    --model_type "$MODEL_TYPE" \
-    --temperature "$TEMPERATURE" \
-    --input_dir "$INPUT_DIR" \
-    --output_dir "$OUTPUT_DIR" \
-    --embedding_model "$EMBEDDING_MODEL" \
-    --report_type "$REPORT_TYPE" \
-    --local_model "$LOCAL_MODEL" \
-    --prompt_mode "$PROMPT_MODE" \
-    --single
+  CASE_ID="$3"
 fi
+
+echo "Selected report type: $REPORT_TYPE"
+[ -n "$PROMPT_MODE" ] && echo "Using prompt mode: $PROMPT_MODE"
+[ -n "$CASE_ID" ] && echo "Processing specified case ID: $CASE_ID" || echo "Processing one random case"
+
+#############################
+# 4) Run Python Script (Single-Case Experiment)
+#############################
+LOGFILE="/tmp/summarizer_prompt_experiment.log"
+rm -f "$LOGFILE"
+
+python "$PYTHON_SCRIPT" \
+  --prompts_dir "$PROMPTS_DIR" \
+  --model_type "$MODEL_TYPE" \
+  --temperature "$TEMPERATURE" \
+  --input_dir "$INPUT_DIR" \
+  --output_dir "$OUTPUT_DIR" \
+  --embedding_model "$EMBEDDING_MODEL" \
+  --report_type "$REPORT_TYPE" \
+  --local_model "$LOCAL_MODEL" \
+  --prompt_mode "$PROMPT_MODE" \
+  --single \
+  ${CASE_ID:+--case_id "$CASE_ID"} \
+  >"$LOGFILE" 2>&1 &
+
+PID=$!
+
+#############################
+# 5) Spinner and Progress
+#############################
+spin='-\|/'
+i=0
+while kill -0 "$PID" 2>/dev/null; do
+  i=$(( (i+1) % 4 ))
+  spinChar=${spin:$i:1}
+  progress_str=""
+  if [[ "$REPORT_TYPE" =~ "pathology_reports" ]]; then
+    PAT_PROCESSED=$(grep -c "Processing file: .* in folder: PathologyReports" "$LOGFILE")
+    PAT_TOTAL=$(find "$INPUT_DIR/PathologyReports" -type f -name '*.txt' 2>/dev/null | wc -l)
+    PAT_PCT=$(( PAT_TOTAL > 0 ? 100 * PAT_PROCESSED / PAT_TOTAL : 0 ))
+    progress_str+="Path: $PAT_PROCESSED/$PAT_TOTAL (${PAT_PCT}%)  "
+  fi
+  if [[ "$REPORT_TYPE" =~ "consultation_notes" ]]; then
+    CON_PROCESSED=$(grep -c "Processing file: .* in folder: ConsultRedacted" "$LOGFILE")
+    CON_TOTAL=$(find "$INPUT_DIR/ConsultRedacted" -type f -name '*.txt' 2>/dev/null | wc -l)
+    CON_PCT=$(( CON_TOTAL > 0 ? 100 * CON_PROCESSED / CON_TOTAL : 0 ))
+    progress_str+="Cons: $CON_PROCESSED/$CON_TOTAL (${CON_PCT}%)  "
+  fi
+  if [[ "$REPORT_TYPE" =~ "treatment_plan_outcomepred" ]]; then
+    TP_PROCESSED=$(grep -c "Processing combined file: .* in folder: PathConsCombined" "$LOGFILE")
+    TP_TOTAL=$(find "$INPUT_DIR/PathConsCombined" -type f -name '*.txt' 2>/dev/null | wc -l)
+    TP_PCT=$(( TP_TOTAL > 0 ? 100 * TP_PROCESSED / TP_TOTAL : 0 ))
+    progress_str+="OldTP: $TP_PROCESSED/$TP_TOTAL (${TP_PCT}%)  "
+  fi
+  if [[ "$REPORT_TYPE" =~ "path_consult_reports" ]]; then
+    PC_PROCESSED=$(grep -c "Processing combined path+consult file:" "$LOGFILE")
+    PC_TOTAL=$(find "$INPUT_DIR/PathConsCombined" -type f -name '*.txt' 2>/dev/null | wc -l)
+    PC_PCT=$(( PC_TOTAL > 0 ? 100 * PC_PROCESSED / PC_TOTAL : 0 ))
+    progress_str+="PC: $PC_PROCESSED/$PC_TOTAL (${PC_PCT}%)  "
+  fi
+  if [[ "$REPORT_TYPE" =~ "cot_treatment_plan_outcomepred" ]]; then
+    COT_PROCESSED=$(grep -c "Processing CoT-based plan:" "$LOGFILE")
+    COT_TOTAL=$(find "$INPUT_DIR/PathConsCombined" -type f -name '*.txt' 2>/dev/null | wc -l)
+    COT_PCT=$(( COT_TOTAL > 0 ? 100 * COT_PROCESSED / COT_TOTAL : 0 ))
+    progress_str+="CoT: $COT_PROCESSED/$COT_TOTAL (${COT_PCT}%)"
+  fi
+  echo -ne "\r[$spinChar] $progress_str"
+  sleep 1
+done
+
+echo -e "\r[+] $progress_str  Done!"
+echo "Logs are in $LOGFILE"
