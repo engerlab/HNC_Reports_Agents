@@ -103,9 +103,9 @@ PATTERNS = {
     "Primary_Tumor_Size": r"^Primary_Tumor_Size:\s*(.*)$",
     "Tumor_Type_Differentiation": r"^Tumor_Type_Differentiation:\s*(.*)$",
     "Pathology_Details": r"^Pathology_Details:\s*(.*)$",
-    "Lymph_Node_Status_Presence_Absence": r"^Lymph_Node_Status_Presence_Absence:\s*(Present|Absent|Suspected|Not inferred)\s*$",
+    "Lymph_Node_Status_Presence_Absence": r"^Lymph_Node_Status_Presence_Absence:\s*(Presence|Absence|Suspected|Not inferred)\s*$",
     "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes": r"^Lymph_Node_Status_Number_of_Positve_Lymph_Nodes:\s*(\d+|Not inferred)\s*$",
-    "Lymph_Node_Status_Extranodal_Extension": r"^Lymph_Node_Status_Extranodal_Extension:\s*(Present|Absent|Not inferred)\s*$",
+    "Lymph_Node_Status_Extranodal_Extension": r"^Lymph_Node_Status_Extranodal_Extension:\s*(Yes|No|Not inferred)\s*$",
     "Resection_Margins": r"^Resection_Margins:\s*(Positive|Negative|Not inferred)\s*$",
     "p16_Status": r"^p16_Status:\s*(Positive|Negative|Not inferred)\s*$",
     "Immunohistochemical_profile": r"^Immunohistochemical_profile:\s*(.*)$",
@@ -656,6 +656,7 @@ if __name__ == "__main__":
 #   --single \
 #   --case_id "1150440"
 
+
 # python hnc_reports_agent4.py \
 #   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
 #   --model_type local \
@@ -667,5 +668,17 @@ if __name__ == "__main__":
 #   --local_model "llama3.3:latest" \
 #   --prompt_mode "combined" \
 #   --single \
-#   --case_id "1150440"
+#   --case_id "1178863"
 
+# python hnc_reports_agent4.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt10" \
+#   --embedding_model ollama \
+#   --report_type "path_consult_reports" \
+#   --local_model "llama3.3:latest" \
+#   --prompt_mode "combined" \
+#   --single \
+#   --case_id "1130580"
