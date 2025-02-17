@@ -7,7 +7,6 @@
     "Below are the fields you must output:",
     "",
     "- Tumor_Type_Differentiation: (Possible values might be Well differentiated, Moderately differentiated, Poorly differentiated, or Not inferred if unclear.)",
-    "- Lymph_Node_Status_Presence_Absence: (Present, Absent, or Not inferred. If the text explicitly says there is no neck lymphadenopathy, you may conclude Absent. Otherwise, Not inferred.)",
     "- p16_Status: (Positive or Negative. If the text says p16 is negative, set this to Negative; if it says p16 is positive, set to Positive.)",
     "- Smoking_History: (Smoker, Ex-smoker, Non-Smoker, or Not inferred. For example, if the text says 'quit nine years ago', that is Ex-smoker.)",
     "- Alcohol_Consumption: (Drinker, Non-Drinker, or Not inferred. If text states 'does not drink alcohol', output Non-Drinker.)",
