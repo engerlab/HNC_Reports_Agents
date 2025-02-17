@@ -50,7 +50,6 @@ logger.setLevel(logging.DEBUG)
 # 1. Field Definitions
 ##############################################################################
 PATHOLOGY_FIELDS = [
-    "Age",
     "Sex",
     "Anatomic_Site_of_Lesion",
     "Pathological_TNM",
@@ -94,7 +93,6 @@ PATH_CONS_FIELDS = list(dict.fromkeys(PATHOLOGY_FIELDS + CONSULTATION_FIELDS))
 # 2. Regex Patterns
 ##############################################################################
 PATTERNS = {
-    "Age": r"^Age:\s*(\d+|Not inferred)\s*$",
     "Sex": r"^Sex:\s*(Male|Female|Other|Not inferred)\s*$",
     "Anatomic_Site_of_Lesion": r"^Anatomic_Site_of_Lesion:\s*(.*)$",
     "Pathological_TNM": r"^Pathological_TNM:\s*(.*)$",
@@ -194,7 +192,7 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
             "Immunohistochemical_profile", "EBER_Status", "Lymphovascular_Invasion_Status",
             "Perineural_Invasion_Status"
         ]
-        num_cols = ["Age", "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes"]
+        num_cols = ["Lymph_Node_Status_Number_of_Positve_Lymph_Nodes"]
     elif report_type == "consultation_notes":
         cat_cols = [
             "Smoking_History", "Alcohol_Consumption", "Patient_Symptoms_at_Presentation",
@@ -216,7 +214,6 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
         ]
         # NOTE: Some fields appear numeric but might be strings. Adjust if needed.
         num_cols = [
-            "Age",
             "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes",
             "Pack_Years",
             "Clinical_Assessments_SUV_from_PET_scans",
@@ -725,7 +722,7 @@ if __name__ == "__main__":
 #   --single \
 #   --case_id "1130580"
 
-# BEST ONE YET! mistake reverted! 
+# BEST ONE YET! mistake reverted! Good test case! 
 # python hnc_reports_agent4.py \
 #   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
 #   --model_type local \
@@ -814,10 +811,24 @@ if __name__ == "__main__":
 #   --model_type local \
 #   --temperature 0.8 \
 #   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt22" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt23" \
 #   --embedding_model ollama \
 #   --report_type "path_consult_reports" \
 #   --local_model "llama3.3:latest" \
 #   --prompt_mode "combined" \
 #   --single \
 #   --case_id "1211203"
+
+# This one is really bad, lots of "Not Inferred": would it be because the input text is too long? 
+# python hnc_reports_agent4.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt24" \
+#   --embedding_model ollama \
+#   --report_type "path_consult_reports" \
+#   --local_model "llama3.3:latest" \
+#   --prompt_mode "combined" \
+#   --single \
+#   --case_id "276261"
