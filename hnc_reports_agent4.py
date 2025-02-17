@@ -725,6 +725,7 @@ if __name__ == "__main__":
 #   --single \
 #   --case_id "1130580"
 
+# BEST ONE YET! mistake reverted! 
 # python hnc_reports_agent4.py \
 #   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
 #   --model_type local \
@@ -737,3 +738,33 @@ if __name__ == "__main__":
 #   --prompt_mode "combined" \
 #   --single \
 #   --case_id "1130580"
+
+# python hnc_reports_agent4.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt13" \
+#   --embedding_model ollama \
+#   --report_type "path_consult_reports" \
+#   --local_model "llama3.3:latest" \
+#   --prompt_mode "combined" \
+#   --single \
+#   --case_id "1150440"
+
+# python hnc_reports_agent4.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt14" \
+#   --embedding_model ollama \
+#   --report_type "path_consult_reports" \
+#   --local_model "llama3.3:latest" \
+#   --prompt_mode "combined" \
+#   --single \
+#   --case_id "1178863"
+
+
+# Still need to only save the summaries_text.txt time! 
+# do ollama interactive and the one by one "what is???"
