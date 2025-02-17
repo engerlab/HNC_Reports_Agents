@@ -67,7 +67,7 @@ PATHOLOGY_FIELDS = [
     "EBER_Status",
     "Lymphovascular_Invasion_Status",
     "Perineural_Invasion_Status",
-    "Other_diagnostic_finding"
+
 ]
 
 CONSULTATION_FIELDS = [
@@ -111,7 +111,6 @@ PATTERNS = {
     "EBER_Status": r"^EBER_Status:\s*(Positive|Negative|Not inferred)\s*$",
     "Lymphovascular_Invasion_Status": r"^Lymphovascular_Invasion_Status:\s*(Present|Absent|Not inferred)\s*$",
     "Perineural_Invasion_Status": r"^Perineural_Invasion_Status:\s*(Present|Absent|Not inferred)\s*$",
-    "Other_diagnostic_finding": r"^Other_diagnostic_finding:\s*(.*)$",
     "Smoking_History": r"^Smoking_History:\s*(.*)$",
     "Alcohol_Consumption": r"^Alcohol_Consumption:\s*(.*)$",
     "Pack_Years": r"^Pack_Years:\s*(\d+|Not inferred)\s*$",
@@ -193,7 +192,7 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
             "Clinical_TNM", "Pathology_Details", "Lymph_Node_Status_Presence_Absence",
             "Lymph_Node_Status_Extranodal_Extension", "Resection_Margins", "p16_Status",
             "Immunohistochemical_profile", "EBER_Status", "Lymphovascular_Invasion_Status",
-            "Perineural_Invasion_Status", "Other_diagnostic_finding"
+            "Perineural_Invasion_Status"
         ]
         num_cols = ["Age", "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes"]
     elif report_type == "consultation_notes":
@@ -210,7 +209,7 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
             "Clinical_TNM", "Pathology_Details", "Tumor_Type_Differentiation", "Lymph_Node_Status_Presence_Absence",
             "Lymph_Node_Status_Extranodal_Extension", "Resection_Margins", "p16_Status",
             "Immunohistochemical_profile", "EBER_Status", "Lymphovascular_Invasion_Status",
-            "Perineural_Invasion_Status", "Other_diagnostic_finding",
+            "Perineural_Invasion_Status",
             "Smoking_History", "Alcohol_Consumption", "Patient_Symptoms_at_Presentation",
             "Recommendations", "Plans", "HPV_Status", "Patient_History_Status_Prior_Conditions",
             "Patient_History_Status_Previous_Treatments", "Clinical_Assessments_Radiological_Lesions"
