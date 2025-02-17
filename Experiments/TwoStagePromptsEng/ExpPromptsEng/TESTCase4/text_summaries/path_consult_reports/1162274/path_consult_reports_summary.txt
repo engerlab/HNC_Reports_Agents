@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: right tongue base, poorly-differentiated squamous cell carcinoma with basaloid features
+Pathological_TNM: Not inferred
+Clinical_TNM: T2, N2a
+Primary_Tumor_Size: 3 cm
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: poorly-differentiated squamous cell carcinoma with basaloid features, positive for p16
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1 (lymphadenopathy at the right level 2)
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: p16 positive
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: Dysphagia, especially to spicy foods, slight hoarseness of the voice, right otalgia
+Treatment_Recommendations: External beam radiotherapy concomitant with chemotherapy, such as cetuximab
+Follow_Up_Plans: Patient sent to medical oncology department, audiogram and prophylactic PEG requested, treatment planification within the next weeks
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: Polyrheumatoid arthritis, arterial hypertension, hypothyroidism, dyslipidemia, macular degeneration
+Patient_History_Status_Previous_Treatments: Actonel, calcium, Synthroid, Metoprolol, Prednisone 5 mg, Vitalux, Vitamin B12, Crestor, Senokot, Ativan
+Clinical_Assessments_Radiological_Lesions: CT scan of the neck (report not available), chest x-ray (no active disease), flexible nasopharyngolaryngoscopy (right tongue base lesion measuring 3 cm)
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 4 [Assigned 1 point each for arterial hypertension, hypothyroidism, dyslipidemia, and mild liver disease is not mentioned but other conditions like polyrheumatoid arthritis which could be considered as connective tissue disease might contribute to the score]
+Karnofsky_Performance_Status: 90 [Directly stated in the physical examination section]
+ECOG_Performance_Status: 0 [A KPS of 90 corresponds roughly to an ECOG performance status of 0, indicating the patient is fully active and able to carry on all pre-disease activities without restriction]

@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: Left tonsil, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 1.7 cm {enhancing mass at the level of the left tonsillar region}, 2 cm {erythematous lesion with central ulceration on the level of the left tonsillar fossa}
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: Squamous cell carcinoma in situ, poorly differentiated squamous cell carcinoma, p16 positive
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1 {metastatic squamous cell carcinoma in left neck lesion}
+Lymph_Node_Status_Extranodal_Extension: Suspected {equivocal for extracapsular spread}
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: p16 positive
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Drinker [occasional]
+Pack_Years: 35
+Patient_Symptoms_at_Presentation: Left neck mass, erythematous lesion with central ulceration on the level of the left tonsillar fossa
+Treatment_Recommendations: Radical course of external beam radiotherapy with concomitant chemotherapy, NCIC-HN 6 protocol, salivary gland transfer
+Follow_Up_Plans: Patient considering treatment options, follow-up for radical radiotherapy and chemotherapy
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: High blood pressure, COPD
+Patient_History_Status_Previous_Treatments: Crestor, amiloride, amlodipine, propranolol, Advair
+Clinical_Assessments_Radiological_Lesions: CT scan of the head and neck revealed a necrotic mass measuring 2.4 cm in diameter at the left jugulodigastric region, enhancing mass at the level of the left tonsillar region measuring 1.7 cm in diameter, small indeterminate left upper lobe nodule measuring 2 mm on CT scan of the chest
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 2 [1 point for hypertension, 1 point for COPD]
+Karnofsky_Performance_Status: 100 [patient is described as healthy and in no acute distress with a performance status evaluated at 100]
+ECOG_Performance_Status: 0 [assuming ECOG 0 corresponds to Karnofsky 100, indicating the patient is fully active and has no symptoms]

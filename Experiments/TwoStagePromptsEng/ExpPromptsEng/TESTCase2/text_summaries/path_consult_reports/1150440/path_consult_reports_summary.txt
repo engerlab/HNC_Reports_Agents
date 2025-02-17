@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Larynx, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T3, N0, Mx
+Primary_Tumor_Size: Not inferred
+Tumor_Type_Differentiation: Well differentiated
+Pathology_Details: Invasive well-differentiated squamous cell carcinoma, p16 negative
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: p16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Not Inferred
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: Hoarseness of voice, no dysphagia, no shortness of breath, no headaches, no diplopia
+Treatment_Recommendations: Radiotherapy
+Follow_Up_Plans: Patient will be seen in medical oncology, gastroenterology for insertion of a PEG tube, dentistry, and audiology testing will be performed, CT simulation, and follow-up shortly
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Hypertension, hyperlipidemia
+Patient_History_Status_Previous_Treatments: Lopressor, Norvasc, Atacand, Crestor, ASA, remote appendectomy
+Clinical_Assessments_Radiological_Lesions: CT scan of the neck revealed a mass at the level of the left true vocal cord extending to the paraglottic space, no suspicious adenopathy, ill-defined mass in the left thyroid lobe with multiple calcifications
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 2 [1 point for hypertension, 1 point for hyperlipidemia]
+Karnofsky_Performance_Status: 100 [The patient is described as a well-appearing gentleman in no acute distress and has a KPS of 100]
+ECOG_Performance_Status: 0 [A KPS of 100 corresponds to an ECOG of 0, indicating the patient is fully active and able to carry on all pre-disease activities without restriction]

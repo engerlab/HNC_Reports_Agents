@@ -66,7 +66,6 @@ PATHOLOGY_FIELDS = [
     "EBER_Status",
     "Lymphovascular_Invasion_Status",
     "Perineural_Invasion_Status",
-
 ]
 
 CONSULTATION_FIELDS = [
@@ -86,50 +85,51 @@ CONSULTATION_FIELDS = [
     "ECOG_Performance_Status"
 ]
 
-# Combined fields: merge pathology and consultation fields (removing duplicates)
+# Combined fields (merge pathology and consultation fields, removing duplicates)
 PATH_CONS_FIELDS = list(dict.fromkeys(PATHOLOGY_FIELDS + CONSULTATION_FIELDS))
 
 ##############################################################################
-# 2. Regex Patterns
+# 2. Regex Patterns (Relaxed version)
 ##############################################################################
+# These patterns now capture any text after the label.
 PATTERNS = {
-    "Sex": r"^Sex:\s*(Male|Female|Other|Not inferred)\s*$",
-    "Anatomic_Site_of_Lesion": r"^Anatomic_Site_of_Lesion:\s*(.*)$",
-    "Pathological_TNM": r"^Pathological_TNM:\s*(.*)$",
-    "Clinical_TNM": r"^Clinical_TNM:\s*(.*)$",
-    "Primary_Tumor_Size": r"^Primary_Tumor_Size:\s*(.*)$",
-    "Tumor_Type_Differentiation": r"^Tumor_Type_Differentiation:\s*(.*)$",
-    "Pathology_Details": r"^Pathology_Details:\s*(.*)$",
-    "Lymph_Node_Status_Presence_Absence": r"^Lymph_Node_Status_Presence_Absence:\s*(Presence|Absence|Suspected|Not inferred)\s*$",
-    "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes": r"^Lymph_Node_Status_Number_of_Positve_Lymph_Nodes:\s*(\d+|Not inferred)\s*$",
-    "Lymph_Node_Status_Extranodal_Extension": r"^Lymph_Node_Status_Extranodal_Extension:\s*(Yes|No|Not inferred)\s*$",
-    "Resection_Margins": r"^Resection_Margins:\s*(Positive|Negative|Not inferred)\s*$",
-    "p16_Status": r"^p16_Status:\s*(Positive|Negative|Not inferred)\s*$",
-    "Immunohistochemical_profile": r"^Immunohistochemical_profile:\s*(.*)$",
-    "EBER_Status": r"^EBER_Status:\s*(Positive|Negative|Not inferred)\s*$",
-    "Lymphovascular_Invasion_Status": r"^Lymphovascular_Invasion_Status:\s*(Present|Absent|Not inferred)\s*$",
-    "Perineural_Invasion_Status": r"^Perineural_Invasion_Status:\s*(Present|Absent|Not inferred)\s*$",
-    "Smoking_History": r"^Smoking_History:\s*(.*)$",
-    "Alcohol_Consumption": r"^Alcohol_Consumption:\s*(.*)$",
-    "Pack_Years": r"^Pack_Years:\s*(\d+|Not inferred)\s*$",
-    "Patient_Symptoms_at_Presentation": r"^Patient_Symptoms_at_Presentation:\s*(.*)$",
-    "Treatment_Recommendations": r"^Treatment_Recommendations:\s*(.*)$",
-    "Follow_Up_Plans": r"^Follow_Up_Plans:\s*(.*)$",
-    "HPV_Status": r"^HPV_Status:\s*(Positive|Negative|Not inferred)\s*$",
-    "Patient_History_Status_Prior_Conditions": r"^Patient_History_Status_Prior_Conditions:\s*(.*)$",
-    "Patient_History_Status_Previous_Treatments": r"^Patient_History_Status_Previous_Treatments:\s*(.*)$",
-    "Clinical_Assessments_Radiological_Lesions": r"^Clinical_Assessments_Radiological_Lesions:\s*(.*)$",
-    "Clinical_Assessments_SUV_from_PET_scans": r"^Clinical_Assessments_SUV_from_PET_scans:\s*(\d+(\.\d+)?|Not inferred)\s*$",
-    "Charlson_Comorbidity_Score": r"^Charlson_Comorbidity_Score:\s*(\d+|Not inferred)\s*$",
-    "Karnofsky_Performance_Status": r"^Karnofsky_Performance_Status:\s*(100|90|80|70|60|50|40|30|20|10|0|Not inferred)\s*$",
-    "ECOG_Performance_Status": r"^ECOG_Performance_Status:\s*(0|1|2|3|4|5|Not inferred)\s*$"
+    "Sex": r"Sex:\s*(.+)",
+    "Anatomic_Site_of_Lesion": r"Anatomic_Site_of_Lesion:\s*(.+)",
+    "Pathological_TNM": r"Pathological_TNM:\s*(.+)",
+    "Clinical_TNM": r"Clinical_TNM:\s*(.+)",
+    "Primary_Tumor_Size": r"Primary_Tumor_Size:\s*(.+)",
+    "Tumor_Type_Differentiation": r"Tumor_Type_Differentiation:\s*(.+)",
+    "Pathology_Details": r"Pathology_Details:\s*(.+)",
+    "Lymph_Node_Status_Presence_Absence": r"Lymph_Node_Status_Presence_Absence:\s*(.+)",
+    "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes": r"Lymph_Node_Status_Number_of_Positve_Lymph_Nodes:\s*(.+)",
+    "Lymph_Node_Status_Extranodal_Extension": r"Lymph_Node_Status_Extranodal_Extension:\s*(.+)",
+    "Resection_Margins": r"Resection_Margins:\s*(.+)",
+    "p16_Status": r"p16_Status:\s*(.+)",
+    "Immunohistochemical_profile": r"Immunohistochemical_profile:\s*(.+)",
+    "EBER_Status": r"EBER_Status:\s*(.+)",
+    "Lymphovascular_Invasion_Status": r"Lymphovascular_Invasion_Status:\s*(.+)",
+    "Perineural_Invasion_Status": r"Perineural_Invasion_Status:\s*(.+)",
+    "Smoking_History": r"Smoking_History:\s*(.+)",
+    "Alcohol_Consumption": r"Alcohol_Consumption:\s*(.+)",
+    "Pack_Years": r"Pack_Years:\s*(.+)",
+    "Patient_Symptoms_at_Presentation": r"Patient_Symptoms_at_Presentation:\s*(.+)",
+    "Treatment_Recommendations": r"Treatment_Recommendations:\s*(.+)",
+    "Follow_Up_Plans": r"Follow_Up_Plans:\s*(.+)",
+    "HPV_Status": r"HPV_Status:\s*(.+)",
+    "Patient_History_Status_Prior_Conditions": r"Patient_History_Status_Prior_Conditions:\s*(.+)",
+    "Patient_History_Status_Previous_Treatments": r"Patient_History_Status_Previous_Treatments:\s*(.+)",
+    "Clinical_Assessments_Radiological_Lesions": r"Clinical_Assessments_Radiological_Lesions:\s*(.+)",
+    "Clinical_Assessments_SUV_from_PET_scans": r"Clinical_Assessments_SUV_from_PET_scans:\s*(.+)",
+    "Charlson_Comorbidity_Score": r"Charlson_Comorbidity_Score:\s*(.+)",
+    "Karnofsky_Performance_Status": r"Karnofsky_Performance_Status:\s*(.+)",
+    "ECOG_Performance_Status": r"ECOG_Performance_Status:\s*(.+)"
 }
 
 ##############################################################################
 # 3. Extraction & Validation Functions
 ##############################################################################
 def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
-    """Use regex to capture each field from the summary text."""
+    """Use relaxed regex patterns to capture each field from the summary text."""
     if report_type == "pathology_reports":
         fields = PATHOLOGY_FIELDS
     elif report_type == "consultation_notes":
@@ -143,7 +143,7 @@ def extract_tabular_data(summary: str, report_type: str) -> Dict[str, Any]:
     for field in fields:
         pattern = PATTERNS.get(field)
         if pattern:
-            match = re.search(pattern, summary, re.IGNORECASE | re.MULTILINE)
+            match = re.search(pattern, summary, re.IGNORECASE)
             if match:
                 extracted[field] = match.group(1).strip()
                 logger.debug(f"[{report_type}] Matched '{field}': {extracted[field][:80]}...")
@@ -181,7 +181,7 @@ def normalize_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
     return df
 
 def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
-    """OneHot + numeric encoding. (Not always used in these experiments, but here for reference.)"""
+    """OneHot + numeric encoding. (Not always used in these experiments.)"""
     logger.debug(f"[{report_type}] Starting encode with shape: {df.shape}")
     df_encoded = df.copy()
     if report_type == "pathology_reports":
@@ -212,7 +212,6 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
             "Treatment_Recommendations", "Follow_Up_Plans", "HPV_Status", "Patient_History_Status_Prior_Conditions",
             "Patient_History_Status_Previous_Treatments", "Clinical_Assessments_Radiological_Lesions"
         ]
-        # NOTE: Some fields appear numeric but might be strings. Adjust if needed.
         num_cols = [
             "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes",
             "Pack_Years",
@@ -225,7 +224,6 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
         logger.debug(f"[{report_type}] Unknown type for encoding. Returning unmodified.")
         return df_encoded
 
-    # Convert numerics
     for col in num_cols:
         if col in df_encoded.columns:
             df_encoded[col] = pd.to_numeric(df_encoded[col], errors='coerce')
@@ -234,7 +232,6 @@ def encode_structured_data(df: pd.DataFrame, report_type: str) -> pd.DataFrame:
         imp = SimpleImputer(strategy='median')
         df_encoded[num_cols] = imp.fit_transform(df_encoded[num_cols])
 
-    # One-hot encode categoricals
     cat_cols_existing = [c for c in cat_cols if c in df_encoded.columns]
     if cat_cols_existing:
         enc = OneHotEncoder(drop='first', sparse=False, handle_unknown='ignore')
@@ -298,25 +295,18 @@ class ReportSummarizer:
         self.prompts_dir = prompts_dir
 
         # Load prompts for each known report type and variations
-        #   e.g. prompt_path_consult_reports_extraction.json, prompt_path_consult_reports_cot.json
-        #   plus others from the older approach (prompt_path_consult_reports.json, etc.)
         self.prompts = {}
-        # We'll expect these filenames:
-        #  "prompt_{rtype}.json", "prompt_{rtype}_{prompt_mode}.json"
-        #  For the 2-step path_consult, we do "prompt_path_consult_reports_extraction.json"
-        #    + optional mode suffix, and "prompt_path_consult_reports_cot.json" + optional mode suffix.
         known_rtypes = [
             "pathology_reports",
             "consultation_notes",
             "treatment_plan_outcomepred",
             "path_consult_reports",
             "cot_treatment_plan_outcomepred",
-            # Additional sub-split for path_consult_reports
             "path_consult_reports_extraction",
             "path_consult_reports_cot"
         ]
-        for rtype in known_rtypes:
-            self.prompts[rtype] = self.load_prompt(rtype)
+        for rt in known_rtypes:
+            self.prompts[rt] = self.load_prompt(rt)
 
         # Initialize the chosen model
         if self.model_type == "local":
@@ -343,35 +333,24 @@ class ReportSummarizer:
             self.embeddings = OllamaEmbeddings(model="nomic-embed-text")
 
         # Build a map of rtype -> prompt-based function (single-step).
-        # For path_consult_reports, we will do something special below (two-step).
+        # For path_consult_reports, we will do a two-step approach.
         self.chain_map = {}
-        for rtype, prompt_text in self.prompts.items():
+        for rt, prompt_text in self.prompts.items():
             if prompt_text:
-                self.chain_map[rtype] = self.make_llm_runnable(prompt_text)
+                self.chain_map[rt] = self.make_llm_runnable(prompt_text)
 
     def load_prompt(self, rtype: str) -> str:
-        """
-        Attempt to load the prompt text for a given rtype from JSON in self.prompts_dir.
-        We check:
-           prompt_{rtype}_{prompt_mode}.json
-        then fallback to:
-           prompt_{rtype}.json
-        Returns the combined prompt as a single string or empty if not found.
-        """
-        # e.g. prompt_path_consult_reports_extraction_combined.json or prompt_path_consult_reports_extraction.json
         base_filename = f"prompt_{rtype}"
         candidates = []
         if self.prompt_mode:
             candidates.append(os.path.join(self.prompts_dir, f"{base_filename}_{self.prompt_mode}.json"))
         candidates.append(os.path.join(self.prompts_dir, f"{base_filename}.json"))
-
         for cfile in candidates:
             if os.path.isfile(cfile):
                 with open(cfile, 'r') as f:
                     data = json.load(f)
                 prompts_list = data.get("prompts", [])
                 logger.info(f"Loaded prompt for {rtype} from {cfile}")
-                # Join them into one text
                 return "\n".join(prompts_list)
         logger.warning(f"No prompt file found for {rtype} (candidates: {candidates})")
         return ""
@@ -383,17 +362,13 @@ class ReportSummarizer:
             try:
                 final_prompt = prompt.replace("{context}", context)
                 result = self.model.invoke([HumanMessage(content=final_prompt)]).content
-                return {"summary": result}
+                return {"summary": result.strip()}
             except Exception as e:
                 logger.error(f"Error generating summary: {e}")
                 return {"summary": ""}
         return RunnableLambda(llm_runnable)
 
     def run_llm_prompt(self, rtype: str, text: str) -> str:
-        """
-        Generic method to run a single-step LLM summarization for rtype and text.
-        Returns the raw summary string.
-        """
         if rtype not in self.chain_map:
             logger.warning(f"No prompt found for {rtype}")
             return ""
@@ -404,41 +379,21 @@ class ReportSummarizer:
         return summary
 
     def summarize_path_consult_two_step(self, report_text: str) -> str:
-        """
-        Two-step approach for path_consult_reports:
-          1) Summarize with the 'path_consult_reports_extraction' prompt (fields that do NOT need chain-of-thought).
-          2) Summarize with the 'path_consult_reports_cot' prompt (fields requiring CoT reasoning).
-          3) Merge results into one summary (all fields).
-        """
-        # Step 1: Non-CoT extraction
         extraction_summary = self.run_llm_prompt("path_consult_reports_extraction", report_text)
-        # Step 2: CoT extraction
         cot_summary = self.run_llm_prompt("path_consult_reports_cot", report_text)
-
-        # Combine line-by-line. Easiest is to just put them together and then re-run enforce_format.
         combined_raw = extraction_summary + "\n" + cot_summary
-        # Now enforce the final path_consult_reports field ordering:
         final_text = enforce_format(combined_raw, PATH_CONS_FIELDS)
         return final_text
 
     def summarize_report(self, report_text: str, report_type: str) -> Optional[str]:
-        """
-        Called for each file. If it's path_consult_reports, do the two-step approach.
-        Otherwise, do the single-step approach using self.chain_map.
-        Then enforce final format if it's in the set of known structured fields.
-        """
         if report_type == "path_consult_reports":
-            # Use the 2-step approach if the sub-prompts exist
-            # If we don't have them, fallback to single-step
-            if (self.prompts["path_consult_reports_extraction"] and
-                    self.prompts["path_consult_reports_cot"]):
+            if self.prompts["path_consult_reports_extraction"] and self.prompts["path_consult_reports_cot"]:
                 summary = self.summarize_path_consult_two_step(report_text)
             else:
                 logger.warning("[path_consult_reports] Two sub-prompts not found, using single-step fallback.")
                 summary = self.run_llm_prompt("path_consult_reports", report_text)
                 summary = enforce_format(summary, PATH_CONS_FIELDS)
         else:
-            # Normal single-step
             summary = self.run_llm_prompt(report_type, report_text)
             if report_type in ["pathology_reports", "consultation_notes", "path_consult_reports"]:
                 if report_type == "pathology_reports":
@@ -447,19 +402,10 @@ class ReportSummarizer:
                     summary = enforce_format(summary, CONSULTATION_FIELDS)
                 else:
                     summary = enforce_format(summary, PATH_CONS_FIELDS)
-
         return summary if summary else None
 
     def process_reports(self, input_dir: str, output_dir: str, report_types: List[str],
                         single: bool = False, case_id: Optional[str] = None):
-        """
-        - 'pathology_reports' => read from PathologyReports/ in input_dir
-        - 'consultation_notes' => read from ConsultRedacted/ in input_dir
-        - 'treatment_plan_outcomepred', 'path_consult_reports', 'cot_treatment_plan_outcomepred'
-          => read from PathConsCombined/ in input_dir.
-        If single is True, process only one file per folder.
-        If case_id is provided, process only that file.
-        """
         os.makedirs(output_dir, exist_ok=True)
         time_data = []
 
@@ -484,80 +430,94 @@ class ReportSummarizer:
             "cot_treatment_plan_outcomepred": os.path.join(input_dir, "PathConsCombined")
         }
 
-        for rtype in report_types:
-            folder = folder_map.get(rtype)
+        for rt in report_types:
+            folder = folder_map.get(rt)
             if not folder or not os.path.isdir(folder):
-                logger.warning(f"No valid folder for {rtype} in {input_dir}. Skipping.")
+                logger.warning(f"No valid folder for {rt} in {input_dir}. Skipping.")
                 continue
             file_list = process_folder(folder)
             for path in file_list:
                 fname = os.path.basename(path)
-                logger.info(f"Processing file: {fname} for report type: {rtype}")
-                start_time = time.time()
+                logger.info(f"Processing file: {fname} for report type: {rt}")
+                t0 = time.time()
                 try:
                     with open(path, 'r', encoding='utf-8') as f:
                         text = f.read()
 
-                    summary = self.summarize_report(text, rtype)
+                    # Measure the LLM (text_summaries) time separately
+                    llm_start = time.time()
+                    summary = self.summarize_report(text, rt)
+                    llm_end = time.time()
+                    text_summaries_time_ms = int(round((llm_end - llm_start) * 1000))
+
                     if not summary:
                         logger.warning(f"No summary produced for {fname}.")
                         continue
 
-                    # Timing stats
+                    # Verbosely print out summary for debugging
+                    logger.info(f"Summary for {fname}:\n{summary}\n")
+
+                    # Record overall timing stats
                     num_chars = len(text)
                     num_tokens = len(text.split())
-                    end_time = time.time()
-                    elapsed_ms = int(round((end_time - start_time) * 1000))
+                    t1 = time.time()
+                    elapsed_ms = int(round((t1 - t0) * 1000))
                     time_data.append({
                         "file": fname,
-                        "report_type": rtype,
+                        "report_type": rt,
                         "process_time_ms": elapsed_ms,
+                        "text_summaries_time_ms": text_summaries_time_ms,
                         "num_input_characters": num_chars,
                         "num_input_tokens": num_tokens
                     })
 
-                    # Prepare output directories
                     patient_id = os.path.splitext(fname)[0]
                     subdirs = {
-                        "text_summaries": os.path.join(output_dir, "text_summaries", rtype, patient_id),
-                        "embeddings": os.path.join(output_dir, "embeddings", rtype, patient_id),
-                        "structured_data": os.path.join(output_dir, "structured_data", rtype, patient_id),
-                        "structured_data_encoded": os.path.join(output_dir, "structured_data_encoded", rtype, patient_id)
+                        "text_summaries": os.path.join(output_dir, "text_summaries", rt, patient_id),
+                        "embeddings": os.path.join(output_dir, "embeddings", rt, patient_id),
+                        "structured_data": os.path.join(output_dir, "structured_data", rt, patient_id),
+                        "structured_data_encoded": os.path.join(output_dir, "structured_data_encoded", rt, patient_id)
                     }
                     for sd in subdirs.values():
                         os.makedirs(sd, exist_ok=True)
 
-                    # 1) Save final text summary
-                    with open(os.path.join(subdirs["text_summaries"], f"{rtype}_summary.txt"), 'w', encoding='utf-8') as sf:
+                    # Save final text summary
+                    summary_path = os.path.join(subdirs["text_summaries"], f"{rt}_summary.txt")
+                    with open(summary_path, 'w', encoding='utf-8') as sf:
                         sf.write(summary)
+                    logger.info(f"Saved summary to: {os.path.abspath(summary_path)}")
 
-                    # 2) Save embeddings
+                    # Save embeddings
                     emb = self.embeddings.embed_documents([summary])[0]
-                    with open(os.path.join(subdirs["embeddings"], f"{rtype}_embedding.pkl"), 'wb') as ef:
+                    emb_path = os.path.join(subdirs["embeddings"], f"{rt}_embedding.pkl")
+                    with open(emb_path, 'wb') as ef:
                         pickle.dump(emb, ef)
+                    logger.info(f"Saved embedding to: {os.path.abspath(emb_path)}")
 
-                    # 3) (Optional) Extract structured data CSV
-                    #    You could store or skip if you only want text_summaries + embeddings.
-                    extracted_data = extract_tabular_data(summary, rtype)
+                    # Save structured data CSV
+                    extracted_data = extract_tabular_data(summary, rt)
                     df = pd.DataFrame([extracted_data])
-                    df_normalized = normalize_data(df, rtype)
-                    df_normalized.to_csv(os.path.join(subdirs["structured_data"], f"{rtype}_structured.csv"), index=False)
+                    df_normalized = normalize_data(df, rt)
+                    struct_csv_path = os.path.join(subdirs["structured_data"], f"{rt}_structured.csv")
+                    df_normalized.to_csv(struct_csv_path, index=False)
+                    logger.info(f"Saved structured CSV to: {os.path.abspath(struct_csv_path)}")
 
-                    # 4) (Optional) Encoded CSV
-                    df_encoded = encode_structured_data(df_normalized, rtype)
-                    df_encoded.to_csv(os.path.join(subdirs["structured_data_encoded"], f"{rtype}_structured_encoded.csv"), index=False)
+                    # Save encoded CSV
+                    df_encoded = encode_structured_data(df_normalized, rt)
+                    encoded_csv_path = os.path.join(subdirs["structured_data_encoded"], f"{rt}_structured_encoded.csv")
+                    df_encoded.to_csv(encoded_csv_path, index=False)
+                    logger.info(f"Saved encoded CSV to: {os.path.abspath(encoded_csv_path)}")
 
                 except Exception as e:
                     logger.error(f"Error processing {fname}: {e}")
 
-        # Save timing data
         try:
             if time_data:
-                pd.DataFrame(time_data).to_csv(os.path.join(output_dir, "processing_times.csv"), index=False)
-                logger.info(f"Processing times saved to {output_dir}/processing_times.csv")
+                timing_path = os.path.join(output_dir, "processing_times.csv")
+                pd.DataFrame(time_data).to_csv(timing_path, index=False)
+                logger.info(f"Processing times saved to: {os.path.abspath(timing_path)}")
         except Exception as e:
             logger.error(f"Failed to save processing_times.csv: {e}")
-
 
 def main():
     parser = argparse.ArgumentParser(
@@ -605,237 +565,10 @@ if __name__ == "__main__":
     os.setpgrp()  # Set process group for proper termination
     main()
 
-# Usage example: single case with specific id
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt6" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1130580"
 
 
-# ==============================================================================================
-
-
-# Usage example: single case with specific id
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt6" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1130580"
-
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt8" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1150440"
-
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt9" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1178863"
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt10" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1130580"
-
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt10" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1130580"
-
-# Usage example: single case with specific id
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt10" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1130580"
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt11" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1130580"
-
-# BEST ONE YET! mistake reverted! Good test case! 
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt12" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1130580"
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt13" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1150440"
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt19" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1178863"
-
-
-# Still need to only save the summaries_text.txt time! 
-# do ollama interactive and the one by one "what is???"
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt15" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1150440"
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt20" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1162274"
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt21" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1181388"
-
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt23" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1211203"
-
-# This one is really bad, lots of "Not Inferred": would it be because the input text is too long? 
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt24" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "276261"
-
-# ==================================================================================
-# For test cases for sending to senior oncologist before mass human evaluation
-# python hnc_reports_agent4.py \
+# usage example 
+# python hnc_reports_agent6.py \
 #   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
 #   --model_type local \
 #   --temperature 0.8 \
@@ -847,71 +580,3 @@ if __name__ == "__main__":
 #   --prompt_mode "combined" \
 #   --single \
 #   --case_id "1130580"
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/TESTCase2" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1150440"
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/TESTCase3" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1178863"
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/TESTCase4" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1162274"
-
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/TESTCase5" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1181388"
-
-# python hnc_reports_agent4.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/TESTCase6" \
-#   --embedding_model ollama \
-#   --report_type "path_consult_reports" \
-#   --local_model "llama3.3:latest" \
-#   --prompt_mode "combined" \
-#   --single \
-#   --case_id "1211203"
-
-# ==================================================================================
