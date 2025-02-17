@@ -21,19 +21,7 @@
     "- Karnofsky_Performance_Status: (Provide a numeric value, 0–100, plus reasoning in brackets. If you only find an ECOG value, convert using the table below.)",
     "- ECOG_Performance_Status: (Numeric 0–5, plus reasoning in brackets. If you only find KPS, convert.)",
     "",
-    "The following fields need reasoning and deduction from the input text, so please think step by step:",
-    "",
-    "1) p16_Status and HPV_Status must match. If p16=Negative, HPV_Status=Negative. If p16=Positive, HPV_Status=Positive.",
-    "",
-    "2) For Charlson_Comorbidity_Score: Summation logic. Provide your calculation in brackets after the numeric value. Think step by step analytically and explain your calculation reason in bracket after the provided numerical value, if the score is not explicitly provided, deduce it using the following criteria using knowledge of the patient's past history: assign 1 point each for conditions such as myocardial infarction, congestive heart failure, peripheral vascular disease or bypass, cerebrovascular disease or transient ischemic attack, dementia, chronic pulmonary disease or asthma, connective tissue disease, gastric or peptic ulcer disease, mild liver disease, or diabetes without complications, hypertension, depression, warfarin; 2 points for diabetes with end‑organ damage, hemiplegia, moderate or severe renal disease, skin ulcers/cellulitis, cancer (leukemia, lymphoma, solid tumor without metastasis); 3 points for moderate or severe liver disease; and 6 points for metastatic solid tumor, AIDS/HIV. Sum these points to obtain the final score. Also, if no comorbidities are present, the score should be 0. e.g., If a patient has diabetes without complications and had leukemia before, the output should be e.g. '3 [1 point for diabetes without complications + 2 points for leukemia]', etc.",
-    "",
-    "3) Karnofsky_Performance_Status (KPS) and ECOG_Performance_Status are convertible. Always provide numeric values for both. If only one is stated, convert the other using this mapping:",
-    "   - KPS 100 → ECOG 0, 90 → 0, 80 → 1, 70 → 1, 60 → 2, 50 → 2, 40 → 3, 30 → 3, 20 → 4, 10 → 4, 0 → 5",
-    "   - ECOG 0 → KPS 100, 1 → 80, 2 → 60, 3 → 40, 4 → 10–20, 5 → 0",
-    "Include a brief reason in parentheses after each numeric score (e.g., if it was directly stated, or if it was converted).",
-    "",
-    "4) Clinical_Assessments_Radiological_Lesions: (If the text mentions any imaging, scope, or endoscopic findings describing lesions, masses, or abnormalities—such as 'nasopharyngolaryngoscopy shows a polypoid lesion'—place that under the extraction prompt. If for some reason it appears here, ensure you include it.)",
-    "",
+
     "Now, analyze the text below and produce only the lines for these fields, with no extra commentary:\n\n{context}"
   ]
 }
