@@ -1,0 +1,6 @@
+Pathology reports: 574
+Consultation notes: 786
+Total unique patients: 882
+Patients with both path+consult: 478
+Path-only patient count: 96
+Consult-only patient count: 308
