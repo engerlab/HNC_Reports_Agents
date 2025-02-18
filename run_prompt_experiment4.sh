@@ -1,25 +1,24 @@
 #!/bin/bash
-
 # Usage: ./run_prompt_experiment4.sh [report_type] [prompt_mode] [case_id]
-# report_type can be one of:
-#   pathology_reports,
-#   consultation_notes,
-#   treatment_plan_outcomepred,
-#   path_consult_reports,
-#   cot_treatment_plan_outcomepred.
+#   report_type can be one of:
+#     pathology_reports,
+#     consultation_notes,
+#     treatment_plan_outcomepred,
+#     path_consult_reports,
+#     cot_treatment_plan_outcomepred.
 #
-# prompt_mode is optional (e.g., "combined" or "separated").
-# case_id is optional; if provided, that exact file is processed; otherwise, one random file is selected.
+#   prompt_mode is optional (e.g., "combined" or "separated").
+#   case_id is optional; if provided, exactly that file (matching the case ID) is processed;
+#     otherwise, one random file is selected.
 #
 # Example:
-#   bash run_prompt_experiment4.sh "path_consult_reports" "combined"
-#   bash run_prompt_experiment4.sh "path_consult_reports" "combined" "12345"
+#   bash run_prompt_experiment4.sh "path_consult_reports" "combined" "1219243"
 
 #############################
 # 1) Configuration
 #############################
 INPUT_DIR="/media/yujing/One Touch3/HNC_Reports"
-OUTPUT_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPrompt4"
+OUTPUT_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt25"
 PROMPTS_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts"
 MODEL_TYPE="local"
 TEMPERATURE="0.8"

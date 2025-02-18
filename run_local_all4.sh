@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Usage: ./run_local_all4.sh [report_type] [prompt_mode]
 # report_type can be a comma-separated list of:
 #   pathology_reports,
@@ -18,7 +17,7 @@
 # 1) Configuration
 #############################
 INPUT_DIR="/media/yujing/One Touch3/HNC_Reports"
-OUTPUT_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp12"
+OUTPUT_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp13"
 PROMPTS_DIR="/Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts"
 MODEL_TYPE="local"
 TEMPERATURE="0.8"
@@ -70,17 +69,58 @@ python "$PYTHON_SCRIPT" \
 PID=$!
 
 #############################
-# 5) (Optional) Spinner
+# 5) Spinner and Dynamic Progress
 #############################
 spin='-\|/'
 i=0
 while kill -0 "$PID" 2>/dev/null; do
   i=$(( (i+1) % 4 ))
   spinChar=${spin:$i:1}
-  # Basic feedback:
-  echo -ne "\r[$spinChar] Running with PID=$PID ..."
+  progress_str=""
+
+  # For pathology_reports:
+  if [[ "$REPORT_TYPE" =~ "pathology_reports" || "$REPORT_TYPE" == "all" ]]; then
+    PAT_PROCESSED=$(grep -c "Processing file: .* for report type: pathology_reports" "$LOGFILE")
+    PAT_TOTAL=$(find "$INPUT_DIR/PathologyReports" -type f -name '*.txt' 2>/dev/null | wc -l)
+    PAT_PCT=$(( PAT_TOTAL > 0 ? 100 * PAT_PROCESSED / PAT_TOTAL : 0 ))
+    progress_str+="Pathology: $PAT_PROCESSED/$PAT_TOTAL (${PAT_PCT}%)  "
+  fi
+
+  # For consultation_notes:
+  if [[ "$REPORT_TYPE" =~ "consultation_notes" || "$REPORT_TYPE" == "all" ]]; then
+    CON_PROCESSED=$(grep -c "Processing file: .* for report type: consultation_notes" "$LOGFILE")
+    CON_TOTAL=$(find "$INPUT_DIR/ConsultRedacted" -type f -name '*.txt' 2>/dev/null | wc -l)
+    CON_PCT=$(( CON_TOTAL > 0 ? 100 * CON_PROCESSED / CON_TOTAL : 0 ))
+    progress_str+="Consultation: $CON_PROCESSED/$CON_TOTAL (${CON_PCT}%)  "
+  fi
+
+  # For treatment_plan_outcomepred:
+  if [[ "$REPORT_TYPE" =~ "treatment_plan_outcomepred" || "$REPORT_TYPE" == "all" ]]; then
+    TP_PROCESSED=$(grep -c "Processing file: .* for report type: treatment_plan_outcomepred" "$LOGFILE")
+    TP_TOTAL=$(find "$INPUT_DIR/PathConsCombined" -type f -name '*.txt' 2>/dev/null | wc -l)
+    TP_PCT=$(( TP_TOTAL > 0 ? 100 * TP_PROCESSED / TP_TOTAL : 0 ))
+    progress_str+="TP: $TP_PROCESSED/$TP_TOTAL (${TP_PCT}%)  "
+  fi
+
+  # For path_consult_reports:
+  if [[ "$REPORT_TYPE" =~ "path_consult_reports" || "$REPORT_TYPE" == "all" ]]; then
+    PC_PROCESSED=$(grep -c "Processing file: .* for report type: path_consult_reports" "$LOGFILE")
+    PC_TOTAL=$(find "$INPUT_DIR/PathConsCombined" -type f -name '*.txt' 2>/dev/null | wc -l)
+    PC_PCT=$(( PC_TOTAL > 0 ? 100 * PC_PROCESSED / PC_TOTAL : 0 ))
+    progress_str+="Path+Consult: $PC_PROCESSED/$PC_TOTAL (${PC_PCT}%)  "
+  fi
+
+  # For cot_treatment_plan_outcomepred:
+  if [[ "$REPORT_TYPE" =~ "cot_treatment_plan_outcomepred" || "$REPORT_TYPE" == "all" ]]; then
+    COT_PROCESSED=$(grep -c "Processing file: .* for report type: cot_treatment_plan_outcomepred" "$LOGFILE")
+    COT_TOTAL=$(find "$INPUT_DIR/PathConsCombined" -type f -name '*.txt' 2>/dev/null | wc -l)
+    COT_PCT=$(( COT_TOTAL > 0 ? 100 * COT_PROCESSED / COT_TOTAL : 0 ))
+    progress_str+="CoT: $COT_PROCESSED/$COT_TOTAL (${COT_PCT}%)"
+  fi
+
+  echo -ne "\r[$spinChar] $progress_str"
   sleep 1
 done
 
-echo -e "\r[+] Done!"
+echo -e "\r[+] $progress_str  Done!"
 echo "Logs are in $LOGFILE"
