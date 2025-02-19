@@ -1,0 +1,30 @@
+Sex: Not inferred
+Anatomic_Site_of_Lesion: Tongue, Squamous cell carcinoma
+Pathological_TNM: pT2N0
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 2.8 X 2.4 X 2.2 CM
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: Squamous cell carcinoma, Moderately differentiated, Non-keratinizing dysplasia, severe (carcinoma in-situ), localized
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Margins uninvolved by invasive carcinoma, Distance from closest mucosal margin: 8 mm, dorsal tongue, Distance from closest deep margin: < 1 mm, anterior and medial
+p16_Status: Not Inferred
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Present
+Smoking_History: Not Inferred
+Alcohol_Consumption: Not Inferred
+Pack_Years: Not Inferred
+Patient_Symptoms_at_Presentation: Not Inferred
+Treatment_Recommendations: Not Inferred
+Follow_Up_Plans: Not Inferred
+HPV_Status: Not Inferred
+Patient_History_Status_Prior_Conditions: Not Inferred
+Patient_History_Status_Previous_Treatments: Not Inferred
+Clinical_Assessments_Radiological_Lesions: Not inferred
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 0 [No comorbidities are mentioned in the report]
+Karnofsky_Performance_Status: Not Inferred
+ECOG_Performance_Status: Not Inferred

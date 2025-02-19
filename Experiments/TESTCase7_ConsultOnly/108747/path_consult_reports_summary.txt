@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: hard palate, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T4, N0
+Primary_Tumor_Size: Not inferred
+Tumor_Type_Differentiation: Not Inferred
+Pathology_Details: squamous cell carcinoma
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Not inferred
+p16_Status: Not Inferred
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Not Inferred
+Alcohol_Consumption: Not Inferred
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: sensation of a mass at the level of the hard palate
+Treatment_Recommendations: primary surgical resection and consideration for adjuvant radiation
+Follow_Up_Plans: patient will discuss with her family and let us know of her final decision
+HPV_Status: Not Inferred
+Patient_History_Status_Prior_Conditions: Nil
+Patient_History_Status_Previous_Treatments: None
+Clinical_Assessments_Radiological_Lesions: CT scan of the head and neck region failed to reveal any evidence of bony involvement
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 0 [No comorbidities are present]
+Karnofsky_Performance_Status: 100 [The patient is able to discuss treatment options with her family and make decisions, suggesting a high level of functionality]
+ECOG_Performance_Status: 0 [Assuming the patient has no significant limitations on her daily activities]
