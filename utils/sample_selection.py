@@ -3,20 +3,32 @@
 sample_selection.py
 
 Adds:
-  1) 'category' column in final CSV: path_only, cons_only, path_cons.
+  1) 'category' column in final CSV: path_only, consult_only, path_cons.
   2) --n_path, --n_consult, --n_both arguments to specify how many from each category.
+  3) --both_cutoff, --path_cutoff, --cons_cutoff to control numeric thresholds in cutoff mode
+     (replacing the fixed 10, 15, 15 from the old script).
 
-Usage example:
-  python sample_selection.py \
-    --base_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/Exp13" \
-    --path_only "/Data/.../path_only_ids.csv" \
-    --consult_only "/Data/.../consult_only_ids.csv" \
-    --both "/Data/.../both_ids.csv" \
-    --output_dir "/Data/.../CaseSelection" \
-    --mode cutoff \
-    --n_path 5 \
-    --n_consult 18 \
-    --n_both 27
+Usage Examples:
+  1) Stratified mode, still picks 5/18/27:
+     python sample_selection.py \
+       --base_dir "/Data/.../Exp13" \
+       --path_only "/Data/.../path_only_ids.csv" \
+       --consult_only "/Data/.../consult_only_ids.csv" \
+       --both "/Data/.../both_ids.csv" \
+       --output_dir "/Data/.../CaseSelection" \
+       --mode stratified \
+       --n_path 5 --n_consult 18 --n_both 27
+
+  2) Cutoff mode, user sets both_cutoff=12, path_cutoff=15, cons_cutoff=20:
+     python sample_selection.py \
+       --base_dir "/Data/.../Exp13" \
+       --path_only "/Data/.../path_only_ids.csv" \
+       --consult_only "/Data/.../consult_only_ids.csv" \
+       --both "/Data/.../both_ids.csv" \
+       --output_dir "/Data/.../CaseSelection" \
+       --mode cutoff \
+       --n_path 5 --n_consult 18 --n_both 27 \
+       --both_cutoff 12 --path_cutoff 15 --cons_cutoff 20
 """
 
 import os
@@ -65,6 +77,8 @@ def create_jointplot(df, category_name, output_dir):
       - low: <10
       - medium: 10-20
       - high: >20
+    (These color bins are just for illustration, not necessarily the same 
+     as the logic used in the 'cutoff' or 'stratified' approach.)
     """
     df2 = df.dropna(subset=["num_input_tokens","not_inferred_count"]).copy()
 
@@ -94,8 +108,8 @@ def create_jointplot(df, category_name, output_dir):
 def build_category_df(cat_name, cat_ids, df_times, summaries_dir):
     """
     For each ID in cat_ids => 
-      columns: [patient_id, process_time_ms, num_input_characters, num_input_tokens, not_inferred_count, category]
-    'category' is set to cat_name (one of "path_only", "consult_only", "path_cons").
+      columns: [patient_id, category, process_time_ms, num_input_characters, num_input_tokens, not_inferred_count]
+    'category' is one of "path_only", "consult_only", "path_cons".
     """
     subset = df_times[df_times["patient_id"].isin(cat_ids)].copy()
     not_inferred_counts = []
@@ -142,39 +156,42 @@ def stratify_by_not_inferred(df, sample_size, category_label):
             leftover_pick = min(leftover, len(sub_remaining))
             out_frames.append(sub_remaining.sample(leftover_pick, random_state=123))
 
-    final_df = pd.concat(out_frames).drop_duplicates(subset=["patient_id"])
+    final_df = pd.concat(out_frames, ignore_index=True).drop_duplicates(subset=["patient_id"])
     final_df.sort_values(by="not_inferred_count", inplace=True)
     logger.info(f"[stratify] {category_label}: requested {sample_size}, got {len(final_df)}")
     return final_df
 
-def cutoff_selection(df, sample_size, category_type):
+def cutoff_selection(df, sample_size, category_type, path_cutoff, cons_cutoff, both_cutoff):
     """
-    In cutoff mode, each category has a limit:
-      - both < 10 => sub-bins: (0,5), (6,9)
-      - path_only <15 => sub-bins: (0,5), (6,10), (11,14)
-      - consult_only <15 => same bins as path_only
-    Then random sample portion from each sub-bin.
+    In cutoff mode, user sets a numeric threshold for each category:
+       path_cons  => both_cutoff
+       path_only  => path_cutoff
+       consult_only => cons_cutoff
+    Then we sub-bin within that allowable range.
     """
     if category_type == "path_cons":
         # "both"
-        df_filt = df[df["not_inferred_count"]<10]
-        bins = [(0,5), (6,9)]
+        df_filt = df[df["not_inferred_count"] < both_cutoff]
+        # We'll define 2 sub-bins from 0..(both_cutoff-1), 
+        # e.g. if both_cutoff=10 => bins (0,5),(6,9)
+        # if both_cutoff=12 => (0,5),(6,11), etc.
+        sub_bins = define_subbins(0, both_cutoff-1, n_subbins=2)
     elif category_type == "path_only":
-        df_filt = df[df["not_inferred_count"]<15]
-        bins = [(0,5), (6,10), (11,14)]
+        df_filt = df[df["not_inferred_count"] < path_cutoff]
+        sub_bins = define_subbins(0, path_cutoff-1, n_subbins=3)
     else: # consult_only
-        df_filt = df[df["not_inferred_count"]<15]
-        bins = [(0,5), (6,10), (11,14)]
+        df_filt = df[df["not_inferred_count"] < cons_cutoff]
+        sub_bins = define_subbins(0, cons_cutoff-1, n_subbins=3)
 
     out_frames = []
     leftover = sample_size
-    n_bins = len(bins)
-    for bin_range in bins:
-        low, high = bin_range
+
+    for (low, high) in sub_bins:
         sub = df_filt[(df_filt["not_inferred_count"]>=low) & (df_filt["not_inferred_count"]<=high)].copy()
         if len(sub)==0:
             continue
-        portion = sample_size // n_bins
+        # We'll pick sample_size / number_of_subbins
+        portion = sample_size // len(sub_bins)
         pick = min(portion, len(sub))
         sample_df = sub.sample(pick, random_state=42)
         leftover -= pick
@@ -189,24 +206,59 @@ def cutoff_selection(df, sample_size, category_type):
             leftover_pick = min(leftover, len(sub_remaining))
             out_frames.append(sub_remaining.sample(leftover_pick, random_state=123))
 
-    final_df = pd.concat(out_frames).drop_duplicates(subset=["patient_id"])
+    final_df = pd.concat(out_frames, ignore_index=True).drop_duplicates(subset=["patient_id"])
     final_df.sort_values(by="not_inferred_count", inplace=True)
     logger.info(f"[cutoff+sub-bins] {category_type}: requested {sample_size}, got {len(final_df)} out of {len(df_filt)} possible")
     return final_df
+
+def define_subbins(start_val, end_val, n_subbins=2):
+    """
+    Helper to define sub-bins from start_val..end_val inclusive.
+    Example: if start=0, end=9, n_subbins=2 => [(0,4), (5,9)]
+    If n_subbins=3 => [(0,3), (4,6), (7,9)] etc.
+    """
+    if start_val> end_val:
+        return []
+    # how wide each sub-bin is:
+    total_range = end_val - start_val + 1
+    # e.g. for total_range=10, sub-bins=2 => each is about 5 wide
+    # for sub-bins=3 => each is about 3 or 4 wide
+    step = total_range // n_subbins
+    bins = []
+    current_low = start_val
+    for i in range(n_subbins):
+        # for the last bin, we go up to end_val
+        if i == n_subbins-1:
+            current_high = end_val
+        else:
+            current_high = current_low + step - 1
+        # in case step=0 or negative, guard
+        if current_high < current_low:
+            break
+        bins.append((current_low, current_high))
+        current_low = current_high+1
+    # e.g. if total_range=10, n_subbins=2 => step=5 => bins => (0,4),(5,9)
+    return bins
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--base_dir", required=True,
                         help="Folder with processing_times.csv, text_summaries/path_consult_reports")
-    parser.add_argument("--path_only", required=True, help="CSV with path-only patient_id")
-    parser.add_argument("--consult_only", required=True, help="CSV with consult-only patient_id")
-    parser.add_argument("--both", required=True, help="CSV with both patient_id")
-    parser.add_argument("--output_dir", required=True, help="Output folder for CSVs, plots, final picks")
+    parser.add_argument("--path_only", required=True)
+    parser.add_argument("--consult_only", required=True)
+    parser.add_argument("--both", required=True)
+    parser.add_argument("--output_dir", required=True)
     parser.add_argument("--mode", choices=["stratified","cutoff"], default="stratified",
                         help="Which selection approach to use.")
     parser.add_argument("--n_path", type=int, default=5, help="How many path_only to pick")
     parser.add_argument("--n_consult", type=int, default=18, help="How many consult_only to pick")
-    parser.add_argument("--n_both", type=int, default=27, help="How many 'both' (path_cons) to pick")
+    parser.add_argument("--n_both", type=int, default=27, help="How many path_cons (both) to pick")
+
+    # these replace the old fixed (10, 15, 15)
+    parser.add_argument("--both_cutoff", type=int, default=10, help="Cutoff for path_cons category if mode=cutoff")
+    parser.add_argument("--path_cutoff", type=int, default=15, help="Cutoff for path_only if mode=cutoff")
+    parser.add_argument("--cons_cutoff", type=int, default=15, help="Cutoff for consult_only if mode=cutoff")
+
     args = parser.parse_args()
 
     os.makedirs(args.output_dir, exist_ok=True)
@@ -242,24 +294,32 @@ def main():
     make_plots(df_both,      "path_cons")
 
     # 3) Final selection
-    # We'll pick from each category: n_path, n_consult, n_both
+    total_picks = args.n_path + args.n_consult + args.n_both
+
     if args.mode=="stratified":
         logger.info("[MODE] Stratified => bins (0-10), (11-20), (21-30)")
         sel_path = stratify_by_not_inferred(df_path_only,  args.n_path,    "path_only")
         sel_cons = stratify_by_not_inferred(df_cons_only, args.n_consult, "consult_only")
         sel_both = stratify_by_not_inferred(df_both,      args.n_both,    "path_cons")
-        outname = f"final_{args.n_path + args.n_consult + args.n_both}_stratified_selection.csv"
+        outname = f"final_{total_picks}_stratified_selection.csv"
     else:
-        logger.info("[MODE] Cutoff => sub-binning inside range")
-        sel_path = cutoff_selection(df_path_only,  args.n_path,    "path_only")
-        sel_cons = cutoff_selection(df_cons_only, args.n_consult, "consult_only")
-        sel_both = cutoff_selection(df_both,      args.n_both,    "path_cons")
-        outname = f"final_{args.n_path + args.n_consult + args.n_both}_cutoff_selection.csv"
+        logger.info("[MODE] Cutoff => sub-bins inside the user-specified range")
+        sel_path = cutoff_selection(
+            df_path_only,  args.n_path,    "path_only",
+            args.path_cutoff, args.cons_cutoff, args.both_cutoff
+        )
+        sel_cons = cutoff_selection(
+            df_cons_only, args.n_consult, "consult_only",
+            args.path_cutoff, args.cons_cutoff, args.both_cutoff
+        )
+        sel_both = cutoff_selection(
+            df_both,      args.n_both,    "path_cons",
+            args.path_cutoff, args.cons_cutoff, args.both_cutoff
+        )
+        outname = f"final_{total_picks}_cutoff_selection.csv"
 
-    df_final = pd.concat([sel_path, sel_cons, sel_both], ignore_index=True)
-    total_picks = len(df_final)
-    logger.info(f"Final => {total_picks} total => {args.n_path} + {args.n_consult} + {args.n_both}")
-
+    df_final = pd.concat([sel_path, sel_cons, sel_both], ignore_index=True).drop_duplicates(subset=["patient_id"])
+    logger.info(f"Final => {len(df_final)} total => requested {args.n_path}+{args.n_consult}+{args.n_both}={total_picks}")
     out_csv = os.path.join(args.output_dir, outname)
     df_final.to_csv(out_csv, index=False)
     logger.info(f"Saved final selection => {out_csv}")
@@ -279,6 +339,7 @@ if __name__ == "__main__":
 #   --n_path 5 \
 #   --n_consult 18 \
 #   --n_both 27
+#   --both_cutoff 10 --path_cutoff 15 --cons_cutoff 15
 
 
 # Cutoff (with Sub-binning) Mode - - random stratified selection from low, medium, and high 'Not inferred' occurences with cutoffs
@@ -292,3 +353,4 @@ if __name__ == "__main__":
 #   --n_path 8 \
 #   --n_consult 15 \
 #   --n_both 27
+#   --both_cutoff 10 --path_cutoff 15 --cons_cutoff 15
