@@ -113,7 +113,7 @@ if __name__ == "__main__":
 
 
 # Usage Example:
-# python path_cons_venn_diagram.py \
+# python visualize_path_cons_venn_diagram.py \
 #   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
 #   --output_file "/Data/Yujing/HNC_OutcomePred/Reports_Agents/Figures_Tables/Figure1_VennDiagram/path_cons_venn_v1.png"
 
