@@ -355,10 +355,11 @@ if __name__ == "__main__":
 #   --n_both 27 \
 #   --both_cutoff 10 \
 #   --path_cutoff 20 \
-#   --cons_cutoff 15
+#   --cons_cutoff 11
 
 # INFO: [MODE] Cutoff => sub-bins inside the user-specified range
 # INFO: [cutoff+sub-bins] path_only: requested 5, got 5 out of 19 possible
-# INFO: [cutoff+sub-bins] consult_only: requested 18, got 18 out of 243 possible
+# INFO: [cutoff+sub-bins] consult_only: requested 18, got 18 out of 133 possible
 # INFO: [cutoff+sub-bins] path_cons: requested 27, got 27 out of 260 possible
 # INFO: Final => 50 total => requested 5+18+27=50
+# INFO: Saved final selection => /Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/CaseSelection/final_50_cutoff_selection.csv
