@@ -90,13 +90,13 @@ def create_jointplot(df, category_name, output_dir):
         else:
             return "high"
 
-    df2["bin_inferred"] = df2["not_inferred_count"].apply(categorize_not_inferred)
+    df2["bin_not_inferred"] = df2["not_inferred_count"].apply(categorize_not_inferred)
 
     g = sns.jointplot(
         data=df2,
         x="num_input_tokens",
         y="not_inferred_count",
-        hue="bin_inferred",
+        hue="bin_not_inferred",
         alpha=0.6
     )
     g.fig.suptitle(f"{category_name} JointPlot by not_inferred bins", y=1.02)
