@@ -55,7 +55,7 @@ def count_not_inferred(summary_file):
     c = 0
     with open(summary_file, "r", encoding="utf-8") as f:
         for line in f:
-            if "Not inferred" in line.strip():
+            if "not inferred" in line.strip().lower(): #converts to lowercase and removes leading/trailing whitespaces before seeing words
                 c += 1
     return c
 
@@ -350,7 +350,15 @@ if __name__ == "__main__":
 #   --both "/Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/patient_stats/both_ids.csv" \
 #   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/CaseSelection" \
 #   --mode cutoff \
-#   --n_path 8 \
-#   --n_consult 15 \
-#   --n_both 27
-#   --both_cutoff 10 --path_cutoff 15 --cons_cutoff 15
+#   --n_path 5 \
+#   --n_consult 18 \
+#   --n_both 27 \
+#   --both_cutoff 10 \
+#   --path_cutoff 20 \
+#   --cons_cutoff 15
+
+# INFO: [MODE] Cutoff => sub-bins inside the user-specified range
+# INFO: [cutoff+sub-bins] path_only: requested 5, got 5 out of 19 possible
+# INFO: [cutoff+sub-bins] consult_only: requested 18, got 18 out of 243 possible
+# INFO: [cutoff+sub-bins] path_cons: requested 27, got 27 out of 260 possible
+# INFO: Final => 50 total => requested 5+18+27=50
