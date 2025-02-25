@@ -19,7 +19,7 @@ Usage Examples:
        --mode stratified \
        --n_path 5 --n_consult 18 --n_both 27
 
-  2) Cutoff mode, user sets both_cutoff=12, path_cutoff=15, cons_cutoff=20:
+  2) Cutoff mode, user sets both_cutoff=10, path_cutoff=15, cons_cutoff=15:
      python sample_selection.py \
        --base_dir "/Data/.../Exp13" \
        --path_only "/Data/.../path_only_ids.csv" \
@@ -28,7 +28,7 @@ Usage Examples:
        --output_dir "/Data/.../CaseSelection" \
        --mode cutoff \
        --n_path 5 --n_consult 18 --n_both 27 \
-       --both_cutoff 12 --path_cutoff 15 --cons_cutoff 20
+       --both_cutoff 10 --path_cutoff 15 --cons_cutoff 15
 """
 
 import os
@@ -67,7 +67,7 @@ def create_scatter_plot(df, category_name, output_dir):
     plt.ylabel("not_inferred_count")
     plt.title(f"{category_name} scatter")
     out_path = os.path.join(output_dir, f"{category_name}_scatter.png")
-    plt.savefig(out_path, dpi=150, bbox_inches="tight")
+    plt.savefig(out_path, dpi=600, bbox_inches="tight")
     plt.close()
     logger.info(f"Scatter plot saved: {out_path}")
 
@@ -101,7 +101,7 @@ def create_jointplot(df, category_name, output_dir):
     )
     g.fig.suptitle(f"{category_name} JointPlot by not_inferred bins", y=1.02)
     out_path = os.path.join(output_dir, f"{category_name}_joint.png")
-    plt.savefig(out_path, dpi=150, bbox_inches="tight")
+    plt.savefig(out_path, dpi=600, bbox_inches="tight")
     plt.close()
     logger.info(f"Jointplot saved: {out_path}")
 
