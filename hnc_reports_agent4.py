@@ -16,6 +16,12 @@ Usage:
   --prompt_mode: (Optional) If you want to use a specific suffix on your prompt files, set it here.
   --single: (Optional) Process one random file per folder.
   --case_id: (Optional) Process a specific case by filename without extension.
+
+Improvements: 
+    - Don't actually need the 'structured_data' and 'structured_data_encoded' folders as they take processing time and can be done post-processing for all patient_ids at once. 
+    - processing time for each patient_id saved in processing_times.csv should be ONLY that of the summarization process, not including the time to save the files. 
+
+    
 """
 
 import os
@@ -504,8 +510,8 @@ class ReportSummarizer:
                         continue
 
                     # Timing stats
-                    num_chars = len(text)
-                    num_tokens = len(text.split())
+                    num_chars = len(text) # num of characters in the input text
+                    num_tokens = len(text.split()) # num of tokens (or words) in the input text 
                     end_time = time.time()
                     elapsed_ms = int(round((end_time - start_time) * 1000))
                     time_data.append({
