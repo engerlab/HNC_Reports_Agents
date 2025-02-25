@@ -3,10 +3,10 @@ message: "If you use this software or research work, please consider citing it a
 authors:
 - family-names: "Zou"
   given-names: "Yujing"
-- family-names: "Farahnak"
-  given-names: "Farhood"
 - family-names: "Rafiee Sevyeri"
   given-names: "Laya"
+- family-names: "Farahnak"
+  given-names: "Farhood"
 - family-names: "Shenouda"
   given-names: "George"
 - family-names: "Sultanem"
@@ -17,7 +17,7 @@ authors:
   given-names: "Farhad"
 - family-names: "Enger"
   given-names: "Shirin A."
-title: "Multimodal Integration of Pre-treatment Clinical Variables and Pathology Reports for Overall Survival Prediction in Head and Neck Cancers"
+title: "Harnessing a Privacy-Preserving Large Language Models for Automatic Extraction of Clinical Notes in Head and Neck Oncology: A Retrospective Evaluation "
 version: 1.0.0
 date-released: 2025-02-28 
 doi: "XXX"
