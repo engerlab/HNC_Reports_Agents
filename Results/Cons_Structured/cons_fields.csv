@@ -1,883 +1,883 @@
 patient_id,Smoking_History,Pack_Years,Alcohol_Consumption,Charlson_Comorbidity_Score,Karnofsky_Performance_Status,ECOG_Performance_Status
-100150,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1004073,Smoker,Not Inferred,"Drinker [mostly beers, amount not specified]",0.0,100.0,0.0
-1006301,Non-Smoker,0,Non-Drinker,2.0,90.0,0.0
-100729,Non-Smoker,0,Drinker [occasional],1.0,100.0,0.0
-1007502,Ex-smoker,Not Inferred,Non-Drinker,1.0,90.0,0.0
-1009880,Non-Smoker,0,Non-Drinker,1.0,100.0,0.0
-1012904,Ex-smoker,Not Inferred,Drinker [approximately 1 glass of wine per day],2.0,,
-1014012,Non-Smoker,0,Drinker [socially],1.0,90.0,0.0
-1016391,Non-Smoker,0,Not Inferred,0.0,100.0,0.0
-1017733,Non-Smoker,0,Non-Drinker,1.0,90.0,1.0
-1019973,Not inferred,Not inferred,Not inferred,,,
-1020709,Not Inferred,0,Not Inferred,2.0,,
-1021737,Not inferred,Not inferred,Not inferred,,,
-1022364,Ex-smoker,10,Drinker [occasional],0.0,100.0,0.0
-1024961,Ex-smoker,Not Inferred,Not Inferred,1.0,100.0,0.0
-1026509,Ex-smoker,0,Drinker [socially],2.0,100.0,0.0
-1028731,Ex-smoker,Not Inferred,Not Inferred,0.0,100.0,0.0
-1029972,Smoker,Not Inferred,Not Inferred,1.0,100.0,0.0
-103122,Smoker,15,Drinker [socially],1.0,100.0,0.0
-1031266,Smoker,Not Inferred,Not Inferred,2.0,100.0,0.0
-1031743,Not inferred,Not inferred,Not inferred,,,
-1033633,Not Inferred,Not Inferred,Not Inferred,2.0,90.0,1.0
-1037530,Ex-smoker,50,Not Inferred,1.0,100.0,0.0
-1041684,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1042445,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1044430,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1044448,Ex-smoker,Not Inferred,Drinker [amount not specified],3.0,90.0,0.0
-1045725,Not Inferred,Not Inferred,Not Inferred,4.0,80.0,
-1046098,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1048022,Not inferred,Not inferred,Not inferred,,,
-1048782,Non-Smoker,0,Non-Drinker,2.0,90.0,0.0
-1050579,Ex-smoker,10,Drinker [about 12 oz. of beer per week],1.0,100.0,0.0
-1050994,Not Inferred,Not Inferred,Not Inferred,1.0,,
-1051911,Non-Smoker,0,Drinker [socially],1.0,80.0,2.0
-1057509,Ex-smoker,20,Non-Drinker,3.0,100.0,0.0
-1058063,Smoker,Not Inferred,Not Inferred,2.0,,
-1058395,Not inferred,Not inferred,Not inferred,,,
-1060096,Non-Smoker,0,Drinker [occasional],0.0,90.0,
-1060695,Smoker,30,Drinker [occasional beer],1.0,100.0,0.0
-1061513,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1063104,Ex-smoker,20,Drinker [occasionally],2.0,80.0,
-1063150,Ex-smoker,7.5,Drinker [occasional],1.0,100.0,0.0
-1063176,Ex-smoker,20,Drinker [2 glasses of wine per day],0.0,90.0,
-106520,Ex-smoker,Not Inferred,Not Inferred,4.0,,
-1065359,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1066410,Smoker,45,"Drinker [social drinker, amount not specified]",4.0,90.0,1.0
-1066995,Ex-smoker,30,Drinker [12 drinks a week],5.0,100.0,0.0
-1068235,Ex-smoker,Not Inferred,Non-Drinker,0.0,100.0,0.0
-1068761,Ex-smoker,Not Inferred,Not Inferred,1.0,90.0,1.0
-1069515,Ex-smoker,Not Inferred,Drinker [socially],0.0,100.0,0.0
-1070247,Smoker,"40-60 (assuming 1-2 packs per day for approximately 50 years, since the patient started smoking at age 12)",Not Inferred,0.0,100.0,0.0
-1072739,Ex-smoker,20,Drinker [occasional],4.0,90.0,0.0
-1074265,Smoker,25,Drinker [3-5 beers per day],,,
-1075533,Not Inferred,0,Not Inferred,4.0,100.0,0.0
-1076826,Non-Smoker,0,Non-Drinker,2.0,100.0,0.0
-1076986,Ex-smoker,75,Not Inferred,0.0,90.0,1.0
-1077071,Ex-smoker,0,Not Inferred,0.0,100.0,0.0
-1077516,Ex-smoker,100,Not Inferred,3.0,100.0,0.0
-1078008,Ex-smoker,Not Inferred,Drinker [occasionally],1.0,90.0,1.0
-1078774,Not inferred,Not inferred,Not inferred,,,
-1080401,Ex-smoker,Not Inferred,Not Inferred,2.0,100.0,0.0
-1080438,Smoker,20,Drinker [socially],0.0,100.0,0.0
-1081091,Ex-smoker,120,Drinker [approximately 4 servings per day],3.0,90.0,0.0
-1082505,Smoker,Not Inferred,Drinker [1 serving per day],0.0,100.0,0.0
-1082999,Not inferred,Not inferred,Not inferred,,,
-1083411,Smoker,40,Drinker [1 shot of cognac every morning],1.0,,
-1083442,Non-Smoker,0,Drinker [occasionally],,,
-1085010,Ex-smoker,60,Non-Drinker,0.0,100.0,0.0
-1085691,Ex-smoker,60,Drinker [socially],0.0,100.0,0.0
-108747,Not Inferred,0,Not Inferred,0.0,100.0,0.0
-1089362,Smoker,Not Inferred,Drinker [occasionally],1.0,90.0,0.0
-1089523,Not inferred,Not inferred,Not inferred,,,
-108958,Ex-smoker,Not Inferred,Drinker [socially],2.0,100.0,0.0
-1090241,Not Inferred,0,Not Inferred,2.0,100.0,0.0
-1092052,Ex-smoker,Not Inferred,Non-Drinker [previously 4 beers a day and wine occasionally],0.0,100.0,0.0
-109260,Not Inferred,0 [No smoking history mentioned],Non-Drinker [No information available],2.0,100.0,0.0
-1092994,Ex-smoker,Not Inferred,Drinker [socially],2.0,100.0,0.0
-1093699,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1093969,Non-Smoker,0,Not Inferred,,,
-1095907,Smoker,40,Non-Drinker,2.0,100.0,0.0
-1096098,Ex-smoker,10,Drinker [occasional],1.0,100.0,0.0
-1098029,Non-Smoker,0,Not Inferred,2.0,100.0,0.0
-1098748,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1100399,Smoker,60,"Drinker [daily basis, amount not specified]",0.0,100.0,
-110054,Not inferred,Not inferred,Not inferred,,,
-1100595,Ex-smoker,Not Inferred,Drinker [occasional],2.0,100.0,0.0
-1102119,Non-Smoker,0,Drinker [occasionally],1.0,,
-1104512,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1105247,Smoker,Not Inferred,Non-Drinker,1.0,100.0,0.0
-1106419,Non-Smoker,0,Drinker [6 ounces of gin per day],0.0,90.0,0.0
-1106938,Not inferred,Not inferred,Not inferred,,,
-1107810,Not Inferred,Not Inferred,Not Inferred,0.0,100.0,0.0
-1107828,Not Inferred,0,Not Inferred,4.0,100.0,0.0
-1108013,Non-Smoker,0,Drinker [occasionally],5.0,100.0,0.0
-1108098,Non-Smoker,0,Non-Drinker,0.0,,0.0
-1108787,Non-Smoker,0,Non-Drinker,2.0,90.0,0.0
-1109025,Ex-smoker,Not Inferred,Drinker [approximately 1 glass of wine a day],4.0,100.0,0.0
-1109080,Not Inferred,Not Inferred,Not Inferred,2.0,90.0,0.0
-1109413,Not Inferred,0,Not Inferred,2.0,,
-1110577,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1110794,Ex-smoker,0,Not Inferred,,,
-1113863,Ex-smoker,40,Drinker [approximately 1 bottle of wine + 10 beers per day],2.0,90.0,1.0
-1114924,Ex-smoker,0,Drinker [occasional],1.0,100.0,0.0
-1115749,Non-Smoker,0,Drinker [occasional],,,
-1117087,Ex-smoker,Not Inferred,Drinker [occasional],5.0,80.0,2.0
-111738,Not Inferred,0,Not Inferred,4.0,90.0,0.0
-1118019,Smoker,Not Inferred,Drinker [socially],0.0,100.0,0.0
-1118257,Non-Smoker,0,Drinker [occasionally],1.0,100.0,0.0
-1119161,Not Inferred,0,Not Inferred,1.0,90.0,0.0
-1120697,Not Inferred,0,Not Inferred,0.0,90.0,
+100150,Not Inferred,,,2,,
+1004073,Smoker,,Drinker,0,100,0
+1006301,Non-Smoker,0,Non-Drinker,2,90,0
+100729,Non-Smoker,0,Drinker,1,100,0
+1007502,Ex-smoker,,Non-Drinker,1,90,0
+1009880,Non-Smoker,0,Non-Drinker,1,100,0
+1012904,Ex-smoker,,Drinker,2,,
+1014012,Non-Smoker,0,Drinker,1,90,0
+1016391,Non-Smoker,0,,0,100,0
+1017733,Non-Smoker,0,Non-Drinker,1,90,1
+1019973,Not inferred,,,,,
+1020709,Not Inferred,0,,2,,
+1021737,Not inferred,,,,,
+1022364,Ex-smoker,10,Drinker,0,100,0
+1024961,Ex-smoker,,,1,100,0
+1026509,Ex-smoker,0,Drinker,2,100,0
+1028731,Ex-smoker,,,0,100,0
+1029972,Smoker,,,1,100,0
+103122,Smoker,15,Drinker,1,100,0
+1031266,Smoker,,,2,100,0
+1031743,Not inferred,,,,,
+1033633,Not Inferred,,,2,90,1
+1037530,Ex-smoker,50,,1,100,0
+1041684,Not Inferred,,,2,,
+1042445,Non-Smoker,0,Non-Drinker,0,100,0
+1044430,Not Inferred,,,0,,
+1044448,Ex-smoker,,Drinker,3,90,0
+1045725,Not Inferred,,,4,80,
+1046098,Not Inferred,,,0,,
+1048022,Not inferred,,,,,
+1048782,Non-Smoker,0,Non-Drinker,2,90,0
+1050579,Ex-smoker,10,Drinker,1,100,0
+1050994,Not Inferred,,,1,,
+1051911,Non-Smoker,0,Drinker,1,80,2
+1057509,Ex-smoker,20,Non-Drinker,3,100,0
+1058063,Smoker,,,2,,
+1058395,Not inferred,,,,,
+1060096,Non-Smoker,0,Drinker,0,90,
+1060695,Smoker,30,Drinker,1,100,0
+1061513,Not Inferred,,,0,,
+1063104,Ex-smoker,20,Drinker,2,80,
+1063150,Ex-smoker,,Drinker,1,100,0
+1063176,Ex-smoker,20,Drinker,0,90,
+106520,Ex-smoker,,,4,,
+1065359,Not Inferred,,,0,,
+1066410,Smoker,45,Drinker,4,90,1
+1066995,Ex-smoker,30,Drinker,5,100,0
+1068235,Ex-smoker,,Non-Drinker,0,100,0
+1068761,Ex-smoker,,,1,90,1
+1069515,Ex-smoker,,Drinker,0,100,0
+1070247,Smoker,,,0,100,0
+1072739,Ex-smoker,20,Drinker,4,90,0
+1074265,Smoker,25,Drinker,,,
+1075533,Not Inferred,0,,4,100,0
+1076826,Non-Smoker,0,Non-Drinker,2,100,0
+1076986,Ex-smoker,75,,0,90,1
+1077071,Ex-smoker,0,,0,100,0
+1077516,Ex-smoker,100,,3,100,0
+1078008,Ex-smoker,,Drinker,1,90,1
+1078774,Not inferred,,,,,
+1080401,Ex-smoker,,,2,100,0
+1080438,Smoker,20,Drinker,0,100,0
+1081091,Ex-smoker,120,Drinker,3,90,0
+1082505,Smoker,,Drinker,0,100,0
+1082999,Not inferred,,,,,
+1083411,Smoker,40,Drinker,1,,
+1083442,Non-Smoker,0,Drinker,,,
+1085010,Ex-smoker,60,Non-Drinker,0,100,0
+1085691,Ex-smoker,60,Drinker,0,100,0
+108747,Not Inferred,0,,0,100,0
+1089362,Smoker,,Drinker,1,90,0
+1089523,Not inferred,,,,,
+108958,Ex-smoker,,Drinker,2,100,0
+1090241,Not Inferred,0,,2,100,0
+1092052,Ex-smoker,,Non-Drinker,0,100,0
+109260,Not Inferred,,Non-Drinker,2,100,0
+1092994,Ex-smoker,,Drinker,2,100,0
+1093699,Non-Smoker,0,Non-Drinker,0,100,0
+1093969,Non-Smoker,0,,,,
+1095907,Smoker,40,Non-Drinker,2,100,0
+1096098,Ex-smoker,10,Drinker,1,100,0
+1098029,Non-Smoker,0,,2,100,0
+1098748,Not Inferred,,,2,,
+1100399,Smoker,60,Drinker,0,100,
+110054,Not inferred,,,,,
+1100595,Ex-smoker,,Drinker,2,100,0
+1102119,Non-Smoker,0,Drinker,1,,
+1104512,Not Inferred,,,0,,
+1105247,Smoker,,Non-Drinker,1,100,0
+1106419,Non-Smoker,0,Drinker,0,90,0
+1106938,Not inferred,,,,,
+1107810,Not Inferred,,,0,100,0
+1107828,Not Inferred,0,,4,100,0
+1108013,Non-Smoker,0,Drinker,5,100,0
+1108098,Non-Smoker,0,Non-Drinker,0,,0
+1108787,Non-Smoker,0,Non-Drinker,2,90,0
+1109025,Ex-smoker,,Drinker,4,100,0
+1109080,Not Inferred,,,2,90,0
+1109413,Not Inferred,0,,2,,
+1110577,Not Inferred,,,0,,
+1110794,Ex-smoker,0,,,,
+1113863,Ex-smoker,40,Drinker,2,90,1
+1114924,Ex-smoker,0,Drinker,1,100,0
+1115749,Non-Smoker,0,Drinker,,,
+1117087,Ex-smoker,,Drinker,5,80,2
+111738,Not Inferred,0,,4,90,0
+1118019,Smoker,,Drinker,0,100,0
+1118257,Non-Smoker,0,Drinker,1,100,0
+1119161,Not Inferred,0,,1,90,0
+1120697,Not Inferred,0,,0,90,
 1120796,Smoker,40,Non-Drinker,,,
-1120835,Ex-smoker,Not Inferred,Drinker [occasionally],2.0,,
-1121050,Ex-smoker,30,Drinker [1 glass of wine daily],3.0,100.0,0.0
-1122244,Not Inferred,Not Inferred,Not Inferred,4.0,100.0,0.0
-1122727,Ex-smoker,40,Non-Drinker,3.0,,
-112340,Ex-smoker,38,Not Inferred,,,
-1125637,Not inferred,Not inferred,Not inferred,,,
-1126450,Ex-smoker,Not Inferred,Drinker [occasional],1.0,100.0,0.0
-1127404,Ex-smoker,10,Not Inferred,,,
-1127947,Not inferred,Not inferred,Not inferred,,,
-1128418,Smoker,Not Inferred,Drinker [4-5 beers a day],1.0,,0.0
-113004,Ex-smoker,25,Not Inferred,2.0,90.0,1.0
-1130120,Not inferred,Not inferred,Not inferred,,,
-1130580,Ex-smoker,36,Non-Drinker,3.0,90.0,1.0
-1131291,Smoker,30,Drinker [occasional],0.0,,0.0
-1131412,Smoker,Not Inferred,Not Inferred,1.0,100.0,0.0
-1132082,Not inferred,Not inferred,Not inferred,,,
-1132653,Not Inferred,0,Not Inferred,0.0,,
-1133061,Non-Smoker,0,Drinker [wine regularly],2.0,100.0,0.0
-1133805,Ex-smoker,Not Inferred,Drinker [occasional wine],3.0,,0.0
-1135076,Not Inferred,Not Inferred,Not Inferred,2.0,100.0,0.0
-1135804,Non-Smoker,0,Non-Drinker,1.0,90.0,1.0
-1136997,Non-Smoker,0,Drinker [socially],0.0,100.0,0.0
-1137628,Not Inferred,Not Inferred,Not Inferred,1.0,100.0,0.0
-1138298,Not Inferred,0,Not Inferred,2.0,,1.0
-1140774,Non-Smoker,Not inferred,"The patient consumes alcohol, but the frequency and amount are not specified.",,,
-1142224,Not Inferred,0,Not Inferred,1.0,100.0,0.0
-1142707,Ex-smoker,Not Inferred,Non-Drinker,1.0,90.0,0.0
-1143295,Ex-smoker,Not Inferred,Not Inferred,0.0,90.0,0.0
-1144356,Non-Smoker,0,Non-Drinker,1.0,100.0,0.0
-1145024,Non-Smoker,0,Drinker [occasionally],0.0,90.0,0.0
-1145281,Ex-smoker,20,Drinker [socially],2.0,100.0,0.0
-1146143,Ex-smoker,Less than 10,Not Inferred,2.0,100.0,0.0
-1146888,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1147283,Ex-smoker,Not Inferred,Not Inferred,0.0,80.0,
-1147322,Not inferred,Not inferred,Not inferred,,,
-1149446,Not inferred,Not inferred,Not inferred,,,
-1149638,Smoker,20,Drinker [occasional],1.0,100.0,0.0
-1150440,Non-Smoker,0,Not Inferred,2.0,100.0,0.0
-1153778,Not Inferred,Not Inferred,Not Inferred,1.0,100.0,0.0
-1155412,Non-Smoker,0,Drinker [rarely],1.0,90.0,0.0
-1156267,Ex-smoker,0,Drinker [1-2 drinks a day],3.0,100.0,0.0
-1156440,Smoker,40,Drinker [occasional],5.0,,
-1157207,Smoker,20,Drinker [1 bottle/day],2.0,100.0,0.0
-1158727,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1160623,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1161166,Non-Smoker,0,Drinker [amount not specified],2.0,100.0,0.0
-1161635,Ex-smoker,20,Not Inferred,1.0,100.0,0.0
-1162274,Non-Smoker,0,Non-Drinker,4.0,90.0,0.0
-1163398,Ex-smoker,Not Inferred,Drinker [socially],1.0,90.0,0.0
-1164033,Not inferred,Not inferred,Not inferred,,,
-1164049,Ex-smoker,Not Inferred,Drinker [occasionally],0.0,90.0,0.0
-1164060,Non-Smoker,0,Drinker [occasion],3.0,,
-1164759,Ex-smoker,Not Inferred,Drinker [occasionnal],5.0,100.0,0.0
-1165489,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1167024,Smoker,60,Drinker [28 drinks/week],0.0,80.0,1.0
-1169327,Not Inferred,0,Not Inferred,0.0,,
-1171744,Not Inferred,0,Not Inferred,4.0,80.0,1.0
-1172619,Not inferred,Not inferred,Not inferred,,,
-1173780,Ex-smoker,25,Drinker [6 beers a day],3.0,100.0,0.0
-1174467,Ex-smoker,Not Inferred,Not Inferred,4.0,90.0,0.0
-1175297,Smoker,15,Drinker [occasional],1.0,100.0,0.0
-1176853,Non-Smoker,0,Non-Drinker,0.0,90.0,0.0
-1177082,Ex-smoker,30,Drinker [occasional],3.0,,
-1177122,Smoker,Not Inferred,Drinker [occasional],1.0,100.0,0.0
-1177148,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1177351,Ex-smoker,Not Inferred,Not Inferred,0.0,,
-1177630,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1178706,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1178863,Ex-smoker,39,Drinker [amount not specified],1.0,100.0,1.0
-1181132,Not Inferred,0,Not Inferred,5.0,90.0,
-1181388,Ex-smoker,35,Drinker [occasional],3.0,100.0,
-1181436,Smoker,40,Drinker [occasional basis],1.0,100.0,0.0
-1183186,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1184300,Not Inferred,Not Inferred,Not Inferred,0.0,90.0,1.0
-1185576,Not Inferred,Not Inferred,Not Inferred,4.0,,
-1186824,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1186884,Not inferred,Not inferred,Not inferred,,,
-1188128,Ex-smoker,20,Drinker [heavy drinker for 10 years],0.0,90.0,1.0
-1189148,Not inferred,Not inferred,Not inferred,,,
-1189263,Ex-smoker,45,Drinker [occasionally],1.0,100.0,0.0
-1190812,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1192207,Ex-smoker,Not Inferred,Not Inferred,,,
-1194749,Non-Smoker,0,Non-Drinker,0.0,90.0,
-1197023,Not inferred,Not inferred,Not inferred,,,
-1199165,Not Inferred,0,Not Inferred,0.0,,
-120069,Not Inferred,0,Not Inferred,2.0,,
-1203807,Not Inferred,Not Inferred,Not Inferred,0.0,100.0,0.0
-1204131,Not inferred,Not inferred,Not inferred,,,
-1205641,Smoker,45,Drinker [regularly drinks beer],2.0,90.0,0.0
-1205840,Not Inferred,Not Inferred,Not Inferred,1.0,100.0,0.0
-1208233,Smoker,Not Inferred,Not Inferred,0.0,100.0,0.0
-1208740,Not inferred,Not inferred,Not inferred,,,
-1209421,Non-Smoker,0,Drinker [occasional wine],0.0,100.0,0.0
-1211203,Ex-smoker,30-35,Drinker [4-5 drinks/day],0.0,100.0,0.0
-1211282,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1211374,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1212081,Non-Smoker,0,Drinker [1 bottle of wine a week],1.0,100.0,0.0
-1213422,Smoker,50,Drinker [occasional],2.0,,
-1213444,Smoker,60,Drinker [occasional],0.0,100.0,0.0
-12144,Not Inferred,Not Inferred,Not Inferred,5.0,90.0,0.0
-1214634,Ex-smoker,Not Inferred,"Drinker [social basis, amount not specified]",,,
-1215113,Not inferred,Not inferred,Not inferred,,,
-1215254,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1218398,Ex-smoker,60,Non-Drinker [previously 6 beers a day],0.0,90.0,0.0
-1219243,Ex-smoker,0,Non-Drinker,,90.0,
-1221482,Ex-smoker,Not Inferred,Non-Drinker,3.0,90.0,0.0
-1222698,Ex-smoker,0,Non-Drinker,4.0,90.0,1.0
-1223322,Smoker,30,Drinker [No amount specified],0.0,100.0,0.0
-1223664,Ex-smoker,60,Drinker [occasional],2.0,,
-1224467,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1226239,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1226244,Ex-smoker,Not Inferred,Not Inferred,4.0,90.0,
-1227068,Non-Smoker,0,Drinker [moderately],2.0,90.0,0.0
-1229304,Non-Smoker,0,Drinker [occasionally],0.0,90.0,0.0
-1229797,Non-Smoker,0,Not Inferred,3.0,100.0,0.0
-1230627,Ex-smoker,30,Non-Drinker,2.0,,
-1231206,Smoker,20,Drinker [regularly drinks beer],2.0,,0.0
-1232897,Not Inferred,Not Inferred,Not Inferred,2.0,100.0,0.0
-1233017,Non-Smoker,0,Non-Drinker,2.0,90.0,0.0
-123483,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1236616,Ex-smoker,Not Inferred,Drinker [occasionally],2.0,,
-1237068,Smoker,30,Drinker [~1 drink per month],0.0,100.0,0.0
-1237434,Non-Smoker,0,"Non-Drinker [quit 16 years ago, implies previous consumption but currently does not drink]",1.0,90.0,
-1237652,Ex-smoker,Not Inferred,"Drinker [approximately 1L of wine/day, assuming standard drink sizes this equates to roughly 8-10 drinks]",2.0,100.0,0.0
-1237981,Ex-smoker,40,Drinker [1 drink per day],2.0,100.0,0.0
-1237993,Non-Smoker,0,Drinker [occasional],0.0,100.0,0.0
-1239735,Smoker,56,"Drinker [socially, amount not specified]",2.0,,
-1240634,Ex-smoker,40,Drinker [1-2 glasses of wine per week],2.0,100.0,0.0
-1243118,Ex-smoker,0,"Drinker [occasional, wine and beer]",0.0,100.0,0.0
-1243481,Non-Smoker,0,Drinker [1 glass of wine per night],1.0,100.0,0.0
-1244332,Ex-smoker,Not Inferred,Drinker [occasionally],2.0,90.0,
-1244601,Ex-smoker,Not Inferred,Non-Drinker,2.0,90.0,1.0
-1246295,Ex-smoker,0,Drinker [occasional],1.0,100.0,0.0
-1246520,Non-Smoker,0,Drinker [occasional],4.0,100.0,0.0
-1247386,Ex-smoker,45,Non-Drinker,3.0,90.0,0.0
-1247526,Ex-smoker,Not Inferred,Drinker [socially],1.0,100.0,0.0
-1247694,Non-Smoker,0,Drinker [occasionally],2.0,,
-1249167,Non-Smoker,0,Drinker [socially],0.0,90.0,1.0
-125021,Non-Smoker,0,Non-Drinker,4.0,80.0,
-1252653,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1254031,Non-Smoker,0,Non-Drinker,1.0,,
-1254308,Non-Smoker,0,Not Inferred,2.0,90.0,
-1254757,Not inferred,Not inferred,Not inferred,,,
-1257269,Not Inferred,0,Not Inferred,1.0,90.0,0.0
-1259610,Ex-smoker,Not Inferred,Non-Drinker,5.0,90.0,0.0
-1259672,Non-Smoker,0,Non-Drinker,1.0,,1.0
-1260134,Ex-smoker,40,Drinker [occasionally],2.0,,1.0
-1261144,Ex-smoker,40,Drinker [3-4 beers per day],1.0,100.0,0.0
-1261266,Ex-smoker,50,Drinker [5-6 beers/day],2.0,,
-1262059,Ex-smoker,Not Inferred,Not Inferred,2.0,,
-1262214,Non-Smoker,0,Drinker [occasionally],0.0,100.0,0.0
-1263722,Not Inferred,Not Inferred,Not Inferred,2.0,100.0,0.0
-1264572,Non-Smoker,0,Non-Drinker,3.0,100.0,0.0
-1264635,Smoker,40,Drinker [occasional],1.0,100.0,0.0
-126518,Ex-smoker,Less than 10,Not Inferred,1.0,90.0,0.0
-1266668,Not Inferred,0,Not Inferred,1.0,,
-1266899,Smoker,Not Inferred,Drinker [large amount occasionally],3.0,100.0,0.0
-1266939,Ex-smoker,Not Inferred,Drinker [socially],2.0,100.0,0.0
-1266956,Non-Smoker,0,Drinker [occasionally],0.0,100.0,0.0
-1269016,Smoker,Not Inferred,Not Inferred,0.0,90.0,0.0
-1269592,Not inferred,Not inferred,Not inferred,,,
-1271901,Ex-smoker,Not Inferred,Not Inferred,1.0,90.0,0.0
-1273369,Ex-smoker,Not Inferred,Drinker [occasional],2.0,100.0,0.0
-1274025,Ex-smoker,Not Inferred,Drinker [amount not specified],3.0,90.0,0.0
-1274985,Ex-smoker,Not Inferred,Not Inferred,4.0,90.0,0.0
-1275731,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1277035,Ex-smoker,Not Inferred,Drinker [amount not specified],0.0,,0.0
-1277636,Smoker,Not Inferred,Not Inferred,4.0,40.0,3.0
-1279649,Not inferred,Not inferred,Not inferred,,,
-1281645,Non-Smoker,0,Non-Drinker,0.0,,0.0
-1284179,Ex-smoker,30,Not Inferred,1.0,100.0,0.0
-1285492,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1287020,Ex-smoker,40,Drinker [regularly beer and wine],1.0,100.0,0.0
-1287301,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1289220,Ex-smoker,525-562.5,Drinker [occasional],2.0,90.0,1.0
-1289606,Ex-smoker,Not Inferred,Drinker [amount not specified],1.0,100.0,0.0
-1289908,Not Inferred,0,Not Inferred,1.0,90.0,0.0
-1290087,Not Inferred,"0 [Patient's smoking history not mentioned, assuming non-smoker]",Non-Drinker [No information available],1.0,,0.0
-1290109,Non-Smoker,0,Drinker [2-3 glasses of wine per day],3.0,90.0,1.0
-1291053,Non-Smoker,0,Non-Drinker,2.0,90.0,0.0
-1291361,Non-Smoker,0,Drinker [socially],0.0,90.0,0.0
-1291388,Ex-smoker,10,Not Inferred,0.0,100.0,0.0
-1292894,Not inferred,Not inferred,Not inferred,,,
-1293535,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1294458,Smoker,50,Drinker [occasional],2.0,,
-1294809,Non-Smoker,0,Drinker [amount not specified],2.0,90.0,1.0
-1295003,Non-Smoker,0,Non-Drinker,5.0,100.0,0.0
-1295666,Smoker,Not Inferred,Drinker [amount not specified],0.0,,
-1295667,Ex-smoker,Not Inferred,Drinker [amount not specified],2.0,100.0,0.0
-1296140,Ex-smoker,20,Drinker [social drinker and little since 2-3 yrs],0.0,,
-1296627,Smoker,30,Not Inferred,0.0,90.0,0.0
-1296972,Ex-smoker,50,"Non-Drinker [heavy drinker, stopped 3-4 years ago]",2.0,100.0,0.0
-129701,Smoker,Not Inferred,Drinker [amount not specified],4.0,100.0,0.0
-1297318,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1298270,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1299439,Not Inferred,Not Inferred,Not Inferred,1.0,90.0,0.0
-1300290,Smoker,Not Inferred,Non-Drinker,1.0,80.0,2.0
-1302380,Not inferred,Not inferred,Not inferred,,,
-1302562,Ex-smoker,7.5,Drinker [occasional],2.0,100.0,0.0
-1303763,Non-Smoker,0,Drinker [amount not specified],0.0,90.0,0.0
-1306232,Not Inferred,Not Inferred,Not Inferred,2.0,80.0,1.0
-1307534,Smoker,25,Drinker [socially],0.0,90.0,0.0
-1308813,Not Inferred,0,Not Inferred,1.0,90.0,0.0
-1309309,Non-Smoker,0,Non-Drinker,0.0,,
-1310803,Not Inferred,0,Not Inferred,4.0,90.0,0.0
-1311615,Ex-smoker,40,Drinker [1-2 glasses of wine daily],,,1.0
-1311697,Non-Smoker,0,Not Inferred,0.0,100.0,0.0
-1312475,Ex-smoker,26,Drinker [Occasional],1.0,90.0,1.0
-1314678,Ex-smoker,Not Inferred,Not Inferred,2.0,100.0,0.0
-1314856,Ex-smoker,30,Drinker [occasionally],0.0,,1.0
-1315408,Ex-smoker,12,Drinker [2 glasses of wine daily],3.0,100.0,0.0
-1316912,Not Inferred,0,Not Inferred,0.0,100.0,0.0
-1317057,Not Inferred,Not Inferred,Not Inferred,4.0,,
-1319384,Non-Smoker,0,Non-Drinker,1.0,100.0,0.0
-1319850,Non-Smoker,0,Non-Drinker,1.0,100.0,0.0
-1322650,Smoker,47,Drinker [occasionally],3.0,,
-1322881,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1323861,Ex-smoker,17.5,Drinker [4 beverages per week],2.0,80.0,2.0
-1324719,Smoker,40,Drinker [amount not specified],0.0,90.0,0.0
-1328286,Not inferred,Not inferred,Not inferred,,,
-1328441,Not inferred,Not inferred,Not inferred,,,
-1329878,Smoker,40,Drinker [amount not specified],0.0,100.0,0.0
-1330775,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1331038,Not Inferred,0,Not Inferred,2.0,40.0,3.0
-1331317,Not inferred,Not inferred,Not inferred,,,
-1332528,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1332542,Not Inferred,Not Inferred,Not Inferred,,,
-1333587,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1334220,Not Inferred,0,Not Inferred,2.0,,
-1336513,Ex-smoker,Not Inferred,Not Inferred,2.0,90.0,0.0
-1336918,Non-Smoker,0,Not Inferred,1.0,90.0,0.0
-1337276,Non-Smoker,0,Not Inferred,0.0,100.0,0.0
-1338180,Smoker,Not Inferred,Not Inferred,0.0,100.0,0.0
-1338382,Smoker,Not Inferred,Not Inferred,0.0,,
-1340671,Not Inferred,Not Inferred,Not Inferred,1.0,100.0,0.0
-1342311,Not Inferred,Not Inferred,Not Inferred,0.0,,
-13428,Non-Smoker,0,Drinker [socially],3.0,90.0,0.0
-1343542,Smoker,Not Inferred,Not Inferred,0.0,100.0,0.0
-134424,Ex-smoker,Not Inferred,Drinker [0-2 beers/week],,,
-1346920,Non-Smoker,0,Non-Drinker,1.0,90.0,0.0
-1347145,Ex-smoker,0,Not Inferred,2.0,,
-1347153,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1348408,Not Inferred,Not Inferred,Not Inferred,,,1.0
-1348463,Non-Smoker,0,Not Inferred,0.0,100.0,0.0
-1349074,Not Inferred,0,Not Inferred,4.0,90.0,0.0
-1352387,Non-Smoker,0,Non-Drinker,1.0,100.0,0.0
-1354697,Non-Smoker,0,Drinker [rare],1.0,100.0,0.0
-1354965,Smoker,Not Inferred,Not Inferred,0.0,90.0,0.0
-135560,Ex-smoker,30,Drinker [occasional],2.0,90.0,0.0
-1358956,Not Inferred,Not Inferred,Not Inferred,0.0,,
-136038,Smoker,> 100,Non-Drinker [stopped drinking EtOH in DATE],,,2.0
-1361136,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1362878,Not inferred,Not inferred,Not inferred,,,
-1362929,Ex-smoker,0,Not Inferred,2.0,,0.0
-136458,Not inferred,Not inferred,Not inferred,,,
-1364626,Ex-smoker,Not Inferred,Not Inferred,4.0,90.0,0.0
-1365382,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1365459,Not inferred,Not inferred,Not inferred,,,
-1366321,Non-Smoker,0,Non-Drinker,0.0,,0.0
-1370838,Non-Smoker,0,Drinker [very occasionally],0.0,100.0,0.0
-1370858,Smoker,Not Inferred,Not Inferred,2.0,90.0,0.0
-137217,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1374085,Not Inferred,0,Not Inferred,1.0,100.0,0.0
-1374231,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1374538,Ex-smoker,Not Inferred,Drinker [socially],0.0,,0.0
-1378340,Ex-smoker,15,Drinker [Occasional],1.0,90.0,1.0
-1378907,Not Inferred,Not Inferred,Not Inferred,0.0,,
-138405,Smoker,Not Inferred,Drinker [amount not specified],0.0,100.0,0.0
-1384219,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-138482,Smoker,Not Inferred,"Drinker [Regularly, amount not specified]",2.0,,0.0
-1384866,Smoker,Not Inferred,Not Inferred,2.0,,
-1385239,Non-Smoker,0,Not Inferred,0.0,,
-1387465,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1393583,Ex-smoker,27,Drinker [10 drinks/week],,,
-1395126,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1399385,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1399434,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1399697,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1400559,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1401958,Non-Smoker,0,Drinker [socially],3.0,100.0,0.0
-1402243,Ex-smoker,Not Inferred,Not Inferred,0.0,,0.0
+1120835,Ex-smoker,,Drinker,2,,
+1121050,Ex-smoker,30,Drinker,3,100,0
+1122244,Not Inferred,,,4,100,0
+1122727,Ex-smoker,40,Non-Drinker,3,,
+112340,Ex-smoker,38,,,,
+1125637,Not inferred,,,,,
+1126450,Ex-smoker,,Drinker,1,100,0
+1127404,Ex-smoker,10,,,,
+1127947,Not inferred,,,,,
+1128418,Smoker,,Drinker,1,,0
+113004,Ex-smoker,25,,2,90,1
+1130120,Not inferred,,,,,
+1130580,Ex-smoker,36,Non-Drinker,3,90,1
+1131291,Smoker,30,Drinker,0,,0
+1131412,Smoker,,,1,100,0
+1132082,Not inferred,,,,,
+1132653,Not Inferred,0,,0,,
+1133061,Non-Smoker,0,Drinker,2,100,0
+1133805,Ex-smoker,,Drinker,3,,0
+1135076,Not Inferred,,,2,100,0
+1135804,Non-Smoker,0,Non-Drinker,1,90,1
+1136997,Non-Smoker,0,Drinker,0,100,0
+1137628,Not Inferred,,,1,100,0
+1138298,Not Inferred,0,,2,,1
+1140774,Non-Smoker,,Drinker,,,
+1142224,Not Inferred,0,,1,100,0
+1142707,Ex-smoker,,Non-Drinker,1,90,0
+1143295,Ex-smoker,,,0,90,0
+1144356,Non-Smoker,0,Non-Drinker,1,100,0
+1145024,Non-Smoker,0,Drinker,0,90,0
+1145281,Ex-smoker,20,Drinker,2,100,0
+1146143,Ex-smoker,,,2,100,0
+1146888,Not Inferred,,,0,,
+1147283,Ex-smoker,,,0,80,
+1147322,Not inferred,,,,,
+1149446,Not inferred,,,,,
+1149638,Smoker,20,Drinker,1,100,0
+1150440,Non-Smoker,0,,2,100,0
+1153778,Not Inferred,,,1,100,0
+1155412,Non-Smoker,0,Drinker,1,90,0
+1156267,Ex-smoker,0,Drinker,3,100,0
+1156440,Smoker,40,Drinker,5,,
+1157207,Smoker,20,Drinker,2,100,0
+1158727,Not Inferred,,,2,,
+1160623,Not Inferred,,,0,,
+1161166,Non-Smoker,0,Drinker,2,100,0
+1161635,Ex-smoker,20,,1,100,0
+1162274,Non-Smoker,0,Non-Drinker,4,90,0
+1163398,Ex-smoker,,Drinker,1,90,0
+1164033,Not inferred,,,,,
+1164049,Ex-smoker,,Drinker,0,90,0
+1164060,Non-Smoker,0,Drinker,3,,
+1164759,Ex-smoker,,Drinker,5,100,0
+1165489,Not Inferred,,,0,,
+1167024,Smoker,60,Drinker,0,80,1
+1169327,Not Inferred,0,,0,,
+1171744,Not Inferred,0,,4,80,1
+1172619,Not inferred,,,,,
+1173780,Ex-smoker,25,Drinker,3,100,0
+1174467,Ex-smoker,,,4,90,0
+1175297,Smoker,15,Drinker,1,100,0
+1176853,Non-Smoker,0,Non-Drinker,0,90,0
+1177082,Ex-smoker,30,Drinker,3,,
+1177122,Smoker,,Drinker,1,100,0
+1177148,Not Inferred,,,0,,
+1177351,Ex-smoker,,,0,,
+1177630,Not Inferred,,,0,,
+1178706,Non-Smoker,0,Non-Drinker,0,100,0
+1178863,Ex-smoker,39,Drinker,1,100,1
+1181132,Not Inferred,0,,5,90,
+1181388,Ex-smoker,35,Drinker,3,100,
+1181436,Smoker,40,Drinker,1,100,0
+1183186,Not Inferred,,,0,,
+1184300,Not Inferred,,,0,90,1
+1185576,Not Inferred,,,4,,
+1186824,Not Inferred,,,2,,
+1186884,Not inferred,,,,,
+1188128,Ex-smoker,20,Drinker,0,90,1
+1189148,Not inferred,,,,,
+1189263,Ex-smoker,45,Drinker,1,100,0
+1190812,Not Inferred,,,0,,
+1192207,Ex-smoker,,,,,
+1194749,Non-Smoker,0,Non-Drinker,0,90,
+1197023,Not inferred,,,,,
+1199165,Not Inferred,0,,0,,
+120069,Not Inferred,0,,2,,
+1203807,Not Inferred,,,0,100,0
+1204131,Not inferred,,,,,
+1205641,Smoker,45,Drinker,2,90,0
+1205840,Not Inferred,,,1,100,0
+1208233,Smoker,,,0,100,0
+1208740,Not inferred,,,,,
+1209421,Non-Smoker,0,Drinker,0,100,0
+1211203,Ex-smoker,,Drinker,0,100,0
+1211282,Not Inferred,,,2,,
+1211374,Not Inferred,,,0,,
+1212081,Non-Smoker,0,Drinker,1,100,0
+1213422,Smoker,50,Drinker,2,,
+1213444,Smoker,60,Drinker,0,100,0
+12144,Not Inferred,,,5,90,0
+1214634,Ex-smoker,,Drinker,,,
+1215113,Not inferred,,,,,
+1215254,Not Inferred,,,0,,
+1218398,Ex-smoker,60,Non-Drinker,0,90,0
+1219243,Ex-smoker,0,Non-Drinker,,90,
+1221482,Ex-smoker,,Non-Drinker,3,90,0
+1222698,Ex-smoker,0,Non-Drinker,4,90,1
+1223322,Smoker,30,Drinker,0,100,0
+1223664,Ex-smoker,60,Drinker,2,,
+1224467,Not Inferred,,,0,,
+1226239,Non-Smoker,0,Non-Drinker,0,100,0
+1226244,Ex-smoker,,,4,90,
+1227068,Non-Smoker,0,Drinker,2,90,0
+1229304,Non-Smoker,0,Drinker,0,90,0
+1229797,Non-Smoker,0,,3,100,0
+1230627,Ex-smoker,30,Non-Drinker,2,,
+1231206,Smoker,20,Drinker,2,,0
+1232897,Not Inferred,,,2,100,0
+1233017,Non-Smoker,0,Non-Drinker,2,90,0
+123483,Not Inferred,,,0,,
+1236616,Ex-smoker,,Drinker,2,,
+1237068,Smoker,30,Drinker,0,100,0
+1237434,Non-Smoker,0,Non-Drinker,1,90,
+1237652,Ex-smoker,,Drinker,2,100,0
+1237981,Ex-smoker,40,Drinker,2,100,0
+1237993,Non-Smoker,0,Drinker,0,100,0
+1239735,Smoker,56,Drinker,2,,
+1240634,Ex-smoker,40,Drinker,2,100,0
+1243118,Ex-smoker,0,Drinker,0,100,0
+1243481,Non-Smoker,0,Drinker,1,100,0
+1244332,Ex-smoker,,Drinker,2,90,
+1244601,Ex-smoker,,Non-Drinker,2,90,1
+1246295,Ex-smoker,0,Drinker,1,100,0
+1246520,Non-Smoker,0,Drinker,4,100,0
+1247386,Ex-smoker,45,Non-Drinker,3,90,0
+1247526,Ex-smoker,,Drinker,1,100,0
+1247694,Non-Smoker,0,Drinker,2,,
+1249167,Non-Smoker,0,Drinker,0,90,1
+125021,Non-Smoker,0,Non-Drinker,4,80,
+1252653,Not Inferred,,,2,,
+1254031,Non-Smoker,0,Non-Drinker,1,,
+1254308,Non-Smoker,0,,2,90,
+1254757,Not inferred,,,,,
+1257269,Not Inferred,0,,1,90,0
+1259610,Ex-smoker,,Non-Drinker,5,90,0
+1259672,Non-Smoker,0,Non-Drinker,1,,1
+1260134,Ex-smoker,40,Drinker,2,,1
+1261144,Ex-smoker,40,Drinker,1,100,0
+1261266,Ex-smoker,50,Drinker,2,,
+1262059,Ex-smoker,,,2,,
+1262214,Non-Smoker,0,Drinker,0,100,0
+1263722,Not Inferred,,,2,100,0
+1264572,Non-Smoker,0,Non-Drinker,3,100,0
+1264635,Smoker,40,Drinker,1,100,0
+126518,Ex-smoker,,,1,90,0
+1266668,Not Inferred,0,,1,,
+1266899,Smoker,,Drinker,3,100,0
+1266939,Ex-smoker,,Drinker,2,100,0
+1266956,Non-Smoker,0,Drinker,0,100,0
+1269016,Smoker,,,0,90,0
+1269592,Not inferred,,,,,
+1271901,Ex-smoker,,,1,90,0
+1273369,Ex-smoker,,Drinker,2,100,0
+1274025,Ex-smoker,,Drinker,3,90,0
+1274985,Ex-smoker,,,4,90,0
+1275731,Non-Smoker,0,Non-Drinker,0,100,0
+1277035,Ex-smoker,,Drinker,0,,0
+1277636,Smoker,,,4,40,3
+1279649,Not inferred,,,,,
+1281645,Non-Smoker,0,Non-Drinker,0,,0
+1284179,Ex-smoker,30,,1,100,0
+1285492,Not Inferred,,,0,,
+1287020,Ex-smoker,40,Drinker,1,100,0
+1287301,Non-Smoker,0,Non-Drinker,0,100,0
+1289220,Ex-smoker,,Drinker,2,90,1
+1289606,Ex-smoker,,Drinker,1,100,0
+1289908,Not Inferred,0,,1,90,0
+1290087,Not Inferred,,Non-Drinker,1,,0
+1290109,Non-Smoker,0,Drinker,3,90,1
+1291053,Non-Smoker,0,Non-Drinker,2,90,0
+1291361,Non-Smoker,0,Drinker,0,90,0
+1291388,Ex-smoker,10,,0,100,0
+1292894,Not inferred,,,,,
+1293535,Non-Smoker,0,Non-Drinker,0,100,0
+1294458,Smoker,50,Drinker,2,,
+1294809,Non-Smoker,0,Drinker,2,90,1
+1295003,Non-Smoker,0,Non-Drinker,5,100,0
+1295666,Smoker,,Drinker,0,,
+1295667,Ex-smoker,,Drinker,2,100,0
+1296140,Ex-smoker,20,Drinker,0,,
+1296627,Smoker,30,,0,90,0
+1296972,Ex-smoker,50,Non-Drinker,2,100,0
+129701,Smoker,,Drinker,4,100,0
+1297318,Non-Smoker,0,Non-Drinker,0,100,0
+1298270,Non-Smoker,0,Non-Drinker,0,100,0
+1299439,Not Inferred,,,1,90,0
+1300290,Smoker,,Non-Drinker,1,80,2
+1302380,Not inferred,,,,,
+1302562,Ex-smoker,,Drinker,2,100,0
+1303763,Non-Smoker,0,Drinker,0,90,0
+1306232,Not Inferred,,,2,80,1
+1307534,Smoker,25,Drinker,0,90,0
+1308813,Not Inferred,0,,1,90,0
+1309309,Non-Smoker,0,Non-Drinker,0,,
+1310803,Not Inferred,0,,4,90,0
+1311615,Ex-smoker,40,Drinker,,,1
+1311697,Non-Smoker,0,,0,100,0
+1312475,Ex-smoker,26,Drinker,1,90,1
+1314678,Ex-smoker,,,2,100,0
+1314856,Ex-smoker,30,Drinker,0,,1
+1315408,Ex-smoker,12,Drinker,3,100,0
+1316912,Not Inferred,0,,0,100,0
+1317057,Not Inferred,,,4,,
+1319384,Non-Smoker,0,Non-Drinker,1,100,0
+1319850,Non-Smoker,0,Non-Drinker,1,100,0
+1322650,Smoker,47,Drinker,3,,
+1322881,Not Inferred,,,0,,
+1323861,Ex-smoker,,Drinker,2,80,2
+1324719,Smoker,40,Drinker,0,90,0
+1328286,Not inferred,,,,,
+1328441,Not inferred,,,,,
+1329878,Smoker,40,Drinker,0,100,0
+1330775,Not Inferred,,,0,,
+1331038,Not Inferred,0,,2,40,3
+1331317,Not inferred,,,,,
+1332528,Non-Smoker,0,Non-Drinker,0,100,0
+1332542,Not Inferred,,,,,
+1333587,Not Inferred,,,0,,
+1334220,Not Inferred,0,,2,,
+1336513,Ex-smoker,,,2,90,0
+1336918,Non-Smoker,0,,1,90,0
+1337276,Non-Smoker,0,,0,100,0
+1338180,Smoker,,,0,100,0
+1338382,Smoker,,,0,,
+1340671,Not Inferred,,,1,100,0
+1342311,Not Inferred,,,0,,
+13428,Non-Smoker,0,Drinker,3,90,0
+1343542,Smoker,,,0,100,0
+134424,Ex-smoker,,Drinker,,,
+1346920,Non-Smoker,0,Non-Drinker,1,90,0
+1347145,Ex-smoker,0,,2,,
+1347153,Not Inferred,,,0,,
+1348408,Not Inferred,,,,,1
+1348463,Non-Smoker,0,,0,100,0
+1349074,Not Inferred,0,,4,90,0
+1352387,Non-Smoker,0,Non-Drinker,1,100,0
+1354697,Non-Smoker,0,Drinker,1,100,0
+1354965,Smoker,,,0,90,0
+135560,Ex-smoker,30,Drinker,2,90,0
+1358956,Not Inferred,,,0,,
+136038,Smoker,,Non-Drinker,,,2
+1361136,Not Inferred,,,0,,
+1362878,Not inferred,,,,,
+1362929,Ex-smoker,0,,2,,0
+136458,Not inferred,,,,,
+1364626,Ex-smoker,,,4,90,0
+1365382,Non-Smoker,0,Non-Drinker,0,100,0
+1365459,Not inferred,,,,,
+1366321,Non-Smoker,0,Non-Drinker,0,,0
+1370838,Non-Smoker,0,Drinker,0,100,0
+1370858,Smoker,,,2,90,0
+137217,Not Inferred,,,0,,
+1374085,Not Inferred,0,,1,100,0
+1374231,Not Inferred,,,0,,
+1374538,Ex-smoker,,Drinker,0,,0
+1378340,Ex-smoker,15,Drinker,1,90,1
+1378907,Not Inferred,,,0,,
+138405,Smoker,,Drinker,0,100,0
+1384219,Non-Smoker,0,Non-Drinker,0,100,0
+138482,Smoker,,Drinker,2,,0
+1384866,Smoker,,,2,,
+1385239,Non-Smoker,0,,0,,
+1387465,Not Inferred,,,0,,
+1393583,Ex-smoker,27,Drinker,,,
+1395126,Not Inferred,,,2,,
+1399385,Non-Smoker,0,Non-Drinker,0,100,0
+1399434,Not Inferred,,,0,,
+1399697,Non-Smoker,0,Non-Drinker,0,100,0
+1400559,Not Inferred,,,0,,
+1401958,Non-Smoker,0,Drinker,3,100,0
+1402243,Ex-smoker,,,0,,0
 1406086,Ex-smoker,30,Non-Drinker,,,
-1406291,Not Inferred,Not Inferred,Not Inferred,4.0,90.0,0.0
-1406690,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1406838,Non-Smoker,0,Drinker [socially],0.0,100.0,0.0
-1410950,Ex-smoker,15,Not Inferred,3.0,90.0,0.0
-1411132,Smoker,40,Drinker [3-4 beers daily],1.0,,0.0
-141143,Non-Smoker,0,Not Inferred,0.0,100.0,0.0
-1413925,Not inferred,Not inferred,Not inferred,,,
-1414617,Ex-smoker,35,Drinker [1 glass of wine daily],1.0,100.0,0.0
-1414906,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1416427,Ex-smoker,0,Drinker [socially],,,
-1416988,Smoker,40,Drinker [amount not specified],0.0,100.0,0.0
-1421457,Ex-smoker,Not Inferred,Drinker [moderate],,,
-1421695,Ex-smoker,40,Not Inferred,0.0,100.0,0.0
-1421704,Non-Smoker,0,Drinker [socially],2.0,100.0,0.0
-1424032,Ex-smoker,15,Not Inferred,1.0,90.0,0.0
-1424073,Not Inferred,0,Not Inferred,5.0,90.0,1.0
-1424359,Not Inferred,0,Non-Drinker [No amount mentioned],1.0,100.0,0.0
-1426731,Non-Smoker,0,Not Inferred,1.0,100.0,0.0
-1427932,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1429383,Smoker,Not Inferred,Drinker [socially],3.0,100.0,0.0
-1430225,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1431251,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1433822,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1434930,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1435525,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1435529,Ex-smoker,6,Drinker [occasional],4.0,,
-1436630,Not Inferred,Not Inferred,Not Inferred,2.0,100.0,0.0
-1437043,Ex-smoker,Not Inferred,Not Inferred,3.0,90.0,0.0
-1437599,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1442020,Ex-smoker,45,Not Inferred,2.0,90.0,0.0
-1442355,Non-Smoker,0,Drinker [amount not specified],1.0,100.0,0.0
-1442530,Ex-smoker,10,Not Inferred,1.0,100.0,0.0
-1442833,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-144296,Non-Smoker,0,Non-Drinker,0.0,,
-1444811,Smoker,100,Drinker [socially],3.0,80.0,1.0
-1445040,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1445052,Non-Smoker,0,Non-Drinker,0.0,90.0,0.0
-1445467,Ex-smoker,20,Not Inferred,1.0,90.0,1.0
-1445486,Non-Smoker,0,Non-Drinker,3.0,,
-1447975,Not inferred,Not inferred,Not inferred,,,
-1448364,Ex-smoker,0,Not Inferred,0.0,100.0,0.0
-1448793,Not inferred,Not inferred,Not inferred,,,
-1451513,Ex-smoker,0,Drinker [socially],1.0,100.0,0.0
-1452487,Non-Smoker,0,Drinker [socially],0.0,90.0,0.0
-1453377,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1453403,Ex-smoker,15,Not Inferred,0.0,100.0,0.0
-1454672,Ex-smoker,30,Drinker [socially],2.0,,
-1456142,Non-Smoker,0,Drinker [socially],1.0,90.0,0.0
-1456720,Ex-smoker,40,Drinker [socially],1.0,90.0,0.0
-1457682,Not inferred,Not inferred,Not inferred,,,
-1457897,Not Inferred,Not Inferred,Not Inferred,0.0,90.0,0.0
-1457934,Non-Smoker,0,Drinker [socially],0.0,90.0,0.0
-1458541,Not Inferred,0 [Patient's smoking history not mentioned],Non-Drinker [No information available],3.0,100.0,0.0
-1460055,Ex-smoker,20,Drinker [social],2.0,100.0,0.0
-1460110,Smoker,30,Drinker [socially],2.0,90.0,0.0
-1462301,Non-Smoker,0,Drinker [occasional],2.0,100.0,0.0
-1462472,Non-Smoker,0,Non-Drinker,3.0,100.0,0.0
-1465563,Non-Smoker,0,Drinker [socially],4.0,90.0,0.0
-1466419,Ex-smoker,90,Drinker [2 bottles of beer a day],1.0,90.0,0.0
-1468262,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1469478,Smoker,Not Inferred,Not Inferred,0.0,90.0,0.0
-1470637,Not Inferred,Not Inferred,Not Inferred,2.0,90.0,1.0
-1472524,Non-Smoker,0,Drinker [occasional],3.0,,
-1473020,Smoker,"7 * (10+12)/2 = 77, but since pack-years calculation usually involves the average number of packs per day multiplied by the number of years smoked, and assuming an average of 11 cigarettes per day which equates roughly to half a pack (since a standard pack has 20 cigarettes), this would be approximately 7 * 0.55 = 3.85 pack-years, however given the information provided it seems more aligned with a direct calculation approach based on available data, thus: 7",Non-Drinker,0.0,,0.0
-1475415,Ex-smoker,10,Not Inferred,2.0,90.0,0.0
-1475978,Non-Smoker,0,Drinker [socially],0.0,100.0,0.0
-1476181,Ex-smoker,Not Inferred,Drinker [amount not specified],0.0,100.0,0.0
-1477536,Not Inferred,0,Not Inferred,0.0,,
-147889,Ex-smoker,Not Inferred,Drinker [occasional wine],0.0,100.0,0.0
-1486934,Ex-smoker,15,Drinker [amount not specified],0.0,100.0,0.0
-1489662,Ex-smoker,Not Inferred,Not Inferred,0.0,90.0,
-1489909,Smoker,Not Inferred,Not Inferred,2.0,90.0,0.0
-1496490,Smoker,Not Inferred,Not Inferred,0.0,90.0,0.0
-1501156,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1501323,Ex-smoker,30,Drinker [socially],2.0,100.0,0.0
-1501803,Non-Smoker,0,Not Inferred,0.0,100.0,0.0
-1503544,Not inferred,Not inferred,Not inferred,,,
-1503846,Non-Smoker,0,Not Inferred,0.0,,
-1504578,Non-Smoker,0,Not Inferred,0.0,90.0,0.0
-1505227,Ex-smoker,>20,Not Inferred,2.0,90.0,1.0
-150951,Non-Smoker,0,Non-Drinker,1.0,100.0,0.0
-1510013,Non-Smoker,0,Drinker [2 beers a day],1.0,90.0,0.0
-1510016,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1510079,Smoker,Not Inferred,Drinker [socially],4.0,90.0,0.0
-1513259,Ex-smoker,50,Drinker [1-2 beers daily],0.0,90.0,1.0
-1513334,Non-Smoker,0,Non-Drinker,0.0,100.0,1.0
-1514079,Smoker,50,Not Inferred,0.0,90.0,1.0
-1514775,Smoker,Not Inferred,Drinker [amount not specified],2.0,,1.0
-1517636,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1518987,Smoker,Not Inferred,"Drinker [longstanding, quit 1 month ago]",1.0,90.0,0.0
-1519382,Ex-smoker,5,Drinker [rarely],0.0,100.0,0.0
-152023,Not Inferred,Not Inferred,Not Inferred,1.0,100.0,0.0
-152270,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1524429,Smoker,46,Drinker [significant drinking age 18-25],4.0,100.0,0.0
-1525413,Ex-smoker,Not Inferred,Not Inferred,2.0,90.0,0.0
-1528517,Not Inferred,Not Inferred,Not Inferred,2.0,100.0,0.0
-1529931,Non-Smoker,0,Non-Drinker,0.0,90.0,1.0
-1535811,Ex-smoker,30,Drinker [occasional],3.0,100.0,0.0
-1538245,Ex-smoker,Not Inferred,Drinker [2 beers a day],1.0,90.0,0.0
-1539606,Ex-smoker,Not Inferred,Not Inferred,1.0,90.0,0.0
-154306,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1545677,Ex-smoker,10+,Not Inferred,2.0,90.0,0.0
-1546177,Not Inferred,Not Inferred,Not Inferred,0.0,90.0,1.0
-1547573,Not inferred,Not inferred,Not inferred,,,
-1548478,Non-Smoker,0,Not Inferred,0.0,100.0,0.0
-1548859,Ex-smoker,Less than 10,Drinker [socially],1.0,90.0,0.0
-1548911,Not inferred,Not inferred,Not inferred,,,
-1549397,Non-Smoker,0,Not Inferred,2.0,90.0,0.0
-1555261,Non-Smoker,0,Not Inferred,0.0,100.0,0.0
-1560589,Non-Smoker,0,Drinker [occasional],,,
-156086,Not Inferred,Not Inferred,Not Inferred,1.0,100.0,0.0
-1562677,Ex-smoker,15,Drinker [occasion],1.0,90.0,0.0
-1565302,Ex-smoker,Not Inferred,Drinker [amount not specified],2.0,100.0,
-1568369,Non-Smoker,0,Not Inferred,1.0,100.0,0.0
-1568879,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1569326,Ex-smoker,0,Not Inferred,2.0,90.0,0.0
-1570419,Not Inferred,Not Inferred,Not Inferred,0.0,,
-157156,Not inferred,Not inferred,Not inferred,,,
+1406291,Not Inferred,,,4,90,0
+1406690,Not Inferred,,,0,,
+1406838,Non-Smoker,0,Drinker,0,100,0
+1410950,Ex-smoker,15,,3,90,0
+1411132,Smoker,40,Drinker,1,,0
+141143,Non-Smoker,0,,0,100,0
+1413925,Not inferred,,,,,
+1414617,Ex-smoker,35,Drinker,1,100,0
+1414906,Not Inferred,,,0,,
+1416427,Ex-smoker,0,Drinker,,,
+1416988,Smoker,40,Drinker,0,100,0
+1421457,Ex-smoker,,Drinker,,,
+1421695,Ex-smoker,40,,0,100,0
+1421704,Non-Smoker,0,Drinker,2,100,0
+1424032,Ex-smoker,15,,1,90,0
+1424073,Not Inferred,0,,5,90,1
+1424359,Not Inferred,0,Non-Drinker,1,100,0
+1426731,Non-Smoker,0,,1,100,0
+1427932,Not Inferred,,,0,,
+1429383,Smoker,,Drinker,3,100,0
+1430225,Not Inferred,,,0,,
+1431251,Not Inferred,,,2,,
+1433822,Not Inferred,,,2,,
+1434930,Non-Smoker,0,Non-Drinker,0,100,0
+1435525,Not Inferred,,,0,,
+1435529,Ex-smoker,6,Drinker,4,,
+1436630,Not Inferred,,,2,100,0
+1437043,Ex-smoker,,,3,90,0
+1437599,Not Inferred,,,0,,
+1442020,Ex-smoker,45,,2,90,0
+1442355,Non-Smoker,0,Drinker,1,100,0
+1442530,Ex-smoker,10,,1,100,0
+1442833,Non-Smoker,0,Non-Drinker,0,100,0
+144296,Non-Smoker,0,Non-Drinker,0,,
+1444811,Smoker,100,Drinker,3,80,1
+1445040,Not Inferred,,,0,,
+1445052,Non-Smoker,0,Non-Drinker,0,90,0
+1445467,Ex-smoker,20,,1,90,1
+1445486,Non-Smoker,0,Non-Drinker,3,,
+1447975,Not inferred,,,,,
+1448364,Ex-smoker,0,,0,100,0
+1448793,Not inferred,,,,,
+1451513,Ex-smoker,0,Drinker,1,100,0
+1452487,Non-Smoker,0,Drinker,0,90,0
+1453377,Non-Smoker,0,Non-Drinker,0,100,0
+1453403,Ex-smoker,15,,0,100,0
+1454672,Ex-smoker,30,Drinker,2,,
+1456142,Non-Smoker,0,Drinker,1,90,0
+1456720,Ex-smoker,40,Drinker,1,90,0
+1457682,Not inferred,,,,,
+1457897,Not Inferred,,,0,90,0
+1457934,Non-Smoker,0,Drinker,0,90,0
+1458541,Not Inferred,,Non-Drinker,3,100,0
+1460055,Ex-smoker,20,Drinker,2,100,0
+1460110,Smoker,30,Drinker,2,90,0
+1462301,Non-Smoker,0,Drinker,2,100,0
+1462472,Non-Smoker,0,Non-Drinker,3,100,0
+1465563,Non-Smoker,0,Drinker,4,90,0
+1466419,Ex-smoker,90,Drinker,1,90,0
+1468262,Not Inferred,,,0,,
+1469478,Smoker,,,0,90,0
+1470637,Not Inferred,,,2,90,1
+1472524,Non-Smoker,0,Drinker,3,,
+1473020,Smoker,,Non-Drinker,0,,0
+1475415,Ex-smoker,10,,2,90,0
+1475978,Non-Smoker,0,Drinker,0,100,0
+1476181,Ex-smoker,,Drinker,0,100,0
+1477536,Not Inferred,0,,0,,
+147889,Ex-smoker,,Drinker,0,100,0
+1486934,Ex-smoker,15,Drinker,0,100,0
+1489662,Ex-smoker,,,0,90,
+1489909,Smoker,,,2,90,0
+1496490,Smoker,,,0,90,0
+1501156,Non-Smoker,0,Non-Drinker,0,100,0
+1501323,Ex-smoker,30,Drinker,2,100,0
+1501803,Non-Smoker,0,,0,100,0
+1503544,Not inferred,,,,,
+1503846,Non-Smoker,0,,0,,
+1504578,Non-Smoker,0,,0,90,0
+1505227,Ex-smoker,,,2,90,1
+150951,Non-Smoker,0,Non-Drinker,1,100,0
+1510013,Non-Smoker,0,Drinker,1,90,0
+1510016,Not Inferred,,,2,,
+1510079,Smoker,,Drinker,4,90,0
+1513259,Ex-smoker,50,Drinker,0,90,1
+1513334,Non-Smoker,0,Non-Drinker,0,100,1
+1514079,Smoker,50,,0,90,1
+1514775,Smoker,,Drinker,2,,1
+1517636,Not Inferred,,,0,,
+1518987,Smoker,,Drinker,1,90,0
+1519382,Ex-smoker,5,Drinker,0,100,0
+152023,Not Inferred,,,1,100,0
+152270,Not Inferred,,,2,,
+1524429,Smoker,46,Drinker,4,100,0
+1525413,Ex-smoker,,,2,90,0
+1528517,Not Inferred,,,2,100,0
+1529931,Non-Smoker,0,Non-Drinker,0,90,1
+1535811,Ex-smoker,30,Drinker,3,100,0
+1538245,Ex-smoker,,Drinker,1,90,0
+1539606,Ex-smoker,,,1,90,0
+154306,Not Inferred,,,0,,
+1545677,Ex-smoker,,,2,90,0
+1546177,Not Inferred,,,0,90,1
+1547573,Not inferred,,,,,
+1548478,Non-Smoker,0,,0,100,0
+1548859,Ex-smoker,,Drinker,1,90,0
+1548911,Not inferred,,,,,
+1549397,Non-Smoker,0,,2,90,0
+1555261,Non-Smoker,0,,0,100,0
+1560589,Non-Smoker,0,Drinker,,,
+156086,Not Inferred,,,1,100,0
+1562677,Ex-smoker,15,Drinker,1,90,0
+1565302,Ex-smoker,,Drinker,2,100,
+1568369,Non-Smoker,0,,1,100,0
+1568879,Not Inferred,,,2,,
+1569326,Ex-smoker,0,,2,90,0
+1570419,Not Inferred,,,0,,
+157156,Not inferred,,,,,
 1574092,Ex-smoker,25,Non-Drinker,,,
-1576809,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1579197,Non-Smoker,0,Not Inferred,1.0,100.0,0.0
-1586663,Non-Smoker,0,Drinker [occasional],2.0,100.0,0.0
-1586860,Ex-smoker,10,Drinker [occasional],0.0,100.0,0.0
-1587596,Non-Smoker,Not inferred,Not Inferred,,,
-1591388,Ex-smoker,10,Not Inferred,1.0,100.0,0.0
-1591620,Non-Smoker,0,Not Inferred,0.0,90.0,
-1593669,Ex-smoker,20,Not Inferred,1.0,100.0,0.0
-1597827,Non-Smoker,0,Not Inferred,0.0,,
-1598456,Not Inferred,Not Inferred,Not Inferred,2.0,,
-160444,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-1607304,Ex-smoker,Not Inferred,Not Inferred,2.0,80.0,1.0
-1610461,Smoker,Not Inferred,Not Inferred,1.0,90.0,0.0
-1611082,Non-Smoker,0,Drinker [occasional],0.0,90.0,0.0
-1611667,Not inferred,Not inferred,Not inferred,,,
-1618327,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1621194,Non-Smoker,0,Not Inferred,1.0,,
-1622580,Smoker,Not Inferred,Not Inferred,3.0,90.0,0.0
-1623163,Not inferred,Not inferred,Not inferred,,,
-1626006,Ex-smoker,10-15,Drinker [amount not specified],3.0,90.0,1.0
-1626507,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1629212,Non-Smoker,0,Not Inferred,0.0,90.0,
-1629338,Non-Smoker,0,Not Inferred,1.0,100.0,0.0
-1631415,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1633435,Non-Smoker,0,Not Inferred,1.0,100.0,0.0
-1641810,Not inferred,Not inferred,Not inferred,,,
-1646430,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1649177,Not Inferred,Not Inferred,Not Inferred,2.0,,
-1650881,Smoker,Not Inferred,Not Inferred,0.0,,
-165361,Not inferred,Not inferred,Not inferred,,,
-1667104,Not Inferred,Not Inferred,Not Inferred,2.0,80.0,1.0
-166906,Smoker,30,Drinker [2 ounces],3.0,90.0,
-1673510,Not Inferred,Not Inferred,Not Inferred,2.0,80.0,2.0
-168146,Not Inferred,Not Inferred,Not Inferred,0.0,,
-1700089,Not Inferred,Not Inferred,Not Inferred,0.0,80.0,1.0
-170012,Non-Smoker,0,Non-Drinker,3.0,100.0,0.0
-174746,Ex-smoker,0,Not Inferred,2.0,100.0,0.0
-175401,Not Inferred,Not Inferred,Not Inferred,1.0,100.0,0.0
-179936,Not inferred,Not inferred,Not inferred,,,
-183957,Ex-smoker,Not Inferred,Drinker [socially],0.0,100.0,0.0
-187518,Not inferred,Not inferred,Not inferred,,,
-188433,Ex-smoker,35,Non-Drinker,2.0,100.0,0.0
-194033,Non-Smoker,0,Drinker [occasional],1.0,100.0,0.0
-206783,Not Inferred,Not Inferred,Not Inferred,0.0,,
-207046,Ex-smoker,Not Inferred,Not Inferred,3.0,80.0,1.0
-210505,Ex-smoker,Not Inferred,Drinker [2 drinks/day],1.0,100.0,0.0
-220399,Ex-smoker,10,Drinker [social],3.0,90.0,0.0
-223514,Ex-smoker,Not Inferred,Not Inferred,1.0,90.0,0.0
-227464,Smoker,Not Inferred,Not Inferred,2.0,90.0,0.0
-235316,Not Inferred,0,Non-Drinker [No amount specified],0.0,100.0,0.0
-235538,Smoker,30,Non-Drinker,0.0,100.0,0.0
-236853,Not Inferred,Not Inferred,Not Inferred,,90.0,
-242635,Smoker,10,Drinker [2 glasses of wine a day],1.0,90.0,0.0
-242907,Ex-smoker,Not Inferred,Drinker [amount not specified],0.0,100.0,0.0
-244078,Ex-smoker,Not Inferred,Not Inferred,3.0,,
-24410,Non-Smoker,0,Drinker [1 glass of wine/day],1.0,90.0,0.0
-244688,Smoker,Not Inferred,Drinker [occasionally],1.0,90.0,0.0
-244874,Not Inferred,Not Inferred,Not Inferred,0.0,,
-245815,Not inferred,Not inferred,Not inferred,,,
-245845,Ex-smoker,Not Inferred,Drinker [socially],3.0,100.0,0.0
-249456,Non-Smoker,0,Non-Drinker,2.0,100.0,0.0
-250322,Ex-smoker,0,Drinker [Infrequent],0.0,90.0,1.0
-252296,Not Inferred,Not Inferred,Not Inferred,0.0,,
-256537,Not Inferred,Not Inferred,Not Inferred,4.0,100.0,0.0
-258141,Not Inferred,Not Inferred,Not Inferred,0.0,,
-267658,Ex-smoker,Not Inferred,Drinker [no specific amount mentioned],1.0,100.0,0.0
-276261,Not inferred,Not inferred,Not inferred,,,
-276343,Ex-smoker,Not Inferred,Drinker [occasionally],1.0,100.0,0.0
-277917,Not inferred,Not inferred,Not inferred,,,
-279242,Non-Smoker,0,Drinker [minimal],1.0,,
-284231,Ex-smoker,Not Inferred,Drinker [occasional],0.0,,0.0
-286563,Not Inferred,0,Not Inferred,3.0,100.0,0.0
-288336,Ex-smoker,Not Inferred,Not Inferred,5.0,100.0,0.0
-291263,Non-Smoker,0,Drinker [occasionally],1.0,100.0,0.0
-292261,Ex-smoker,40,"Drinker [occasional, 2 days/week]",4.0,,
-294180,Not Inferred,Not Inferred,Not Inferred,2.0,,
-296213,Not Inferred,Not Inferred,Not Inferred,2.0,100.0,0.0
-296602,Not inferred,Not inferred,Not inferred,,,
-30022,Not Inferred,Not Inferred,Not Inferred,2.0,,
-300560,Not Inferred,Not Inferred,Not Inferred,2.0,,
-306972,Not Inferred,Not Inferred,Not Inferred,0.0,,
-307204,Smoker,Not Inferred,Drinker [no specific amount mentioned],2.0,,0.0
-307557,Not Inferred,Not Inferred,Not Inferred,0.0,,
-307869,Smoker,30,Drinker [No amount specified],2.0,,
-309014,Ex-smoker,30,Not Inferred,0.0,,
-310511,Not Inferred,0 [Patient's smoking history not mentioned],Non-Drinker [No information available],4.0,,0.0
-313323,Ex-smoker,Not Inferred,Not Inferred,4.0,80.0,2.0
-313421,Ex-smoker,35,Drinker [2-3 times per week],2.0,100.0,0.0
-315566,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-319885,Not Inferred,Not Inferred,Not Inferred,4.0,90.0,0.0
-322896,Ex-smoker,34,Drinker [occasional],1.0,,
-323112,Not Inferred,Not Inferred,Not Inferred,2.0,,
-324434,Ex-smoker,10,Not Inferred,1.0,,
-330399,Ex-smoker,0,Not Inferred,1.0,100.0,0.0
-330928,Ex-smoker,30,Not Inferred,1.0,100.0,0.0
-331375,Non-Smoker,0,Not Inferred,2.0,100.0,0.0
-333937,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-334421,Ex-smoker,10,Drinker [2 beers a day],,,
-335339,Not Inferred,Not Inferred,Not Inferred,0.0,,
-336310,Non-Smoker,0,Non-Drinker,2.0,100.0,0.0
-343698,Ex-smoker,35,Non-Drinker,3.0,90.0,0.0
-345463,Not Inferred,0,Not Inferred,1.0,100.0,0.0
-345750,Smoker,25,Non-Drinker,,,1.0
-347246,Non-Smoker,0,Non-Drinker,3.0,100.0,0.0
-348061,Smoker,Not Inferred,Not Inferred,1.0,,
-357871,Ex-smoker,0,Non-Drinker,2.0,100.0,0.0
-359824,Ex-smoker,30,Drinker [1 glass of wine/day],2.0,90.0,0.0
-359825,Not Inferred,0,Not Inferred,2.0,,
-361167,Ex-smoker,Not Inferred,Not Inferred,3.0,90.0,0.0
-36311,Ex-smoker,Not Inferred,Not Inferred,3.0,100.0,0.0
-364959,Not Inferred,Not Inferred,Not Inferred,2.0,,
-367722,Non-Smoker,0,Drinker [amount not specified],0.0,90.0,0.0
-368373,Smoker,Not Inferred,Not Inferred,3.0,,0.0
-375374,Not Inferred,Not Inferred,Not Inferred,0.0,,
-376941,Non-Smoker,0,Not Inferred,,,
-378985,Not Inferred,Not Inferred,Not Inferred,2.0,90.0,0.0
-381326,Ex-smoker,Not Inferred,Not Inferred,1.0,100.0,0.0
-381460,Not Inferred,Not Inferred,Not Inferred,3.0,100.0,0.0
-385207,Not inferred,Not inferred,Not inferred,,,
-386754,Ex-smoker,0,Not Inferred,2.0,100.0,0.0
-388285,Not Inferred,Not Inferred,Not Inferred,0.0,100.0,0.0
-388442,Ex-smoker,Not Inferred,Drinker [occasional],3.0,100.0,0.0
-392130,Ex-smoker,Not Inferred,Drinker [socially],2.0,100.0,0.0
-395523,Not Inferred,Not Inferred,Not Inferred,2.0,100.0,0.0
-398501,Non-Smoker,0,Drinker [5-10 drinks a week],0.0,100.0,0.0
-401228,Not Inferred,Not Inferred,Not Inferred,0.0,,
-410264,Ex-smoker,0,Not Inferred,2.0,90.0,0.0
-414957,Not Inferred,Not Inferred,Not Inferred,0.0,,
-41566,Ex-smoker,30,Not Inferred,1.0,90.0,0.0
-417741,Not Inferred,Not Inferred,Not Inferred,0.0,,
-421857,Non-Smoker,0,Non-Drinker,4.0,100.0,0.0
-424609,Non-Smoker,0,Non-Drinker,,,0.0
-425070,Not Inferred,Not Inferred,Not Inferred,0.0,,
-436641,"20-pack-year, stopped one month ago",Not inferred,Occasional,,,0.0
-437522,Not Inferred,0,Not Inferred,5.0,90.0,0.0
-438752,Ex-smoker,60,Not Inferred,1.0,100.0,0.0
-441995,Non-Smoker,0,"Drinker [socially, amount not specified]",2.0,100.0,0.0
-44651,Not inferred,Not inferred,Not inferred,,,
-446977,Ex-smoker,20,Not Inferred,4.0,90.0,0.0
-449018,Non-Smoker,0,Drinker [rarely],0.0,100.0,0.0
-451834,Ex-smoker,40,Non-Drinker,4.0,80.0,
-451971,Non-Smoker,0,Drinker [1 beer per day],3.0,,0.0
-454098,Non-Smoker,0,Non-Drinker,2.0,,0.0
-454921,Not Inferred,Not Inferred,Not Inferred,3.0,90.0,0.0
-458865,Ex-smoker,0,Not Inferred,0.0,100.0,0.0
-460075,Ex-smoker,Not Inferred,Drinker [socially],1.0,100.0,0.0
-460934,Non-Smoker,0,Drinker [occasional],0.0,100.0,0.0
-461429,Ex-smoker,60,Not Inferred,1.0,100.0,0.0
-465567,Ex-smoker,"5 * 30 = 150 pack-years, however since the patient quit 30 years ago and smoked for an unspecified duration, we cannot accurately calculate this from given information. Therefore: Not Inferred",Drinker [occasional],5.0,85.0,
-465626,Smoker,Not Inferred,Not Inferred,0.0,,
-467893,Ex-smoker,40,Not inferred,,,1.0
-469158,Non-Smoker,0,Not Inferred,0.0,,
-474079,Ex-smoker,Not Inferred,Drinker [amount not specified],2.0,,0.0
-474844,Ex-smoker,50,Drinker [occasional],1.0,90.0,0.0
-479810,Non-Smoker,0,Non-Drinker,1.0,90.0,0.0
-484722,Smoker,Not Inferred,Not Inferred,2.0,90.0,0.0
-486876,Not Inferred,Not Inferred,Not Inferred,2.0,,
-488193,Non-Smoker,0,Drinker [occasional],1.0,100.0,0.0
-490657,Ex-smoker,Not Inferred,Not Inferred,0.0,,0.0
-491733,Not inferred,Not inferred,Not inferred,,,
-493821,Ex-smoker,5,Not Inferred,0.0,100.0,0.0
-493824,Smoker,Not Inferred,Not Inferred,2.0,80.0,2.0
-505630,Not Inferred,Not Inferred,Not Inferred,2.0,70.0,2.0
-518791,Ex-smoker,0,Drinker [occasionally],3.0,90.0,0.0
-519494,Smoker,70,Drinker [4 units per day],1.0,,
-520978,Ex-smoker,75,Not Inferred,2.0,100.0,
-521138,Not Inferred,0,Not Inferred,8.0,,
-521644,Non-Smoker,0,Drinker [occasionally],2.0,,
-524769,Not Inferred,Not Inferred,Not Inferred,2.0,,
-529997,Not inferred,Not inferred,Not inferred,,,
-534929,Ex-smoker,Not Inferred,Not Inferred,1.0,100.0,0.0
-535790,Not Inferred,Not Inferred,Not Inferred,0.0,,
-536666,Non-Smoker,0,Non-Drinker,0.0,,0.0
-544721,Not Inferred,Not Inferred,Not Inferred,0.0,100.0,0.0
-548251,Not Inferred,Not Inferred,Not Inferred,0.0,,
-548457,Not Inferred,Not Inferred,Not Inferred,0.0,,
-551914,Not inferred,Not inferred,Not inferred,,,
-552746,Smoker,30,Drinker [4-5 times/day],1.0,100.0,0.0
-552901,Ex-smoker,Not Inferred,Not Inferred,1.0,100.0,0.0
-555942,Ex-smoker,Not Inferred,Not Inferred,2.0,100.0,0.0
-556923,Ex-smoker,Not Inferred,Not Inferred,3.0,,0.0
-558397,Ex-smoker,>50,Drinker [half bottle of wine daily],4.0,90.0,1.0
-561902,Smoker,28,Not Inferred,3.0,90.0,1.0
-56276,Not inferred,Not inferred,Not inferred,,,
-564344,Ex-smoker,0,Drinker [occasional],5.0,100.0,0.0
-568216,Ex-smoker,0,Drinker [1 glass of wine per day],2.0,100.0,0.0
-571709,Non-Smoker,0,Drinker [rarely],1.0,100.0,0.0
-571923,Smoker,Not Inferred,Drinker [1 bottle/day],4.0,80.0,2.0
-572338,Ex-smoker,Not Inferred,Drinker [occasion],1.0,100.0,0.0
-575788,Ex-smoker,Not inferred,"Non-Drinker [6 beers a day for 30 years, stopped 6 months ago]",,,
-577218,Ex-smoker,40,Drinker [3-4 drinks a day],0.0,90.0,0.0
-579564,Non-Smoker,0,Non-Drinker,0.0,,
-57971,Ex-smoker,0,Not Inferred,2.0,90.0,0.0
-580293,Ex-smoker,15,Not Inferred,1.0,100.0,0.0
-581492,Ex-smoker,30,Not Inferred,1.0,90.0,0.0
-583421,Not inferred,Not inferred,Not inferred,,,
-584848,Not Inferred,Not Inferred,Not Inferred,1.0,100.0,0.0
-592315,Not Inferred,Not Inferred,Not Inferred,0.0,100.0,0.0
-592317,Ex-smoker,Not Inferred,Drinker [occasionally],0.0,100.0,0.0
-593910,Non-Smoker,0,Non-Drinker,2.0,100.0,0.0
-598824,Not Inferred,Not Inferred,Not Inferred,0.0,,
-59900,Not Inferred,Not Inferred,Not Inferred,3.0,90.0,0.0
-602299,Not Inferred,Not Inferred,Not Inferred,4.0,90.0,
-605465,Not Inferred,Not Inferred,Not Inferred,0.0,100.0,0.0
-607008,Not Inferred,Not Inferred,Not Inferred,3.0,100.0,0.0
-610810,Non-Smoker,0,Not Inferred,3.0,90.0,0.0
-615500,Smoker,Not Inferred,Not Inferred,1.0,95.0,0.0
-618683,Ex-smoker,10,Not Inferred,0.0,100.0,0.0
-62806,Non-Smoker,0,Non-Drinker,2.0,100.0,0.0
-628178,Ex-smoker,40-60,Drinker [regularly],3.0,,0.0
-628445,Ex-smoker,60,Non-Drinker,5.0,90.0,0.0
-629036,Not inferred,Not inferred,Not inferred,,,
-630726,Ex-smoker,Not Inferred,Non-Drinker,,,
-631720,Non-Smoker,0,Drinker [socially],,,
-6369,Non-Smoker,0,Non-Drinker,4.0,,
-637343,Not Inferred,Not Inferred,Not Inferred,0.0,,
-639074,Smoker,Not Inferred,"Drinker [regularly, amount not specified]",2.0,90.0,0.0
-644397,Non-Smoker,0,Drinker [occasionally],2.0,100.0,0.0
-646772,Not Inferred,Not Inferred,Not Inferred,0.0,,
-651847,Non-Smoker,0,Drinker [1 beer per day],2.0,100.0,0.0
-654327,Non-Smoker,0,Drinker [occasionally],2.0,100.0,0.0
-655883,Non-Smoker,0,Non-Drinker,4.0,,0.0
-656981,Not Inferred,Not Inferred,Not Inferred,0.0,,
-665102,Ex-smoker,40,Not Inferred,5.0,100.0,0.0
-665419,Not Inferred,Not Inferred,Not Inferred,0.0,,
-667872,Not inferred,Not inferred,Not inferred,,,
-669146,Not Inferred,Not Inferred,Not Inferred,2.0,,
-669316,Non-Smoker,0,Drinker [Occasional],5.0,80.0,2.0
-673688,Ex-smoker,0,Not Inferred,6.0,60.0,3.0
-680227,Ex-smoker,Not Inferred,Drinker [occasional],1.0,100.0,0.0
-688973,Non-Smoker,0,Drinker [occasionally],0.0,,
-692769,Smoker,58.5,Non-Drinker,,,
-696524,Not Inferred,Not Inferred,Not Inferred,0.0,,
-700633,Smoker,Not Inferred,Drinker [1 glass of wine daily],0.0,90.0,0.0
-704145,Non-Smoker,0,Drinker [socially],,,
-711775,Not Inferred,Not Inferred,Not Inferred,2.0,100.0,0.0
-713110,Not Inferred,Not Inferred,Not Inferred,0.0,,
-71944,Ex-smoker,Not Inferred,Drinker [Occasional],2.0,90.0,0.0
-719809,Ex-smoker,0,Non-Drinker,3.0,90.0,0.0
-722792,Not inferred,Not inferred,Not inferred,,,
-724427,Not inferred,Not inferred,Not inferred,,,
-72493,Ex-smoker,Not Inferred,Drinker [occasional],3.0,,
-726562,Non-Smoker,0,Drinker [occasionally],0.0,100.0,0.0
-731683,Non-Smoker,0,Non-Drinker,2.0,90.0,0.0
-732291,Not Inferred,Not Inferred,Not Inferred,2.0,100.0,0.0
-732897,Ex-smoker,Not Inferred,Not Inferred,0.0,90.0,0.0
-738401,Non-Smoker,0,Not Inferred,0.0,,0.0
-738759,Not Inferred,Not Inferred,Not Inferred,2.0,100.0,0.0
-739007,Not Inferred,0,Not Inferred,4.0,90.0,0.0
-739065,Non-Smoker,0,Drinker [1 glass of wine per day],,,1.0
-742863,Ex-smoker,30,Drinker [socially],1.0,100.0,0.0
-745421,Non-Smoker,0,Non-Drinker,2.0,100.0,0.0
-747153,Ex-smoker,20,Not Inferred,,,
-752181,Ex-smoker,Not Inferred,Not Inferred,3.0,100.0,0.0
-755397,Not Inferred,Not Inferred,Not Inferred,2.0,,
-756810,Smoker,Not Inferred,Drinker [unknown amount],2.0,70.0,2.0
-758933,Ex-smoker,Not Inferred,Not Inferred,,,
-759432,Not Inferred,Not Inferred,Not Inferred,1.0,90.0,0.0
-760243,Ex-smoker,12,Not Inferred,1.0,100.0,0.0
-761628,Ex-smoker,20,Drinker [occasional],2.0,90.0,1.0
-761661,Smoker,40,Not Inferred,0.0,100.0,0.0
-763380,Not inferred,Not inferred,Not inferred,,,
+1576809,Not Inferred,,,0,,
+1579197,Non-Smoker,0,,1,100,0
+1586663,Non-Smoker,0,Drinker,2,100,0
+1586860,Ex-smoker,10,Drinker,0,100,0
+1587596,Non-Smoker,,,,,
+1591388,Ex-smoker,10,,1,100,0
+1591620,Non-Smoker,0,,0,90,
+1593669,Ex-smoker,20,,1,100,0
+1597827,Non-Smoker,0,,0,,
+1598456,Not Inferred,,,2,,
+160444,Non-Smoker,0,Non-Drinker,0,100,0
+1607304,Ex-smoker,,,2,80,1
+1610461,Smoker,,,1,90,0
+1611082,Non-Smoker,0,Drinker,0,90,0
+1611667,Not inferred,,,,,
+1618327,Not Inferred,,,0,,
+1621194,Non-Smoker,0,,1,,
+1622580,Smoker,,,3,90,0
+1623163,Not inferred,,,,,
+1626006,Ex-smoker,,Drinker,3,90,1
+1626507,Not Inferred,,,2,,
+1629212,Non-Smoker,0,,0,90,
+1629338,Non-Smoker,0,,1,100,0
+1631415,Not Inferred,,,0,,
+1633435,Non-Smoker,0,,1,100,0
+1641810,Not inferred,,,,,
+1646430,Not Inferred,,,0,,
+1649177,Not Inferred,,,2,,
+1650881,Smoker,,,0,,
+165361,Not inferred,,,,,
+1667104,Not Inferred,,,2,80,1
+166906,Smoker,30,Drinker,3,90,
+1673510,Not Inferred,,,2,80,2
+168146,Not Inferred,,,0,,
+1700089,Not Inferred,,,0,80,1
+170012,Non-Smoker,0,Non-Drinker,3,100,0
+174746,Ex-smoker,0,,2,100,0
+175401,Not Inferred,,,1,100,0
+179936,Not inferred,,,,,
+183957,Ex-smoker,,Drinker,0,100,0
+187518,Not inferred,,,,,
+188433,Ex-smoker,35,Non-Drinker,2,100,0
+194033,Non-Smoker,0,Drinker,1,100,0
+206783,Not Inferred,,,0,,
+207046,Ex-smoker,,,3,80,1
+210505,Ex-smoker,,Drinker,1,100,0
+220399,Ex-smoker,10,Drinker,3,90,0
+223514,Ex-smoker,,,1,90,0
+227464,Smoker,,,2,90,0
+235316,Not Inferred,0,Non-Drinker,0,100,0
+235538,Smoker,30,Non-Drinker,0,100,0
+236853,Not Inferred,,,,90,
+242635,Smoker,10,Drinker,1,90,0
+242907,Ex-smoker,,Drinker,0,100,0
+244078,Ex-smoker,,,3,,
+24410,Non-Smoker,0,Drinker,1,90,0
+244688,Smoker,,Drinker,1,90,0
+244874,Not Inferred,,,0,,
+245815,Not inferred,,,,,
+245845,Ex-smoker,,Drinker,3,100,0
+249456,Non-Smoker,0,Non-Drinker,2,100,0
+250322,Ex-smoker,0,Drinker,0,90,1
+252296,Not Inferred,,,0,,
+256537,Not Inferred,,,4,100,0
+258141,Not Inferred,,,0,,
+267658,Ex-smoker,,Drinker,1,100,0
+276261,Not inferred,,,,,
+276343,Ex-smoker,,Drinker,1,100,0
+277917,Not inferred,,,,,
+279242,Non-Smoker,0,Drinker,1,,
+284231,Ex-smoker,,Drinker,0,,0
+286563,Not Inferred,0,,3,100,0
+288336,Ex-smoker,,,5,100,0
+291263,Non-Smoker,0,Drinker,1,100,0
+292261,Ex-smoker,40,Drinker,4,,
+294180,Not Inferred,,,2,,
+296213,Not Inferred,,,2,100,0
+296602,Not inferred,,,,,
+30022,Not Inferred,,,2,,
+300560,Not Inferred,,,2,,
+306972,Not Inferred,,,0,,
+307204,Smoker,,Drinker,2,,0
+307557,Not Inferred,,,0,,
+307869,Smoker,30,Drinker,2,,
+309014,Ex-smoker,30,,0,,
+310511,Not Inferred,,Non-Drinker,4,,0
+313323,Ex-smoker,,,4,80,2
+313421,Ex-smoker,35,Drinker,2,100,0
+315566,Non-Smoker,0,Non-Drinker,0,100,0
+319885,Not Inferred,,,4,90,0
+322896,Ex-smoker,34,Drinker,1,,
+323112,Not Inferred,,,2,,
+324434,Ex-smoker,10,,1,,
+330399,Ex-smoker,0,,1,100,0
+330928,Ex-smoker,30,,1,100,0
+331375,Non-Smoker,0,,2,100,0
+333937,Non-Smoker,0,Non-Drinker,0,100,0
+334421,Ex-smoker,10,Drinker,,,
+335339,Not Inferred,,,0,,
+336310,Non-Smoker,0,Non-Drinker,2,100,0
+343698,Ex-smoker,35,Non-Drinker,3,90,0
+345463,Not Inferred,0,,1,100,0
+345750,Smoker,25,Non-Drinker,,,1
+347246,Non-Smoker,0,Non-Drinker,3,100,0
+348061,Smoker,,,1,,
+357871,Ex-smoker,0,Non-Drinker,2,100,0
+359824,Ex-smoker,30,Drinker,2,90,0
+359825,Not Inferred,0,,2,,
+361167,Ex-smoker,,,3,90,0
+36311,Ex-smoker,,,3,100,0
+364959,Not Inferred,,,2,,
+367722,Non-Smoker,0,Drinker,0,90,0
+368373,Smoker,,,3,,0
+375374,Not Inferred,,,0,,
+376941,Non-Smoker,0,,,,
+378985,Not Inferred,,,2,90,0
+381326,Ex-smoker,,,1,100,0
+381460,Not Inferred,,,3,100,0
+385207,Not inferred,,,,,
+386754,Ex-smoker,0,,2,100,0
+388285,Not Inferred,,,0,100,0
+388442,Ex-smoker,,Drinker,3,100,0
+392130,Ex-smoker,,Drinker,2,100,0
+395523,Not Inferred,,,2,100,0
+398501,Non-Smoker,0,Drinker,0,100,0
+401228,Not Inferred,,,0,,
+410264,Ex-smoker,0,,2,90,0
+414957,Not Inferred,,,0,,
+41566,Ex-smoker,30,,1,90,0
+417741,Not Inferred,,,0,,
+421857,Non-Smoker,0,Non-Drinker,4,100,0
+424609,Non-Smoker,0,Non-Drinker,,,0
+425070,Not Inferred,,,0,,
+436641,"20-pack-year, stopped one month ago",,Drinker,,,0
+437522,Not Inferred,0,,5,90,0
+438752,Ex-smoker,60,,1,100,0
+441995,Non-Smoker,0,Drinker,2,100,0
+44651,Not inferred,,,,,
+446977,Ex-smoker,20,,4,90,0
+449018,Non-Smoker,0,Drinker,0,100,0
+451834,Ex-smoker,40,Non-Drinker,4,80,
+451971,Non-Smoker,0,Drinker,3,,0
+454098,Non-Smoker,0,Non-Drinker,2,,0
+454921,Not Inferred,,,3,90,0
+458865,Ex-smoker,0,,0,100,0
+460075,Ex-smoker,,Drinker,1,100,0
+460934,Non-Smoker,0,Drinker,0,100,0
+461429,Ex-smoker,60,,1,100,0
+465567,Ex-smoker,,Drinker,5,85,
+465626,Smoker,,,0,,
+467893,Ex-smoker,40,,,,1
+469158,Non-Smoker,0,,0,,
+474079,Ex-smoker,,Drinker,2,,0
+474844,Ex-smoker,50,Drinker,1,90,0
+479810,Non-Smoker,0,Non-Drinker,1,90,0
+484722,Smoker,,,2,90,0
+486876,Not Inferred,,,2,,
+488193,Non-Smoker,0,Drinker,1,100,0
+490657,Ex-smoker,,,0,,0
+491733,Not inferred,,,,,
+493821,Ex-smoker,5,,0,100,0
+493824,Smoker,,,2,80,2
+505630,Not Inferred,,,2,70,2
+518791,Ex-smoker,0,Drinker,3,90,0
+519494,Smoker,70,Drinker,1,,
+520978,Ex-smoker,75,,2,100,
+521138,Not Inferred,0,,8,,
+521644,Non-Smoker,0,Drinker,2,,
+524769,Not Inferred,,,2,,
+529997,Not inferred,,,,,
+534929,Ex-smoker,,,1,100,0
+535790,Not Inferred,,,0,,
+536666,Non-Smoker,0,Non-Drinker,0,,0
+544721,Not Inferred,,,0,100,0
+548251,Not Inferred,,,0,,
+548457,Not Inferred,,,0,,
+551914,Not inferred,,,,,
+552746,Smoker,30,Drinker,1,100,0
+552901,Ex-smoker,,,1,100,0
+555942,Ex-smoker,,,2,100,0
+556923,Ex-smoker,,,3,,0
+558397,Ex-smoker,,Drinker,4,90,1
+561902,Smoker,28,,3,90,1
+56276,Not inferred,,,,,
+564344,Ex-smoker,0,Drinker,5,100,0
+568216,Ex-smoker,0,Drinker,2,100,0
+571709,Non-Smoker,0,Drinker,1,100,0
+571923,Smoker,,Drinker,4,80,2
+572338,Ex-smoker,,Drinker,1,100,0
+575788,Ex-smoker,,Non-Drinker,,,
+577218,Ex-smoker,40,Drinker,0,90,0
+579564,Non-Smoker,0,Non-Drinker,0,,
+57971,Ex-smoker,0,,2,90,0
+580293,Ex-smoker,15,,1,100,0
+581492,Ex-smoker,30,,1,90,0
+583421,Not inferred,,,,,
+584848,Not Inferred,,,1,100,0
+592315,Not Inferred,,,0,100,0
+592317,Ex-smoker,,Drinker,0,100,0
+593910,Non-Smoker,0,Non-Drinker,2,100,0
+598824,Not Inferred,,,0,,
+59900,Not Inferred,,,3,90,0
+602299,Not Inferred,,,4,90,
+605465,Not Inferred,,,0,100,0
+607008,Not Inferred,,,3,100,0
+610810,Non-Smoker,0,,3,90,0
+615500,Smoker,,,1,95,0
+618683,Ex-smoker,10,,0,100,0
+62806,Non-Smoker,0,Non-Drinker,2,100,0
+628178,Ex-smoker,,Drinker,3,,0
+628445,Ex-smoker,60,Non-Drinker,5,90,0
+629036,Not inferred,,,,,
+630726,Ex-smoker,,Non-Drinker,,,
+631720,Non-Smoker,0,Drinker,,,
+6369,Non-Smoker,0,Non-Drinker,4,,
+637343,Not Inferred,,,0,,
+639074,Smoker,,Drinker,2,90,0
+644397,Non-Smoker,0,Drinker,2,100,0
+646772,Not Inferred,,,0,,
+651847,Non-Smoker,0,Drinker,2,100,0
+654327,Non-Smoker,0,Drinker,2,100,0
+655883,Non-Smoker,0,Non-Drinker,4,,0
+656981,Not Inferred,,,0,,
+665102,Ex-smoker,40,,5,100,0
+665419,Not Inferred,,,0,,
+667872,Not inferred,,,,,
+669146,Not Inferred,,,2,,
+669316,Non-Smoker,0,Drinker,5,80,2
+673688,Ex-smoker,0,,6,60,3
+680227,Ex-smoker,,Drinker,1,100,0
+688973,Non-Smoker,0,Drinker,0,,
+692769,Smoker,,Non-Drinker,,,
+696524,Not Inferred,,,0,,
+700633,Smoker,,Drinker,0,90,0
+704145,Non-Smoker,0,Drinker,,,
+711775,Not Inferred,,,2,100,0
+713110,Not Inferred,,,0,,
+71944,Ex-smoker,,Drinker,2,90,0
+719809,Ex-smoker,0,Non-Drinker,3,90,0
+722792,Not inferred,,,,,
+724427,Not inferred,,,,,
+72493,Ex-smoker,,Drinker,3,,
+726562,Non-Smoker,0,Drinker,0,100,0
+731683,Non-Smoker,0,Non-Drinker,2,90,0
+732291,Not Inferred,,,2,100,0
+732897,Ex-smoker,,,0,90,0
+738401,Non-Smoker,0,,0,,0
+738759,Not Inferred,,,2,100,0
+739007,Not Inferred,0,,4,90,0
+739065,Non-Smoker,0,Drinker,,,1
+742863,Ex-smoker,30,Drinker,1,100,0
+745421,Non-Smoker,0,Non-Drinker,2,100,0
+747153,Ex-smoker,20,,,,
+752181,Ex-smoker,,,3,100,0
+755397,Not Inferred,,,2,,
+756810,Smoker,,Drinker,2,70,2
+758933,Ex-smoker,,,,,
+759432,Not Inferred,,,1,90,0
+760243,Ex-smoker,12,,1,100,0
+761628,Ex-smoker,20,Drinker,2,90,1
+761661,Smoker,40,,0,100,0
+763380,Not inferred,,,,,
 763510,Non-Smoker,0,Non-Drinker,,,
-767722,Ex-smoker,Not Inferred,Drinker [amount not specified],3.0,90.0,1.0
-771523,Non-Smoker,0,Non-Drinker,3.0,,
-775865,Not inferred,Not inferred,Not inferred,,,
-777248,Non-Smoker,0,Non-Drinker,2.0,90.0,0.0
-7777,Non-Smoker,0,Non-Drinker,1.0,100.0,0.0
-779143,Ex-smoker,80,Drinker [1 bottle of wine and 2 bottles of beer per day],2.0,90.0,0.0
-782833,Not Inferred,Not Inferred,Not Inferred,4.0,70.0,2.0
-783891,Non-Smoker,0,Drinker [occasional],1.0,100.0,0.0
-784117,Non-Smoker,0,Non-Drinker,1.0,70.0,2.0
-787338,Ex-smoker,20,Not Inferred,2.0,100.0,0.0
-787354,Ex-smoker,Less than 10,Drinker [socially],0.0,100.0,0.0
-787603,Ex-smoker,More than 10,Not Inferred,5.0,80.0,2.0
-795778,Not Inferred,Not Inferred,Not Inferred,2.0,,
-801479,Not Inferred,Not Inferred,Not Inferred,3.0,90.0,0.0
-801535,Not Inferred,Not Inferred,Not Inferred,0.0,,
-802950,Smoker,>10,Drinker [> 2 beverages/day],3.0,,
-803211,Not inferred,Not inferred,Not inferred,,,
-804225,Non-Smoker,0,Drinker [1 glass of wine per day],2.0,,0.0
-808965,Non-Smoker,0,Non-Drinker,0.0,100.0,0.0
-810748,Not inferred,Not inferred,Not inferred,,,
-811013,Non-Smoker,0,Not Inferred,0.0,100.0,0.0
-816794,Not Inferred,Not Inferred,Not Inferred,1.0,,
-819290,Ex-smoker,10,Drinker [1-2 units per day],,,
+767722,Ex-smoker,,Drinker,3,90,1
+771523,Non-Smoker,0,Non-Drinker,3,,
+775865,Not inferred,,,,,
+777248,Non-Smoker,0,Non-Drinker,2,90,0
+7777,Non-Smoker,0,Non-Drinker,1,100,0
+779143,Ex-smoker,80,Drinker,2,90,0
+782833,Not Inferred,,,4,70,2
+783891,Non-Smoker,0,Drinker,1,100,0
+784117,Non-Smoker,0,Non-Drinker,1,70,2
+787338,Ex-smoker,20,,2,100,0
+787354,Ex-smoker,,Drinker,0,100,0
+787603,Ex-smoker,,,5,80,2
+795778,Not Inferred,,,2,,
+801479,Not Inferred,,,3,90,0
+801535,Not Inferred,,,0,,
+802950,Smoker,,Drinker,3,,
+803211,Not inferred,,,,,
+804225,Non-Smoker,0,Drinker,2,,0
+808965,Non-Smoker,0,Non-Drinker,0,100,0
+810748,Not inferred,,,,,
+811013,Non-Smoker,0,,0,100,0
+816794,Not Inferred,,,1,,
+819290,Ex-smoker,10,Drinker,,,
 820516,Non-Smoker,0,Non-Drinker,,,
-822853,Non-Smoker,0,Non-Drinker,4.0,100.0,0.0
-824381,Ex-smoker,20,Not Inferred,1.0,100.0,0.0
-825950,Smoker,50,Not Inferred,2.0,90.0,0.0
-830115,Non-Smoker,0,Drinker [occasional],1.0,100.0,0.0
-832253,Non-Smoker,0,Not Inferred,2.0,,
-832366,Not Inferred,Not Inferred,Not Inferred,0.0,,
-832391,Ex-smoker,Not Inferred,Drinker [4 glasses of wine a day],,,
-832888,Not Inferred,0,Not Inferred,2.0,100.0,0.0
-833851,Not inferred,Not inferred,Not inferred,,,
-836427,Ex-smoker,25,Not Inferred,4.0,90.0,0.0
-837503,Not Inferred,0,Not Inferred,0.0,100.0,0.0
-837535,Non-Smoker,0,Non-Drinker,5.0,90.0,0.0
-838461,Ex-smoker,Not Inferred,"Drinker [regularly, amount not specified]",0.0,100.0,0.0
-840620,Not Inferred,Not Inferred,Not Inferred,0.0,,
-846904,Not inferred,Not inferred,Not inferred,,,
+822853,Non-Smoker,0,Non-Drinker,4,100,0
+824381,Ex-smoker,20,,1,100,0
+825950,Smoker,50,,2,90,0
+830115,Non-Smoker,0,Drinker,1,100,0
+832253,Non-Smoker,0,,2,,
+832366,Not Inferred,,,0,,
+832391,Ex-smoker,,Drinker,,,
+832888,Not Inferred,0,,2,100,0
+833851,Not inferred,,,,,
+836427,Ex-smoker,25,,4,90,0
+837503,Not Inferred,0,,0,100,0
+837535,Non-Smoker,0,Non-Drinker,5,90,0
+838461,Ex-smoker,,Drinker,0,100,0
+840620,Not Inferred,,,0,,
+846904,Not inferred,,,,,
 847829,Ex-smoker,25,Non-Drinker,,,
-849051,Non-Smoker,0,Drinker [occasional],5.0,80.0,2.0
-851872,Not Inferred,Not Inferred,Not Inferred,0.0,,
-853832,Not Inferred,Not Inferred,Not Inferred,0.0,,
-856085,Ex-smoker,4,Drinker [socially],3.0,100.0,0.0
-857282,Ex-smoker,10-15,Drinker [occasional],4.0,100.0,0.0
-860978,Not Inferred,Not Inferred,Not Inferred,0.0,,
-863118,Non-Smoker,0,Drinker [occasionally],3.0,100.0,0.0
-863581,Not Inferred,Not Inferred,Not Inferred,2.0,,
-863584,Not Inferred,0,Not Inferred,2.0,60.0,3.0
-863972,Ex-smoker,30,Not Inferred,5.0,60.0,2.0
-864996,Ex-smoker,Not Inferred,Drinker [amount not specified],2.0,100.0,0.0
-865277,Non-Smoker,0,Not Inferred,0.0,100.0,0.0
-867143,Not Inferred,Not Inferred,Not Inferred,0.0,,
-870535,Ex-smoker,< 5,Drinker [occasionally],0.0,100.0,1.0
-870925,Ex-smoker,20,Drinker [occasional],0.0,90.0,1.0
-875152,Ex-smoker,Not Inferred,Drinker [amount not specified],0.0,,0.0
-882001,Non-Smoker,0,Not Inferred,2.0,100.0,0.0
-884999,Not Inferred,Not Inferred,Not Inferred,1.0,,
-888602,Ex-smoker,40,Drinker [occasional],,,
-891128,Not Inferred,Not Inferred,Not Inferred,0.0,,
-900465,Non-Smoker,0,Drinker [1 glass of wine a week],3.0,100.0,0.0
-900490,Ex-smoker,40,Non-Drinker,4.0,90.0,1.0
-902720,Non-Smoker,0,Not Inferred,,,
-907559,Non-Smoker,0,Non-Drinker,1.0,100.0,0.0
-907583,Not inferred,Not inferred,Not inferred,,,
-907916,Ex-smoker,30,Non-Drinker,1.0,90.0,0.0
-910092,Ex-smoker,15 [inferred from 30 years of smoking 0.5 pack/day],Drinker [1 glass of wine per day],4.0,,0.0
-911530,Ex-smoker,Not Inferred,Drinker [occasional],2.0,100.0,0.0
-912141,Not inferred,Not inferred,Not inferred,,,
-912580,Not Inferred,Not Inferred,Not Inferred,2.0,80.0,1.0
-9131,Ex-smoker,150,Drinker [occasional],,,
-919591,Non-Smoker,0,Non-Drinker,2.0,100.0,0.0
-920788,Ex-smoker,46,Not Inferred,1.0,,
-924048,Ex-smoker,35,Drinker [occasionally],2.0,70.0,2.0
-925650,Not Inferred,0,Not Inferred,0.0,,
-928101,Not Inferred,Not Inferred,Not Inferred,2.0,,
-92967,Smoker,Not Inferred,Not Inferred,3.0,90.0,0.0
-930297,Not inferred,Not inferred,Not inferred,,,
-932953,Not Inferred,Not Inferred,Not Inferred,4.0,100.0,0.0
-935281,Ex-smoker,20,Drinker [occasional],0.0,60.0,2.0
-936819,Non-Smoker,0,Drinker [occasionally],0.0,100.0,0.0
-940450,Not Inferred,Not Inferred,Not Inferred,,,
-94714,Not Inferred,Not Inferred,Not Inferred,0.0,90.0,1.0
-948790,Ex-smoker,Not Inferred,Not Inferred,3.0,,
-950542,Not inferred,Not inferred,Not inferred,,,
-957230,Not Inferred,Not Inferred,Not Inferred,4.0,90.0,0.0
-959920,Not Inferred,Not Inferred,Not Inferred,0.0,100.0,0.0
-963098,Smoker,500,Drinker [occsional],3.0,100.0,0.0
-964132,Ex-smoker,0,Not Inferred,1.0,90.0,0.0
-965945,Not Inferred,Not Inferred,Not Inferred,2.0,80.0,1.0
-968639,Ex-smoker,Not Inferred,Not Inferred,0.0,,0.0
-970236,Not Inferred,0,Not Inferred,2.0,60.0,3.0
-97134,Not Inferred,Not Inferred,Not Inferred,7.0,,
-972546,Not Inferred,Not Inferred,Not Inferred,0.0,100.0,0.0
-972669,Smoker,55,Drinker [6-8 glasses of scotch per day],,,0.0
-973526,Non-Smoker,0,Not Inferred,0.0,100.0,0.0
-975096,Ex-smoker,Not Inferred,Not Inferred,1.0,90.0,0.0
-975174,Not Inferred,Not Inferred,Not Inferred,0.0,,
-980000,Not Inferred,Not Inferred,Not Inferred,0.0,,0.0
-988682,Ex-smoker,14,Drinker [occasionally],1.0,100.0,0.0
-990263,Ex-smoker,0,Non-Drinker,4.0,80.0,1.0
-990489,Ex-smoker,30,Not Inferred,1.0,90.0,0.0
-991577,Ex-smoker,Not Inferred,Drinker [socially],2.0,100.0,0.0
-994799,Ex-smoker,Not Inferred,Not Inferred,2.0,100.0,0.0
-996342,Non-Smoker,0,Non-Drinker,2.0,90.0,1.0
-998834,Ex-smoker,20,Drinker [3 to 4 drinks a day],2.0,100.0,0.0
-999036,Not Inferred,Not Inferred,Not Inferred,2.0,,
+849051,Non-Smoker,0,Drinker,5,80,2
+851872,Not Inferred,,,0,,
+853832,Not Inferred,,,0,,
+856085,Ex-smoker,4,Drinker,3,100,0
+857282,Ex-smoker,,Drinker,4,100,0
+860978,Not Inferred,,,0,,
+863118,Non-Smoker,0,Drinker,3,100,0
+863581,Not Inferred,,,2,,
+863584,Not Inferred,0,,2,60,3
+863972,Ex-smoker,30,,5,60,2
+864996,Ex-smoker,,Drinker,2,100,0
+865277,Non-Smoker,0,,0,100,0
+867143,Not Inferred,,,0,,
+870535,Ex-smoker,,Drinker,0,100,1
+870925,Ex-smoker,20,Drinker,0,90,1
+875152,Ex-smoker,,Drinker,0,,0
+882001,Non-Smoker,0,,2,100,0
+884999,Not Inferred,,,1,,
+888602,Ex-smoker,40,Drinker,,,
+891128,Not Inferred,,,0,,
+900465,Non-Smoker,0,Drinker,3,100,0
+900490,Ex-smoker,40,Non-Drinker,4,90,1
+902720,Non-Smoker,0,,,,
+907559,Non-Smoker,0,Non-Drinker,1,100,0
+907583,Not inferred,,,,,
+907916,Ex-smoker,30,Non-Drinker,1,90,0
+910092,Ex-smoker,,Drinker,4,,0
+911530,Ex-smoker,,Drinker,2,100,0
+912141,Not inferred,,,,,
+912580,Not Inferred,,,2,80,1
+9131,Ex-smoker,150,Drinker,,,
+919591,Non-Smoker,0,Non-Drinker,2,100,0
+920788,Ex-smoker,46,,1,,
+924048,Ex-smoker,35,Drinker,2,70,2
+925650,Not Inferred,0,,0,,
+928101,Not Inferred,,,2,,
+92967,Smoker,,,3,90,0
+930297,Not inferred,,,,,
+932953,Not Inferred,,,4,100,0
+935281,Ex-smoker,20,Drinker,0,60,2
+936819,Non-Smoker,0,Drinker,0,100,0
+940450,Not Inferred,,,,,
+94714,Not Inferred,,,0,90,1
+948790,Ex-smoker,,,3,,
+950542,Not inferred,,,,,
+957230,Not Inferred,,,4,90,0
+959920,Not Inferred,,,0,100,0
+963098,Smoker,500,Drinker,3,100,0
+964132,Ex-smoker,0,,1,90,0
+965945,Not Inferred,,,2,80,1
+968639,Ex-smoker,,,0,,0
+970236,Not Inferred,0,,2,60,3
+97134,Not Inferred,,,7,,
+972546,Not Inferred,,,0,100,0
+972669,Smoker,55,Drinker,,,0
+973526,Non-Smoker,0,,0,100,0
+975096,Ex-smoker,,,1,90,0
+975174,Not Inferred,,,0,,
+980000,Not Inferred,,,0,,0
+988682,Ex-smoker,14,Drinker,1,100,0
+990263,Ex-smoker,0,Non-Drinker,4,80,1
+990489,Ex-smoker,30,,1,90,0
+991577,Ex-smoker,,Drinker,2,100,0
+994799,Ex-smoker,,,2,100,0
+996342,Non-Smoker,0,Non-Drinker,2,90,1
+998834,Ex-smoker,20,Drinker,2,100,0
+999036,Not Inferred,,,2,,

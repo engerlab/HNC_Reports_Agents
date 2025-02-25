@@ -1,132 +1,122 @@
 patient_id,p16_Status,HPV_Status
-1017733,Positive,Positive
-1024961,Positive,Positive
-1028731,Positive,Positive
-103122,Positive,Positive
-1042445,Positive,Positive
-1046098,Positive,Positive
-1051911,Positive,Positive
-1061513,Positive,Positive
-1066995,Positive,Positive
-108958,Positive,Positive
-1092052,Positive,Positive
-1098029,Positive,Positive
-1098748,Positive,Positive
-1100595,Positive,Positive
-1104512,Positive,Positive
-1109025,Positive,Positive
-1109080,Positive,Positive
-1117087,Positive,Positive
-1127404,Positive,Not Inferred
-1133061,Positive,Positive
-1133805,Positive,Positive
-1135804,Positive,Positive
-1145281,Positive,Positive
-1146143,Positive,Positive
-1146888,Positive,Positive
-1153778,Positive,Positive
-1156440,Positive,Positive
-1161166,Positive,Positive
-1161635,Positive,Positive
-1162274,Positive,Positive
-1173780,Positive,Positive
-1176853,Positive,Positive
-1177082,Positive,Positive
-1177122,Positive,Positive
-1177351,Positive,Positive
-1178863,Positive,Positive
-1181388,Positive,Positive
-1186824,Positive,Positive
-1194749,Positive,Positive
-1209421,Positive,Positive
-1211374,Positive,Positive
-1212081,Positive,Positive
-12144,Positive,Positive
-1214634,Positive,Not inferred
-1218398,Positive,Positive
-1222698,Positive,Positive
-1223664,Positive,Positive
-1227068,Positive,Positive
-1229797,Positive,Positive
-1231206,Positive,Positive
-1232897,Positive,Positive
-1236616,Positive,Positive
-1237434,Positive,"Not Inferred [cannot be directly inferred from the text as it states ""HPV status is unknown""]"
+1456142,Positive,Positive
+1586860,Positive,Positive
+1591620,Positive,Positive
 1237993,Positive,Positive
+1593669,Positive,Positive
+1597827,Positive,Positive
+1237434,Positive,"Not Inferred [cannot be directly inferred from the text as it states ""HPV status is unknown""]"
+1236616,Positive,Positive
+1611082,Positive,Positive
+1621194,Positive,Positive
+1232897,Positive,Positive
+1231206,Positive,Positive
+1626006,Positive,Positive
+1229797,Positive,Positive
+1629212,Positive,Positive
+1227068,Positive,Positive
 1243118,Positive,Positive
 1243481,Positive,Positive
+1586663,Positive,Positive
 1244601,Positive,Positive
-1246295,Positive,Positive
-1247526,Positive,Positive
-1257269,Positive,Positive
-1259672,Positive,Positive
+1524429,Positive,Positive
+1539606,Positive,Positive
 1262059,Positive,Positive
+1545677,Positive,Positive
+1546177,Positive,Positive
+1259672,Positive,Positive
+1257269,Positive,Positive
+1629338,Positive,Positive
+1548859,Positive,Positive
+1560589,Positive,Positive
+1565302,Positive,Positive
+1568369,Positive,Positive
+1568879,Positive,Positive
+1247526,Positive,Positive
+1576809,Positive,Positive
+1246295,Positive,Positive
+1555261,Positive,Positive
+152270,Positive,Positive
+1631415,Positive,Positive
+1223664,Positive,Positive
+307204,Positive,Positive
+1186824,Positive,Positive
+313421,Positive,Positive
+324434,Positive,Positive
+1181388,Positive,Positive
+1178863,Positive,Positive
+1177351,Positive,Positive
+1177122,Positive,Positive
+1177082,Positive,Positive
+1176853,Positive,Positive
+1173780,Positive,Positive
+359824,Positive,Positive
+381460,Positive,Positive
+398501,Positive,Positive
+1162274,Positive,Positive
+1384219,Positive,Positive
+1194749,Positive,Positive
+292261,Positive,Positive
+291263,Positive,Positive
+1649177,Positive,Positive
+1222698,Positive,Positive
+174746,Positive,Positive
+1218398,Positive,Positive
+183957,Positive,Positive
+188433,Positive,Positive
+1214634,Positive,Not inferred
+1633435,Positive,Positive
+12144,Positive,Positive
+1212081,Positive,Positive
+1211374,Positive,Positive
+223514,Positive,Positive
+227464,Positive,Positive
+1209421,Positive,Positive
+242907,Positive,Positive
+244874,Positive,Positive
+210505,Positive,Positive
+1161635,Positive,Positive
 126518,Positive,Positive
 1266956,Positive,Positive
-1274985,Positive,Positive
-1277035,Positive,Positive
-1281645,Positive,Positive
-1284179,Positive,Positive
-1293535,Positive,Positive
-1294458,Positive,Positive
-1294809,Positive,Positive
-1295666,Positive,Positive
-1295667,Positive,Positive
-1296140,Positive,Positive
-1296972,Positive,Positive
-129701,Positive,Positive
-1303763,Positive,Positive
-1308813,Positive,Positive
-1309309,Positive,Positive
-1311615,Positive,Not mentioned
-1311697,Positive,Positive
-1312475,Positive,Positive
-1317057,Positive,Positive
-1323861,Positive,Positive
-1329878,Positive,Positive
-1332528,Positive,Positive
-1332542,Positive,"Not Inferred, but p16 positive which is often associated with HPV"
-1338180,Positive,Positive
 1343542,Positive,Positive
+1416988,Positive,Positive
+1421695,Positive,Positive
+1338180,Positive,Positive
+1424032,Positive,Positive
+1431251,Positive,Positive
+1433822,Positive,Positive
+1332542,Positive,"Not Inferred, but p16 positive which is often associated with HPV"
+1332528,Positive,Positive
+1435529,Positive,Positive
+1329878,Positive,Positive
+1442530,Positive,Positive
+1442833,Positive,Positive
+1323861,Positive,Positive
+1445467,Positive,Positive
 134424,Positive,Positive
 1347145,Positive,Positive
 1347153,Positive,Positive
 1348408,Positive,Not inferred
-1352387,Positive,Positive
-1354697,Positive,Positive
-1354965,Positive,Positive
-135560,Positive,Positive
-1358956,Positive,Positive
-1370838,Positive,Positive
-137217,Positive,Positive
-1374538,Positive,Positive
 1378907,Positive,Positive
-1384219,Positive,Positive
+1374538,Positive,Positive
 1393583,Positive,Positive
 1395126,Positive,Positive
+137217,Positive,Positive
+1370838,Positive,Positive
 1399697,Positive,Positive
+1317057,Positive,Positive
 1401958,Positive,Positive
-1406086,Positive,Positive
 1406838,Positive,Positive
 1410950,Positive,Positive
-1416988,Positive,Positive
-1421695,Positive,Positive
-1424032,Positive,Positive
-1431251,Positive,Positive
-1433822,Positive,Positive
-1435529,Positive,Positive
-1442530,Positive,Positive
-1442833,Positive,Positive
-1445467,Positive,Positive
+1358956,Positive,Positive
+135560,Positive,Positive
+1354965,Positive,Positive
+1354697,Positive,Positive
+1352387,Positive,Positive
+1406086,Positive,Positive
+1519382,Positive,Positive
 1445486,Positive,Positive
-1448364,Positive,Positive
-1453377,Positive,Positive
-1454672,Positive,Positive
-1456142,Positive,Positive
-1457934,Positive,Positive
-1460055,Positive,Positive
-1462472,Positive,Positive
-1465563,Positive,Positive
+1312475,Positive,Positive
 1468262,Positive,Positive
 1475415,Positive,Positive
 1475978,Positive,Positive
@@ -134,150 +124,264 @@ patient_id,p16_Status,HPV_Status
 1486934,Positive,Positive
 1501156,Positive,Positive
 1501323,Positive,Positive
+1284179,Positive,Positive
+1281645,Positive,Positive
 1504578,Positive,Positive
+1277035,Positive,Positive
+1274985,Positive,Positive
 1510013,Positive,Positive
 1510016,Positive,Positive
 1513334,Positive,Positive
-1519382,Positive,Positive
-152270,Positive,Positive
-1524429,Positive,Positive
-1539606,Positive,Positive
-1545677,Positive,Positive
-1546177,Positive,Positive
-1548859,Positive,Positive
-1555261,Positive,Positive
-1560589,Positive,Positive
-1565302,Positive,Positive
-1568369,Positive,Positive
-1568879,Positive,Positive
-1576809,Positive,Positive
-1586663,Positive,Positive
-1586860,Positive,Positive
-1591620,Positive,Positive
-1593669,Positive,Positive
-1597827,Positive,Positive
-1611082,Positive,Positive
-1621194,Positive,Positive
-1626006,Positive,Positive
-1629212,Positive,Positive
-1629338,Positive,Positive
-1631415,Positive,Positive
-1633435,Positive,Positive
-1649177,Positive,Positive
-174746,Positive,Positive
-183957,Positive,Positive
-188433,Positive,Positive
-210505,Positive,Positive
-223514,Positive,Positive
-227464,Positive,Positive
-242907,Positive,Positive
-244874,Positive,Positive
-291263,Positive,Positive
-292261,Positive,Positive
+1293535,Positive,Positive
+1294458,Positive,Positive
+1294809,Positive,Positive
+1465563,Positive,Positive
+1311697,Positive,Positive
+1311615,Positive,Not mentioned
+1453377,Positive,Positive
+1309309,Positive,Positive
+1308813,Positive,Positive
+1454672,Positive,Positive
+1303763,Positive,Positive
+1448364,Positive,Positive
+998834,Positive,Positive
+1460055,Positive,Positive
+129701,Positive,Positive
+1296972,Positive,Positive
+1462472,Positive,Positive
+1296140,Positive,Positive
+1295667,Positive,Positive
+1295666,Positive,Positive
+1457934,Positive,Positive
+1161166,Positive,Positive
 300560,Positive,Positive
-307204,Positive,Positive
-313421,Positive,Positive
-324434,Positive,Positive
-359824,Positive,Positive
-381460,Positive,Positive
-398501,Positive,Positive
 414957,Positive,Positive
-41566,Positive,Positive
-441995,Positive,Positive
-454921,Positive,Positive
-458865,Positive,Positive
-460075,Positive,Positive
-469158,Positive,Positive
-474844,Positive,Positive
-479810,Positive,Positive
-484722,Positive,Positive
-488193,Positive,Positive
-493821,Positive,Positive
-524769,Positive,Positive
-552901,Positive,Positive
-571709,Positive,Positive
-580293,Positive,Positive
-581492,Positive,Positive
-584848,Positive,Positive
-592315,Positive,Positive
-592317,Positive,Positive
-618683,Positive,Positive
-628178,Positive,Positive
-630726,Positive,Not inferred
+1104512,Positive,Positive
 651847,Positive,Positive
-692769,Positive,Positive
-700633,Positive,Positive
-72493,Positive,Positive
-732291,Positive,Positive
-739065,Positive,Positive (inferred from p16 positive status)
-742863,Positive,Positive
+847829,Positive,Not Inferred
+630726,Positive,Not inferred
+628178,Positive,Positive
+618683,Positive,Positive
+1109025,Positive,Positive
+1109080,Positive,Positive
+857282,Positive,Positive
+1051911,Positive,Positive
+1117087,Positive,Positive
+592317,Positive,Positive
+592315,Positive,Positive
+584848,Positive,Positive
+581492,Positive,Positive
+580293,Positive,Positive
+571709,Positive,Positive
+870535,Positive,Positive
+1046098,Positive,Positive
+875152,Positive,Positive
+1127404,Positive,Not Inferred
+552901,Positive,Positive
+882001,Positive,Positive
+1061513,Positive,Positive
+524769,Positive,Positive
+1100595,Positive,Positive
+1098748,Positive,Positive
 758933,Positive,Positive
 760243,Positive,Positive
 761628,Positive,Positive
 761661,Positive,Positive
+742863,Positive,Positive
+739065,Positive,Positive (inferred from p16 positive status)
 784117,Positive,Positive
 787338,Positive,Positive
 787354,Positive,Positive
+732291,Positive,Positive
 787603,Positive,Positive
+108958,Positive,Positive
+72493,Positive,Positive
 802950,Positive,Positive
+1092052,Positive,Positive
 804225,Positive,Positive
+1066995,Positive,Positive
 808965,Positive,Positive
 819290,Positive,Positive
 824381,Positive,Positive
+700633,Positive,Positive
+1098029,Positive,Positive
 825950,Positive,Positive
-847829,Positive,Not Inferred
-857282,Positive,Positive
+692769,Positive,Positive
+1042445,Positive,Positive
 864996,Positive,Positive
-870535,Positive,Positive
-875152,Positive,Positive
-882001,Positive,Positive
-891128,Positive,Positive
-900465,Positive,Positive
-900490,Positive,Positive
-902720,Positive,Positive
+103122,Positive,Positive
+469158,Positive,Positive
+1146888,Positive,Positive
 912580,Positive,Positive
-932953,Positive,Positive
-936819,Positive,Positive
+1153778,Positive,Positive
 957230,Positive,Positive
+1028731,Positive,Positive
+1024961,Positive,Positive
 973526,Positive,Positive
+441995,Positive,Positive
+460075,Positive,Positive
+936819,Positive,Positive
+454921,Positive,Positive
+1145281,Positive,Positive
+1146143,Positive,Positive
+1017733,Positive,Positive
+932953,Positive,Positive
+493821,Positive,Positive
+902720,Positive,Positive
+458865,Positive,Positive
+891128,Positive,Positive
+474844,Positive,Positive
 991577,Positive,Positive
-998834,Positive,Positive
+41566,Positive,Positive
+488193,Positive,Positive
+1135804,Positive,Positive
+1156440,Positive,Positive
+900490,Positive,Positive
+1133061,Positive,Positive
+1133805,Positive,Positive
+479810,Positive,Positive
+900465,Positive,Positive
+484722,Positive,Positive
+782833,Negative,Negative
+1385239,Negative,Negative
+1453403,Negative,Negative
+1456720,Negative,Negative
+1400559,Negative,Negative
+996342,Negative,Negative
+948790,Negative,Negative
+1399434,Negative,Negative
+801535,Negative,Negative
+1460110,Negative,Negative
+767722,Negative,Negative
+1399385,Negative,Negative
+777248,Negative,Negative
+1387465,Negative,Negative
+963098,Negative,Negative
+975174,Negative,Negative
+1457897,Negative,Negative
+1421704,Negative,Negative
+1452487,Negative,Negative
+1406690,Negative,Negative
+884999,Negative,Negative
+1426731,Negative,Negative
+1427932,Negative,Negative
+1421457,Negative,Negative
+1466419,Negative,Negative
+1437043,Negative,Negative
+1437599,Negative,Negative
+863584,Negative,Negative
+1414906,Negative,Negative
+907559,Negative,Negative
+1442355,Negative,Negative
+860978,Negative,Negative
+144296,Negative,Negative
+1445040,Negative,Negative
+1445052,Negative,Negative
+1414617,Negative,Negative
+1411132,Negative,Negative
+9131,Negative,Not mentioned (but p16 status is negative)
+856085,Negative,Negative
+851872,Negative,Negative
+920788,Negative,Negative
+838461,Negative,Negative
+1451513,Negative,Negative
+924048,Negative,Negative
+92967,Negative,Negative
+837535,Negative,Negative
+836427,Negative,Negative
+1406291,Negative,Negative
+759432,Negative,Negative
+1514775,Negative,Negative
+1470637,Negative,Negative
+306972,Negative,Negative
+465626,Negative,Negative
+30022,Negative,Negative
+294180,Negative,Negative
+467893,Negative,Not inferred
+474079,Negative,Negative
+288336,Negative,Negative
+249456,Negative,Negative
+461429,Negative,Negative
+245845,Negative,Negative
+236853,Negative,Negative
+220399,Negative,Negative
+505630,Negative,Negative
+520978,Negative,Negative
+521644,Negative,Negative
+548251,Negative,Negative
+552746,Negative,Negative
+166906,Negative,Negative
+242635,Negative,Negative
+555942,Negative,Negative
+307869,Negative,Negative
+315566,Negative,Negative
+417741,Negative,Negative
+392130,Negative,Negative
+388442,Negative,Negative
+386754,Negative,Negative
+421857,Negative,Negative
+375374,Negative,Negative
+368373,Negative,Negative
+36311,Negative,Negative
+460934,Negative,Negative
+357871,Negative,Negative
+348061,Negative,Negative
+347246,Negative,Negative
+446977,Negative,Negative
+343698,Negative,Negative
+334421,Negative,Negative
+333937,Negative,Negative
+330399,Negative,Negative
+322896,Negative,Negative
+438752,Negative,Negative
+556923,Negative,Negative
+558397,Negative,Negative
+571923,Negative,Negative
+713110,Negative,Negative
+71944,Negative,Negative
+1517636,Negative,Negative
+401228,Negative,Negative
+719809,Negative,Negative
+1513259,Negative,Negative
+150951,Negative,Negative
+731683,Negative,Negative
+711775,Negative,Negative
+1505227,Negative,Negative
+1503846,Negative,Negative
+738401,Negative,Negative
+738759,Negative,Negative
+1489909,Negative,Negative
+1489662,Negative,Negative
+747153,Negative,Negative
+752181,Negative,Negative
+756810,Negative,Negative
+732897,Negative,Negative
+704145,Negative,Not inferred
+1525413,Negative,Negative
+154306,Negative,Negative
+575788,Negative,Not inferred
+579564,Negative,Negative
+57971,Negative,Negative
+160444,Negative,Negative
+593910,Negative,Negative
+598824,Negative,Negative
+59900,Negative,Negative
+602299,Negative,Negative
+607008,Negative,Negative
+615500,Negative,Negative
+628445,Negative,Negative
+1570419,Negative,Negative
+631720,Negative,Negative
+637343,Negative,Negative
+646772,Negative,Negative
+156086,Negative,Negative
+655883,Negative,Negative
+1548478,Negative,Negative
+696524,Negative,Negative
+1469478,Negative,Negative
+1384866,Negative,Negative
 100150,Negative,Negative
-1004073,Negative,Negative
-1006301,Negative,Negative
-1007502,Negative,Negative
-1031266,Negative,Negative
-1041684,Negative,Negative
-1044448,Negative,Negative
-1045725,Negative,Negative
-1048782,Negative,Negative
-1057509,Negative,Negative
-1093969,Negative,Unknown
-1113863,Negative,Negative
-1122244,Negative,Negative
-1122727,Negative,Negative
-112340,Negative,Not Inferred
-1128418,Negative,Negative
-1130580,Negative,Negative
-1131291,Negative,Negative
-1131412,Negative,Negative
-1136997,Negative,Negative
-1142707,Negative,Negative
-1143295,Negative,Negative
-1144356,Negative,Negative
-1147283,Negative,Negative
-1149638,Negative,Negative
-1150440,Negative,Negative
-1157207,Negative,Negative
-1163398,Negative,Negative
-1164049,Negative,Negative
-1164060,Negative,Not inferred
-1164759,Negative,Negative
-1167024,Negative,Negative
-1174467,Negative,Negative
-1175297,Negative,Negative
-1178706,Negative,Negative
-1185576,Negative,Negative
+138405,Negative,Negative
 1188128,Negative,Negative
 1203807,Negative,Negative
 1205641,Negative,Negative
@@ -292,8 +396,8 @@ patient_id,p16_Status,HPV_Status
 1237068,Negative,Negative
 1237652,Negative,Negative
 1239735,Negative,Negative
+1185576,Negative,Negative
 1244332,Negative,Negative
-1247386,Negative,Negative
 125021,Negative,Negative
 1259610,Negative,Negative
 1260134,Negative,Negative
@@ -308,576 +412,472 @@ patient_id,p16_Status,HPV_Status
 1287020,Negative,Negative
 1289220,Negative,Negative
 1289606,Negative,Negative
+1247386,Negative,Negative
 1289908,Negative,Negative
+1178706,Negative,Negative
+1174467,Negative,Negative
+1004073,Negative,Negative
+1006301,Negative,Negative
+1007502,Negative,Negative
+1031266,Negative,Negative
+1041684,Negative,Negative
+1044448,Negative,Negative
+1045725,Negative,Negative
+1048782,Negative,Negative
+1057509,Negative,Negative
+1093969,Negative,Unknown
+1113863,Negative,Negative
+1122244,Negative,Negative
+1122727,Negative,Negative
+112340,Negative,Not Inferred
+1175297,Negative,Negative
+1128418,Negative,Negative
+1131291,Negative,Negative
+1131412,Negative,Negative
+1136997,Negative,Negative
+1142707,Negative,Negative
+1143295,Negative,Negative
+1144356,Negative,Negative
+1147283,Negative,Negative
+1149638,Negative,Negative
+1150440,Negative,Negative
+1157207,Negative,Negative
+1163398,Negative,Negative
+1164049,Negative,Negative
+1164759,Negative,Negative
+1167024,Negative,Negative
+1130580,Negative,Negative
 1291361,Negative,Negative
-1299439,Negative,Negative
-1314856,Negative,Negative
-1319384,Negative,Negative
+1164060,Negative,Not inferred
+999036,Negative,Negative
 1322881,Negative,Negative
-1324719,Negative,Negative
-1333587,Negative,Negative
 1338382,Negative,Negative
+1314856,Negative,Negative
+1361136,Negative,Negative
+1299439,Negative,Negative
 1342311,Negative,Negative
 13428,Negative,Negative
-1346920,Negative,Negative
-1348463,Negative,Negative
-1361136,Negative,Negative
+1319384,Negative,Negative
 1362929,Negative,Negative
-1374231,Negative,Negative
+1324719,Negative,Negative
 1378340,Negative,Negative
-138405,Negative,Negative
-1384866,Negative,Negative
-1385239,Negative,Negative
-1387465,Negative,Negative
-1399385,Negative,Negative
-1399434,Negative,Negative
-1400559,Negative,Negative
-1406291,Negative,Negative
-1406690,Negative,Negative
-1411132,Negative,Negative
-1414617,Negative,Negative
-1414906,Negative,Negative
-1421457,Negative,Negative
-1421704,Negative,Negative
-1426731,Negative,Negative
-1427932,Negative,Negative
-1437043,Negative,Negative
-1437599,Negative,Negative
-1442355,Negative,Negative
-144296,Negative,Negative
-1445040,Negative,Negative
-1445052,Negative,Negative
-1451513,Negative,Negative
-1452487,Negative,Negative
-1453403,Negative,Negative
-1456720,Negative,Negative
-1457897,Negative,Negative
-1460110,Negative,Negative
-1466419,Negative,Negative
-1469478,Negative,Negative
-1470637,Negative,Negative
-1489662,Negative,Negative
-1489909,Negative,Negative
-1503846,Negative,Negative
-1505227,Negative,Negative
-150951,Negative,Negative
-1513259,Negative,Negative
-1514775,Negative,Negative
-1517636,Negative,Negative
-1525413,Negative,Negative
-154306,Negative,Negative
-1548478,Negative,Negative
-156086,Negative,Negative
-1570419,Negative,Negative
-160444,Negative,Negative
-166906,Negative,Negative
-220399,Negative,Negative
-236853,Negative,Negative
-242635,Negative,Negative
-245845,Negative,Negative
-249456,Negative,Negative
-288336,Negative,Negative
-294180,Negative,Negative
-30022,Negative,Negative
-306972,Negative,Negative
-307869,Negative,Negative
-315566,Negative,Negative
-322896,Negative,Negative
-330399,Negative,Negative
-333937,Negative,Negative
-334421,Negative,Negative
-343698,Negative,Negative
-347246,Negative,Negative
-348061,Negative,Negative
-357871,Negative,Negative
-36311,Negative,Negative
-368373,Negative,Negative
-375374,Negative,Negative
-386754,Negative,Negative
-388442,Negative,Negative
-392130,Negative,Negative
-401228,Negative,Negative
-417741,Negative,Negative
-421857,Negative,Negative
-438752,Negative,Negative
-446977,Negative,Negative
-460934,Negative,Negative
-461429,Negative,Negative
-465626,Negative,Negative
-467893,Negative,Not inferred
-474079,Negative,Negative
-505630,Negative,Negative
-520978,Negative,Negative
-521644,Negative,Negative
-548251,Negative,Negative
-552746,Negative,Negative
-555942,Negative,Negative
-556923,Negative,Negative
-558397,Negative,Negative
-571923,Negative,Negative
-575788,Negative,Not inferred
-579564,Negative,Negative
-57971,Negative,Negative
-593910,Negative,Negative
-598824,Negative,Negative
-59900,Negative,Negative
-602299,Negative,Negative
-607008,Negative,Negative
-615500,Negative,Negative
-628445,Negative,Negative
-631720,Negative,Negative
-637343,Negative,Negative
-646772,Negative,Negative
-655883,Negative,Negative
-696524,Negative,Negative
-704145,Negative,Not inferred
-711775,Negative,Negative
-713110,Negative,Negative
-71944,Negative,Negative
-719809,Negative,Negative
-731683,Negative,Negative
-732897,Negative,Negative
-738401,Negative,Negative
-738759,Negative,Negative
-747153,Negative,Negative
-752181,Negative,Negative
-756810,Negative,Negative
-759432,Negative,Negative
-767722,Negative,Negative
-777248,Negative,Negative
-782833,Negative,Negative
-801535,Negative,Negative
-836427,Negative,Negative
-837535,Negative,Negative
-838461,Negative,Negative
-851872,Negative,Negative
-856085,Negative,Negative
-860978,Negative,Negative
-863584,Negative,Negative
-884999,Negative,Negative
-907559,Negative,Negative
-9131,Negative,Not mentioned (but p16 status is negative)
-920788,Negative,Negative
-924048,Negative,Negative
-92967,Negative,Negative
-948790,Negative,Negative
-963098,Negative,Negative
-975174,Negative,Negative
-996342,Negative,Negative
-999036,Negative,Negative
-100729,Not Inferred,Not Inferred
-1009880,Not Inferred,Not Inferred
-1012904,Not Inferred,Not Inferred
-1014012,Not Inferred,Not Inferred
-1016391,Not Inferred,Not Inferred
-1019973,Not inferred,Not inferred
-1020709,Not Inferred,Not Inferred
-1021737,Not inferred,Not inferred
-1022364,Not Inferred,Not Inferred
-1026509,Not Inferred,Not Inferred
-1029972,Not Inferred,Not Inferred
-1031743,Not inferred,Not inferred
-1033633,Not Inferred,Not Inferred
-1037530,Not Inferred,Not Inferred
-1044430,Not Inferred,Not Inferred
-1048022,Not inferred,Not inferred
-1050579,Not Inferred,Not Inferred
-1050994,Not Inferred,Not Inferred
-1058063,Not Inferred,Not Inferred
-1058395,Not inferred,Not inferred
-1060096,Not Inferred,Not Inferred
-1060695,Not Inferred,Not Inferred
-1063104,Not Inferred,Not Inferred
-1063150,Not Inferred,Not Inferred
-1063176,Not Inferred,Not Inferred
-106520,Not Inferred,Not Inferred
-1065359,Not Inferred,Not Inferred
-1066410,Not Inferred,Not Inferred
-1068235,Not Inferred,Not Inferred
-1068761,Not Inferred,Not Inferred
-1069515,Not Inferred,Not Inferred
-1070247,Not Inferred,Not Inferred
-1072739,Not Inferred,Not Inferred
-1074265,Not Inferred,Not Inferred
-1075533,Not Inferred,Not Inferred
-1076826,Not Inferred,Not Inferred
-1076986,Not Inferred,Not Inferred
-1077071,Not Inferred,Not Inferred
-1077516,Not Inferred,Not Inferred
-1078008,Not Inferred,Not Inferred
-1078774,Not inferred,Not inferred
-1080401,Not Inferred,Not Inferred
-1080438,Not Inferred,Not Inferred
-1081091,Not Inferred,Not Inferred
-1082505,Not Inferred,Not Inferred
-1082999,Not inferred,Not inferred
-1083411,Not Inferred,Not Inferred
-1083442,Not Inferred,Not Inferred
-1085010,Not Inferred,Not Inferred
-1085691,Not Inferred,Not Inferred
-108747,Not Inferred,Not Inferred
-1089362,Not Inferred,Not Inferred
-1089523,Not inferred,Not inferred
-1090241,Not Inferred,Not Inferred
-109260,Not Inferred,Not Inferred
-1092994,Not Inferred,Not Inferred
-1093699,Not Inferred,Not Inferred
+1348463,Negative,Negative
+1346920,Negative,Negative
+1374231,Negative,Negative
+1333587,Negative,Negative
 1095907,Not Inferred,Not Inferred
 1096098,Not Inferred,Not Inferred
 1100399,Not Inferred,Not Inferred
 110054,Not inferred,Not inferred
-1102119,Not Inferred,Not Inferred
+688973,Not Inferred,Not Inferred
+680227,Not Inferred,Not Inferred
+673688,Not Inferred,Not Inferred
+669316,Not Inferred,Not Inferred
 1105247,Not Inferred,Not Inferred
+667872,Not inferred,Not inferred
+665419,Not Inferred,Not Inferred
+665102,Not Inferred,Not Inferred
+656981,Not Inferred,Not Inferred
+1102119,Not Inferred,Not Inferred
+654327,Not Inferred,Not Inferred
+639074,Not Inferred,Not Inferred
+644397,Not Inferred,Not Inferred
 1106419,Not Inferred,Not Inferred
+669146,Not Inferred,Not Inferred
+1092994,Not Inferred,Not Inferred
+1093699,Not Inferred,Not Inferred
+1078774,Not inferred,Not inferred
+1080401,Not Inferred,Not Inferred
+1080438,Not Inferred,Not Inferred
+1081091,Not Inferred,Not Inferred
+755397,Not Inferred,Not Inferred
+1082505,Not Inferred,Not Inferred
+1082999,Not inferred,Not inferred
+745421,Not Inferred,Not Inferred
+1083411,Not Inferred,Not Inferred
+1083442,Not Inferred,Not Inferred
+136458,Not inferred,Not inferred
+739007,Not Inferred,Not Inferred
+1085691,Not Inferred,Not Inferred
+108747,Not Inferred,Not Inferred
+1089362,Not Inferred,Not Inferred
+1089523,Not inferred,Not inferred
+726562,Not Inferred,Not Inferred
+1090241,Not Inferred,Not Inferred
+724427,Not inferred,Not inferred
+722792,Not inferred,Not inferred
+109260,Not Inferred,Not Inferred
 1106938,Not inferred,Not inferred
-1107810,Not Inferred,Not Inferred
+1085010,Not Inferred,Not Inferred
+6369,Not Inferred,Not Inferred
+62806,Not Inferred,Not Inferred
 1107828,Not Inferred,Not Inferred
+56276,Not inferred,Not inferred
+561902,Not Inferred,Not Inferred
+136038,Not Inferred,Not Inferred
+1125637,Not inferred,Not inferred
+1126450,Not Inferred,Not Inferred
+1127947,Not inferred,Not inferred
+1349074,Not Inferred,Not Inferred
+551914,Not inferred,Not inferred
+548457,Not Inferred,Not Inferred
+113004,Not Inferred,Not Inferred
+564344,Not Inferred,Not Inferred
+544721,Not Inferred,Not Inferred
+535790,Not Inferred,Not Inferred
+534929,Not Inferred,Not Inferred
+529997,Not inferred,Not inferred
+1130120,Not inferred,Not inferred
+141143,Not Inferred,Not Inferred
+521138,Not Inferred,Not Inferred
+1413925,Not inferred,Not inferred
+519494,Not Inferred,Not Inferred
+518791,Not Inferred,Not Inferred
+493824,Not Inferred,Not Inferred
+536666,Not Inferred,Not Inferred
+1107810,Not Inferred,Not Inferred
+568216,Not Inferred,Not Inferred
+572338,Not Inferred,Not Inferred
+629036,Not inferred,Not inferred
 1108013,Not Inferred,Not Inferred
 1108098,Not Inferred,Not Inferred
+1078008,Not Inferred,Not Inferred
 1108787,Not Inferred,Not Inferred
 1109413,Not Inferred,Not Inferred
+610810,Not Inferred,Not Inferred
 1110577,Not Inferred,Not Inferred
+605465,Not Inferred,Not Inferred
 1110794,Not Inferred,Not inferred
+1362878,Not inferred,Not inferred
 1114924,Not Inferred,Not Inferred
-1115749,Not Inferred,Not Inferred
 111738,Not Inferred,Not Inferred
 1118019,Not Inferred,Not Inferred
 1118257,Not Inferred,Not Inferred
+583421,Not inferred,Not inferred
 1119161,Not Inferred,Not Inferred
 1120697,Not Inferred,Not Inferred
 1120796,Not Inferred,Not Inferred
 1120835,Not Inferred,Not Inferred
+577218,Not Inferred,Not Inferred
 1121050,Not Inferred,Not Inferred
-1125637,Not inferred,Not inferred
-1126450,Not Inferred,Not Inferred
-1127947,Not inferred,Not inferred
-113004,Not Inferred,Not Inferred
-1130120,Not inferred,Not inferred
+1115749,Not Inferred,Not Inferred
+1077516,Not Inferred,Not Inferred
+771523,Not Inferred,Not Inferred
+763510,Not Inferred,Not inferred
+928101,Not Inferred,Not Inferred
+925650,Not Inferred,Not Inferred
+1021737,Not inferred,Not inferred
+1022364,Not Inferred,Not Inferred
+919591,Not Inferred,Not Inferred
+1026509,Not Inferred,Not Inferred
+1029972,Not Inferred,Not Inferred
+912141,Not inferred,Not inferred
+911530,Not Inferred,Not Inferred
+910092,Not Inferred,Not Inferred
+1020709,Not Inferred,Not Inferred
+907916,Not Inferred,Not Inferred
+1370858,Not Inferred,Not Inferred
+1031743,Not inferred,Not inferred
+1033633,Not Inferred,Not Inferred
+1037530,Not Inferred,Not Inferred
+1366321,Not Inferred,Not Inferred
+888602,Not Inferred,Not Inferred
+1044430,Not Inferred,Not Inferred
+1365459,Not inferred,Not inferred
+1365382,Not Inferred,Not Inferred
+870925,Not Inferred,Not Inferred
+907583,Not inferred,Not inferred
+930297,Not inferred,Not inferred
+1019973,Not inferred,Not inferred
+935281,Not Inferred,Not Inferred
+994799,Not Inferred,Not Inferred
+990489,Not Inferred,Not Inferred
+990263,Not Inferred,Not Inferred
+988682,Not Inferred,Not Inferred
+980000,Not Inferred,Not Inferred
+100729,Not Inferred,Not Inferred
+975096,Not Inferred,Not Inferred
+1374085,Not Inferred,Not Inferred
+972669,Not Inferred,Not Inferred
+972546,Not Inferred,Not Inferred
+97134,Not Inferred,Not Inferred
+970236,Not Inferred,Not Inferred
+968639,Not Inferred,Not Inferred
+965945,Not Inferred,Not Inferred
+964132,Not Inferred,Not Inferred
+1009880,Not Inferred,Not Inferred
+959920,Not Inferred,Not Inferred
+1012904,Not Inferred,Not Inferred
+950542,Not inferred,Not inferred
+1014012,Not Inferred,Not Inferred
+94714,Not Inferred,Not Inferred
+940450,Not Inferred,Not Inferred
+1016391,Not Inferred,Not Inferred
+1048022,Not inferred,Not inferred
+867143,Not Inferred,Not Inferred
+865277,Not Inferred,Not Inferred
+1364626,Not Inferred,Not Inferred
+1065359,Not Inferred,Not Inferred
+816794,Not Inferred,Not Inferred
+811013,Not Inferred,Not Inferred
+810748,Not inferred,Not inferred
+1066410,Not Inferred,Not Inferred
+1068235,Not Inferred,Not Inferred
+803211,Not inferred,Not inferred
+1068761,Not Inferred,Not Inferred
+1069515,Not Inferred,Not Inferred
+801479,Not Inferred,Not Inferred
+795778,Not Inferred,Not Inferred
+1070247,Not Inferred,Not Inferred
+1072739,Not Inferred,Not Inferred
+1074265,Not Inferred,Not Inferred
+1075533,Not Inferred,Not Inferred
+783891,Not Inferred,Not Inferred
+1076826,Not Inferred,Not Inferred
+779143,Not Inferred,Not Inferred
+7777,Not Inferred,Not Inferred
+1076986,Not Inferred,Not Inferred
+775865,Not inferred,Not inferred
 1132082,Not inferred,Not inferred
+1077071,Not Inferred,Not Inferred
+820516,Not Inferred,Not Inferred
+763380,Not inferred,Not inferred
+822853,Not Inferred,Not Inferred
+1063176,Not Inferred,Not Inferred
+863972,Not Inferred,Not Inferred
+1050579,Not Inferred,Not Inferred
+863581,Not Inferred,Not Inferred
+863118,Not Inferred,Not Inferred
+1050994,Not Inferred,Not Inferred
+1402243,Not Inferred,Not Inferred
+1058063,Not Inferred,Not Inferred
+853832,Not Inferred,Not Inferred
+1058395,Not inferred,Not inferred
+849051,Not Inferred,Not Inferred
+1060096,Not Inferred,Not Inferred
+846904,Not inferred,Not inferred
+840620,Not Inferred,Not Inferred
+1060695,Not Inferred,Not Inferred
+1063104,Not Inferred,Not Inferred
+837503,Not Inferred,Not Inferred
+1063150,Not Inferred,Not Inferred
+833851,Not inferred,Not inferred
+832888,Not Inferred,Not Inferred
+832391,Not Inferred,Not inferred
+832366,Not Inferred,Not Inferred
+832253,Not Inferred,Not Inferred
+830115,Not Inferred,Not Inferred
+106520,Not Inferred,Not Inferred
+491733,Not inferred,Not inferred
+1295003,Not Inferred,Not Inferred
 1132653,Not Inferred,Not Inferred
-1135076,Not Inferred,Not Inferred
-1137628,Not Inferred,Not Inferred
-1138298,Not Inferred,Not Inferred
-1140774,Not Inferred,Not inferred
-1142224,Not Inferred,Not Inferred
-1145024,Not Inferred,Not Inferred
-1147322,Not inferred,Not inferred
-1149446,Not inferred,Not inferred
-1155412,Not Inferred,Not Inferred
-1156267,Not Inferred,Not Inferred
-1158727,Not Inferred,Not Inferred
-1160623,Not Inferred,Not Inferred
-1164033,Not inferred,Not inferred
-1165489,Not Inferred,Not Inferred
-1169327,Not Inferred,Not Inferred
-1171744,Not Inferred,Not Inferred
-1172619,Not inferred,Not inferred
-1177148,Not Inferred,Not Inferred
-1177630,Not Inferred,Not Inferred
-1181132,Not Inferred,Not Inferred
-1181436,Not Inferred,Not Inferred
-1183186,Not Inferred,Not Inferred
-1184300,Not Inferred,Not Inferred
-1186884,Not inferred,Not inferred
-1189148,Not inferred,Not inferred
-1189263,Not Inferred,Not Inferred
-1190812,Not Inferred,Not Inferred
-1192207,Not Inferred,Not inferred
-1197023,Not inferred,Not inferred
-1199165,Not Inferred,Not Inferred
-120069,Not Inferred,Not Inferred
-1204131,Not inferred,Not inferred
-1208233,Not Inferred,Not Inferred
-1208740,Not inferred,Not inferred
-1211282,Not Inferred,Not Inferred
-1213422,Not Inferred,Not Inferred
-1215113,Not inferred,Not inferred
-1215254,Not Inferred,Not Inferred
-1221482,Not Inferred,Not Inferred
-1226239,Not Inferred,Not Inferred
-1226244,Not Inferred,Not Inferred
-1229304,Not Inferred,Not Inferred
 1233017,Not Inferred,Not Inferred
+1618327,Not Inferred,Not Inferred
+1611667,Not inferred,Not inferred
+1444811,Not Inferred,Not Inferred
+1610461,Not Inferred,Not Inferred
+1607304,Not Inferred,Not Inferred
+1322650,Not Inferred,Not Inferred
+1598456,Not Inferred,Not Inferred
+1319850,Not Inferred,Not Inferred
 1237981,Not Inferred,Not Inferred
+1622580,Not Inferred,Not Inferred
+1591388,Not Inferred,Not Inferred
 1240634,Not Inferred,Not Inferred
+1316912,Not Inferred,Not Inferred
+1579197,Not Inferred,Not Inferred
 1246520,Not Inferred,Not Inferred
+1574092,Not Inferred,Not Inferred
+157156,Not inferred,Not inferred
+1447975,Not inferred,Not inferred
+1569326,Not Inferred,Not Inferred
 1247694,Not Inferred,Not Inferred
 1249167,Not Inferred,Not Inferred
-1252653,Not Inferred,Not Inferred
+1587596,Not Inferred,Not inferred
+1623163,Not inferred,Not inferred
+1626507,Not Inferred,Not Inferred
+1229304,Not Inferred,Not Inferred
+1442020,Not Inferred,Not Inferred
+207046,Not Inferred,Not Inferred
+206783,Not Inferred,Not Inferred
+194033,Not Inferred,Not Inferred
+1215113,Not inferred,Not inferred
+187518,Not inferred,Not inferred
+1215254,Not Inferred,Not Inferred
+179936,Not inferred,Not inferred
+175401,Not Inferred,Not Inferred
+1328441,Not inferred,Not inferred
+170012,Not Inferred,Not Inferred
+1700089,Not Inferred,Not Inferred
+168146,Not Inferred,Not Inferred
+1673510,Not Inferred,Not Inferred
+1221482,Not Inferred,Not Inferred
+1667104,Not Inferred,Not Inferred
+165361,Not inferred,Not inferred
+1650881,Not Inferred,Not Inferred
+1328286,Not inferred,Not inferred
+1646430,Not Inferred,Not Inferred
+1641810,Not inferred,Not inferred
+1226239,Not Inferred,Not Inferred
+1226244,Not Inferred,Not Inferred
+1315408,Not Inferred,Not Inferred
+1213422,Not Inferred,Not Inferred
+1562677,Not Inferred,Not Inferred
 1254031,Not Inferred,Not Inferred
-1254308,Not Inferred,Not Inferred
-1254757,Not inferred,Not inferred
-1266668,Not Inferred,Not Inferred
-1266939,Not Inferred,Not Inferred
-1269016,Not Inferred,Not Inferred
-1269592,Not inferred,Not inferred
-1271901,Not Inferred,Not Inferred
-1273369,Not Inferred,Not Inferred
+1300290,Not Inferred,Not Inferred
 1275731,Not Inferred,Not Inferred
 1277636,Not Inferred,Not Inferred
 1279649,Not inferred,Not inferred
+1503544,Not inferred,Not inferred
+1501803,Not Inferred,Not Inferred
 1285492,Not Inferred,Not Inferred
+1496490,Not Inferred,Not Inferred
 1287301,Not Inferred,Not Inferred
+1458541,Not Inferred,Not Inferred
+1273369,Not Inferred,Not Inferred
+1298270,Not Inferred,Not Inferred
+1477536,Not Inferred,Not Inferred
+1476181,Not Inferred,Not Inferred
 1290087,Not Inferred,Not Inferred
 1290109,Not Inferred,Not Inferred
+1473020,Not Inferred,Not Inferred
+1472524,Not Inferred,Not Inferred
 1291053,Not Inferred,Not Inferred
+1462301,Not Inferred,Not Inferred
 1291388,Not Inferred,Not Inferred
 1292894,Not inferred,Not inferred
-1295003,Not Inferred,Not Inferred
-1296627,Not Inferred,Not Inferred
 1297318,Not Inferred,Not Inferred
-1298270,Not Inferred,Not Inferred
-1300290,Not Inferred,Not Inferred
-1302380,Not inferred,Not inferred
-1302562,Not Inferred,Not Inferred
-1306232,Not Inferred,Not Inferred
-1307534,Not Inferred,Not Inferred
-1310803,Not Inferred,Not Inferred
-1314678,Not Inferred,Not Inferred
-1315408,Not Inferred,Not Inferred
-1316912,Not Inferred,Not Inferred
-1319850,Not Inferred,Not Inferred
-1322650,Not Inferred,Not Inferred
-1328286,Not inferred,Not inferred
-1328441,Not inferred,Not inferred
-1330775,Not Inferred,Not Inferred
-1331038,Not Inferred,Not Inferred
-1331317,Not inferred,Not inferred
-1334220,Not Inferred,Not Inferred
-1336513,Not Inferred,Not Inferred
-1336918,Not Inferred,Not Inferred
-1337276,Not Inferred,Not Inferred
-1340671,Not Inferred,Not Inferred
-1349074,Not Inferred,Not Inferred
-136038,Not Inferred,Not Inferred
-1362878,Not inferred,Not inferred
-136458,Not inferred,Not inferred
-1364626,Not Inferred,Not Inferred
-1365382,Not Inferred,Not Inferred
-1365459,Not inferred,Not inferred
-1366321,Not Inferred,Not Inferred
-1370858,Not Inferred,Not Inferred
-1374085,Not Inferred,Not Inferred
-138482,Not Inferred,Not Inferred
-1402243,Not Inferred,Not Inferred
-141143,Not Inferred,Not Inferred
-1413925,Not inferred,Not inferred
-1416427,Not Inferred,Not Inferred
-1424073,Not Inferred,Not Inferred
-1424359,Not Inferred,Not Inferred
-1429383,Not Inferred,Not Inferred
-1430225,Not Inferred,Not Inferred
-1434930,Not Inferred,Not Inferred
-1435525,Not Inferred,Not Inferred
-1436630,Not Inferred,Not Inferred
-1442020,Not Inferred,Not Inferred
-1444811,Not Inferred,Not Inferred
-1447975,Not inferred,Not inferred
-1448793,Not inferred,Not inferred
-1457682,Not inferred,Not inferred
-1458541,Not Inferred,Not Inferred
-1462301,Not Inferred,Not Inferred
-1472524,Not Inferred,Not Inferred
-1473020,Not Inferred,Not Inferred
-1476181,Not Inferred,Not Inferred
-1477536,Not Inferred,Not Inferred
-1496490,Not Inferred,Not Inferred
-1501803,Not Inferred,Not Inferred
-1503544,Not inferred,Not inferred
+1271901,Not Inferred,Not Inferred
 1510079,Not Inferred,Not Inferred
-1514079,Not Inferred,Not Inferred
-1518987,Not Inferred,Not Inferred
-152023,Not Inferred,Not Inferred
-1528517,Not Inferred,Not Inferred
-1529931,Not Inferred,Not Inferred
-1535811,Not Inferred,Not Inferred
-1538245,Not Inferred,Not Inferred
-1547573,Not inferred,Not inferred
-1548911,Not inferred,Not inferred
+1269592,Not inferred,Not inferred
+1254308,Not Inferred,Not Inferred
 1549397,Not Inferred,Not Inferred
-1562677,Not Inferred,Not Inferred
-1569326,Not Inferred,Not Inferred
-157156,Not inferred,Not inferred
-1574092,Not Inferred,Not Inferred
-1579197,Not Inferred,Not Inferred
-1587596,Not Inferred,Not inferred
-1591388,Not Inferred,Not Inferred
-1598456,Not Inferred,Not Inferred
-1607304,Not Inferred,Not Inferred
-1610461,Not Inferred,Not Inferred
-1611667,Not inferred,Not inferred
-1618327,Not Inferred,Not Inferred
-1622580,Not Inferred,Not Inferred
-1623163,Not inferred,Not inferred
-1626507,Not Inferred,Not Inferred
-1641810,Not inferred,Not inferred
-1646430,Not Inferred,Not Inferred
-1650881,Not Inferred,Not Inferred
-165361,Not inferred,Not inferred
-1667104,Not Inferred,Not Inferred
-1673510,Not Inferred,Not Inferred
-168146,Not Inferred,Not Inferred
-1700089,Not Inferred,Not Inferred
-170012,Not Inferred,Not Inferred
-175401,Not Inferred,Not Inferred
-179936,Not inferred,Not inferred
-187518,Not inferred,Not inferred
-194033,Not Inferred,Not Inferred
-206783,Not Inferred,Not Inferred
-207046,Not Inferred,Not Inferred
-235316,Not Inferred,Not Inferred
-235538,Not Inferred,Not Inferred
-244078,Not Inferred,Not Inferred
-24410,Not Inferred,Not Inferred
-244688,Not Inferred,Not Inferred
-245815,Not inferred,Not inferred
-250322,Not Inferred,Not Inferred
-252296,Not Inferred,Not Inferred
-256537,Not Inferred,Not Inferred
-258141,Not Inferred,Not Inferred
-267658,Not Inferred,Not Inferred
-276261,Not inferred,Not inferred
-276343,Not Inferred,Not Inferred
-277917,Not inferred,Not inferred
-279242,Not Inferred,Not Inferred
-284231,Not Inferred,Not Inferred
-286563,Not Inferred,Not Inferred
-296213,Not Inferred,Not Inferred
-296602,Not inferred,Not inferred
-307557,Not Inferred,Not Inferred
-309014,Not Inferred,Not Inferred
-310511,Not Inferred,Not Inferred
-313323,Not Inferred,Not Inferred
-319885,Not Inferred,Not Inferred
-323112,Not Inferred,Not Inferred
-330928,Not Inferred,Not Inferred
-331375,Not Inferred,Not Inferred
-335339,Not Inferred,Not Inferred
-336310,Not Inferred,Not Inferred
-345463,Not Inferred,Not Inferred
-345750,Not Inferred,Not Inferred
-359825,Not Inferred,Not Inferred
-361167,Not Inferred,Not Inferred
-364959,Not Inferred,Not Inferred
-367722,Not Inferred,Not Inferred
-376941,Not Inferred,Not Inferred
-378985,Not Inferred,Not Inferred
-381326,Not Inferred,Not Inferred
-385207,Not inferred,Not inferred
-388285,Not Inferred,Not Inferred
-395523,Not Inferred,Not Inferred
-410264,Not Inferred,Not Inferred
-424609,Not Inferred,Not Inferred
-425070,Not Inferred,Not Inferred
-436641,Not inferred,Not inferred
-437522,Not Inferred,Not Inferred
-44651,Not inferred,Not inferred
-449018,Not Inferred,Not Inferred
-451834,Not Inferred,Not Inferred
-451971,Not Inferred,Not Inferred
-454098,Not Inferred,Not Inferred
-465567,Not Inferred,Not Inferred
-486876,Not Inferred,Not Inferred
+1548911,Not inferred,Not inferred
+1254757,Not inferred,Not inferred
+1448793,Not inferred,Not inferred
+1547573,Not inferred,Not inferred
+1314678,Not Inferred,Not Inferred
+1310803,Not Inferred,Not Inferred
+1307534,Not Inferred,Not Inferred
+1538245,Not Inferred,Not Inferred
+1535811,Not Inferred,Not Inferred
+1529931,Not Inferred,Not Inferred
+1528517,Not Inferred,Not Inferred
+1306232,Not Inferred,Not Inferred
+1302562,Not Inferred,Not Inferred
+1302380,Not inferred,Not inferred
+152023,Not Inferred,Not Inferred
+1266668,Not Inferred,Not Inferred
+1518987,Not Inferred,Not Inferred
+1457682,Not inferred,Not inferred
+1266939,Not Inferred,Not Inferred
+1514079,Not Inferred,Not Inferred
+1269016,Not Inferred,Not Inferred
+1252653,Not Inferred,Not Inferred
 490657,Not Inferred,Not Inferred
-491733,Not inferred,Not inferred
-493824,Not Inferred,Not Inferred
-518791,Not Inferred,Not Inferred
-519494,Not Inferred,Not Inferred
-521138,Not Inferred,Not Inferred
-529997,Not inferred,Not inferred
-534929,Not Inferred,Not Inferred
-535790,Not Inferred,Not Inferred
-536666,Not Inferred,Not Inferred
-544721,Not Inferred,Not Inferred
-548457,Not Inferred,Not Inferred
-551914,Not inferred,Not inferred
-561902,Not Inferred,Not Inferred
-56276,Not inferred,Not inferred
-564344,Not Inferred,Not Inferred
-568216,Not Inferred,Not Inferred
-572338,Not Inferred,Not Inferred
-577218,Not Inferred,Not Inferred
-583421,Not inferred,Not inferred
-605465,Not Inferred,Not Inferred
-610810,Not Inferred,Not Inferred
-62806,Not Inferred,Not Inferred
-629036,Not inferred,Not inferred
-6369,Not Inferred,Not Inferred
-639074,Not Inferred,Not Inferred
-644397,Not Inferred,Not Inferred
-654327,Not Inferred,Not Inferred
-656981,Not Inferred,Not Inferred
-665102,Not Inferred,Not Inferred
-665419,Not Inferred,Not Inferred
-667872,Not inferred,Not inferred
-669146,Not Inferred,Not Inferred
-669316,Not Inferred,Not Inferred
-673688,Not Inferred,Not Inferred
-680227,Not Inferred,Not Inferred
-688973,Not Inferred,Not Inferred
-722792,Not inferred,Not inferred
-724427,Not inferred,Not inferred
-726562,Not Inferred,Not Inferred
-739007,Not Inferred,Not Inferred
-745421,Not Inferred,Not Inferred
-755397,Not Inferred,Not Inferred
-763380,Not inferred,Not inferred
-763510,Not Inferred,Not inferred
-771523,Not Inferred,Not Inferred
-775865,Not inferred,Not inferred
-7777,Not Inferred,Not Inferred
-779143,Not Inferred,Not Inferred
-783891,Not Inferred,Not Inferred
-795778,Not Inferred,Not Inferred
-801479,Not Inferred,Not Inferred
-803211,Not inferred,Not inferred
-810748,Not inferred,Not inferred
-811013,Not Inferred,Not Inferred
-816794,Not Inferred,Not Inferred
-820516,Not Inferred,Not Inferred
-822853,Not Inferred,Not Inferred
-830115,Not Inferred,Not Inferred
-832253,Not Inferred,Not Inferred
-832366,Not Inferred,Not Inferred
-832391,Not Inferred,Not inferred
-832888,Not Inferred,Not Inferred
-833851,Not inferred,Not inferred
-837503,Not Inferred,Not Inferred
-840620,Not Inferred,Not Inferred
-846904,Not inferred,Not inferred
-849051,Not Inferred,Not Inferred
-853832,Not Inferred,Not Inferred
-863118,Not Inferred,Not Inferred
-863581,Not Inferred,Not Inferred
-863972,Not Inferred,Not Inferred
-865277,Not Inferred,Not Inferred
-867143,Not Inferred,Not Inferred
-870925,Not Inferred,Not Inferred
-888602,Not Inferred,Not Inferred
-907583,Not inferred,Not inferred
-907916,Not Inferred,Not Inferred
-910092,Not Inferred,Not Inferred
-911530,Not Inferred,Not Inferred
-912141,Not inferred,Not inferred
-919591,Not Inferred,Not Inferred
-925650,Not Inferred,Not Inferred
-928101,Not Inferred,Not Inferred
-930297,Not inferred,Not inferred
-935281,Not Inferred,Not Inferred
-940450,Not Inferred,Not Inferred
-94714,Not Inferred,Not Inferred
-950542,Not inferred,Not inferred
-959920,Not Inferred,Not Inferred
-964132,Not Inferred,Not Inferred
-965945,Not Inferred,Not Inferred
-968639,Not Inferred,Not Inferred
-970236,Not Inferred,Not Inferred
-97134,Not Inferred,Not Inferred
-972546,Not Inferred,Not Inferred
-972669,Not Inferred,Not Inferred
-975096,Not Inferred,Not Inferred
-980000,Not Inferred,Not Inferred
-988682,Not Inferred,Not Inferred
-990263,Not Inferred,Not Inferred
-990489,Not Inferred,Not Inferred
-994799,Not Inferred,Not Inferred
+1211282,Not Inferred,Not Inferred
+235316,Not Inferred,Not Inferred
+1160623,Not Inferred,Not Inferred
+1424359,Not Inferred,Not Inferred
+395523,Not Inferred,Not Inferred
+1164033,Not inferred,Not inferred
+1336918,Not Inferred,Not Inferred
+388285,Not Inferred,Not Inferred
+138482,Not Inferred,Not Inferred
+385207,Not inferred,Not inferred
+1336513,Not Inferred,Not Inferred
+381326,Not Inferred,Not Inferred
+410264,Not Inferred,Not Inferred
+378985,Not Inferred,Not Inferred
+1165489,Not Inferred,Not Inferred
+1429383,Not Inferred,Not Inferred
+367722,Not Inferred,Not Inferred
+364959,Not Inferred,Not Inferred
+1169327,Not Inferred,Not Inferred
+361167,Not Inferred,Not Inferred
+359825,Not Inferred,Not Inferred
+1171744,Not Inferred,Not Inferred
+1172619,Not inferred,Not inferred
+1430225,Not Inferred,Not Inferred
+376941,Not Inferred,Not Inferred
+1158727,Not Inferred,Not Inferred
+1424073,Not Inferred,Not Inferred
+1156267,Not Inferred,Not Inferred
+486876,Not Inferred,Not Inferred
+1135076,Not Inferred,Not Inferred
+1296627,Not Inferred,Not Inferred
+1138298,Not Inferred,Not Inferred
+1140774,Not Inferred,Not inferred
+1142224,Not Inferred,Not Inferred
+1416427,Not Inferred,Not Inferred
+465567,Not Inferred,Not Inferred
+1145024,Not Inferred,Not Inferred
+1340671,Not Inferred,Not Inferred
+1147322,Not inferred,Not inferred
+454098,Not Inferred,Not Inferred
+451971,Not Inferred,Not Inferred
+451834,Not Inferred,Not Inferred
+449018,Not Inferred,Not Inferred
+1149446,Not inferred,Not inferred
+44651,Not inferred,Not inferred
+1337276,Not Inferred,Not Inferred
+437522,Not Inferred,Not Inferred
+436641,Not inferred,Not inferred
+425070,Not Inferred,Not Inferred
+424609,Not Inferred,Not Inferred
+1155412,Not Inferred,Not Inferred
+1334220,Not Inferred,Not Inferred
+1330775,Not Inferred,Not Inferred
+345750,Not Inferred,Not Inferred
+1177148,Not Inferred,Not Inferred
+286563,Not Inferred,Not Inferred
+284231,Not Inferred,Not Inferred
+279242,Not Inferred,Not Inferred
+277917,Not inferred,Not inferred
+276343,Not Inferred,Not Inferred
+276261,Not inferred,Not inferred
+267658,Not Inferred,Not Inferred
+258141,Not Inferred,Not Inferred
+256537,Not Inferred,Not Inferred
+252296,Not Inferred,Not Inferred
+120069,Not Inferred,Not Inferred
+250322,Not Inferred,Not Inferred
+1204131,Not inferred,Not inferred
+245815,Not inferred,Not inferred
+1436630,Not Inferred,Not Inferred
+244688,Not Inferred,Not Inferred
+24410,Not Inferred,Not Inferred
+244078,Not Inferred,Not Inferred
+1331038,Not Inferred,Not Inferred
+1208233,Not Inferred,Not Inferred
+1208740,Not inferred,Not inferred
+235538,Not Inferred,Not Inferred
+1331317,Not inferred,Not inferred
+1199165,Not Inferred,Not Inferred
+1197023,Not inferred,Not inferred
+1192207,Not Inferred,Not inferred
+336310,Not Inferred,Not Inferred
+335339,Not Inferred,Not Inferred
+1177630,Not Inferred,Not Inferred
+331375,Not Inferred,Not Inferred
+330928,Not Inferred,Not Inferred
+1181132,Not Inferred,Not Inferred
+1181436,Not Inferred,Not Inferred
+323112,Not Inferred,Not Inferred
+1183186,Not Inferred,Not Inferred
+319885,Not Inferred,Not Inferred
+1184300,Not Inferred,Not Inferred
+1434930,Not Inferred,Not Inferred
+313323,Not Inferred,Not Inferred
+310511,Not Inferred,Not Inferred
+309014,Not Inferred,Not Inferred
+1186884,Not inferred,Not inferred
+307557,Not Inferred,Not Inferred
+1435525,Not Inferred,Not Inferred
+1189148,Not inferred,Not inferred
+1189263,Not Inferred,Not Inferred
+1190812,Not Inferred,Not Inferred
+296602,Not inferred,Not inferred
+296213,Not Inferred,Not Inferred
+345463,Not Inferred,Not Inferred
+1137628,Not Inferred,Not Inferred
