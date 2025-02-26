@@ -499,20 +499,20 @@ class ReportSummarizer:
             for path in file_list:
                 fname = os.path.basename(path)
                 logger.info(f"Processing file: {fname} for report type: {rtype}")
-                start_time = time.time()
+                # start_time = time.time()
                 try:
                     with open(path, 'r', encoding='utf-8') as f:
                         text = f.read()
-
+                    start_time = time.time()
                     summary = self.summarize_report(text, rtype)
                     if not summary:
                         logger.warning(f"No summary produced for {fname}.")
                         continue
-
+                    end_time = time.time()
                     # Timing stats
                     num_chars = len(text) # num of characters in the input text
-                    num_tokens = len(text.split()) # num of tokens (or words) in the input text 
-                    end_time = time.time()
+                    num_tokens = len(text.split()) # num of words in the input text 
+                    # end_time = time.time()
                     elapsed_ms = int(round((end_time - start_time) * 1000))
                     time_data.append({
                         "file": fname,
