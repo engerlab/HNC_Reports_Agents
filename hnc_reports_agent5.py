@@ -1,63 +1,80 @@
 #!/usr/bin/env python3
 """
-Summarize HNC Reports with Experimental Modes for Prompt Engineering
+HNC Summarizer with 4 Modes & Support for Ollama num_ctx
 
-This script processes reports from:
-  - PathologyReports/ (for pathology_reports)
-  - ConsultRedacted/ (for consultation_notes)
-  - PathConsCombined/ (for treatment_plan_outcomepred, path_consult_reports, and cot_treatment_plan_outcomepred)
+HNC (Head and Neck Cancer) Report Summarizer: 4 Experimental Modes + Large Context Support
 
-It supports two experimental modes for path_consult_reports:
-  1. Combined mode: A single combined prompt (fields that do not require additional reasoning are handled with a “Not inferred” default).
-  2. Separated mode: Two separate prompts (one for fields that do not require chain-of-thought and one for those that require reasoning) whose outputs are then merged.
+This script processes head-and-neck cancer (HNC) patient reports by extracting a structured, 
+30-line summary. The 30 fields include demographics, tumor staging, pathology findings, 
+treatment history, and more. The script is capable of handling both:
 
-Additional features:
-  --single: Process only one random file per subfolder.
-  --case_id: Process a specific case (file name without extension).
-  --prompt_mode: Optional suffix for prompt JSON files (e.g., "combined" or "separated").
+1) **Combined** text (pathology and consultation reports already merged into a single file).
+2) **Separate** text (one file under 'PathologyReports/', one under 'ConsultRedacted/', 
+   automatically combined by the script).
 
-The processing_times.csv file will record only the time taken for the summarization (in milliseconds), as well as the number of input characters and tokens.
+It offers four "experiment modes," selectable by the --experiment_mode argument:
+
+  **Mode 1**: Combined text + Single-step prompt
+      - Reads from PathConsCombined/ 
+      - Uses a single "combined" prompt to extract all 30 fields at once.
+
+  **Mode 2**: Combined text + Two-step prompt
+      - Reads from PathConsCombined/
+      - Step 1: "extraction" prompt for partial fields
+      - Step 2: "chain-of-thought (CoT)" prompt for the remaining fields
+      - Merges the partial results for a complete 30-field summary
+
+  **Mode 3**: Separate texts (Pathology + Consultation) + Single-step prompt
+      - Looks in PathologyReports/ and ConsultRedacted/ for matching patient IDs
+      - Summarizes each text individually using the single-step prompt
+      - Merges final 30 fields so that if one text has "Not inferred" but the other has data, 
+        the final output contains the inferred data
+
+  **Mode 4**: Separate texts (Pathology + Consultation) + Two-step prompt
+      - Same as Mode 3 but uses a two-step (extraction + CoT) approach on each text 
+      - Merges the final results line-by-line
+
+After summarizing, the script saves:
+
+- **text_summaries/modeX/<patient_id>/summary.txt**:
+  The final 30-line text summary (one line per field).
   
-Usage examples:
-  Full processing (all cases) with combined prompt mode:
-    python hnc_reports_agent5.py \
-      --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-      --model_type local \
-      --temperature 0.8 \
-      --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-      --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpFull1" \
-      --embedding_model ollama \
-      --report_type "path_consult_reports" \
-      --local_model "llama3.3:latest" \
-      --prompt_mode "combined"
+- **embeddings/modeX/<patient_id>/embedding.pkl**:
+  A vector embedding (via Ollama, OpenAI, or Google embeddings) for the final summary text.
 
-  Single-case experiment (random case):
-    python hnc_reports_agent5.py \
-      --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-      --model_type local \
-      --temperature 0.8 \
-      --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-      --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPrompt1" \
-      --embedding_model ollama \
-      --report_type "path_consult_reports" \
-      --local_model "llama3.3:latest" \
-      --prompt_mode "separated" \
-      --single
+- **processing_times.csv** in the --output_dir:
+  Captures inference time for each processed case (in milliseconds), the number of input 
+  characters, and the approximate number of tokens.
 
-  Single-case experiment (specific case):
-    python hnc_reports_agent5.py \
-      --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-      --model_type local \
-      --temperature 0.8 \
-      --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-      --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPrompt2" \
-      --embedding_model ollama \
-      --report_type "path_consult_reports" \
-      --local_model "llama3.3:latest" \
-      --prompt_mode "combined" \
-      --case_id "1115749"
+Run the script directly, specifying:
+  --prompts_dir: Where the JSON prompt files reside.
+  --input_dir:   Parent directory containing PathologyReports/, ConsultRedacted/, PathConsCombined/.
+  --output_dir:  Destination for the summarized text, embeddings, and processing times CSV.
+  --experiment_mode: (1..4) which of the four modes to use.
 
-Note: The script uses a Hugging Face tokenizer (bert-base-uncased) to count tokens.
+Optionally, you can:
+  --single:        Summarize only one random file/patient from each subfolder.
+  --case_id:       Summarize a specific patient (filename w/o extension).
+  --local_model:   Name of a local LLM (e.g. "llama3.3:latest") if using model_type=local.
+  --ollama_context_size: If using Ollama, sets the num_ctx parameter (e.g. 128000 for large context).
+
+Usage Example (Mode 2, combined text + two-step, large context):
+  python hnc_reports_agent5.py \
+    --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+    --model_type local \
+    --temperature 0.8 \
+    --input_dir /media/yujing/OneTouch3/HNC_Reports \
+    --output_dir /Data/Yujing/HNC_OutcomePred/Results \
+    --embedding_model ollama \
+    --local_model "llama3.3:latest" \
+    --experiment_mode 2 \
+    --ollama_context_size 128000
+
+The final summary for each case is always a 30-line text with fields such as:
+Sex, Anatomic_Site_of_Lesion, Pathological_TNM, ... ECOG_Performance_Status,
+each in the form "FieldName: Value" or "Not inferred" if unknown.
+
+We optionally set --ollama_context_size (num_ctx) for ChatOllama. Set for 128000 for llama3.3-70B.
 """
 
 import os
@@ -66,37 +83,36 @@ import re
 import argparse
 import logging
 import pickle
-from typing import Dict, Any, Optional, List
-import time
-import numpy as np
-import pandas as pd
-from sklearn.preprocessing import OneHotEncoder
-from sklearn.impute import SimpleImputer
 import random
-import signal
+import time
+import pandas as pd
+from typing import List, Dict, Optional
 
-# Import Hugging Face tokenizer to count tokens.
+# Transformers for token counting
 from transformers import AutoTokenizer
-tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+try:
+    # different llm models may have different tokenizers so we need to adjust if needed 
+    tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.1-70B")
+except:
+    raise ValueError("Could not load 'meta-llama/Llama-3.1-70B' tokenizer. Please adjust if needed.")
 
 # LangChain
 from langchain_core.runnables import RunnableLambda
 from langchain_core.messages import HumanMessage
 
-# Model-specific imports (adapt as needed)
+# Ollama + other possible LLM backends
 from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
+from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
-##############################################################################
-# 1. Field Definitions (for the combined extraction)
-##############################################################################
-# Note: The following fields are used in the combined prompt.
-PATH_CONS_FIELDS = [
+###############################################################################
+# 1. The 30 Fields
+###############################################################################
+ALL_FIELDS = [
     "Sex",
     "Anatomic_Site_of_Lesion",
     "Pathological_TNM",
@@ -129,65 +145,55 @@ PATH_CONS_FIELDS = [
     "ECOG_Performance_Status"
 ]
 
-##############################################################################
-# 2. Regex Patterns
-##############################################################################
-PATTERNS = {
-    "Sex": r"^Sex:\s*(Male|Female|Other|Not inferred)\s*$",
-    "Anatomic_Site_of_Lesion": r"^Anatomic_Site_of_Lesion:\s*(.*)$",
-    "Pathological_TNM": r"^Pathological_TNM:\s*(.*)$",
-    "Clinical_TNM": r"^Clinical_TNM:\s*(.*)$",
-    "Primary_Tumor_Size": r"^Primary_Tumor_Size:\s*(.*)$",
-    "Tumor_Type_Differentiation": r"^Tumor_Type_Differentiation:\s*(.*)$",
-    "Pathology_Details": r"^Pathology_Details:\s*(.*)$",
-    "Lymph_Node_Status_Presence_Absence": r"^Lymph_Node_Status_Presence_Absence:\s*(Presence|Absence|Suspected|Not inferred)\s*$",
-    "Lymph_Node_Status_Number_of_Positve_Lymph_Nodes": r"^Lymph_Node_Status_Number_of_Positve_Lymph_Nodes:\s*(\d+|Not inferred)\s*$",
-    "Lymph_Node_Status_Extranodal_Extension": r"^Lymph_Node_Status_Extranodal_Extension:\s*(Yes|No|Not inferred)\s*$",
-    "Resection_Margins": r"^Resection_Margins:\s*(Positive|Negative|Not inferred)\s*$",
-    "p16_Status": r"^p16_Status:\s*(Positive|Negative|Not inferred)\s*$",
-    "Immunohistochemical_profile": r"^Immunohistochemical_profile:\s*(.*)$",
-    "EBER_Status": r"^EBER_Status:\s*(Positive|Negative|Not inferred)\s*$",
-    "Lymphovascular_Invasion_Status": r"^Lymphovascular_Invasion_Status:\s*(Present|Absent|Not inferred)\s*$",
-    "Perineural_Invasion_Status": r"^Perineural_Invasion_Status:\s*(Present|Absent|Not inferred)\s*$",
-    "Smoking_History": r"^Smoking_History:\s*(.*)$",
-    "Alcohol_Consumption": r"^Alcohol_Consumption:\s*(.*)$",
-    "Pack_Years": r"^Pack_Years:\s*(\d+|Not inferred)\s*$",
-    "Patient_Symptoms_at_Presentation": r"^Patient_Symptoms_at_Presentation:\s*(.*)$",
-    "Recommendations": r"^Recommendations:\s*(.*)$",
-    "Follow_Up_Plans": r"^Follow_Up_Plans:\s*(.*)$",
-    "HPV_Status": r"^HPV_Status:\s*(Positive|Negative|Not inferred)\s*$",
-    "Patient_History_Status_Prior_Conditions": r"^Patient_History_Status_Prior_Conditions:\s*(.*)$",
-    "Patient_History_Status_Previous_Treatments": r"^Patient_History_Status_Previous_Treatments:\s*(.*)$",
-    "Clinical_Assessments_Radiological_Lesions": r"^Clinical_Assessments_Radiological_Lesions:\s*(.*)$",
-    "Clinical_Assessments_SUV_from_PET_scans": r"^Clinical_Assessments_SUV_from_PET_scans:\s*(\d+(\.\d+)?|Not inferred)\s*$",
-    "Charlson_Comorbidity_Score": r"^Charlson_Comorbidity_Score:\s*(\d+|Not inferred)\s*$",
-    "Karnofsky_Performance_Status": r"^Karnofsky_Performance_Status:\s*(\d+|Not inferred)\s*$",
-    "ECOG_Performance_Status": r"^ECOG_Performance_Status:\s*(\d+|Not inferred)\s*$"
-}
-
-##############################################################################
-# 3. Helper Function to Enforce Format
-##############################################################################
-def enforce_format(summary: str, expected_fields: List[str]) -> str:
-    """
-    Ensure the output has exactly one line per expected field (FieldName: Value).
-    For any field not present, force 'Not inferred'.
-    """
+###############################################################################
+# 2. enforce_format(...) => ensures 30 lines
+###############################################################################
+def enforce_format(summary: str, fields: List[str]) -> str:
     lines = summary.splitlines()
-    field_lines = {}
-    for field in expected_fields:
-        pattern = f"^{field}:"  # must start with the field name followed by a colon
-        found_line = None
-        for line in lines:
-            if re.match(pattern, line.strip()):
-                found_line = line.strip()
+    found = {}
+    for fld in fields:
+        pattern = rf"^{fld}:\s*"
+        match_line = None
+        for ln in lines:
+            if re.match(pattern, ln.strip(), re.IGNORECASE):
+                match_line = ln.strip()
                 break
-        field_lines[field] = found_line if found_line else f"{field}: Not inferred"
-    return "\n".join([field_lines[field] for field in expected_fields])
+        if match_line:
+            found[fld] = match_line
+        else:
+            found[fld] = f"{fld}: Not inferred"
+    return "\n".join(found[f] for f in fields)
 
-##############################################################################
+###############################################################################
+# 3. Merge Summaries
+###############################################################################
+def merge_summaries(summary_a: str, summary_b: str, fields: List[str]) -> str:
+    """
+    If a field in summary_a is 'Not inferred' but summary_b has content, use summary_b, else summary_a.
+    """
+    def parse_lines(text: str) -> Dict[str, str]:
+        d = {}
+        for ln in text.splitlines():
+            if ":" in ln:
+                k, v = ln.split(":", 1)
+                d[k.strip()] = v.strip()
+        return d
+
+    da = parse_lines(summary_a)
+    db = parse_lines(summary_b)
+    merged = []
+    for f in fields:
+        va = da.get(f, "Not inferred")
+        vb = db.get(f, "Not inferred")
+        if va == "Not inferred" and vb != "Not inferred":
+            merged.append(f"{f}: {vb}")
+        else:
+            merged.append(f"{f}: {va}")
+    return "\n".join(merged)
+
+###############################################################################
 # 4. Summarizer Class
-##############################################################################
+###############################################################################
 class ReportSummarizer:
     def __init__(
         self,
@@ -196,44 +202,45 @@ class ReportSummarizer:
         temperature: float = 0.8,
         embedding_model: str = "ollama",
         local_model: str = "llama3.3:latest",
-        prompt_mode: str = ""
+        experiment_mode: int = 1,
+        ollama_context_size: int = 4096
     ):
+        """
+        :param experiment_mode: 1..4 (the 4 modes).
+        :param ollama_context_size: sets num_ctx for ChatOllama if model_type=local.
+        """
         self.model_type = model_type.lower()
         self.temperature = temperature
         self.embedding_model = embedding_model.lower()
         self.local_model = local_model
-        self.prompt_mode = prompt_mode.lower()  # e.g., "combined" or "separated"
+        self.experiment_mode = experiment_mode
+        self.ollama_context_size = ollama_context_size
 
         if not os.path.isdir(prompts_dir):
-            raise ValueError(f"Invalid prompts_dir: {prompts_dir}")
+            raise ValueError(f"prompts_dir={prompts_dir} is not valid.")
         self.prompts_dir = prompts_dir
 
-        # Load prompts for known report types and sub-prompts for path_consult_reports
-        known_rtypes = [
-            "pathology_reports",
-            "consultation_notes",
-            "treatment_plan_outcomepred",
-            "path_consult_reports"
-        ]
-        # For the two-step approach for path_consult_reports, we load two separate prompt texts.
-        self.prompts = {}
-        for rtype in known_rtypes:
-            self.prompts[rtype] = self.load_prompt(rtype)
-        # For two-step path_consult_reports extraction (separated prompts)
-        self.prompts["path_consult_reports_extraction"] = self.load_prompt("path_consult_reports_extraction")
-        self.prompts["path_consult_reports_cot"] = self.load_prompt("path_consult_reports_cot")
+        # Load prompts for single-step + two-step approach
+        self.prompt_combined = self._load_prompt("prompt_path_consult_reports_combined.json")
+        self.prompt_extraction = self._load_prompt("prompt_path_consult_reports_extraction.json")
+        self.prompt_cot        = self._load_prompt("prompt_path_consult_reports_cot.json")
 
-        # Initialize LLM model
+        # LLM
         if self.model_type == "local":
-            self.model = ChatOllama(model=self.local_model, temperature=self.temperature)
+            # We pass num_ctx=... to ChatOllama to request large context
+            self.model = ChatOllama(
+                model=self.local_model,
+                temperature=self.temperature,
+                num_ctx=self.ollama_context_size  # <-- KEY (default is 2048, need to set this for LLMs even if the context window is much larger for that LLM itself like llama3.3-70 has has a context window of 128k)
+            )
         elif self.model_type == "gpt":
             self.model = ChatOpenAI(model="gpt-4", temperature=self.temperature)
         elif self.model_type == "gemini":
             self.model = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=self.temperature)
         else:
-            raise ValueError(f"Unsupported model type: {self.model_type}")
+            raise ValueError(f"Unsupported model_type={self.model_type}")
 
-        # Initialize embeddings
+        # Embeddings
         if self.embedding_model == "ollama":
             self.embeddings = OllamaEmbeddings(model="nomic-embed-text")
         elif self.embedding_model == "openai":
@@ -241,206 +248,325 @@ class ReportSummarizer:
         elif self.embedding_model == "google":
             self.embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", task_type="retrieval_document")
         else:
-            logger.warning(f"Unknown embedding_model: {self.embedding_model}. Defaulting to Ollama.")
             self.embeddings = OllamaEmbeddings(model="nomic-embed-text")
+            logger.warning(f"Unknown embedding_model {self.embedding_model}, defaulting to OllamaEmbeddings.")
 
-        # Build chain map for single-step prompts (for report types other than path_consult_reports)
-        self.chain_map = {}
-        for rtype in known_rtypes:
-            if self.prompts[rtype]:
-                self.chain_map[rtype] = self.make_llm_runnable(self.prompts[rtype])
-    
-    def load_prompt(self, rtype: str) -> str:
-        """
-        Load prompt text from JSON file. If prompt_mode is set, try with that suffix.
-        """
-        base_filename = f"prompt_{rtype}"
-        candidates = []
-        if self.prompt_mode:
-            candidates.append(os.path.join(self.prompts_dir, f"{base_filename}_{self.prompt_mode}.json"))
-        candidates.append(os.path.join(self.prompts_dir, f"{base_filename}.json"))
-        for candidate in candidates:
-            if os.path.isfile(candidate):
-                with open(candidate, 'r') as f:
-                    data = json.load(f)
-                prompts_list = data.get("prompts", [])
-                logger.info(f"Loaded prompt for {rtype} from {candidate}")
-                return "\n".join(prompts_list)
-        logger.warning(f"No prompt file found for {rtype} (candidates: {candidates})")
-        return ""
-    
-    def make_llm_runnable(self, prompt: str) -> RunnableLambda:
-        def llm_runnable(inputs: Dict[str, str]) -> Dict[str, str]:
-            context = inputs["context"]
-            logger.debug(f"Summarizing text of length {len(context)} for {inputs.get('report_type', 'unknown')}")
-            try:
-                final_prompt = prompt.replace("{context}", context)
-                result = self.model.invoke([HumanMessage(content=final_prompt)]).content
-                return {"summary": result}
-            except Exception as e:
-                logger.error(f"Error generating summary: {e}")
-                return {"summary": ""}
-        return RunnableLambda(llm_runnable)
-    
-    def run_llm_prompt(self, rtype: str, text: str) -> str:
-        if rtype not in self.chain_map:
-            logger.warning(f"No prompt found for {rtype}")
+        # Build runnables
+        self.runnable_combined = self._make_llm_chain(self.prompt_combined) if self.prompt_combined else None
+        self.runnable_extraction = self._make_llm_chain(self.prompt_extraction) if self.prompt_extraction else None
+        self.runnable_cot = self._make_llm_chain(self.prompt_cot) if self.prompt_cot else None
+
+    def _load_prompt(self, filename: str) -> str:
+        path = os.path.join(self.prompts_dir, filename)
+        if not os.path.isfile(path):
+            logger.warning(f"Prompt file not found: {path}")
             return ""
-        runnable = self.chain_map[rtype]
-        resp = runnable.invoke({"context": text, "report_type": rtype})
-        summary = resp.get("summary", "").strip()
-        logger.debug(f"[{rtype}] Summarize output (first 80 chars): {summary[:80]}...")
-        return summary
-    
-    def summarize_path_consult_two_step(self, report_text: str) -> str:
-        extraction_summary = self.run_llm_prompt("path_consult_reports_extraction", report_text)
-        cot_summary = self.run_llm_prompt("path_consult_reports_cot", report_text)
-        combined_raw = extraction_summary + "\n" + cot_summary
-        final_text = enforce_format(combined_raw, PATH_CONS_FIELDS)
-        return final_text
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        lines = data.get("prompts", [])
+        return "\n".join(lines)
 
-    def summarize_report(self, report_text: str, report_type: str) -> Optional[str]:
-        if report_type == "path_consult_reports":
-            if (self.prompts.get("path_consult_reports_extraction") and self.prompts.get("path_consult_reports_cot")):
-                summary = self.summarize_path_consult_two_step(report_text)
-            else:
-                logger.warning("[path_consult_reports] Two-step prompts not found, using single-step fallback.")
-                summary = self.run_llm_prompt("path_consult_reports", report_text)
-                summary = enforce_format(summary, PATH_CONS_FIELDS)
+    def _make_llm_chain(self, prompt_text: str) -> RunnableLambda:
+        def chain_func(inputs: Dict[str, str]) -> Dict[str, str]:
+            txt = inputs["context"]
+            final_prompt = prompt_text.replace("{context}", txt)
+            try:
+                resp = self.model.invoke([HumanMessage(content=final_prompt)])
+                return {"summary": resp.content.strip()}
+            except Exception as e:
+                logger.error(f"LLM error: {e}")
+                return {"summary": ""}
+        return RunnableLambda(chain_func)
+
+    # --- Summaries for Combined text (Modes 1 & 2) ---
+    def summarize_combined_singlestep(self, text: str) -> str:
+        if not self.runnable_combined:
+            logger.warning("No combined prompt loaded.")
+            return ""
+        out = self.runnable_combined.invoke({"context": text})["summary"]
+        return enforce_format(out, ALL_FIELDS)
+
+    def summarize_combined_twostep(self, text: str) -> str:
+        if not (self.runnable_extraction and self.runnable_cot):
+            logger.warning("Missing extraction or CoT prompt => fallback to single-step.")
+            return self.summarize_combined_singlestep(text)
+        ex_summ = self.runnable_extraction.invoke({"context": text}).get("summary", "")
+        cot_summ = self.runnable_cot.invoke({"context": text}).get("summary", "")
+        merged = ex_summ + "\n" + cot_summ
+        return enforce_format(merged, ALL_FIELDS)
+
+    # --- Summaries for Separate text (Modes 3 & 4) ---
+    def summarize_separate_singlestep(self, path_text: str, cons_text: str) -> str:
+        sA = self.summarize_combined_singlestep(path_text)
+        sB = self.summarize_combined_singlestep(cons_text)
+        return merge_summaries(sA, sB, ALL_FIELDS)
+
+    def summarize_separate_twostep(self, path_text: str, cons_text: str) -> str:
+        sA = self.summarize_combined_twostep(path_text)
+        sB = self.summarize_combined_twostep(cons_text)
+        return merge_summaries(sA, sB, ALL_FIELDS)
+
+    # --- Summarize one patient depending on experiment_mode ---
+    def summarize_one_patient(self, path_text: str, cons_text: str) -> str:
+        mode = self.experiment_mode
+        if mode == 1:
+            return self.summarize_combined_singlestep(path_text)
+        elif mode == 2:
+            return self.summarize_combined_twostep(path_text)
+        elif mode == 3:
+            return self.summarize_separate_singlestep(path_text, cons_text)
+        elif mode == 4:
+            return self.summarize_separate_twostep(path_text, cons_text)
         else:
-            summary = self.run_llm_prompt(report_type, report_text)
-            if report_type in ["pathology_reports", "consultation_notes"]:
-                if report_type == "pathology_reports":
-                    summary = enforce_format(summary, PATH_CONS_FIELDS[:len(PATH_CONS_FIELDS)//2])  # For example purposes.
-                elif report_type == "consultation_notes":
-                    summary = enforce_format(summary, PATH_CONS_FIELDS[len(PATH_CONS_FIELDS)//2:])
-        return summary if summary else None
+            logger.warning(f"Invalid mode={mode}, returning empty.")
+            return ""
 
-    def process_reports(self, input_dir: str, output_dir: str, report_types: List[str],
-                        single: bool = False, case_id: Optional[str] = None):
+    # --- Process entire dataset according to mode ---
+    def process_reports(self, input_dir: str, output_dir: str, single: bool=False, case_id: Optional[str]=None):
         os.makedirs(output_dir, exist_ok=True)
         time_data = []
-        def process_folder(folder_path: str) -> List[str]:
-            files = []
-            if os.path.isdir(folder_path):
-                files = [os.path.join(root, fname) for root, _, fs in os.walk(folder_path)
-                         for fname in fs if fname.endswith(".txt")]
-                if case_id:
-                    files = [f for f in files if os.path.splitext(os.path.basename(f))[0] == case_id]
-                    if not files:
-                        logger.warning(f"No file found with case ID {case_id} in {folder_path}")
-                elif single and files:
-                    files = [random.choice(files)]
-            return files
 
-        folder_map = {
-            "pathology_reports": os.path.join(input_dir, "PathologyReports"),
-            "consultation_notes": os.path.join(input_dir, "ConsultRedacted"),
-            "treatment_plan_outcomepred": os.path.join(input_dir, "PathConsCombined"),
-            "path_consult_reports": os.path.join(input_dir, "PathConsCombined"),
-            "cot_treatment_plan_outcomepred": os.path.join(input_dir, "PathConsCombined")
-        }
+        if self.experiment_mode in [1, 2]:
+            # Combined => read from PathConsCombined
+            comb_dir = os.path.join(input_dir, "PathConsCombined")
+            if not os.path.isdir(comb_dir):
+                logger.error(f"Missing PathConsCombined: {comb_dir}")
+                return
+            all_files = []
+            for root, _, fs in os.walk(comb_dir):
+                for fname in fs:
+                    if fname.endswith(".txt"):
+                        all_files.append(os.path.join(root, fname))
+            if case_id:
+                all_files = [f for f in all_files if os.path.splitext(os.path.basename(f))[0] == case_id]
+                if not all_files:
+                    logger.warning(f"No file with case_id={case_id} in PathConsCombined.")
+                    return
+            if single and all_files:
+                all_files = [random.choice(all_files)]
 
-        for rtype in report_types:
-            folder = folder_map.get(rtype)
-            if not folder or not os.path.isdir(folder):
-                logger.warning(f"No valid folder for {rtype} in {input_dir}. Skipping.")
-                continue
-            file_list = process_folder(folder)
-            for path in file_list:
-                fname = os.path.basename(path)
-                logger.info(f"Processing file: {fname} for report type: {rtype}")
-                try:
-                    with open(path, 'r', encoding='utf-8') as f:
-                        text = f.read()
-                    # Record input characteristics
-                    num_chars = len(text)
-                    num_tokens = len(tokenizer.encode(text, add_special_tokens=False))
-                    # Measure summarization time only
-                    start_time = time.time()
-                    summary = self.summarize_report(text, rtype)
-                    end_time = time.time()
-                    elapsed_ms = int(round((end_time - start_time) * 1000))
-                    time_data.append({
-                        "file": fname,
-                        "report_type": rtype,
-                        "process_time_ms": elapsed_ms,
-                        "num_input_characters": num_chars,
-                        "num_input_tokens": num_tokens
-                    })
-                    if not summary:
-                        logger.warning(f"No summary produced for {fname}.")
-                        continue
+            for fp in all_files:
+                pid = os.path.splitext(os.path.basename(fp))[0]
+                logger.info(f"[Mode {self.experiment_mode}] Summarizing combined => {pid}")
+                with open(fp, 'r', encoding='utf-8') as f:
+                    text = f.read()
 
-                    # Prepare output directories (only saving text_summaries and embeddings)
-                    patient_id = os.path.splitext(fname)[0]
-                    subdirs = {
-                        "text_summaries": os.path.join(output_dir, "text_summaries", rtype, patient_id),
-                        "embeddings": os.path.join(output_dir, "embeddings", rtype, patient_id)
-                    }
-                    for sd in subdirs.values():
-                        os.makedirs(sd, exist_ok=True)
-                    with open(os.path.join(subdirs["text_summaries"], f"{rtype}_summary.txt"), 'w', encoding='utf-8') as sf:
-                        sf.write(summary)
-                    emb = self.embeddings.embed_documents([summary])[0]
-                    with open(os.path.join(subdirs["embeddings"], f"{rtype}_embedding.pkl"), 'wb') as ef:
-                        pickle.dump(emb, ef)
-                except Exception as e:
-                    logger.error(f"Error processing {fname}: {e}")
+                num_chars = len(text)
+                num_tokens = len(tokenizer.encode(text, add_special_tokens=False))
 
-        try:
-            if time_data:
-                pd.DataFrame(time_data).to_csv(os.path.join(output_dir, "processing_times.csv"), index=False)
-                logger.info(f"Processing times saved to {os.path.join(output_dir, 'processing_times.csv')}")
-        except Exception as e:
-            logger.error(f"Failed to save processing_times.csv: {e}")
+                st = time.time()
+                summary = self.summarize_one_patient(text, "")
+                et = time.time()
+                elapsed_ms = int(round((et - st) * 1000))
 
+                time_data.append({
+                    "file": os.path.basename(fp),
+                    "report_type": f"combined_mode{self.experiment_mode}",
+                    "process_time_ms": elapsed_ms,
+                    "num_input_characters": num_chars,
+                    "num_input_tokens": num_tokens
+                })
+
+                if not summary:
+                    logger.warning(f"No summary for {pid}.")
+                    continue
+
+                sub_text_dir = os.path.join(output_dir, "text_summaries", f"mode{self.experiment_mode}", pid)
+                sub_emb_dir  = os.path.join(output_dir, "embeddings", f"mode{self.experiment_mode}", pid)
+                os.makedirs(sub_text_dir, exist_ok=True)
+                os.makedirs(sub_emb_dir, exist_ok=True)
+
+                with open(os.path.join(sub_text_dir, "summary.txt"), 'w', encoding='utf-8') as sf:
+                    sf.write(summary)
+
+                emb = self.embeddings.embed_documents([summary])[0]
+                with open(os.path.join(sub_emb_dir, "embedding.pkl"), 'wb') as ef:
+                    pickle.dump(emb, ef)
+
+        elif self.experiment_mode in [3, 4]:
+            # Separate => read from PathologyReports + ConsultRedacted
+            path_dir = os.path.join(input_dir, "PathologyReports")
+            cons_dir = os.path.join(input_dir, "ConsultRedacted")
+
+            if not os.path.isdir(path_dir) and not os.path.isdir(cons_dir):
+                logger.error("Missing PathologyReports or ConsultRedacted.")
+                return
+
+            path_map = {}
+            for root, _, fs in os.walk(path_dir):
+                for fname in fs:
+                    if fname.endswith(".txt"):
+                        pid = os.path.splitext(fname)[0]
+                        path_map[pid] = os.path.join(root, fname)
+
+            cons_map = {}
+            for root, _, fs in os.walk(cons_dir):
+                for fname in fs:
+                    if fname.endswith(".txt"):
+                        pid = os.path.splitext(fname)[0]
+                        cons_map[pid] = os.path.join(root, fname)
+
+            all_pids = set(path_map.keys()) | set(cons_map.keys())
+            if case_id:
+                if case_id not in all_pids:
+                    logger.warning(f"No matching case_id={case_id} in pathology or consult.")
+                    return
+                all_pids = {case_id}
+            if single and len(all_pids) > 0:
+                chosen = random.choice(list(all_pids))
+                all_pids = {chosen}
+
+            for pid in all_pids:
+                path_text = ""
+                cons_text = ""
+                logger.info(f"[Mode {self.experiment_mode}] Summarizing separate => {pid}")
+
+                if pid in path_map:
+                    with open(path_map[pid], 'r', encoding='utf-8') as f:
+                        path_text = f.read()
+
+                if pid in cons_map:
+                    with open(cons_map[pid], 'r', encoding='utf-8') as f:
+                        cons_text = f.read()
+
+                combined_input = path_text + "\n\n" + cons_text
+                num_chars = len(combined_input)
+                num_tokens = len(tokenizer.encode(combined_input, add_special_tokens=False))
+
+                st = time.time()
+                summary = self.summarize_one_patient(path_text, cons_text)
+                et = time.time()
+                elapsed_ms = int(round((et - st) * 1000))
+
+                time_data.append({
+                    "file": f"{pid}.txt",
+                    "report_type": f"separate_mode{self.experiment_mode}",
+                    "process_time_ms": elapsed_ms,
+                    "num_input_characters": num_chars,
+                    "num_input_tokens": num_tokens
+                })
+
+                if not summary:
+                    logger.warning(f"No summary for pid={pid}.")
+                    continue
+
+                sub_text_dir = os.path.join(output_dir, "text_summaries", f"mode{self.experiment_mode}", pid)
+                sub_emb_dir  = os.path.join(output_dir, "embeddings", f"mode{self.experiment_mode}", pid)
+                os.makedirs(sub_text_dir, exist_ok=True)
+                os.makedirs(sub_emb_dir, exist_ok=True)
+
+                with open(os.path.join(sub_text_dir, "summary.txt"), 'w', encoding='utf-8') as sf:
+                    sf.write(summary)
+
+                emb = self.embeddings.embed_documents([summary])[0]
+                with open(os.path.join(sub_emb_dir, "embedding.pkl"), 'wb') as ef:
+                    pickle.dump(emb, ef)
+
+        # Save time data
+        if time_data:
+            df = pd.DataFrame(time_data)
+            csv_path = os.path.join(output_dir, "processing_times.csv")
+            if os.path.isfile(csv_path):
+                old_df = pd.read_csv(csv_path)
+                merged = pd.concat([old_df, df], ignore_index=True)
+                merged.to_csv(csv_path, index=False)
+            else:
+                df.to_csv(csv_path, index=False)
+            logger.info(f"Saved timing info => {csv_path}")
+
+###############################################################################
+# 5. CLI
+###############################################################################
 def main():
-    parser = argparse.ArgumentParser(
-        description="Summarize HNC Reports with Experimental Modes for Combined Extraction.\n"
-                    "Options:\n"
-                    "  --report_type: Comma-separated list of report types (e.g., 'path_consult_reports').\n"
-                    "  --prompt_mode: Optional suffix for prompt JSON files (e.g., 'combined' or 'separated').\n"
-                    "  --single: If set, process one random file per folder.\n"
-                    "  --case_id: (Optional) Process a specific case by filename (without extension)."
-    )
-    parser.add_argument("--prompts_dir", required=True, help="Directory containing prompt JSON files.")
-    parser.add_argument("--model_type", default="local", choices=["local", "gpt", "gemini"], help="LLM backend.")
+    parser = argparse.ArgumentParser("HNC Summarizer with 4 modes + Ollama num_ctx")
+    parser.add_argument("--prompts_dir", required=True, help="Folder containing JSON prompt files.")
+    parser.add_argument("--model_type", default="local", choices=["local","gpt","gemini"], help="LLM backend type.")
     parser.add_argument("--temperature", type=float, default=0.8, help="LLM sampling temperature.")
-    parser.add_argument("--input_dir", required=True, help="Parent directory with subfolders.")
-    parser.add_argument("--output_dir", required=True, help="Output directory for results.")
-    parser.add_argument("--embedding_model", type=str, default="ollama", choices=["ollama", "openai", "google"], help="Embedding model.")
-    parser.add_argument("--report_type", type=str, default="all", help="Comma-separated list of report types.")
-    parser.add_argument("--local_model", type=str, default="llama3.3:latest", help="Local model name if model_type='local'.")
-    parser.add_argument("--single", action="store_true", help="Process one random file per folder.")
-    parser.add_argument("--case_id", type=str, default="", help="Specify a case ID (filename without extension) to process.")
-    parser.add_argument("--prompt_mode", type=str, default="", help="Optional suffix for prompt JSON files (e.g., 'combined').")
+    parser.add_argument("--input_dir", required=True, help="Directory with PathologyReports, ConsultRedacted, PathConsCombined, etc.")
+    parser.add_argument("--output_dir", required=True, help="Output directory.")
+    parser.add_argument("--embedding_model", default="ollama", choices=["ollama","openai","google"], help="Embeddings model.")
+    parser.add_argument("--local_model", default="llama3.3:latest", help="Which local model if --model_type=local.")
+    parser.add_argument("--experiment_mode", type=int, default=1, help="1..4 => 4 experiment modes.")
+    parser.add_argument("--single", action="store_true", help="If set, process only one random file/patient.")
+    parser.add_argument("--case_id", default="", help="If provided, only that patient/file is processed.")
+    parser.add_argument("--ollama_context_size", type=int, default=4096, help="num_ctx for Ollama large context window.")
+
     args = parser.parse_args()
 
-    if args.report_type.lower() == "all":
-        report_types = [
-            "pathology_reports",
-            "consultation_notes",
-            "treatment_plan_outcomepred",
-            "path_consult_reports",
-            "cot_treatment_plan_outcomepred"
-        ]
-    else:
-        report_types = [rt.strip().lower() for rt in args.report_type.split(",")]
-
-    logger.info(f"Selected report types: {report_types}")
-    os.makedirs(args.output_dir, exist_ok=True)
-    summarizer = ReportSummarizer(
+    # Build Summarizer
+    summ = ReportSummarizer(
         prompts_dir=args.prompts_dir,
         model_type=args.model_type,
         temperature=args.temperature,
         embedding_model=args.embedding_model,
         local_model=args.local_model,
-        prompt_mode=args.prompt_mode
+        experiment_mode=args.experiment_mode,
+        ollama_context_size=args.ollama_context_size
     )
-    case_id = args.case_id.strip() if args.case_id.strip() else None
-    summarizer.process_reports(args.input_dir, args.output_dir, report_types, single=args.single, case_id=case_id)
+
+    cid = args.case_id.strip() if args.case_id.strip() else None
+    summ.process_reports(
+        input_dir=args.input_dir,
+        output_dir=args.output_dir,
+        single=args.single,
+        case_id=cid
+    )
 
 if __name__ == "__main__":
-    os.setpgrp()  # Ensure all child processes are in the same group for termination.
+    # Let all child processes be in same group for easier kill
+    os.setpgrp()
     main()
+
+# usage example: mode 2, large context 
+# python hnc_reports_agent5.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt29" \
+#   --embedding_model ollama \
+#   --local_model "llama3.3:latest" \
+#   --experiment_mode 2 \
+#   --ollama_context_size 128000 \
+#   --case_id "1019973"
+
+# python hnc_reports_agent5.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt29" \
+#   --embedding_model ollama \
+#   --local_model "llama3.3:latest" \
+#   --experiment_mode 2 \
+#   --ollama_context_size 4096 \
+#   --case_id "1019973"
+
+
+# 1130120 also has a long input text, with ollama_context_size 2048 I don't expect good results 
+
+# python hnc_reports_agent5.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt30" \
+#   --embedding_model ollama \
+#   --local_model "llama3.3:latest" \
+#   --experiment_mode 2 \
+#   --ollama_context_size 2048 \
+#   --case_id "1130120"
+
+# since 1130120 has 2373 input tokens, including the prompt tokens, let's increase the ollama_context_size to 4096
+# THIS WORKED WELL!!! 
+# python hnc_reports_agent5.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt31" \
+#   --embedding_model ollama \
+#   --local_model "llama3.3:latest" \
+#   --experiment_mode 2 \
+#   --ollama_context_size 4096 \
+#   --case_id "1130120"

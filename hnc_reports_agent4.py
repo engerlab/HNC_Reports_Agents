@@ -639,3 +639,58 @@ if __name__ == "__main__":
 #   --prompt_mode "combined" \
 #   --single \
 #   --case_id "1115749"
+
+# 1115749 is an edge case with 691 characters and did not infer well 
+# python hnc_reports_agent4.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt26" \
+#   --embedding_model ollama \
+#   --report_type "path_consult_reports" \
+#   --local_model "llama3.3:latest" \
+#   --prompt_mode "combined" \
+#   --single \
+#   --case_id "1115749"
+
+# python hnc_reports_agent4.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt27" \
+#   --embedding_model ollama \
+#   --report_type "path_consult_reports" \
+#   --local_model "nomic-embed-text:latest" \
+#   --prompt_mode "combined" \
+#   --single \
+#   --case_id "1115749"
+
+# python hnc_reports_agent4.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt28" \
+#   --embedding_model ollama \
+#   --report_type "path_consult_reports" \
+#   --local_model "meditron:latest" \
+#   --prompt_mode "combined" \
+#   --single \
+#   --case_id "1115749"
+
+
+
+# python hnc_reports_agent4.py \
+#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+#   --model_type local \
+#   --temperature 0.8 \
+#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt26" \
+#   --embedding_model ollama \
+#   --report_type "path_consult_reports" \
+#   --local_model "llama3.3:latest" \
+#   --prompt_mode "combined" \
+#   --single \
+#   --case_id "1019973"

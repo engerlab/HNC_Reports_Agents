@@ -1,0 +1,8 @@
+To log into huggingface in terminal, type in the command:
+>> huggingface-cli login
+
+Paste the following access token: 
+>> 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
+>> Y 
+
+Login successfully! 
