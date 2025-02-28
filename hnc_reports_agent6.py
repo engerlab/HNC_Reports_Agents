@@ -751,7 +751,7 @@ class ReportSummarizer:
 # 5. CLI
 ###############################################################################
 def main():
-    parser = argparse.ArgumentParser("HNC Summarizer Agent7: separate tokens for text vs. prompt_instructions + no patient_id in CSV")
+    parser = argparse.ArgumentParser("HNC Summarizer Agent6: separate tokens for text vs. prompt_instructions + no patient_id in CSV")
     parser.add_argument("--prompts_dir", required=True, help="Dir with JSON prompts.")
     parser.add_argument("--model_type", default="local", choices=["local","gpt","gemini"], help="LLM backend.")
     parser.add_argument("--temperature", type=float, default=0.8, help="LLM temperature.")
@@ -811,8 +811,9 @@ if __name__ == "__main__":
 # 1) Precompute tokens only (no summarization):
 
 # python hnc_reports_agent6.py \
+# --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
 # --input_dir "/media/yujing/OneTouch3/HNC_Reports" \
-# --output_dir "/Data/Yujing/HNC_OutcomePred/Results" \
+# --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/Token_Counts" \
 # --precompute_tokens
 
 # USING 1130120 as a test case id since it had a very long combined report (which didn't work well with hnc_reports_agent4.py)
