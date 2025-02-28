@@ -43,7 +43,7 @@ import seaborn as sns
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Plot token counts for different experiment modes, with adjusted overlap logic."
+        description="Plot token counts for different experiment modes, subcall-based for Mode 4."
     )
     parser.add_argument("--exp_mode", type=int, required=True, choices=[1,2,3,4],
                         help="Which experiment mode (1..4) to handle.")
@@ -53,148 +53,156 @@ def main():
                         help="Base directory where 'modeX_plots' subfolder is created.")
     args = parser.parse_args()
 
-    # Load data
     df = pd.read_csv(args.input_csv)
-
-    # Make subfolder: mode{X}_plots
     mode_str = f"mode{args.exp_mode}_plots"
     outdir = os.path.join(args.output_dir, mode_str)
     os.makedirs(outdir, exist_ok=True)
 
     if args.exp_mode == 1:
-        # Expect columns: text_tokens, total_needed
+        # Need: text_tokens, total_needed
         needed_cols = ["text_tokens","total_needed"]
         missing = [c for c in needed_cols if c not in df.columns]
         if missing:
-            print(f"[Mode 1] Missing columns: {missing} in {args.input_csv}. Aborting.")
+            print(f"[Mode 1] Missing columns: {missing}")
             return
 
-        # Individual histograms
+        # Indiv hist
         plot_hist_1col(df["text_tokens"], outdir, "text_tokens", "Mode 1: text_tokens")
-        plot_hist_1col(df["total_needed"], outdir, "total_needed", "Mode 1: total_needed")
+        plot_hist_1col(df["total_needed"], outdir, "total_needed", "Mode 1: Combined text + Single-step prompt")
 
-        # Overlap => skip per instructions:
-        print("[Mode 1] Overlap: SKIPPED (only total_needed is compared to 2048).")
+        # Overlap => skip
+        print("[Mode 1] Overlap: Skipped, only total_needed is relevant vs. 2048")
 
     elif args.exp_mode == 2:
-        # Expect extr_text_tokens, extr_total_needed, cot_text_tokens, cot_total_needed
+        # columns: extr_text_tokens, extr_total_needed, cot_text_tokens, cot_total_needed
         needed = ["extr_text_tokens","extr_total_needed","cot_text_tokens","cot_total_needed"]
         missing = [c for c in needed if c not in df.columns]
         if missing:
-            print(f"[Mode 2] Missing columns: {missing} in {args.input_csv}. Aborting.")
+            print(f"[Mode 2] Missing columns: {missing}")
             return
 
-        # Individual histograms
+        # individual
         plot_hist_1col(df["extr_text_tokens"], outdir, "extr_text_tokens", "Mode 2: extr_text_tokens")
         plot_hist_1col(df["extr_total_needed"], outdir, "extr_total_needed", "Mode 2: extr_total_needed")
         plot_hist_1col(df["cot_text_tokens"], outdir, "cot_text_tokens", "Mode 2: cot_text_tokens")
         plot_hist_1col(df["cot_total_needed"], outdir, "cot_total_needed", "Mode 2: cot_total_needed")
 
-        # Overlap => extr_total_needed vs. cot_total_needed
+        # overlap => extr_total_needed vs. cot_total_needed
         plot_hist_overlap(
             df["extr_total_needed"], df["cot_total_needed"], outdir,
             labelA="extr_total_needed", labelB="cot_total_needed",
-            title="Mode 2: extr vs cot total_needed"
+            title="Mode 2: Combined text + Two-step prompt (extraction + CoT)"
         )
 
     elif args.exp_mode == 3:
-        # We typically have subcall= path or cons, each with text_tokens, total_needed
+        # columns: subcall, text_tokens, total_needed
         needed = ["subcall","text_tokens","total_needed"]
         missing = [c for c in needed if c not in df.columns]
         if missing:
-            print(f"[Mode 3] Missing columns: {missing} in {args.input_csv}. Aborting.")
+            print(f"[Mode 3] Missing columns: {missing}")
             return
 
-        # We'll separate path rows vs cons rows
+        # separate path vs cons
         path_df = df[df["subcall"].str.contains("path", case=False, na=False)]
         cons_df = df[df["subcall"].str.contains("cons", case=False, na=False)]
 
-        # Individual hist: path text_tokens, path total_needed
         if not path_df.empty:
             plot_hist_1col(path_df["text_tokens"], outdir, "path_text_tokens", "Mode3: path_text_tokens")
             plot_hist_1col(path_df["total_needed"], outdir, "path_total_needed", "Mode3: path_total_needed")
-
-        # Individual hist: consult text_tokens, consult total_needed
         if not cons_df.empty:
             plot_hist_1col(cons_df["text_tokens"], outdir, "cons_text_tokens", "Mode3: consult_text_tokens")
             plot_hist_1col(cons_df["total_needed"], outdir, "cons_total_needed", "Mode3: consult_total_needed")
 
-        # Overlap => path total_needed vs cons total_needed
-        if (not path_df.empty) and (not cons_df.empty):
+        # overlap => path_total_needed vs cons_total_needed
+        if not path_df.empty and not cons_df.empty:
             plot_hist_overlap(
                 path_df["total_needed"], cons_df["total_needed"], outdir,
                 labelA="path_total_needed", labelB="cons_total_needed",
-                title="Mode 3: path vs cons total_needed"
+                title="Mode 3: Separate texts + Single-step prompt"
             )
 
     else:
-        # Mode 4 => separate 2-step => wide columns
-        # We want the same individual hist as before,
-        # plus a single overlap with 4 lines:
-        #    path_extr_total_needed,
-        #    cons_extr_total_needed,
-        #    path_cot_total_needed,
-        #    cons_cot_total_needed
-        neededCols = [
-            "path_extr_text_tokens","path_extr_total_needed",
-            "path_cot_text_tokens","path_cot_total_needed",
-            "cons_extr_text_tokens","cons_extr_total_needed",
-            "cons_cot_text_tokens","cons_cot_total_needed"
-        ]
-        missing = [c for c in neededCols if c not in df.columns]
-        if missing:
-            print(f"[Mode 4] Missing columns: {missing} in {args.input_csv}. Aborting.")
-            return
+        # mode 4 => subcall in {path_extraction, path_cot, cons_extraction, cons_cot}
+        # each row has either extr_... or cot_... columns
+        needed = ["subcall","num_input_characters","extr_text_tokens","extr_total_needed","cot_text_tokens","cot_total_needed"]
+        for c in needed:
+            if c not in df.columns:
+                print(f"[Mode 4] Missing column {c} in {args.input_csv}.")
+        # We'll produce hist for each subcall if present
 
-        # Single hist for each:
-        plot_hist_1col(df["path_extr_text_tokens"], outdir, "path_extr_text_tokens", "Mode4: path_extr_text_tokens")
-        plot_hist_1col(df["path_extr_total_needed"], outdir, "path_extr_total_needed", "Mode4: path_extr_total_needed")
+        # subcalls
+        path_extr_df = df[df["subcall"] == "path_extraction"]
+        path_cot_df  = df[df["subcall"] == "path_cot"]
+        cons_extr_df = df[df["subcall"] == "cons_extraction"]
+        cons_cot_df  = df[df["subcall"] == "cons_cot"]
 
-        plot_hist_1col(df["path_cot_text_tokens"], outdir, "path_cot_text_tokens", "Mode4: path_cot_text_tokens")
-        plot_hist_1col(df["path_cot_total_needed"], outdir, "path_cot_total_needed", "Mode4: path_cot_total_needed")
+        # 1) path_extraction => extr_text_tokens, extr_total_needed
+        if not path_extr_df.empty:
+            plot_hist_1col(path_extr_df["extr_text_tokens"], outdir, "path_extr_text_tokens", "Mode4: path_extraction text_tokens")
+            plot_hist_1col(path_extr_df["extr_total_needed"], outdir, "path_extr_total_needed", "Mode4: path_extraction total_needed")
 
-        plot_hist_1col(df["cons_extr_text_tokens"], outdir, "cons_extr_text_tokens", "Mode4: cons_extr_text_tokens")
-        plot_hist_1col(df["cons_extr_total_needed"], outdir, "cons_extr_total_needed", "Mode4: cons_extr_total_needed")
+        # 2) path_cot => cot_text_tokens, cot_total_needed
+        if not path_cot_df.empty:
+            plot_hist_1col(path_cot_df["cot_text_tokens"], outdir, "path_cot_text_tokens", "Mode4: path_cot text_tokens")
+            plot_hist_1col(path_cot_df["cot_total_needed"], outdir, "path_cot_total_needed", "Mode4: path_cot total_needed")
 
-        plot_hist_1col(df["cons_cot_text_tokens"], outdir, "cons_cot_text_tokens", "Mode4: cons_cot_text_tokens")
-        plot_hist_1col(df["cons_cot_total_needed"], outdir, "cons_cot_total_needed", "Mode4: cons_cot_total_needed")
+        # 3) cons_extraction => extr_text_tokens, extr_total_needed
+        if not cons_extr_df.empty:
+            plot_hist_1col(cons_extr_df["extr_text_tokens"], outdir, "cons_extr_text_tokens", "Mode4: cons_extraction text_tokens")
+            plot_hist_1col(cons_extr_df["extr_total_needed"], outdir, "cons_extr_total_needed", "Mode4: cons_extraction total_needed")
 
-        # Overlap => a single histogram with 4 lines:
-        #   path_extr_total_needed, cons_extr_total_needed, path_cot_total_needed, cons_cot_total_needed
-        path_extr = df["path_extr_total_needed"].dropna()
-        cons_extr = df["cons_extr_total_needed"].dropna()
-        path_cot  = df["path_cot_total_needed"].dropna()
-        cons_cot  = df["cons_cot_total_needed"].dropna()
+        # 4) cons_cot => cot_text_tokens, cot_total_needed
+        if not cons_cot_df.empty:
+            plot_hist_1col(cons_cot_df["cot_text_tokens"], outdir, "cons_cot_text_tokens", "Mode4: cons_cot text_tokens")
+            plot_hist_1col(cons_cot_df["cot_total_needed"], outdir, "cons_cot_total_needed", "Mode4: cons_cot total_needed")
 
+        # Overlap => single figure with 4 distributions:
+        #   path_extr_df["extr_total_needed"]
+        #   path_cot_df ["cot_total_needed"]
+        #   cons_extr_df["extr_total_needed"]
+        #   cons_cot_df ["cot_total_needed"]
         plt.figure(figsize=(6,4))
-        sns.histplot(path_extr, bins=30, kde=False, color="steelblue", alpha=0.4, label="path_extr_total_needed")
-        sns.histplot(cons_extr, bins=30, kde=False, color="green", alpha=0.4, label="cons_extr_total_needed")
-        sns.histplot(path_cot,  bins=30, kde=False, color="coral", alpha=0.4, label="path_cot_total_needed")
-        sns.histplot(cons_cot,  bins=30, kde=False, color="purple", alpha=0.4, label="cons_cot_total_needed")
+        if not path_extr_df.empty:
+            sns.histplot(path_extr_df["extr_total_needed"].dropna(), bins=30, kde=False, color="steelblue",
+                         alpha=0.4, label="path_extraction")
+        if not path_cot_df.empty:
+            sns.histplot(path_cot_df["cot_total_needed"].dropna(), bins=30, kde=False, color="red",
+                         alpha=0.4, label="path_cot")
+        if not cons_extr_df.empty:
+            sns.histplot(cons_extr_df["extr_total_needed"].dropna(), bins=30, kde=False, color="green",
+                         alpha=0.4, label="cons_extraction")
+        if not cons_cot_df.empty:
+            sns.histplot(cons_cot_df["cot_total_needed"].dropna(), bins=30, kde=False, color="purple",
+                         alpha=0.4, label="cons_cot")
 
         plt.axvline(x=2048, color='black', linestyle='--', linewidth=2, label='2048 tokens')
-        plt.title("Mode4 Overlap: extr & cot, path & cons", fontsize=20)
+        plt.title("Mode4: Separate texts + Two-step prompt",fontsize=14)
         plt.xlabel("Token Count", fontsize=17)
-        plt.ylabel("Count", fontsize=17)
+        plt.ylabel("Count",fontsize=17)
         plt.legend(fontsize=14)
         plt.tight_layout()
-        outpath = os.path.join(outdir, "overlap_path_extr_cons_extr_path_cot_cons_cot.png")
-        plt.savefig(outpath, dpi=600)
+        overlap_out = os.path.join(outdir, "overlap_mode4_subcalls_total_needed.png")
+        plt.savefig(overlap_out, dpi=600)
         plt.close()
 
-    print(f"[Mode {args.exp_mode}] Plots saved in => {outdir}")
+    print(f"[Mode {args.exp_mode}] Plots saved to => {outdir}")
 
 
 def plot_hist_1col(series, outdir, name_prefix, title):
     """
-    Single histogram with vertical line at 2048
+    Single histogram with vertical line at 2048.
     """
+    ser = series.dropna()
+    if ser.empty:
+        print(f"No data for {name_prefix}, skipping plot.")
+        return
+
     plt.figure(figsize=(6,4))
-    sns.histplot(series.dropna(), bins=30, kde=False, color="steelblue", alpha=0.7)
+    sns.histplot(ser, bins=30, kde=False, color="steelblue", alpha=0.7)
     plt.axvline(x=2048, color='black', linestyle='--', linewidth=2, label='2048 tokens')
-    plt.title(title,fontsize=20)
+    plt.title(title,fontsize=14)
     plt.xlabel(name_prefix,fontsize=17)
-    plt.ylabel("Count", fontsize=17)
+    plt.ylabel("Count",fontsize=17)
     plt.legend(fontsize=14)
     plt.tight_layout()
     outpath = os.path.join(outdir, f"{name_prefix}.png")
@@ -203,21 +211,29 @@ def plot_hist_1col(series, outdir, name_prefix, title):
 
 def plot_hist_overlap(seriesA, seriesB, outdir, labelA="A", labelB="B", title="Overlap"):
     """
-    Overlap histogram for two series, each with vertical line at 2048
+    Overlap histogram for two series
     """
+    a_drop = seriesA.dropna()
+    b_drop = seriesB.dropna()
+    if a_drop.empty and b_drop.empty:
+        print(f"No data for overlap {labelA} vs {labelB}, skipping.")
+        return
+
     plt.figure(figsize=(6,4))
-    sns.histplot(seriesA.dropna(), bins=30, kde=False, color="steelblue", alpha=0.5, label=labelA)
-    sns.histplot(seriesB.dropna(), bins=30, kde=False, color="coral", alpha=0.5, label=labelB)
+    if not a_drop.empty:
+        sns.histplot(a_drop, bins=30, kde=False, color="steelblue", alpha=0.5, label=labelA)
+    if not b_drop.empty:
+        sns.histplot(b_drop, bins=30, kde=False, color="coral", alpha=0.5, label=labelB)
+
     plt.axvline(x=2048, color='black', linestyle='--', linewidth=2, label='2048 tokens')
-    plt.title(title,fontsize=20)
-    plt.xlabel("Token Count",fontsize=17)
+    plt.title(title,fontsize=14)
+    plt.xlabel("Token Count", fontsize=17)
     plt.ylabel("Count",fontsize=17)
     plt.legend(fontsize=14)
     plt.tight_layout()
     outpath = os.path.join(outdir, f"overlap_{labelA}_vs_{labelB}.png")
     plt.savefig(outpath, dpi=600)
     plt.close()
-
 
 if __name__ == "__main__":
     main()
