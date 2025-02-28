@@ -22,6 +22,13 @@ New Features:
 Usage Examples:
 
 1) Precompute tokens only (no summarization):
+When --precompute_tokens is set, it calculates:
+  - text_tokens = number of tokens in the entire input file
+  - prompt_instr_tokens = sum of (extraction prompt) + (CoT prompt) tokens
+  - total_needed = text_tokens + prompt_instr_tokens
+and saves them in precompute_mode2_tokens.csv with columns:
+  file, report_type, num_input_characters, text_tokens, prompt_instr_tokens, total_needed
+  
 This scans:
     PathConsCombined/ (report_type = “combined”),
     PathologyReports/ (report_type = “pathology”),
@@ -230,7 +237,7 @@ class ReportSummarizer:
         temperature: float = 0.8,
         embedding_model: str = "ollama",
         local_model: str = "llama3.3:latest",
-        experiment_mode: int = 1,
+        experiment_mode: int = 2,
         dynamic_ctx_window: bool = False,
         default_ctx: int = 2048,
         margin: int = 500,
@@ -302,6 +309,91 @@ class ReportSummarizer:
         with open(path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         return "\n".join(data.get("prompts", []))
+
+
+    def _compute_mode2_tokens(self, text: str) -> Dict[str, int]:
+        """
+        Emulate 'Mode 2' (Combined text + Two-step approach) token counting:
+          - text_tokens = # of tokens in the entire input text
+          - prompt_instr_tokens = sum of (extraction prompt tokens + CoT prompt tokens)
+          - total_needed = text_tokens + prompt_instr_tokens
+        We remove {context} from the prompt text when counting prompt tokens,
+        so we don't double count the text again in that portion.
+        """
+        text_tokens = len(tokenizer.encode(text, add_special_tokens=False))
+
+        # For extraction prompt
+        ex_prompt_noctx = self.prompt_extraction.replace("{context}", "")
+        ex_prompt_tokens = len(tokenizer.encode(ex_prompt_noctx, add_special_tokens=False))
+
+        # For CoT prompt
+        cot_prompt_noctx = self.prompt_cot.replace("{context}", "")
+        cot_prompt_tokens = len(tokenizer.encode(cot_prompt_noctx, add_special_tokens=False))
+
+        prompt_instr_tokens = ex_prompt_tokens + cot_prompt_tokens
+        total_needed = text_tokens + prompt_instr_tokens
+
+        return {
+            "text_tokens": text_tokens,
+            "prompt_instr_tokens": prompt_instr_tokens,
+            "total_needed": total_needed
+        }
+
+    def precompute_tokens_mode2(self, input_dir: str, output_dir: str):
+        """
+        For each .txt in PathConsCombined, PathologyReports, and ConsultRedacted,
+        compute tokens as if using Mode 2 (extraction + CoT).
+        Output columns:
+          file,report_type,num_input_characters,text_tokens,prompt_instr_tokens,total_needed
+        """
+        records = []
+
+        # Helper to process a folder
+        def process_folder(folder_path: str, rtype: str):
+            if os.path.isdir(folder_path):
+                for root, _, fs in os.walk(folder_path):
+                    for fname in fs:
+                        if fname.endswith(".txt"):
+                            fp = os.path.join(root, fname)
+                            with open(fp, 'r', encoding='utf-8') as f:
+                                txt = f.read()
+
+                            # measure # characters
+                            num_chars = len(txt)
+
+                            # measure tokens as if using mode2
+                            token_info = self._compute_mode2_tokens(txt)
+
+                            row = {
+                                "file": fname,
+                                "report_type": rtype,
+                                "num_input_characters": num_chars,
+                                "text_tokens": token_info["text_tokens"],
+                                "prompt_instr_tokens": token_info["prompt_instr_tokens"],
+                                "total_needed": token_info["total_needed"]
+                            }
+                            records.append(row)
+
+        # PathConsCombined => combined
+        cdir = os.path.join(input_dir, "PathConsCombined")
+        process_folder(cdir, rtype="combined")
+
+        # PathologyReports => pathology
+        pdir = os.path.join(input_dir, "PathologyReports")
+        process_folder(pdir, rtype="pathology")
+
+        # ConsultRedacted => consult
+        cdir2 = os.path.join(input_dir, "ConsultRedacted")
+        process_folder(cdir2, rtype="consult")
+
+        if not records:
+            logger.warning("No .txt found for precompute.")
+            return
+
+        df = pd.DataFrame(records)
+        outpath = os.path.join(output_dir, "precompute_mode2_tokens.csv")
+        df.to_csv(outpath, index=False)
+        logger.info(f"Saved => {outpath}")
 
     def _init_model_for_tokens(self, needed_tokens: int) -> int:
         """
@@ -750,26 +842,26 @@ class ReportSummarizer:
 ###############################################################################
 # 5. CLI
 ###############################################################################
+
 def main():
-    parser = argparse.ArgumentParser("HNC Summarizer Agent6: separate tokens for text vs. prompt_instructions + no patient_id in CSV")
-    parser.add_argument("--prompts_dir", required=True, help="Dir with JSON prompts.")
+    parser = argparse.ArgumentParser("hnc_reports_agent7.py with Mode 2 Token Precomputation")
+    parser.add_argument("--prompts_dir", required=True, help="Directory with JSON prompt files.")
+    parser.add_argument("--input_dir", required=True, help="Parent directory containing subfolders.")
+    parser.add_argument("--output_dir", required=True, help="Output directory for results.")
     parser.add_argument("--model_type", default="local", choices=["local","gpt","gemini"], help="LLM backend.")
     parser.add_argument("--temperature", type=float, default=0.8, help="LLM temperature.")
-    parser.add_argument("--embedding_model", default="ollama", choices=["ollama","openai","google"], help="Emb model.")
-    parser.add_argument("--local_model", default="llama3.3:latest", help="Local model name.")
-    parser.add_argument("--experiment_mode", type=int, default=1, help="1..4 => single/two-step + combined/separate.")
-    parser.add_argument("--input_dir", required=True, help="Parent folder with .txt subfolders.")
-    parser.add_argument("--output_dir", required=True, help="Where to store results.")
+    parser.add_argument("--embedding_model", default="ollama", choices=["ollama","openai","google"], help="Embedding model.")
+    parser.add_argument("--local_model", default="llama3.3:latest", help="Local model name if model_type='local'.")
+    parser.add_argument("--experiment_mode", type=int, default=2, help="One of the four experiment modes. (unused here)")
     parser.add_argument("--dynamic_ctx_window", action="store_true", help="If set, recalc num_ctx per call.")
-    parser.add_argument("--default_ctx", type=int, default=2048, help="Minimum ctx if needed tokens < this.")
-    parser.add_argument("--margin", type=int, default=500, help="Add margin if needed > default_ctx.")
-    parser.add_argument("--ollama_context_size", type=int, default=2048, help="Static ctx if not dynamic.")
-    parser.add_argument("--case_ids", default="", help="Comma-separated list of IDs to process.")
-    parser.add_argument("--single", action="store_true", help="Pick one random from matched set.")
-    parser.add_argument("--precompute_tokens", action="store_true", help="If set, do not summarize, only gather tokens.")
+    parser.add_argument("--default_ctx", type=int, default=2048, help="Minimum context if needed tokens < this.")
+    parser.add_argument("--margin", type=int, default=500, help="Margin for dynamic context above default_ctx.")
+    parser.add_argument("--ollama_context_size", type=int, default=2048, help="Static context size if not dynamic.")
+    parser.add_argument("--precompute_tokens", action="store_true", help="Precompute token usage in Mode2 style.")
     args = parser.parse_args()
 
-    summ = ReportSummarizer(
+    # Build summarizer
+    summarizer = ReportSummarizer(
         prompts_dir=args.prompts_dir,
         model_type=args.model_type,
         temperature=args.temperature,
@@ -783,39 +875,25 @@ def main():
     )
 
     if args.precompute_tokens:
+        # Only do precomputation
         os.makedirs(args.output_dir, exist_ok=True)
-        summ.precompute_tokens(args.input_dir, args.output_dir)
-        return
+        summarizer.precompute_tokens_mode2(args.input_dir, args.output_dir)
+    else:
+        logger.info("No summarization logic included. Re-run with --precompute_tokens if needed.")
 
-    # gather case_ids
-    final_case_ids = set()
-    if args.case_ids.strip():
-        for cid in args.case_ids.split(","):
-            cid = cid.strip()
-            if cid:
-                final_case_ids.add(cid)
-
-    summ.process_reports(
-        input_dir=args.input_dir,
-        output_dir=args.output_dir,
-        case_ids=list(final_case_ids),
-        single=args.single
-    )
 
 if __name__ == "__main__":
-    os.setpgrp()
     main()
-
+    
 # Usage examples:
 
 # 1) Precompute tokens only (no summarization):
 
-
 # python hnc_reports_agent6.py \
-#     --prompts_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts" \
-#     --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#     --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/Token_Counts" \
-#     --precompute_tokens
+# --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+# --input_dir "/media/yujing/OneTouch3/HNC_Reports" \
+# --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/Token_Counts" \
+# --precompute_tokens
 
 # USING 1130120 as a test case id since it had a very long combined report (which didn't work well with hnc_reports_agent4.py)
 
@@ -876,21 +954,6 @@ if __name__ == "__main__":
 #   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt36" \
 #   --experiment_mode 4 \
 #   --case_id "1130120" \
-#   --dynamic_ctx_window \
-#   --margin 1000
-
-# Try on 1021737 on Mode 2 (also very long inputs)
-
-# python hnc_reports_agent6.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --local_model "llama3.3:latest" \
-#   --embedding_model ollama \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt37" \
-#   --experiment_mode 2 \
-#   --case_id "1021737" \
 #   --dynamic_ctx_window \
 #   --margin 1000
 
