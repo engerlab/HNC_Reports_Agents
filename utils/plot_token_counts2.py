@@ -91,7 +91,7 @@ def main():
         plot_hist_overlap(
             df["extr_total_needed"], df["cot_total_needed"], outdir,
             labelA="extr_total_needed", labelB="cot_total_needed",
-            title="Mode 2: Combined text + Two-step prompt (extraction + CoT)"
+            title="Mode 2: Combined text + Two-step prompt"
         )
 
     elif args.exp_mode == 3:
