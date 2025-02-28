@@ -1,0 +1,2 @@
+file,report_type,process_time_ms,num_input_characters,path_text_tokens,path_prompt_instr_tokens,path_total_needed,path_used_ctx,cons_text_tokens,cons_prompt_instr_tokens,cons_total_needed,cons_used_ctx
+1130120.txt,mode3_separate_singlestep,88049,8932,1185,934,2119,3119,1188,934,2122,3122

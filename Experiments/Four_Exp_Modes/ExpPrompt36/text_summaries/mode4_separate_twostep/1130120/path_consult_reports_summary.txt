@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Right tongue, Moderately-differentiated squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T2 N0 M0
+Primary_Tumor_Size: 2.9 x 2.3 x 1.8 cm
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: Moderately-differentiated squamous cell carcinoma, no definite vascular or perineural invasion identified
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Negative for neoplasia, closest margin deep at 1.7 mm from tumor
+p16_Status: Negative
+Immunohistochemical_profile: P16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Not Inferred
+Alcohol_Consumption: Not Inferred
+Pack_Years: Not Inferred
+Patient_Symptoms_at_Presentation: Not Inferred
+Recommendations: Not inferred
+Follow_Up_Plans: Not inferred
+HPV_Status: Not Inferred
+Patient_History_Status_Prior_Conditions: Not inferred
+Patient_History_Status_Previous_Treatments: Not inferred
+Clinical_Assessments_Radiological_Lesions: CT scan of the neck shows a 2.7 x 1.7 cm enhancing mass with central ulceration involving the right anterior aspect of the oral tongue, indeterminate right level 1B node
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: Not inferred
+Karnofsky_Performance_Status: Not inferred
+ECOG_Performance_Status: Not inferred

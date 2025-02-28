@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Right tongue, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T2 N0 M0
+Primary_Tumor_Size: 2.9 x 2.3 x 1.8 cm
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: Moderately-differentiated squamous cell carcinoma, no definite vascular or perineural invasion identified
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Negative for neoplasia, closest margin 1.7 mm from tumor
+p16_Status: Negative
+Immunohistochemical_profile: P16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Smoker
+Alcohol_Consumption: Drinker [Mild]
+Pack_Years: 20
+Patient_Symptoms_at_Presentation: Right lateral tongue pain, mild ear pain on the right side, 3cm ulcerated lesion involving the inferior aspect of the right lateral tongue
+Recommendations: Not inferred
+Follow_Up_Plans: Patient will be admitted for surgery with catheter insertion, followed by brachytherapy peri-operatively
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Nil
+Patient_History_Status_Previous_Treatments: Tylenol prn for pain
+Clinical_Assessments_Radiological_Lesions: CT scan of the neck shows a 2.7 x 1.7 cm enhancing mass with central ulceration involving the right anterior aspect of the oral tongue, CT chest and abdomen shows calcified granulomata in the left mid lung and a tiny nodule in the superior segment of the right lower lobe
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 0 [No comorbidities mentioned in the text]
+Karnofsky_Performance_Status: 100 [The patient has no evidence of impaired alertness, inadequate appearance, premature or advanced chronologic age, uncooperativeness, developmental delays, altered mood and affect, and disorientation, and is able to undergo surgery and treatment]
+ECOG_Performance_Status: 0 [Converted from Karnofsky score, assuming the patient has a normal performance status]

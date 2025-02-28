@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Right oral tongue, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T2 N0 M0
+Primary_Tumor_Size: 2.7 x 1.7 cm
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: Moderately-differentiated squamous cell carcinoma
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Negative
+p16_Status: Negative
+Immunohistochemical_profile: p16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Smoker (20 pack year smoker, now smokes 2-5 cigarettes per day)
+Alcohol_Consumption: Drinker (mild alcohol consumption)
+Pack_Years: 20
+Patient_Symptoms_at_Presentation: Right lateral tongue pain, mild ear pain on the right side
+Recommendations: Post-operative brachytherapy, possible adjuvant external beam radiotherapy
+Follow_Up_Plans: Admit for surgery with catheter insertion, followed by brachytherapy peri-operatively
+HPV_Status: Not inferred (note: p16 negativity suggests HPV negative, but not explicitly stated)
+Patient_History_Status_Prior_Conditions: Nil
+Patient_History_Status_Previous_Treatments: Nil
+Clinical_Assessments_Radiological_Lesions: 2.7 x 1.7 cm enhancing mass with central ulceration involving the right anterior aspect of the oral tongue
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: Not inferred
+Karnofsky_Performance_Status: Not inferred
+ECOG_Performance_Status: Not inferred

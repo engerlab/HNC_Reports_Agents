@@ -1,0 +1,2 @@
+file,report_type,process_time_ms,num_input_characters,extr_text_tokens,extr_prompt_instr_tokens,extr_total_needed,extr_used_ctx,cot_text_tokens,cot_prompt_instr_tokens,cot_total_needed,cot_used_ctx
+1130120.txt,mode2_combined_twostep,77192,8931,2373,622,2995,3995,2373,801,3174,4174
