@@ -122,6 +122,7 @@ import time
 import pandas as pd
 from typing import List, Dict, Optional
 
+# For token counting
 from transformers import AutoTokenizer
 try:
     tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-3.1-70B")
@@ -130,14 +131,12 @@ except:
 
 from langchain_core.runnables import RunnableLambda
 from langchain_core.messages import HumanMessage
-
 from langchain_ollama import OllamaEmbeddings, ChatOllama
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 logger = logging.getLogger(__name__)
-
 logger.setLevel(logging.DEBUG)
 
 ###############################################################################
@@ -177,7 +176,7 @@ ALL_FIELDS = [
 ]
 
 ###############################################################################
-# 2. Format Enforcer
+# 2. Helper: Enforce Summary Format
 ###############################################################################
 def enforce_format(summary: str, fields: List[str]) -> str:
     lines = summary.splitlines()
@@ -196,7 +195,7 @@ def enforce_format(summary: str, fields: List[str]) -> str:
     return "\n".join(found[f] for f in fields)
 
 ###############################################################################
-# 3. Merge Summaries (Separate Mode)
+# 3. Helper: Merge Summaries
 ###############################################################################
 def merge_summaries(summary_a: str, summary_b: str, fields: List[str]) -> str:
     def parse_lines(text: str) -> Dict[str, str]:
@@ -220,7 +219,7 @@ def merge_summaries(summary_a: str, summary_b: str, fields: List[str]) -> str:
     return "\n".join(merged)
 
 ###############################################################################
-# 4. Summarizer
+# 4. Summarizer Class
 ###############################################################################
 class ReportSummarizer:
     def __init__(
@@ -236,13 +235,6 @@ class ReportSummarizer:
         margin: int = 500,
         ollama_context_size: int = 2048
     ):
-        """
-        experiment_mode: 1..4
-        dynamic_ctx_window => if True, recalc context for each call
-        default_ctx => minimal context if needed < this
-        margin => extra tokens if > default_ctx
-        ollama_context_size => fallback if not dynamic
-        """
         self.model_type = model_type.lower()
         self.temperature = temperature
         self.embedding_model = embedding_model.lower()
@@ -257,12 +249,12 @@ class ReportSummarizer:
             raise ValueError(f"Invalid prompts_dir: {prompts_dir}")
         self.prompts_dir = prompts_dir
 
-        # Load prompts
+        # Load prompts for summarization (if needed)
         self.prompt_combined    = self._load_prompt("prompt_path_consult_reports_combined.json")
         self.prompt_extraction  = self._load_prompt("prompt_path_consult_reports_extraction.json")
         self.prompt_cot         = self._load_prompt("prompt_path_consult_reports_cot.json")
 
-        # Init model
+        # If not dynamic, we initialize a single ChatOllama
         if self.model_type == "local" and not self.dynamic_ctx_window:
             self.model = ChatOllama(
                 model=self.local_model,
@@ -270,6 +262,7 @@ class ReportSummarizer:
                 num_ctx=self.ollama_context_size
             )
         elif self.model_type == "local" and self.dynamic_ctx_window:
+            # We'll re-init the model for each call in _init_model_for_tokens
             self.model = None
         elif self.model_type == "gpt":
             self.model = ChatOpenAI(model="gpt-4", temperature=self.temperature)
@@ -289,15 +282,18 @@ class ReportSummarizer:
             logging.warning(f"Unknown embedding_model={self.embedding_model}, defaulting to Ollama.")
             self.embeddings = OllamaEmbeddings(model="nomic-embed-text")
 
-        # Build runnables
+        # Build chain map for summarization
         self.runnable_combined   = self._make_llm_chain(self.prompt_combined)    if self.prompt_combined    else None
         self.runnable_extraction = self._make_llm_chain(self.prompt_extraction)  if self.prompt_extraction  else None
         self.runnable_cot        = self._make_llm_chain(self.prompt_cot)         if self.prompt_cot         else None
 
+        # For precompute tokens mode2
+        # We measure them in precompute_tokens_mode2 (not used if you only do precompute_tokens).
+
     def _load_prompt(self, filename: str) -> str:
         path = os.path.join(self.prompts_dir, filename)
         if not os.path.isfile(path):
-            logger.warning(f"No prompt file: {path}")
+            logger.warning(f"No prompt file found: {path}")
             return ""
         with open(path, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -305,13 +301,14 @@ class ReportSummarizer:
 
     def _init_model_for_tokens(self, needed_tokens: int) -> int:
         """
-        If dynamic, re-init model with new ctx
-        Return used ctx
+        If dynamic_ctx_window, re-init model with new context size. Return used_ctx.
         """
         if self.model_type != "local":
-            return 0  # non local
+            return 0
         if not self.dynamic_ctx_window:
             return self.ollama_context_size
+
+        # dynamic
         if needed_tokens < self.default_ctx:
             ctx = self.default_ctx
         else:
@@ -325,25 +322,20 @@ class ReportSummarizer:
         return ctx
 
     def _make_llm_chain(self, prompt_text: str) -> RunnableLambda:
-        """
-        Return a function that merges user instructions vs user text separately
-        and store text_tokens, prompt_instr_tokens, total_needed, used_ctx
-        """
         def chain_func(inputs: Dict[str, str]) -> Dict[str, any]:
             user_text_str = inputs["context"]
-            instructions_str = prompt_text  # has {context}, but for counting we measure separately.
+            instructions_str = prompt_text
 
-            # A) Count user_text tokens
+            # measure user text tokens
             text_tokens = len(tokenizer.encode(user_text_str, add_special_tokens=False))
-            # B) Count instructions w/o user_text
-            # We'll remove the {context} placeholder from instructions for token counting
-            prompt_noctx = instructions_str.replace("{context}", "")  # just remove the placeholder
+
+            # measure instructions minus {context}
+            prompt_noctx = instructions_str.replace("{context}", "")
             prompt_instr_tokens = len(tokenizer.encode(prompt_noctx, add_special_tokens=False))
 
             total_needed = text_tokens + prompt_instr_tokens
             used_ctx = self._init_model_for_tokens(total_needed)
 
-            # Now combine them for actual call
             final_prompt = instructions_str.replace("{context}", user_text_str)
             summary = ""
             try:
@@ -362,7 +354,7 @@ class ReportSummarizer:
         return RunnableLambda(chain_func)
 
     ###########################################################################
-    # Single-step combined
+    # Summaries
     ###########################################################################
     def summarize_combined_singlestep(self, text: str) -> Dict[str, any]:
         if not self.runnable_combined:
@@ -373,29 +365,21 @@ class ReportSummarizer:
         result["summary"] = final_summary
         return result
 
-    ###########################################################################
-    # Two-step combined
-    ###########################################################################
     def summarize_combined_twostep(self, text: str) -> Dict[str, any]:
-        out_dict = {
-            "summary": ""
-        }
+        out_dict = {"summary": ""}
         if not (self.runnable_extraction and self.runnable_cot):
-            # fallback
             single_res = self.summarize_combined_singlestep(text)
             out_dict["summary"] = single_res["summary"]
             return out_dict
 
-        # step1 => extraction
+        # Step 1: extraction
         ex_res = self.runnable_extraction.invoke({"context": text})
-        # step2 => CoT
+        # Step 2: CoT
         cot_res = self.runnable_cot.invoke({"context": text})
-
         merged = ex_res["summary"] + "\n" + cot_res["summary"]
         final = enforce_format(merged, ALL_FIELDS)
         out_dict["summary"] = final
 
-        # rename keys to extr_* and cot_*
         out_dict["extr_text_tokens"] = ex_res["text_tokens"]
         out_dict["extr_prompt_instr_tokens"] = ex_res["prompt_instr_tokens"]
         out_dict["extr_total_needed"] = ex_res["total_needed"]
@@ -407,9 +391,6 @@ class ReportSummarizer:
         out_dict["cot_used_ctx"] = cot_res["used_ctx"]
         return out_dict
 
-    ###########################################################################
-    # Single-step separate
-    ###########################################################################
     def summarize_separate_singlestep(self, path_text: str, cons_text: str) -> Dict[str, any]:
         pr = self.summarize_combined_singlestep(path_text)
         cr = self.summarize_combined_singlestep(cons_text)
@@ -429,42 +410,34 @@ class ReportSummarizer:
         }
         return out_dict
 
-    ###########################################################################
-    # Two-step separate
-    ###########################################################################
     def summarize_separate_twostep(self, path_text: str, cons_text: str) -> Dict[str, any]:
         p_out = self.summarize_combined_twostep(path_text)
         c_out = self.summarize_combined_twostep(cons_text)
         final = merge_summaries(p_out["summary"], c_out["summary"], ALL_FIELDS)
 
-        out_dict = {
-            "summary": final,
-            # rename path_ => extr/cot
-            "path_extr_text_tokens": p_out.get("extr_text_tokens"),
-            "path_extr_prompt_instr_tokens": p_out.get("extr_prompt_instr_tokens"),
-            "path_extr_total_needed": p_out.get("extr_total_needed"),
-            "path_extr_used_ctx": p_out.get("extr_used_ctx"),
+        out_dict = {"summary": final}
+        out_dict["path_extr_text_tokens"] = p_out.get("extr_text_tokens")
+        out_dict["path_extr_prompt_instr_tokens"] = p_out.get("extr_prompt_instr_tokens")
+        out_dict["path_extr_total_needed"] = p_out.get("extr_total_needed")
+        out_dict["path_extr_used_ctx"] = p_out.get("extr_used_ctx")
 
-            "path_cot_text_tokens": p_out.get("cot_text_tokens"),
-            "path_cot_prompt_instr_tokens": p_out.get("cot_prompt_instr_tokens"),
-            "path_cot_total_needed": p_out.get("cot_total_needed"),
-            "path_cot_used_ctx": p_out.get("cot_used_ctx"),
+        out_dict["path_cot_text_tokens"] = p_out.get("cot_text_tokens")
+        out_dict["path_cot_prompt_instr_tokens"] = p_out.get("cot_prompt_instr_tokens")
+        out_dict["path_cot_total_needed"] = p_out.get("cot_total_needed")
+        out_dict["path_cot_used_ctx"] = p_out.get("cot_used_ctx")
 
-            "cons_extr_text_tokens": c_out.get("extr_text_tokens"),
-            "cons_extr_prompt_instr_tokens": c_out.get("extr_prompt_instr_tokens"),
-            "cons_extr_total_needed": c_out.get("extr_total_needed"),
-            "cons_extr_used_ctx": c_out.get("extr_used_ctx"),
+        out_dict["cons_extr_text_tokens"] = c_out.get("extr_text_tokens")
+        out_dict["cons_extr_prompt_instr_tokens"] = c_out.get("extr_prompt_instr_tokens")
+        out_dict["cons_extr_total_needed"] = c_out.get("extr_total_needed")
+        out_dict["cons_extr_used_ctx"] = c_out.get("extr_used_ctx")
 
-            "cons_cot_text_tokens": c_out.get("cot_text_tokens"),
-            "cons_cot_prompt_instr_tokens": c_out.get("cot_prompt_instr_tokens"),
-            "cons_cot_total_needed": c_out.get("cot_total_needed"),
-            "cons_cot_used_ctx": c_out.get("cot_used_ctx"),
-        }
+        out_dict["cons_cot_text_tokens"] = c_out.get("cot_text_tokens")
+        out_dict["cons_cot_prompt_instr_tokens"] = c_out.get("cot_prompt_instr_tokens")
+        out_dict["cons_cot_total_needed"] = c_out.get("cot_total_needed")
+        out_dict["cons_cot_used_ctx"] = c_out.get("cot_used_ctx")
+
         return out_dict
 
-    ###########################################################################
-    # Summarize one patient
-    ###########################################################################
     def summarize_one_patient(self, path_text: str, cons_text: str) -> Dict[str, any]:
         if self.experiment_mode == 1:
             return self.summarize_combined_singlestep(path_text)
@@ -479,66 +452,62 @@ class ReportSummarizer:
             return {"summary": ""}
 
     ###########################################################################
-    # Precompute tokens
+    # Precompute tokens for Mode 2 style
     ###########################################################################
     def precompute_tokens(self, input_dir: str, output_dir: str):
         """
-        Just gather .txt from PathConsCombined, PathologyReports, ConsultRedacted
-        and store file,report_type,num_chars,num_tokens => precompute_tokens.csv
+        For each .txt in subfolders, compute:
+          text_tokens = length of file text
+          extr_prompt_instr_tokens = extraction prompt tokens w/o {context}
+          cot_prompt_instr_tokens = CoT prompt tokens w/o {context}
+          total_needed = sum of the above 3
+        => precompute_tokens.csv
         """
+        if not self.prompt_extraction or not self.prompt_cot:
+            logger.warning("Extraction or CoT prompt not loaded. Will produce zeros for prompt tokens.")
+
+        # remove {context}
+        ex_prompt_noctx = self.prompt_extraction.replace("{context}", "") if self.prompt_extraction else ""
+        extr_prompt_tokens_ref = len(tokenizer.encode(ex_prompt_noctx, add_special_tokens=False)) if ex_prompt_noctx else 0
+
+        cot_prompt_noctx = self.prompt_cot.replace("{context}", "") if self.prompt_cot else ""
+        cot_prompt_tokens_ref = len(tokenizer.encode(cot_prompt_noctx, add_special_tokens=False)) if cot_prompt_noctx else 0
+
         records = []
-        # combined
-        cd = os.path.join(input_dir, "PathConsCombined")
-        if os.path.isdir(cd):
-            for root, _, fs in os.walk(cd):
-                for fname in fs:
-                    if fname.endswith(".txt"):
-                        fp = os.path.join(root, fname)
-                        with open(fp, 'r', encoding='utf-8') as f:
-                            txt = f.read()
-                        rec = {
-                            "file": fname,
-                            "report_type": "combined",
-                            "num_chars": len(txt),
-                            "num_tokens": len(tokenizer.encode(txt, add_special_tokens=False))
-                        }
-                        records.append(rec)
-        # pathology
-        pd_ = os.path.join(input_dir, "PathologyReports")
-        if os.path.isdir(pd_):
-            for root, _, fs in os.walk(pd_):
-                for fname in fs:
-                    if fname.endswith(".txt"):
-                        fp = os.path.join(root, fname)
-                        with open(fp, 'r', encoding='utf-8') as f:
-                            txt = f.read()
-                        rec = {
-                            "file": fname,
-                            "report_type": "pathology",
-                            "num_chars": len(txt),
-                            "num_tokens": len(tokenizer.encode(txt, add_special_tokens=False))
-                        }
-                        records.append(rec)
-        # consult
-        cd_ = os.path.join(input_dir, "ConsultRedacted")
-        if os.path.isdir(cd_):
-            for root, _, fs in os.walk(cd_):
-                for fname in fs:
-                    if fname.endswith(".txt"):
-                        fp = os.path.join(root, fname)
-                        with open(fp, 'r', encoding='utf-8') as f:
-                            txt = f.read()
-                        rec = {
-                            "file": fname,
-                            "report_type": "consult",
-                            "num_chars": len(txt),
-                            "num_tokens": len(tokenizer.encode(txt, add_special_tokens=False))
-                        }
-                        records.append(rec)
+
+        def process_folder(folder_path: str, rtype: str):
+            if os.path.isdir(folder_path):
+                for root, _, fs in os.walk(folder_path):
+                    for fname in fs:
+                        if fname.endswith(".txt"):
+                            fp = os.path.join(root, fname)
+                            with open(fp, 'r', encoding='utf-8') as f:
+                                txt = f.read()
+                            row = {}
+                            row["file"] = fname
+                            row["report_type"] = rtype
+                            row["num_input_characters"] = len(txt)
+                            text_toks = len(tokenizer.encode(txt, add_special_tokens=False))
+
+                            row["text_tokens"] = text_toks
+                            row["extr_prompt_instr_tokens"] = extr_prompt_tokens_ref
+                            row["cot_prompt_instr_tokens"] = cot_prompt_tokens_ref
+                            row["total_needed"] = text_toks + extr_prompt_tokens_ref + cot_prompt_tokens_ref
+                            records.append(row)
+
+        cdir = os.path.join(input_dir, "PathConsCombined")
+        process_folder(cdir, "combined")
+
+        pdir = os.path.join(input_dir, "PathologyReports")
+        process_folder(pdir, "pathology")
+
+        cndir = os.path.join(input_dir, "ConsultRedacted")
+        process_folder(cndir, "consult")
 
         if not records:
             logger.warning("No .txt found for precompute.")
             return
+
         df = pd.DataFrame(records)
         outpath = os.path.join(output_dir, "precompute_tokens.csv")
         df.to_csv(outpath, index=False)
@@ -556,7 +525,6 @@ class ReportSummarizer:
     ):
         os.makedirs(output_dir, exist_ok=True)
 
-        # subfolder naming
         if self.experiment_mode == 1:
             subfolder = "mode1_combined_singlestep"
             combined_needed = True
@@ -574,9 +542,7 @@ class ReportSummarizer:
             return
 
         time_records = []
-
         if combined_needed:
-            # read from PathConsCombined
             cdir = os.path.join(input_dir, "PathConsCombined")
             if not os.path.isdir(cdir):
                 logger.error("Missing PathConsCombined")
@@ -589,7 +555,6 @@ class ReportSummarizer:
                         if case_ids and (pid not in case_ids):
                             continue
                         all_files.append(os.path.join(root, fname))
-
             if single and all_files:
                 all_files = [random.choice(all_files)]
 
@@ -598,11 +563,10 @@ class ReportSummarizer:
                 with open(fp, 'r', encoding='utf-8') as f:
                     text = f.read()
                 num_chars = len(text)
-                num_input_toks = len(tokenizer.encode(text, add_special_tokens=False))
 
                 start = time.time()
                 out_dict = self.summarize_one_patient(text, "")
-                end   = time.time()
+                end = time.time()
                 ms = int(round((end - start)*1000))
 
                 row = {
@@ -620,7 +584,6 @@ class ReportSummarizer:
                     logger.warning(f"No summary for {fname}")
                     continue
 
-                # save
                 pid = os.path.splitext(fname)[0]
                 txt_dir = os.path.join(output_dir, "text_summaries", subfolder, pid)
                 emb_dir = os.path.join(output_dir, "embeddings", subfolder, pid)
@@ -677,7 +640,6 @@ class ReportSummarizer:
 
                 combined = path_text + "\n\n" + cons_text
                 n_chars = len(combined)
-                n_toks = len(tokenizer.encode(combined, add_special_tokens=False))
 
                 st = time.time()
                 out_dict = self.summarize_one_patient(path_text, cons_text)
@@ -688,7 +650,7 @@ class ReportSummarizer:
                     "file": f"{pid}.txt",
                     "report_type": subfolder,
                     "process_time_ms": ms,
-                    "num_input_characters": n_chars,
+                    "num_input_characters": n_chars
                 }
                 for k,v in out_dict.items():
                     if k == "summary":
@@ -715,11 +677,9 @@ class ReportSummarizer:
         if time_records:
             df = pd.DataFrame(time_records)
             csv_path = os.path.join(output_dir, "processing_times.csv")
-            # If existing, combine columns
             if os.path.isfile(csv_path):
                 old_df = pd.read_csv(csv_path)
                 new_df = pd.concat([old_df, df], ignore_index=True, sort=False)
-                # optional: cast numeric columns to int
                 new_df = self._cast_numeric(new_df)
                 new_df.to_csv(csv_path, index=False)
             else:
@@ -751,7 +711,9 @@ class ReportSummarizer:
 # 5. CLI
 ###############################################################################
 def main():
-    parser = argparse.ArgumentParser("HNC Summarizer Agent6: separate tokens for text vs. prompt_instructions + no patient_id in CSV")
+    parser = argparse.ArgumentParser(
+        "HNC Summarizer Agent6 with enhanced precompute tokens (Mode 2 style)"
+    )
     parser.add_argument("--prompts_dir", required=True, help="Dir with JSON prompts.")
     parser.add_argument("--model_type", default="local", choices=["local","gpt","gemini"], help="LLM backend.")
     parser.add_argument("--temperature", type=float, default=0.8, help="LLM temperature.")
@@ -766,7 +728,12 @@ def main():
     parser.add_argument("--ollama_context_size", type=int, default=2048, help="Static ctx if not dynamic.")
     parser.add_argument("--case_ids", default="", help="Comma-separated list of IDs to process.")
     parser.add_argument("--single", action="store_true", help="Pick one random from matched set.")
-    parser.add_argument("--precompute_tokens", action="store_true", help="If set, do not summarize, only gather tokens.")
+
+    # We'll re-purpose --precompute_tokens to do the new code with additional columns (Mode 2 style).
+    parser.add_argument("--precompute_tokens", action="store_true",
+                        help="If set, do not summarize; only gather token counts in precompute_tokens.csv with columns:\n"
+                             "[file,report_type,num_input_characters,text_tokens,extr_prompt_instr_tokens,cot_prompt_instr_tokens,total_needed].")
+
     args = parser.parse_args()
 
     summ = ReportSummarizer(
@@ -783,17 +750,19 @@ def main():
     )
 
     if args.precompute_tokens:
+        # Overwrite the default summarizer 'precompute_tokens' to do Mode2 style columns.
+        # We'll define a local method that does the new columns.
+        summ.precompute_tokens = precompute_tokens_mode2.__get__(summ, ReportSummarizer)
         os.makedirs(args.output_dir, exist_ok=True)
         summ.precompute_tokens(args.input_dir, args.output_dir)
         return
 
-    # gather case_ids
+    # Otherwise normal summarization logic
     final_case_ids = set()
     if args.case_ids.strip():
         for cid in args.case_ids.split(","):
-            cid = cid.strip()
-            if cid:
-                final_case_ids.add(cid)
+            if cid.strip():
+                final_case_ids.add(cid.strip())
 
     summ.process_reports(
         input_dir=args.input_dir,
@@ -802,9 +771,70 @@ def main():
         single=args.single
     )
 
+
+def precompute_tokens_mode2(self, input_dir: str, output_dir: str):
+    """
+    For each .txt in PathConsCombined, PathologyReports, ConsultRedacted,
+    measure text_tokens + extr_prompt_instr_tokens + cot_prompt_instr_tokens => total_needed.
+    Writes precompute_tokens.csv in output_dir with columns:
+      file,report_type,num_input_characters,text_tokens,
+      extr_prompt_instr_tokens,cot_prompt_instr_tokens,total_needed
+    """
+    if not self.prompt_extraction or not self.prompt_cot:
+        logger.warning("Extraction or CoT prompt not loaded. Will produce 0 for prompt tokens.")
+
+    ex_prompt_noctx = self.prompt_extraction.replace("{context}", "") if self.prompt_extraction else ""
+    extr_prompt_instr_tokens_ref = len(tokenizer.encode(ex_prompt_noctx, add_special_tokens=False)) if ex_prompt_noctx else 0
+
+    cot_prompt_noctx = self.prompt_cot.replace("{context}", "") if self.prompt_cot else ""
+    cot_prompt_tokens_ref = len(tokenizer.encode(cot_prompt_noctx, add_special_tokens=False)) if cot_prompt_noctx else 0
+
+    records = []
+
+    def process_folder(folder_path: str, rtype: str):
+        if os.path.isdir(folder_path):
+            for root, _, fs in os.walk(folder_path):
+                for fname in fs:
+                    if fname.endswith(".txt"):
+                        fp = os.path.join(root, fname)
+                        with open(fp, 'r', encoding='utf-8') as f:
+                            txt = f.read()
+
+                        row = {}
+                        row["file"] = fname
+                        row["report_type"] = rtype
+                        row["num_input_characters"] = len(txt)
+
+                        text_toks = len(tokenizer.encode(txt, add_special_tokens=False))
+                        row["text_tokens"] = text_toks
+                        row["extr_prompt_instr_tokens"] = extr_prompt_instr_tokens_ref
+                        row["cot_prompt_instr_tokens"] = cot_prompt_tokens_ref
+                        row["total_needed"] = text_toks + extr_prompt_instr_tokens_ref + cot_prompt_tokens_ref
+
+                        records.append(row)
+
+    cdir = os.path.join(input_dir, "PathConsCombined")
+    process_folder(cdir, "combined")
+
+    pdir = os.path.join(input_dir, "PathologyReports")
+    process_folder(pdir, "pathology")
+
+    cndir = os.path.join(input_dir, "ConsultRedacted")
+    process_folder(cndir, "consult")
+
+    if not records:
+        logger.warning("No .txt found for precompute.")
+        return
+
+    df = pd.DataFrame(records)
+    outpath = os.path.join(output_dir, "precompute_tokens.csv")
+    df.to_csv(outpath, index=False)
+    logger.info(f"Saved => {outpath}")
+
+
 if __name__ == "__main__":
-    os.setpgrp()
-    main()
+    import sys
+    sys.exit(main())
 
 # Usage examples:
 
