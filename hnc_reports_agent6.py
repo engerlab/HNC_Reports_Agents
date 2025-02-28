@@ -456,22 +456,30 @@ class ReportSummarizer:
     ###########################################################################
     def precompute_tokens(self, input_dir: str, output_dir: str):
         """
-        For each .txt in subfolders, compute:
-          text_tokens = length of file text
-          extr_prompt_instr_tokens = extraction prompt tokens w/o {context}
-          cot_prompt_instr_tokens = CoT prompt tokens w/o {context}
-          total_needed = sum of the above 3
-        => precompute_tokens.csv
+        By default: 
+          For each .txt in subfolders, measure 
+            text_tokens = # tokens in the raw text
+            extr_prompt_instr_tokens = extraction prompt tokens
+            cot_prompt_instr_tokens  = CoT prompt tokens
+            total_needed = sum above (like Mode 2)
+          => precompute_tokens.csv
+
+        If you want to keep it for Mode 1 or 3, you could adapt the code or do 
+        an approach with a local approach.
+
+        This is an example that sums the extraction + CoT. 
+        Adjust if you want to measure single-step only (Mode 1 or 3).
         """
         if not self.prompt_extraction or not self.prompt_cot:
-            logger.warning("Extraction or CoT prompt not loaded. Will produce zeros for prompt tokens.")
+            logger.warning("Extraction or CoT prompt not loaded => 0 for those tokens.")
 
-        # remove {context}
+        # measure extraction prompt tokens w/o {context}
         ex_prompt_noctx = self.prompt_extraction.replace("{context}", "") if self.prompt_extraction else ""
-        extr_prompt_tokens_ref = len(tokenizer.encode(ex_prompt_noctx, add_special_tokens=False)) if ex_prompt_noctx else 0
+        ex_prompt_tokens = len(tokenizer.encode(ex_prompt_noctx, add_special_tokens=False)) if ex_prompt_noctx else 0
 
+        # measure CoT prompt tokens w/o {context}
         cot_prompt_noctx = self.prompt_cot.replace("{context}", "") if self.prompt_cot else ""
-        cot_prompt_tokens_ref = len(tokenizer.encode(cot_prompt_noctx, add_special_tokens=False)) if cot_prompt_noctx else 0
+        cot_prompt_tokens = len(tokenizer.encode(cot_prompt_noctx, add_special_tokens=False)) if cot_prompt_noctx else 0
 
         records = []
 
@@ -486,33 +494,250 @@ class ReportSummarizer:
                             row = {}
                             row["file"] = fname
                             row["report_type"] = rtype
+
                             row["num_input_characters"] = len(txt)
                             text_toks = len(tokenizer.encode(txt, add_special_tokens=False))
 
                             row["text_tokens"] = text_toks
-                            row["extr_prompt_instr_tokens"] = extr_prompt_tokens_ref
-                            row["cot_prompt_instr_tokens"] = cot_prompt_tokens_ref
-                            row["total_needed"] = text_toks + extr_prompt_tokens_ref + cot_prompt_tokens_ref
+                            row["extr_prompt_instr_tokens"] = ex_prompt_tokens
+                            row["cot_prompt_instr_tokens"] = cot_prompt_tokens
+                            row["total_needed"] = text_toks + ex_prompt_tokens + cot_prompt_tokens
                             records.append(row)
 
-        cdir = os.path.join(input_dir, "PathConsCombined")
-        process_folder(cdir, "combined")
+        # process combined => PathConsCombined
+        comb_dir = os.path.join(input_dir, "PathConsCombined")
+        process_folder(comb_dir, "combined")
 
-        pdir = os.path.join(input_dir, "PathologyReports")
-        process_folder(pdir, "pathology")
+        # process pathology => PathologyReports
+        path_dir = os.path.join(input_dir, "PathologyReports")
+        process_folder(path_dir, "pathology")
 
-        cndir = os.path.join(input_dir, "ConsultRedacted")
-        process_folder(cndir, "consult")
+        # process consult => ConsultRedacted
+        cons_dir = os.path.join(input_dir, "ConsultRedacted")
+        process_folder(cons_dir, "consult")
 
         if not records:
             logger.warning("No .txt found for precompute.")
             return
 
         df = pd.DataFrame(records)
-        outpath = os.path.join(output_dir, "precompute_tokens.csv")
-        df.to_csv(outpath, index=False)
-        logger.info(f"Saved => {outpath}")
+        outcsv = os.path.join(output_dir, "precompute_tokens.csv")
+        df.to_csv(outcsv, index=False)
+        logger.info(f"Saved => {outcsv}")
 
+
+    ###########################################################################
+    # Normal Summarization => process_reports
+    ###########################################################################
+    def process_reports(
+        self,
+        input_dir: str,
+        output_dir: str,
+        case_ids: List[str],
+        single: bool=False
+    ):
+        """
+        Summaries depending on the experiment_mode. 
+        Creates subfolders:
+          mode1_combined_singlestep
+          mode2_combined_twostep
+          mode3_separate_singlestep
+          mode4_separate_twostep
+
+        Then writes text_summaries + embeddings + a row in processing_times.csv 
+        with the usage data for each call.
+        """
+        os.makedirs(output_dir, exist_ok=True)
+
+        # subfolder naming
+        if self.experiment_mode == 1:
+            subfolder = "mode1_combined_singlestep"
+            combined_needed = True
+        elif self.experiment_mode == 2:
+            subfolder = "mode2_combined_twostep"
+            combined_needed = True
+        elif self.experiment_mode == 3:
+            subfolder = "mode3_separate_singlestep"
+            combined_needed = False
+        elif self.experiment_mode == 4:
+            subfolder = "mode4_separate_twostep"
+            combined_needed = False
+        else:
+            logger.error(f"Invalid experiment_mode={self.experiment_mode}")
+            return
+
+        time_records = []
+        if combined_needed:
+            # read from PathConsCombined
+            cdir = os.path.join(input_dir, "PathConsCombined")
+            if not os.path.isdir(cdir):
+                logger.error("Missing PathConsCombined")
+                return
+            all_files = []
+            for root, _, fs in os.walk(cdir):
+                for fname in fs:
+                    if fname.endswith(".txt"):
+                        pid = os.path.splitext(fname)[0]
+                        if case_ids and (pid not in case_ids):
+                            continue
+                        all_files.append(os.path.join(root, fname))
+            if single and all_files:
+                all_files = [random.choice(all_files)]
+
+            for fp in all_files:
+                fname = os.path.basename(fp)
+                with open(fp, 'r', encoding='utf-8') as f:
+                    text = f.read()
+                num_chars = len(text)
+
+                st = time.time()
+                out_dict = self.summarize_one_patient(text, "")
+                et = time.time()
+                ms = int(round((et - st)*1000))
+
+                row = {
+                    "file": fname,
+                    "report_type": subfolder,
+                    "process_time_ms": ms,
+                    "num_input_characters": num_chars,
+                }
+                for k,v in out_dict.items():
+                    if k == "summary":
+                        continue
+                    row[k] = v
+
+                if not out_dict["summary"]:
+                    logger.warning(f"No summary for {fname}")
+                    continue
+
+                pid = os.path.splitext(fname)[0]
+                txt_dir = os.path.join(output_dir, "text_summaries", subfolder, pid)
+                emb_dir = os.path.join(output_dir, "embeddings", subfolder, pid)
+                os.makedirs(txt_dir, exist_ok=True)
+                os.makedirs(emb_dir, exist_ok=True)
+
+                # write final summary
+                with open(os.path.join(txt_dir, "path_consult_reports_summary.txt"), 'w', encoding='utf-8') as sf:
+                    sf.write(out_dict["summary"])
+
+                # store embedding
+                emb = self.embeddings.embed_documents([out_dict["summary"]])[0]
+                with open(os.path.join(emb_dir, "embedding.pkl"), 'wb') as ef:
+                    pickle.dump(emb, ef)
+
+                time_records.append(row)
+        else:
+            # separate => Pathology + Consultation
+            pdir = os.path.join(input_dir, "PathologyReports")
+            cdir = os.path.join(input_dir, "ConsultRedacted")
+            if not (os.path.isdir(pdir) or os.path.isdir(cdir)):
+                logger.error("Missing PathologyReports or ConsultRedacted.")
+                return
+
+            path_map = {}
+            if os.path.isdir(pdir):
+                for root, _, fs in os.walk(pdir):
+                    for fname in fs:
+                        if fname.endswith(".txt"):
+                            pid = os.path.splitext(fname)[0]
+                            path_map[pid] = os.path.join(root, fname)
+
+            cons_map = {}
+            if os.path.isdir(cdir):
+                for root, _, fs in os.walk(cdir):
+                    for fname in fs:
+                        if fname.endswith(".txt"):
+                            pid = os.path.splitext(fname)[0]
+                            cons_map[pid] = os.path.join(root, fname)
+
+            all_pids = set(path_map.keys()) | set(cons_map.keys())
+            if case_ids:
+                all_pids = all_pids.intersection(case_ids)
+
+            if single and all_pids:
+                chosen = random.choice(list(all_pids))
+                all_pids = {chosen}
+
+            for pid in all_pids:
+                path_text = ""
+                if pid in path_map:
+                    with open(path_map[pid], 'r', encoding='utf-8') as f:
+                        path_text = f.read()
+                cons_text = ""
+                if pid in cons_map:
+                    with open(cons_map[pid], 'r', encoding='utf-8') as f:
+                        cons_text = f.read()
+
+                combined_input = path_text + "\n\n" + cons_text
+                n_chars = len(combined_input)
+
+                st = time.time()
+                out_dict = self.summarize_one_patient(path_text, cons_text)
+                et = time.time()
+                ms = int(round((et - st)*1000))
+
+                row = {
+                    "file": f"{pid}.txt",
+                    "report_type": subfolder,
+                    "process_time_ms": ms,
+                    "num_input_characters": n_chars
+                }
+                for k,v in out_dict.items():
+                    if k == "summary":
+                        continue
+                    row[k] = v
+
+                if not out_dict["summary"]:
+                    logger.warning(f"No summary => {pid}")
+                    continue
+
+                txt_dir = os.path.join(output_dir, "text_summaries", subfolder, pid)
+                emb_dir = os.path.join(output_dir, "embeddings", subfolder, pid)
+                os.makedirs(txt_dir, exist_ok=True)
+                os.makedirs(emb_dir, exist_ok=True)
+
+                with open(os.path.join(txt_dir, "path_consult_reports_summary.txt"), 'w', encoding='utf-8') as sf:
+                    sf.write(out_dict["summary"])
+                emb = self.embeddings.embed_documents([out_dict["summary"]])[0]
+                with open(os.path.join(emb_dir, "embedding.pkl"), 'wb') as ef:
+                    pickle.dump(emb, ef)
+
+                time_records.append(row)
+
+        # Finally, record data
+        if time_records:
+            df = pd.DataFrame(time_records)
+            csv_path = os.path.join(output_dir, "processing_times.csv")
+            if os.path.isfile(csv_path):
+                old_df = pd.read_csv(csv_path)
+                new_df = pd.concat([old_df, df], ignore_index=True, sort=False)
+                new_df = self._cast_numeric(new_df)
+                new_df.to_csv(csv_path, index=False)
+            else:
+                df = self._cast_numeric(df)
+                df.to_csv(csv_path, index=False)
+            logger.info(f"Saved => {csv_path}")
+        else:
+            logger.warning("No records to save in processing_times.csv")
+
+    def _cast_numeric(self, df: pd.DataFrame) -> pd.DataFrame:
+        numeric_candidates = [
+            "process_time_ms", "num_input_characters",
+            "text_tokens", "prompt_instr_tokens", "total_needed", "used_ctx",
+            "extr_text_tokens","extr_prompt_instr_tokens","extr_total_needed","extr_used_ctx",
+            "cot_text_tokens","cot_prompt_instr_tokens","cot_total_needed","cot_used_ctx",
+            "path_text_tokens","path_prompt_instr_tokens","path_total_needed","path_used_ctx",
+            "cons_text_tokens","cons_prompt_instr_tokens","cons_total_needed","cons_used_ctx",
+            "path_extr_text_tokens","path_extr_prompt_instr_tokens","path_extr_total_needed","path_extr_used_ctx",
+            "path_cot_text_tokens","path_cot_prompt_instr_tokens","path_cot_total_needed","path_cot_used_ctx",
+            "cons_extr_text_tokens","cons_extr_prompt_instr_tokens","cons_extr_total_needed","cons_extr_used_ctx",
+            "cons_cot_text_tokens","cons_cot_prompt_instr_tokens","cons_cot_total_needed","cons_cot_used_ctx"
+        ]
+        for col in numeric_candidates:
+            if col in df.columns:
+                df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0).astype(int)
+        return df
+    
     ###########################################################################
     # Normal Summarization
     ###########################################################################
