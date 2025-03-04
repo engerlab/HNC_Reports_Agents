@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: Right lateral tongue, invasive moderately differentiated squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T2 N0 M0
+Primary_Tumor_Size: 2.5 cm (from CT scan), 3 cm (from oral cavity examination)
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: Invasive, moderately differentiated squamous cell carcinoma, P16 negative, depth of tumor penetration at least 4 mm
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: P16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: Pain on the right side of her oral tongue, hard polypoid mass on the right lateral tongue
+Treatment_Recommendations: Partial glossectomy and cervical neck dissection, perioperative brachytherapy
+Follow_Up_Plans: Patient will be seen next at the time of surgery, will be seen by dentistry
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Hypertension, hypothyroidism, dyslipidemia
+Patient_History_Status_Previous_Treatments: Rosuvastatin, amlodipine, glyburide, atacand, metformin, synthroid
+Clinical_Assessments_Radiological_Lesions: CT scan of the neck showed a right anterolateral tongue lesion, measuring 2.5 cm in greatest dimensions, and invading up to 9 mm in depth; Naso-pharyngo-laryngoscopy was normal
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 3 [1 point for hypertension, 1 point for hypothyroidism, 1 point for dyslipidemia]
+Karnofsky_Performance_Status: 100 [ECOG 0 corresponds to a KPS of 100, indicating perfect health and no evidence of disease]
+ECOG_Performance_Status: 0 [Patient has an ECOG score of 0, indicating no symptoms and full activity]

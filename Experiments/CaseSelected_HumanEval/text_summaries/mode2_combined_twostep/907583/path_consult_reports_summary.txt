@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: Right parapharyngeal space, high-grade sarcoma
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: ~5x5 cm
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: High-grade malignant pleomorphic and spindle cell tumor, positive for vimentin only
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Positive
+p16_Status: Not Inferred
+Immunohistochemical_profile: Positive for vimentin, negative for S100, TTF1, AE1.3, SMA, thyroglobulin, P63, myogenin, MART-1, calponin, CK8/18, CK5/6, CD34, and CD31
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Suspected [tumor invading nerve-rich areas like the skull base, masticator space, or perineural tracts]
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: Pain over the right hemiface and neck, referred otalgia, mild nausea, weight loss of 4 lbs since January, trismus
+Treatment_Recommendations: Palliative chemotherapy
+Follow_Up_Plans: Continue with palliative chemotherapy
+HPV_Status: Not Inferred
+Patient_History_Status_Prior_Conditions: None mentioned
+Patient_History_Status_Previous_Treatments: Gemcitabine/taxotere, concurrent chemo-radiation therapy with carbo/taxol and 60 Gy in 25 fractions, weekly vinorelbine
+Clinical_Assessments_Radiological_Lesions: Metastatic disease to the lungs with at least 10 nodules, progression of parapharyngeal mass with new erosion of the right pterygoid plate and posterior maxillary sinus wall
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 2 [Assigning 2 points for the cancer (high-grade sarcoma), no other comorbidities mentioned]
+Karnofsky_Performance_Status: 70 [ECOG 2 is equivalent to a KPS of around 70, indicating the patient has some symptoms but is still able to care for herself]
+ECOG_Performance_Status: 2 [Indicated in the physical examination section]

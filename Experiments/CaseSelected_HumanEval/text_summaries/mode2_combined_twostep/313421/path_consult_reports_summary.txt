@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: oropharynx, right tonsil, squamous cell carcinoma
+Pathological_TNM: T1 N2a
+Clinical_TNM: T1 N2a M0
+Primary_Tumor_Size: 1.8x1x1 cm
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: poorly differentiated squamous cell carcinoma, P16 positive
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: closest margin at 1mm on the lateral side
+p16_Status: Positive
+Immunohistochemical_profile: P16 positive
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Drinker [2-3 times per week]
+Pack_Years: 35
+Patient_Symptoms_at_Presentation: No symptoms mentioned, but findings include slight overweight, residual thread on the right tonsil tumor bed, and a 1cm soft lump at the site of the tumor bed
+Treatment_Recommendations: Adjuvant course of radiation therapy to the tumor bed and the bilateral neck
+Follow_Up_Plans: Consultation to dentistry, speech therapist, and audiology are requested, patient will be contacted for planning
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: Gout, remote hernia repair, HTA, chronic sinusitis
+Patient_History_Status_Previous_Treatments: allopurinol, atorvastatin, irbesartan/HCT, amlodipine, trans-oral robotic resection and right neck dissection
+Clinical_Assessments_Radiological_Lesions: CT scan showed a right jugulodigastric node measuring 3.3 x 3.1 cm, PET scan showed the right level IIA node with an SUV of 8.8
+Clinical_Assessments_SUV_from_PET_scans: right level IIA node SUV of 8.8, left tonsil SUV of 4.9, right tonsil SUV of 7.6
+Charlson_Comorbidity_Score: 2 [1 point for hypertension (HTA), 1 point for chronic sinusitis is not typically counted in Charlson score but gout is also not, so only clear one is HTA]
+Karnofsky_Performance_Status: 100 [ECOG 0 indicates the patient is fully active and able to carry on all pre-disease performance without restriction]
+ECOG_Performance_Status: 0 [patient has no symptoms and is fully active]

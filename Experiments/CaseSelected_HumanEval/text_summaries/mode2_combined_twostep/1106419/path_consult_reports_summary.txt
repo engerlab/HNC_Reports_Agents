@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: right tonsil, invasive squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T4, N2c, Mx
+Primary_Tumor_Size: Approximately 3.5 cm in the anterior/posterior and transverse dimensions
+Tumor_Type_Differentiation: Moderately to poorly differentiated
+Pathology_Details: Moderately to poorly differentiated (Grade 3/3) invasive squamous cell carcinoma with evidence of lymphovascular invasion
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: Multiple (lymph nodes in the bilateral neck region, with the largest measuring approximately 2 cm)
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Not Inferred
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Present
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Drinker [6 ounces of gin per day]
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: Dysphagia, mild odynophagia, increase in size of right neck mass, new palpable lesions, weight loss (15-20 pounds)
+Treatment_Recommendations: Concurrent chemoradiation therapy, possibility of participating in the RTOG 0522 trial evaluating the benefit of Cetuximab with concurrent chemoradiation therapy
+Follow_Up_Plans: Patient to review consent form and notify of decision, consultations with Dentistry, Audiology, Gastroenterology, PET CT scan for staging and radiotherapy planning purposes
+HPV_Status: Not Inferred
+Patient_History_Status_Prior_Conditions: Non-contributory
+Patient_History_Status_Previous_Treatments: Codeine
+Clinical_Assessments_Radiological_Lesions: CT scan of the neck revealed an increase in the size and number of cervical lymph nodes, with the largest lymph node measuring 17 mm in the right submandibular region; CT scan of the chest showed no evidence of parenchymal or mediastinal abnormalities
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 0 [No comorbidities mentioned]
+Karnofsky_Performance_Status: 90 [Directly stated in the report, indicating the patient has a good performance status with some symptoms or signs of disease but is still able to carry on normal activities]
+ECOG_Performance_Status: 1 [Converted from KPS, where a KPS score of 90 corresponds approximately to an ECOG score of 1, indicating the patient is restricted in strenuous activity but is ambulatory and able to do light work]

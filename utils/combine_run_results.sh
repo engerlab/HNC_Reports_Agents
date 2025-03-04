@@ -1,19 +1,6 @@
 #!/bin/bash
-# combine_run_results.sh
-#
-# Purpose:
-#   Merge two experiment outputs (Exp13 and ExpPrompt38) into a new folder (Exp14),
-#   keeping only text_summaries/ and embeddings/ subfolders, plus:
-#     1) filtered_cases_mode2.csv from Exp38
-#     2) precompute_tokens_mode2.csv from a known Token_Counts location
-#     3) processing_times_exp13.csv and processing_times_exp38.csv (renamed)
-#     4) final_merged_processing_times.csv with only: file, report_type, process_time_ms
-#        (rows from Exp38 override Exp13 for duplicates).
-#
-# Usage:
-#   chmod +x combine_run_results.sh
-#   ./combine_run_results.sh
-#
+# combine_run_results.sh (revised)
+
 ###############################################################################
 # 1) Source & Destination Paths
 ###############################################################################
@@ -60,38 +47,54 @@ fi
 
 ###############################################################################
 # 3) Copy text_summaries & embeddings from Exp13
+#    (They were stored in path_consult_reports/<case_id>)
+#    We place them into Exp14/text_summaries/mode2_combined_twostep/<case_id>
 ###############################################################################
 echo "Copying subfolders from Exp13 -> Exp14..."
 
 mkdir -p "$DEST_EXP14/text_summaries/mode2_combined_twostep"
 mkdir -p "$DEST_EXP14/embeddings/mode2_combined_twostep"
 
-rsync -av --exclude='structured_data*' \
-  "$SOURCE_EXP13/text_summaries/" \
-  "$DEST_EXP14/text_summaries/mode2_combined_twostep/"
+# From Exp13, the final summaries live in text_summaries/path_consult_reports/<case_id>
+# So we copy the *contents* of that folder into the new 'mode2_combined_twostep' location.
+if [ -d "$SOURCE_EXP13/text_summaries/path_consult_reports" ]; then
+  rsync -av --exclude='structured_data*' \
+    "$SOURCE_EXP13/text_summaries/path_consult_reports/" \
+    "$DEST_EXP14/text_summaries/mode2_combined_twostep/"
+else
+  echo "Warning: No path_consult_reports subfolder found under Exp13 text_summaries."
+fi
 
-rsync -av --exclude='structured_data*' \
-  "$SOURCE_EXP13/embeddings/" \
-  "$DEST_EXP14/embeddings/mode2_combined_twostep/"
+# Similarly for embeddings => embeddings/path_consult_reports/<case_id>
+if [ -d "$SOURCE_EXP13/embeddings/path_consult_reports" ]; then
+  rsync -av --exclude='structured_data*' \
+    "$SOURCE_EXP13/embeddings/path_consult_reports/" \
+    "$DEST_EXP14/embeddings/mode2_combined_twostep/"
+else
+  echo "Warning: No path_consult_reports subfolder found under Exp13 embeddings."
+fi
 
 ###############################################################################
 # 4) Copy text_summaries & embeddings from Exp38 (overwriting duplicates)
+#    In Exp38, they're already in text_summaries/mode2_combined_twostep/<case_id>
 ###############################################################################
 echo "Copying subfolders from Exp38 -> Exp14 (overwriting duplicates if any)..."
 
-mkdir -p "$DEST_EXP14/text_summaries/mode2_combined_twostep"
-mkdir -p "$DEST_EXP14/embeddings/mode2_combined_twostep"
+# The folder names in Exp38 are already 'mode2_combined_twostep'
+if [ -d "$SOURCE_EXP38/text_summaries/mode2_combined_twostep" ]; then
+  rsync -av --exclude='structured_data*' \
+    "$SOURCE_EXP38/text_summaries/mode2_combined_twostep/" \
+    "$DEST_EXP14/text_summaries/mode2_combined_twostep/"
+fi
 
-rsync -av --exclude='structured_data*' \
-  "$SOURCE_EXP38/text_summaries/mode2_combined_twostep/" \
-  "$DEST_EXP14/text_summaries/mode2_combined_twostep/"
-
-rsync -av --exclude='structured_data*' \
-  "$SOURCE_EXP38/embeddings/mode2_combined_twostep/" \
-  "$DEST_EXP14/embeddings/mode2_combined_twostep/"
+if [ -d "$SOURCE_EXP38/embeddings/mode2_combined_twostep" ]; then
+  rsync -av --exclude='structured_data*' \
+    "$SOURCE_EXP38/embeddings/mode2_combined_twostep/" \
+    "$DEST_EXP14/embeddings/mode2_combined_twostep/"
+fi
 
 ###############################################################################
-# 5) Cleanup extraneous subfolders if any remain
+# 5) Cleanup any extraneous subfolders (if needed)
 ###############################################################################
 find "$DEST_EXP14" -type d -name "structured_data*" -exec rm -rf {} + 2>/dev/null
 
@@ -100,8 +103,8 @@ echo "Merged text_summaries & embeddings. Now building a final merged CSV of pro
 ###############################################################################
 # 6) Merge processing_times_exp13.csv & processing_times_exp38.csv 
 #    => final_merged_processing_times.csv
-#    Prefers Exp38 rows if 'file' is duplicated, else uses Exp13.
-#    Then keep only columns: file, report_type, process_time_ms
+#    Prefer Exp38 rows if 'file' is duplicated, else use Exp13.
+#    Keep only: file, report_type, process_time_ms
 ###############################################################################
 python3 <<EOF
 import pandas as pd
@@ -136,7 +139,7 @@ if 'file' in df13.columns:
 if 'file' in df38.columns:
     df38['file'] = df38['file'].astype(str)
 
-# Build dict for each row, keyed by 'file'
+# Build dict keyed by 'file'
 d13 = {}
 if 'file' in df13.columns:
     for _, row in df13.iterrows():
@@ -169,3 +172,4 @@ EOF
 
 echo "All done! Final merged folder is => $DEST_EXP14"
 ls -R "$DEST_EXP14"
+

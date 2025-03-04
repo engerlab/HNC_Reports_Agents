@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: nasal supratip, invasive squamous cell carcinoma
+Pathological_TNM: pT cannot be determined
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: at least 2 mm (depth), 2.0 x 1.9 x 1.0 cm (macroscopic dimensions)
+Tumor_Type_Differentiation: Well differentiated
+Pathology_Details: Invasive squamous cell carcinoma, well differentiated, tumor extends to deep margin, dermis level of invasion
+Lymph_Node_Status_Presence_Absence: Not inferred
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: Not inferred
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Peripheral and Deep margins involved by invasive carcinoma
+p16_Status: Not Inferred
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Not Inferred
+Alcohol_Consumption: Not Inferred
+Pack_Years: Not Inferred
+Patient_Symptoms_at_Presentation: 5 years of growing keratotic lesion on nose, large cutaneous horn with underlying nodule
+Treatment_Recommendations: Not Inferred
+Follow_Up_Plans: Not Inferred
+HPV_Status: Not Inferred
+Patient_History_Status_Prior_Conditions: Not Inferred
+Patient_History_Status_Previous_Treatments: Previously biopsied
+Clinical_Assessments_Radiological_Lesions: Not inferred
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 0 [No comorbidities are present in the provided text]
+Karnofsky_Performance_Status: Not Inferred
+ECOG_Performance_Status: Not Inferred

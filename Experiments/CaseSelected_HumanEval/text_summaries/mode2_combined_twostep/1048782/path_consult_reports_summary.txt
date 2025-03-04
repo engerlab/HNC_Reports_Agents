@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Larynx, squamous cell carcinoma
+Pathological_TNM: T4 N1 M0
+Clinical_TNM: T4 N1 M0
+Primary_Tumor_Size: 3.2 x 2.8 x 3.7 cm, 4 cm transglottic
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: Moderately to poorly differentiated squamous cell carcinoma, p16 immunostain negative
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Close deep margins at 0.2mm
+p16_Status: Negative
+Immunohistochemical_profile: p16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Present
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: Shortness of breath, difficulty swallowing, weight loss
+Treatment_Recommendations: Post-operative radiotherapy
+Follow_Up_Plans: Patient will be seen next in planning
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: High blood pressure, glaucoma, benign prostate hyperplasia
+Patient_History_Status_Previous_Treatments: Laser resection for vocal cord cancer, drops for glaucoma, telmisartan, amlodipine
+Clinical_Assessments_Radiological_Lesions: CT scan neck revealed infiltrative enhancing mass, CT chest is clear
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 2 [1 point for high blood pressure (hypertension), 1 point for glaucoma is not directly listed but can be considered under mild liver disease or other conditions without clear points assigned; however, given the direct options provided and typical scoring, we focus on clearly identifiable conditions like hypertension]
+Karnofsky_Performance_Status: 90 [The performance status is explicitly mentioned as 90% in the text, indicating a high level of functioning]
+ECOG_Performance_Status: 0 [Assuming ECOG 0 corresponds to a Karnofsky score of 90-100, indicating the patient is fully active and able to carry on all pre-disease activities without restriction]

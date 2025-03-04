@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: Thyroid, anaplastic thyroid carcinoma
+Pathological_TNM: pT4bN1b
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 7.9 x 4.7 cm, largest foci 5.8x5.1x3 cm
+Tumor_Type_Differentiation: Anaplastic
+Pathology_Details: Anaplastic thyroid carcinoma with extensive lymphovascular invasion, positive margins
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 26
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Positive
+p16_Status: Not Inferred
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Present
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: Not Inferred
+Patient_Symptoms_at_Presentation: generalized weakness, hair fall, dryness of skin, constipation, weight gain, dyspnea, dysphagia, hoarseness of the voice
+Treatment_Recommendations: adjuvant chemoradiotherapy
+Follow_Up_Plans: patient will be evaluated by medical oncology on [DATE], CT chest, CT simulation after the holiday season
+HPV_Status: Not Inferred
+Patient_History_Status_Prior_Conditions: epilepsy, hypothyroidism
+Patient_History_Status_Previous_Treatments: Phenytoin, ASA, synthroid, calcium and vitamin D supplement, tubal ligation
+Clinical_Assessments_Radiological_Lesions: CT neck shows marked enlargement of the thyroid, pathologic lymphadenopathy including level 7 nodes, right JD, left lateral retropharyngeal node, right level 5, left level 5, and right level 3
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 1 [Epilepsy is a condition that contributes to the score but isn't directly listed in the Charlson Comorbidity Index; however, considering it as a condition similar to those requiring points and hypothyroidism without complications as 1 point each]
+Karnofsky_Performance_Status: 80 [Assuming ECOG 2 corresponds roughly to a KPS of 80, given that an ECOG of 2 indicates the patient is capable of self-care but unable to carry out work activities]
+ECOG_Performance_Status: 2 [Given directly in the text]

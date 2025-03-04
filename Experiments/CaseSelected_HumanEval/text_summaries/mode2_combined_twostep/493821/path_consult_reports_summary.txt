@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: oropharynx, Squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T3 N0 Mx
+Primary_Tumor_Size: more than 4 cm
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: poorly differentiated squamous cell carcinoma, P16 positive
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: P16 positive
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Not Inferred
+Pack_Years: 5
+Patient_Symptoms_at_Presentation: Right odynophagia, occasional hematemesis
+Treatment_Recommendations: Chemo-radiotherapy
+Follow_Up_Plans: Patient will be seen by dentistry, eligible for the proactive trial, PET in treatment position is requested
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: Nil
+Patient_History_Status_Previous_Treatments: D TABS, DEXILANT, LAX A DAY, NAPROXEN
+Clinical_Assessments_Radiological_Lesions: CT scan of the neck revealed a 2.2 cm right tonsillar fossa lesion, Naso-pharyngo-laryngoscopy was unremarkable
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 0 [No comorbidities mentioned in the text]
+Karnofsky_Performance_Status: 100 [The patient has a performance status of 100% as stated in the examination section]
+ECOG_Performance_Status: 0 [A KPS of 100 corresponds to an ECOG of 0, indicating the patient is fully active and able to carry on all pre-disease activities without restriction]

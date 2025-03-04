@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Skin of the upper back area, mixed basaloid and squamous carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: Approximately 5 cm (original lesion), 1.5 cm (hypodense mass at the left posterior neck)
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: Mixed basaloid and squamous carcinoma, superficial and infiltrating basal cell carcinoma with focal squamoid features
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 5
+Lymph_Node_Status_Extranodal_Extension: Present
+Resection_Margins: Focal close, less than 1 mm, deep margins
+p16_Status: Not Inferred
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Present
+Perineural_Invasion_Status: Present
+Smoking_History: Smoker
+Alcohol_Consumption: Drinker [3-5 beers per day]
+Pack_Years: 25
+Patient_Symptoms_at_Presentation: Chronic lower back pain, poor dentition, no other symptoms
+Treatment_Recommendations: Adjuvant external beam radiotherapy, possible concomitant systemic treatment or concomitant chemotherapy
+Follow_Up_Plans: Patient to return at the time of CT simulation, consultation for consideration of concomitant chemotherapy
+HPV_Status: Not Inferred
+Patient_History_Status_Prior_Conditions: Chronic lower back pain
+Patient_History_Status_Previous_Treatments: None mentioned
+Clinical_Assessments_Radiological_Lesions: Neck CT showed a 1.5 cm hypodense mass at the left posterior neck, PET scan showed isolated uptake (SUV 13) at the left level 5B lymph node
+Clinical_Assessments_SUV_from_PET_scans: SUV 13 at the left level 5B lymph node, maximal SUV of 2.9 at bilateral subsentimetric lymph nodes (deemed reactive)
+Charlson_Comorbidity_Score: 0 [No comorbidities mentioned other than the patient's current cancer diagnosis, which does not contribute points in this scoring system without additional complications]
+Karnofsky_Performance_Status: 100 [Patient has full function of left arm, denies any limitation in mobility or sensory abnormalities, and review of systems is quite negative]
+ECOG_Performance_Status: 0 [Based on KPS conversion, a KPS score of 100% corresponds to an ECOG performance status of 0]

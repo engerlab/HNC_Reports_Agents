@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Base of tongue, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T4N1M0
+Primary_Tumor_Size: 6.9 x 5.3 cm
+Tumor_Type_Differentiation: Not Inferred
+Pathology_Details: P16-positive (HPV-related) squamous cell carcinoma
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1 (left level 2 node measuring 2.4 x 2.2 cm)
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: P16-positive, P40 immunostains support the diagnosis
+EBER_Status: Negative
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Suspected [involvement of nerves in the tongue base and surrounding areas]
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Not Inferred
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: change of voice, left otalgia, mild dysphagia, weight loss
+Treatment_Recommendations: combined chemoradiation
+Follow_Up_Plans: patient will be seen by dentistry, offered participation to the proactive study
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: high blood pressure
+Patient_History_Status_Previous_Treatments: pill for blood pressure
+Clinical_Assessments_Radiological_Lesions: CT scan shows a 6.9 x 5.3 cm solid enhancing mass, PET scan reveals large base of tongue tumor with ipsilateral metastatic nodes
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 1 [The patient has hypertension (high blood pressure), which is assigned 1 point. There are no other comorbidities mentioned.]
+Karnofsky_Performance_Status: 90 [The performance status is directly stated as 90% in the examination section.]
+ECOG_Performance_Status: 0 [A KPS of 90 corresponds to an ECOG of 0, indicating the patient is fully active and able to carry on all pre-disease activities without restriction.]

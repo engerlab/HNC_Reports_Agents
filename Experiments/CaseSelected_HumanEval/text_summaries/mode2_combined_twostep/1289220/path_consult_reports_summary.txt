@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: floor of mouth, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T1N2cM0
+Primary_Tumor_Size: 1.7cm
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: moderately differentiated squamous cell carcinoma, p16 negative
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 5/126 (initially), 2/5 (at recurrence)
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: negative margins (initially), 2mm (at recurrence)
+p16_Status: Negative
+Immunohistochemical_profile: p16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Present
+Perineural_Invasion_Status: Present
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Drinker [occasional]
+Pack_Years: 525
+Patient_Symptoms_at_Presentation: trismus, no neurological symptoms, no odynophagia, no dysphagia, stable weight
+Treatment_Recommendations: hyperfractionated course of radiation therapy
+Follow_Up_Plans: patient will be assessed by dentistry before treatment commences, return for CT simulation and mask fitting shortly
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: myocardial infarction (MI), supraventricular tachycardia (SVT)
+Patient_History_Status_Previous_Treatments: ASA 81mg po qd, lactulose, Tylenol 650 po mg TID, oxycodone 10mg po 4-6 hrs PRN, Carbotaxol x 4 cycles
+Clinical_Assessments_Radiological_Lesions: CT scan showed a 2.5 x 1.6 x 3.4 cm enhancing lesion located at his left neck near the hyoid bone, PET scan showed increased uptake of this lesion
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 2 [1 point for myocardial infarction (MI), 1 point for no other conditions mentioned that fit the criteria]
+Karnofsky_Performance_Status: 90 [ECOG of 1 corresponds to a KPS score of around 80-100, given the patient has some symptoms but is fully active]
+ECOG_Performance_Status: 1 [patient has some symptoms but is fully active]

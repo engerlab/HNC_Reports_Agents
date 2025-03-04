@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: post cricoid region, squamous cell carcinoma
+Pathological_TNM: T4, N0
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 3.2 x 2.9 x 1.4 cm
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: Invasive moderately differentiated squamous cell carcinoma, grade 2/3, with perineural invasion and lymphovascular invasion
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: close margin less than 1 millimeter for the deep margin, initial positive margin at the esophageal mucosa was revised and found to be negative
+p16_Status: Negative
+Immunohistochemical_profile: P16: Negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Present
+Perineural_Invasion_Status: Present
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: Progressive dysphagia, dyspnea, stridor, weight loss of six pounds
+Treatment_Recommendations: Adjuvant radiation therapy, consideration of concurrent chemotherapy
+Follow_Up_Plans: Assessment by [PERSON] for consideration of concurrent chemotherapy, patient to receive 60 Gy in 30 fractions to the surgical bed using IMRT
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Hypertension, hypothyroidism
+Patient_History_Status_Previous_Treatments: Thyroidectomy, Atenolol, thyroxine, lansoprazole, Tylenol p.r.n., ferrous sulfate
+Clinical_Assessments_Radiological_Lesions: CT scan showed enlargement of both aryepiglottic folds with the mass originating from the postcricoid area invading both cricoids, MRI confirmed the finding and commented about abnormal signal intensity of the entire larynx, cricoid, thyroid, and right arytenoid cartilage
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 2 [1 point for hypertension, 1 point for hypothyroidism (mild liver disease is not mentioned, but these conditions are scored)]
+Karnofsky_Performance_Status: 70 [directly stated in the text]
+ECOG_Performance_Status: 1 [ converted from KPS of 70, where a KPS of 70-80 corresponds to an ECOG of 1]

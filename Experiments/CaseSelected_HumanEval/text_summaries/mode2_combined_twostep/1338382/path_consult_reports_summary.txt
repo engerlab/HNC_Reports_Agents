@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Right true vocal cord, invasive squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 0.8 x 0.3 x 0.3cm
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: invasive, well to moderately differentiated squamous cell carcinoma; p16 negative
+Lymph_Node_Status_Presence_Absence: Not inferred
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: Not inferred
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: p16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Smoker
+Alcohol_Consumption: Not Inferred
+Pack_Years: Not Inferred
+Patient_Symptoms_at_Presentation: Vocal cord mass
+Treatment_Recommendations: Not Inferred
+Follow_Up_Plans: Not Inferred
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Not Inferred
+Patient_History_Status_Previous_Treatments: Not Inferred
+Clinical_Assessments_Radiological_Lesions: Not inferred
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 0 [No comorbidities mentioned in the text]
+Karnofsky_Performance_Status: Not Inferred
+ECOG_Performance_Status: Not Inferred

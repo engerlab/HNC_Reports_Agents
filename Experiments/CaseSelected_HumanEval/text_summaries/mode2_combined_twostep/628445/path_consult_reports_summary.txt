@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: Left buccal mucosa, Squamous cell carcinoma
+Pathological_TNM: pT2NXM0
+Clinical_TNM: T2 N0 M0
+Primary_Tumor_Size: 2.4 x 1.5 x 0.4 cm, thickness of 0.4 mm
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: Moderately differentiated Squamous cell carcinoma, P16 negative
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Close margin 3 mm to mucosa, and 1mm deep close margin
+p16_Status: Negative
+Immunohistochemical_profile: P16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 60
+Patient_Symptoms_at_Presentation: Pain at implanted teeth in the left upper buccal area, inflammation, difficulty in eating
+Treatment_Recommendations: Post operative radiation therapy, total dose of 45 Gy/ 18 fractions to the tumor bed and ipsilateral level 1b and level II LN
+Follow_Up_Plans: Patient will proceed with radiation therapy after the wound in her check heals
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Coronary artery disease, gastroesophageal reflux, hypercholesterolemia, hypertension, hypothyroidism
+Patient_History_Status_Previous_Treatments: Tylenol, oxycodone after the surgery
+Clinical_Assessments_Radiological_Lesions: Naso-pharyngo-laryngoscopy was normal
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 5 [1 point for coronary artery disease, 1 point for hypertension, 1 point for hypercholesterolemia, 1 point for gastroesophageal reflux, and 1 point for hypothyroidism]
+Karnofsky_Performance_Status: 90 [Given directly in the text as KPS of 90]
+ECOG_Performance_Status: 0 [Assuming a conversion from KPS to ECOG, where a KPS of 90 corresponds to an ECOG of 0]

@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: oral tongue, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T1 N0 M0
+Primary_Tumor_Size: 1.5 cm
+Tumor_Type_Differentiation: Well differentiated
+Pathology_Details: well differentiated squamous cell carcinoma, P16 negative
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: P16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: Discomfort, felt mass on the right aspect of the oral tongue
+Treatment_Recommendations: Perioperative brachytherapy
+Follow_Up_Plans: Patient will be seen next after tests are completed
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: DVT, sleep apnea
+Patient_History_Status_Previous_Treatments: ASA
+Clinical_Assessments_Radiological_Lesions: CT scan and CXR are pending, naso-pharyngo-laryngoscopy was normal
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 1 [Assigned 1 point for DVT (considered under cerebrovascular disease or transient ischemic attack), no other conditions mentioned]
+Karnofsky_Performance_Status: 100 [Based on the performance status mentioned in the examination as 100%]
+ECOG_Performance_Status: 0 [Converted from KPS, where 100% corresponds to ECOG 0]

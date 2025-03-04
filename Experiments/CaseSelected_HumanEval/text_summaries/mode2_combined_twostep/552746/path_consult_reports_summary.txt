@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Right vocal cord, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T2, N0
+Primary_Tumor_Size: Not inferred
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: Invasive, moderately-differentiated squamous cell carcinoma; P16: negative
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: P16: negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Smoker
+Alcohol_Consumption: Drinker [4-5 times/day]
+Pack_Years: 30
+Patient_Symptoms_at_Presentation: Hoarseness in voice, no odynophagia, no difficulty breathing, no weight loss
+Treatment_Recommendations: Radiotherapy
+Follow_Up_Plans: Patient will be followed at the time of CT simulation and started with radiotherapy as soon as possible
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: High blood pressure
+Patient_History_Status_Previous_Treatments: Medication for high blood pressure, Appendectomy
+Clinical_Assessments_Radiological_Lesions: CT scan of the neck and larynx with contrast showed thickening of the right vocal cord, dilated right side ventricle, scelerosed right arytenoids cartilage; Laryngoscope showed right side lesion involving the anterior commissure
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 1 [Assigned 1 point for hypertension]
+Karnofsky_Performance_Status: 100 [The patient is in no acute distress and has a KPS of 100]
+ECOG_Performance_Status: 0 [Assuming ECOG 0 corresponds to KPS 100, as the patient has no limitations on their activities]

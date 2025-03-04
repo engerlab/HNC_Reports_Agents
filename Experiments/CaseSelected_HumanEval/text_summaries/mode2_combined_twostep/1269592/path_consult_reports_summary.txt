@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: Right base of tongue, poorly differentiated squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T2 N2c MX
+Primary_Tumor_Size: 2.6 cm
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: Invasive poorly differentiated squamous cell carcinoma, p16 negative
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1 (left level II necrotic node)
+Lymph_Node_Status_Extranodal_Extension: Present (extracapsular extension noted on CT Neck)
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: p16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 0.5 (assuming 'a couple of cigarettes a day' is approximately 2-3 cigarettes per day, and with a 10 year history, this would be roughly equivalent to 0.5 pack-years per year, given that 1 pack-year is 20 cigarettes per day for 1 year)
+Patient_Symptoms_at_Presentation: Left neck mass, no dysphagia, odynophagia, dysphonia, choking with feeds, chest infections, or respiratory symptoms
+Treatment_Recommendations: Primary chemoradiotherapy, external beam 67.5 Gy in 30 fractions
+Follow_Up_Plans: Full body PET scan to rule out metastatic disease before initiating treatment
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Hypertension (HTN), Dyslipidemia (DLP), Hypothyroidism, Kidney Hematoma, Cataracts, Insomnia
+Patient_History_Status_Previous_Treatments: Warfarin 5mg, Cromolyn 2% eye solution, atorvastatin 40mg, Ferrous sulfate, amlodipine 5mg, jentadueto, ASA 81 mg, pantaprazole 40mg, valsartan 160 mg, synthroid 75 mcg, docusate sodium
+Clinical_Assessments_Radiological_Lesions: CT Neck showed 2.6 cm right BOT mass and 5cm necrotic left level 2a node, CT angiography of the thorax, abdomen and pelvis showed a new 1.7 cm nodule in the RLL which could potentially be metastatic
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 4 [Hypertension (1 point), Hypothyroidism (1 point), previous Kidney Hematoma could imply some renal disease but specifics are unclear so not counting additional points for it, and history of dyslipidemia also implies potential vascular issues but again without clear evidence of complications or severity, no additional points assigned]
+Karnofsky_Performance_Status: 100 [Based on ECOG score of 0 which typically corresponds to a KPS score of 100 as the patient is fully active, able to carry on all pre-disease performance without restriction]
+ECOG_Performance_Status: 0 [Patient has an ECOG score of 0 indicating no symptoms and full activity]

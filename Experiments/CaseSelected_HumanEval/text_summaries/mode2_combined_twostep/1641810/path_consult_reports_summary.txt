@@ -1,0 +1,30 @@
+Sex: Not inferred
+Anatomic_Site_of_Lesion: Right lateral tongue border, floor of mouth, mandible, cervical skin, squamous cell carcinoma
+Pathological_TNM: pT4a pN0
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 5.3 x 4.4 x 2.5 cm
+Tumor_Type_Differentiation: Well to moderately differentiated
+Pathology_Details: Squamous cell carcinoma, well to moderately differentiated
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Mucosal margins uninvolved by invasive carcinoma, distance of invasive carcinoma from closest margin: 5 mm, Deep margins uninvolved by invasive carcinoma, distance of invasive carcinoma from closest margin: 1 mm
+p16_Status: Not Inferred
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Present
+Smoking_History: Not Inferred
+Alcohol_Consumption: Not Inferred
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: Not Inferred
+Treatment_Recommendations: Not Inferred
+Follow_Up_Plans: Not Inferred
+HPV_Status: Not Inferred
+Patient_History_Status_Prior_Conditions: Not Inferred
+Patient_History_Status_Previous_Treatments: Not Inferred
+Clinical_Assessments_Radiological_Lesions: Not inferred
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 0 [No comorbidities are mentioned in the text, therefore a score of 0 is assigned.]
+Karnofsky_Performance_Status: Not Inferred
+ECOG_Performance_Status: Not Inferred

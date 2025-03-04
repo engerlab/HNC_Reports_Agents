@@ -1,0 +1,30 @@
+Sex: Not inferred
+Anatomic_Site_of_Lesion: Larynx, supraglottic larynx, glottis, subglottic larynx
+Pathological_TNM: pT4a pN3b M0
+Clinical_TNM: T4aN2cM0
+Primary_Tumor_Size: 3.4 x 2.8 x 1.9 cm
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: Squamous cell carcinoma, moderately to poorly differentiated
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 9
+Lymph_Node_Status_Extranodal_Extension: Present
+Resection_Margins: margins uninvolved by invasive carcinoma, distance from closest mucosal margin: 0.2 cm, distance from closest deep margin: 0.3 cm
+p16_Status: Not Inferred
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Present
+Perineural_Invasion_Status: Absent
+Smoking_History: Smoker
+Alcohol_Consumption: Drinker [amount not specified]
+Pack_Years: Not Inferred
+Patient_Symptoms_at_Presentation: Progressive dysphagia, dysphonia
+Treatment_Recommendations: Post-operative chemoradiotherapy
+Follow_Up_Plans: Patient will be seen next in planning
+HPV_Status: Not Inferred
+Patient_History_Status_Prior_Conditions: Hypertension, CAD post angioplasty
+Patient_History_Status_Previous_Treatments: salbutamol, flovent, temisartan, meoprololrocaltrol, synthroid, finasteride, atorvastatin
+Clinical_Assessments_Radiological_Lesions: Transglottic neoplasm, invasion of the thyroid cartilage and anterior displacement of the strap muscles, subglottic extension, narrowing of the airway
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 3 [1 point for hypertension, 1 point for CAD post angioplasty, and 1 point is not assigned as there are no other mentioned comorbidities that fit the criteria]
+Karnofsky_Performance_Status: 90 [based on the provided performance status of 90%]
+ECOG_Performance_Status: 0 [assuming a KPS of 90 corresponds to an ECOG of 0, as a KPS of 80-100 generally corresponds to an ECOG of 0]

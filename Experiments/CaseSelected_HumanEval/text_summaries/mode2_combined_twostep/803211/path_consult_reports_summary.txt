@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: right parotid and facial skin, squamous cell carcinoma
+Pathological_TNM: pTX N2b M0
+Clinical_TNM: Tx N2b Mx
+Primary_Tumor_Size: Not inferred
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: poorly differentiated squamous cell carcinoma
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 2
+Lymph_Node_Status_Extranodal_Extension: Present
+Resection_Margins: Deep margin involved by invasive carcinoma, peripheral margins uninvolved
+p16_Status: Not Inferred
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 5
+Patient_Symptoms_at_Presentation: Right parotid mass, post-operative scar issues
+Treatment_Recommendations: Adjuvant radiotherapy
+Follow_Up_Plans: Patient will be seen by dentistry, audiology, and nutrition, and followed up during treatment
+HPV_Status: Not Inferred
+Patient_History_Status_Prior_Conditions: Hypertension, dyslipidemia, basal cell carcinoma, keratoacanthoma
+Patient_History_Status_Previous_Treatments: Amlodipine, crestor, lopresor, naproxen, ASA, HCTZ, ramipril, excision of basal cell carcinoma and keratoacanthoma
+Clinical_Assessments_Radiological_Lesions: CT scan of the neck showed a lesion in the parotid gland measuring 2.7 cm in greatest dimension, with evidence of inflammation around it
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 2 [1 point for hypertension, 1 point for dyslipidemia]
+Karnofsky_Performance_Status: 90 [ECOG 1 corresponds to a Karnofsky performance status of 90, as ECOG 1 indicates the patient is able to carry on normal activity with only minor symptoms]
+ECOG_Performance_Status: 1 [patient has no significant symptoms and can perform daily activities]

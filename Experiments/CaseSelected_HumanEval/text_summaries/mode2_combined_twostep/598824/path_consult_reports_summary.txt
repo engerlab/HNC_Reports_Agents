@@ -1,0 +1,30 @@
+Sex: Not inferred
+Anatomic_Site_of_Lesion: Left neck mass, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: Not inferred
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: Squamous cell carcinoma, poorly differentiated
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1 {involved lymph node level 2}
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: CKAE1-AE3(+), CK5/6(+), p63(+), p40(+), Melan-A(-), SOX-10(-), ERG(-), CK7(-), CD31(-), Pax-8(-), TTF-1(-), Napsin A(-), p16(-)
+EBER_Status: Negative
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Not Inferred
+Alcohol_Consumption: Not Inferred
+Pack_Years: Not Inferred
+Patient_Symptoms_at_Presentation: Left neck mass
+Treatment_Recommendations: Not Inferred
+Follow_Up_Plans: Not Inferred
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Not Inferred
+Patient_History_Status_Previous_Treatments: Not Inferred
+Clinical_Assessments_Radiological_Lesions: Not inferred
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 0 [No comorbidities mentioned in the report]
+Karnofsky_Performance_Status: Not Inferred
+ECOG_Performance_Status: Not Inferred

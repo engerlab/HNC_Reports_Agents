@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Hypopharynx and soft palate, synchronous primaries of moderately-differentiated invasive squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T3N1 for hypopharyngeal primary, T2N0 for soft palate primary
+Primary_Tumor_Size: 15 x 22 millimeters for hypopharyngeal mass, 2 x 1 centimeters in diameter for soft palate lesion
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: Moderately-differentiated squamous cell carcinoma, p16 negative
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1 {left level 3 lymph node measuring about 1.5 centimeters}
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: p16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Drinker [occasional]
+Pack_Years: Not Inferred
+Patient_Symptoms_at_Presentation: Dysphagia, pneumonia
+Treatment_Recommendations: Radical course of external beam radiotherapy with concomitant chemotherapy
+Follow_Up_Plans: Dental evaluation, baseline audiogram, PET scan, speech therapy with modified barium swallow
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Superficial bladder transitional cell carcinoma, coronary artery disease, hypercholesterolemia
+Patient_History_Status_Previous_Treatments: Intravesical chemotherapy, lorazepam, Apo-Verap, Asaphen, Novo-Triptyn, Lipitor, Flovent, salbutamol inhalators, Flomax
+Clinical_Assessments_Radiological_Lesions: CT scan of the head and neck region showed a left hypopharyngeal mass extending to the left paraglottic fat and abutting the left thyroid cartilage, no significant lymphadenopathies; flexible nasopharyngolaryngoscopy revealed an immobile left vocal cord and a mass involving the left piriform sinus
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 4 [2 points for coronary artery disease, 1 point for hypercholesterolemia, and 1 point for previous cancer (superficial bladder transitional cell carcinoma)]
+Karnofsky_Performance_Status: 90 [Based on the statement "Performance status is evaluated at 90"]
+ECOG_Performance_Status: 0 [Assuming a KPS of 90 corresponds to an ECOG of 0, as they are both measures of performance status]

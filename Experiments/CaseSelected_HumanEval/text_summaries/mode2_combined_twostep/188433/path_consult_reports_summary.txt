@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Right oropharynx, tongue base / tonsil area, poorly-differentiated squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: cT3 N0
+Primary_Tumor_Size: 3.3 x 3.2 cm
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: Poorly-differentiated squamous cell carcinoma invading into skeletal muscle, P16 positive
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: P16 positive
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 35
+Patient_Symptoms_at_Presentation: sore throat, difficulty swallowing, cough with whiteish sputum and clots of blood, dysphagia, weight loss (8IB/4 weeks), shortness of breath, otalgia of the right ear
+Treatment_Recommendations: combined chemoradiation
+Follow_Up_Plans: patient to complete staging work up with CT scan of the chest, to be seen by Audiology, dentistry, and medical oncology, CT-simulation
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: cardiac stent, Gout
+Patient_History_Status_Previous_Treatments: ASA, Crestor, Allopurinol
+Clinical_Assessments_Radiological_Lesions: CT scan of the neck demonstrates a 3.3 x 3.2 cm soft tissue mass, nasopharyngoscopy revealed right tonsillar/base of tongue lesion with exophytic component
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 2 [1 point for cardiac stent (myocardial infarction or peripheral vascular disease) and 1 point for Gout is not directly listed but could be considered under mild liver disease or other conditions, however the exact points are uncertain without direct mapping]
+Karnofsky_Performance_Status: 100 [ECOG 0 implies fully active, able to carry on all pre-disease performance without restriction, equivalent to KPS 100]
+ECOG_Performance_Status: 0 [patient is fully active, no restrictions]

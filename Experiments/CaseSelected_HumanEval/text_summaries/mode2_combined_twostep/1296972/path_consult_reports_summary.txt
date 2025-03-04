@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Left and Right buccal mucosa, Squamous cell carcinoma
+Pathological_TNM: pT1N0 (Right), pT4a N0 M0 (Left)
+Clinical_TNM: T1N0 (Right), T4a N0 M0 (Left)
+Primary_Tumor_Size: 1.7x1.8 cm (Left), 0.4 x 0.4 x 0.2 cm (Right)
+Tumor_Type_Differentiation: Well differentiated
+Pathology_Details: Squamous cell carcinoma with mild dysplasia and parakeratosis, chronic non-specific inflammation
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Positive deep margins (Right), Negative but close at 1.1 cm (Left)
+p16_Status: Positive
+Immunohistochemical_profile: p16+
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Non-Drinker [heavy drinker, discontinued 3-4 years ago]
+Pack_Years: 50
+Patient_Symptoms_at_Presentation: Left facial swelling, oral leukoplakia, no pain, no dysphagia, no odynophagia
+Treatment_Recommendations: Post-operative radiation to the Left buccal area, re-operation of the right buccal mucosa
+Follow_Up_Plans: Patient will be seen by dentistry, coordination with ENT referring physician for radiation treatments after re-operation
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: COPD
+Patient_History_Status_Previous_Treatments: Spiriva, Ventolin, hernia repair
+Clinical_Assessments_Radiological_Lesions: CT neck showed Significant asymmetric thickening and enhancement involving the left buccal soft tissues without any evidence of lymphadenopathy
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 1 [1 point for COPD, a chronic pulmonary disease]
+Karnofsky_Performance_Status: 100 [normal examination and no limitations mentioned]
+ECOG_Performance_Status: 0 [no evidence of disease or impairment in daily activities]

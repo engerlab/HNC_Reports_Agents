@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Left gingivo-buccal mucosa, oral cavity, squamous cell carcinoma
+Pathological_TNM: T4a N2b M0
+Clinical_TNM: T4a N2b M0
+Primary_Tumor_Size: 4.1 x 3.5 x 0.8 cm
+Tumor_Type_Differentiation: Moderately to poorly differentiated
+Pathology_Details: Moderately to poorly differentiated squamous cell carcinoma, tumor involving buccal mucosa and muscle, retromolar trigone and invading mandibular bone
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 4
+Lymph_Node_Status_Extranodal_Extension: Present
+Resection_Margins: Mucosal margins uninvolved by invasive carcinoma, distance of invasive carcinoma from closest margin: 4mm, medial; Deep margins uninvolved by invasive carcinoma, distance of invasive carcinoma from closest margin: 3mm, cheek muscle; Bone margins uninvolved by invasive carcinoma, distance of invasive carcinoma from closest margin: more than 1 cm
+p16_Status: Negative
+Immunohistochemical_profile: P16 immunostaining negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Drinker [amount not specified]
+Pack_Years: Not Inferred
+Patient_Symptoms_at_Presentation: Slowly growing ulcer over the left gingiva, residual sialocele
+Treatment_Recommendations: Post-operative chemoradiotherapy
+Follow_Up_Plans: Patient will be seen by dentistry and at the time of surgery
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Hypertension, history of thyroidectomy for tumor 40 years ago
+Patient_History_Status_Previous_Treatments: Synthroid, coversyl
+Clinical_Assessments_Radiological_Lesions: CT neck reveals an enhancing area of soft tissue thickening measuring 2.7 x 1.0 cm, CT chest reveals Solitary right lower lobe nodule measuring 5 mm, Naso-pharyngo-laryngoscopy was normal
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 2 [1 point for hypertension, 1 point for history of tumor (thyroidectomy)]
+Karnofsky_Performance_Status: 100% [based on the statement "Performance Status: 100%"]
+ECOG_Performance_Status: 0 [inferred from Karnofsky Performance Status of 100%, corresponding to ECOG 0, which represents fully active and able to carry on all pre-disease performance without restriction]

@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Larynx, anterior commissure, right vocal cord
+Pathological_TNM: Not inferred
+Clinical_TNM: T2 N2b Mx
+Primary_Tumor_Size: 1.8 cm below the cord, with involvement of the anterior commissure and subglottic region
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: Invasive, moderately differentiated keratinizing squamous cell carcinoma, P16 negative
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 2 (enlarged LN in level 3 measured 1.1cm and another node in level 2 measured 6mm)
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: P16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Drinker [half bottle of wine daily]
+Pack_Years: >50
+Patient_Symptoms_at_Presentation: Hoarseness
+Treatment_Recommendations: Concurrent chemoradiation
+Follow_Up_Plans: Patient will be seen by dentistry, med-onc, and respirology
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: DLP, OSA, colon CA
+Patient_History_Status_Previous_Treatments: Rosuvastatin, surgery, CRT for colon CA
+Clinical_Assessments_Radiological_Lesions: CT of the neck showed a lesion in the anterior 2/3 of the right vocal cord invading the anterior commissure, CT of the chest showed nodules suspicious for lung adenoCA vs infection
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 4 [1 point for DLP (likely diabetes), 1 point for OSA (considered a chronic pulmonary disease), 2 points for history of colon cancer (solid tumor without metastasis)]
+Karnofsky_Performance_Status: 90 [ECOG 1 corresponds to a KPS score of approximately 90, indicating the patient is able to carry on normal activity with only minor symptoms]
+ECOG_Performance_Status: 1 [patient has a performance status of ECOG 1, indicating minor symptoms but still able to carry out daily activities]

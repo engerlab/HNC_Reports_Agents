@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: Oral cavity, left superior alveolar ridge, invasive squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T4 N0 M0
+Primary_Tumor_Size: 3.7cm
+Tumor_Type_Differentiation: Well differentiated
+Pathology_Details: Invasive squamous cell carcinoma, well differentiated, p16 negative
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: p16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Not Inferred
+Alcohol_Consumption: Not Inferred
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: Painful left alveolar ridge lesion, weakness, discomfort
+Treatment_Recommendations: Adjuvant radiation to the surgical bed +/- neck with 60Gy in 30 fractions
+Follow_Up_Plans: Reassess the patient in 3-4 weeks to review the final pathology and ensure full recovery from surgery
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Uncontrolled IDDM, dyslipidemia, CHF
+Patient_History_Status_Previous_Treatments: ASA, Lipitor, metoprolol, altace, zantac, atrovent, Imodium, insulin, CABG
+Clinical_Assessments_Radiological_Lesions: CT scan showed a 3.7cm left superior alveolar ridge lesion invading alveolar bone, no suspicious lymphadenopathy
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 4 [1 point for diabetes with complications (uncontrolled IDDM), 1 point for CHF, 1 point for myocardial infarction (implied by CABG), and 1 point for dyslipidemia]
+Karnofsky_Performance_Status: 70-80 [Based on ECOG score of 1-2 post-op, which corresponds to a KPS score of 70-80, indicating the patient is able to care for herself but may need assistance with some tasks]
+ECOG_Performance_Status: 1-2 [The patient has some limitations in daily activities but is still able to care for herself]

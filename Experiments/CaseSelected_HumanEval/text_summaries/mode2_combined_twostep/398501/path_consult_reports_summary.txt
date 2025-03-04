@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Right tonsil, invasive basaloid squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T2, N1
+Primary_Tumor_Size: 2 cm {localized right tonsil ulcerating mass}
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: Invasive basaloid squamous cell carcinoma, p16 positive
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1 {right jugulodigastric node of 2 centimeters}
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: p16 positive
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent {no definite lymphovascular invasion identified}
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Drinker [5-10 drinks a week]
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: Palpable right cervical lymph node, low-intensity right ear pain, no pain associated with the lymph node, no dysphagia, odynophagia, or dysphonia
+Treatment_Recommendations: Chemoradiation to a dose of 67.5 Gy in 30 fractions by IMRT, possibility to participate in the HN.6 protocol
+Follow_Up_Plans: Obtain a copy of the CT scan, request for a PET/CT and planning position, requests for a PEG tube and for the audiology team were done, patient will read the consent form and call with his answer regarding participation in the HN.6 protocol
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: Not Inferred
+Patient_History_Status_Previous_Treatments: Nil
+Clinical_Assessments_Radiological_Lesions: CT scan results not available, rhinopharyngolaryngoscopy showed a localized right tonsil ulcerating mass
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 0 [The patient has no significant past medical history and no comorbidities are mentioned, therefore the score is 0]
+Karnofsky_Performance_Status: 100 [The ECOG performance status of 0 corresponds to a Karnofsky Performance Status of 100, indicating the patient is fully active and able to carry on all pre-disease activities without restriction]
+ECOG_Performance_Status: 0 [The patient has an ECOG performance status of 0, indicating the patient is fully active and able to carry on all pre-disease activities without restriction]

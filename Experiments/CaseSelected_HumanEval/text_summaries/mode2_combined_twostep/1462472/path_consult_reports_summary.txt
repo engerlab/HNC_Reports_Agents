@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: oropharynx, left tonsil, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T2 N2b Mx
+Primary_Tumor_Size: 3.8 cm (CT), 4 cm (MRI)
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: poorly differentiated p16+ve squamous cell carcinoma
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: Not inferred
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: p16+ve
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: Mild sore throat
+Treatment_Recommendations: Chemo-radiotherapy
+Follow_Up_Plans: Patient will be seen by dentistry
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: DLP, HTN, GERD
+Patient_History_Status_Previous_Treatments: Statin, Cadesartan, Nexium
+Clinical_Assessments_Radiological_Lesions: CT (left tonsil mass, multiple left sided cervical LNs), MRI (4 cm mass in the left tonsil, left sided cervical LAPs)
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 3 [1 point for hypertension (HTN), 1 point for mild liver disease is not mentioned but DLP could be related to a condition like this however it is unclear what DLP stands for so we will ignore it and 1 point for GERD or peptic ulcer disease]
+Karnofsky_Performance_Status: 100 [ECOG 0 corresponds to a KPS of 100, as ECOG 0 indicates the patient is fully active and able to carry on all pre-disease performance without restriction]
+ECOG_Performance_Status: 0 [The patient has an ECOG score of 0, indicating the patient is fully active and able to carry on all pre-disease performance without restriction]

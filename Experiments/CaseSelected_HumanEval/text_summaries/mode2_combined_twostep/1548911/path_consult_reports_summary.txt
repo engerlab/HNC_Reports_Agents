@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Left tonsil, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: cT3N1M0
+Primary_Tumor_Size: 1.7 x 2.2 x 4.9 cm
+Tumor_Type_Differentiation: Not Inferred
+Pathology_Details: Squamous cell carcinoma, p16+
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 2 {one in level 2A and one in level 2B, with the largest measuring 2.5 x 1.9 x 4.5 cm}
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: p16+
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Suspected [lymph node involvement and compression of the left jugular vein]
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Ex-Drinker [12 beers/day for 50 years]
+Pack_Years: 70
+Patient_Symptoms_at_Presentation: atypical chest pain, slight pain on swallowing, hard left submandibular mass
+Treatment_Recommendations: concurrent chemoradiotherapy (cisplatin + standard 35 session radiotherapy)
+Follow_Up_Plans: cardiology consultation + stress testing, research nurse to contact patient about trial to reduce mucositis
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: COPD, testicular cancer, hypercholesteremia
+Patient_History_Status_Previous_Treatments: FLOVENT DISKUS 250, ROSUVASTATINE, SALBUTAMOL, UMECLIDINIUM, right orchiectomy
+Clinical_Assessments_Radiological_Lesions: MRI and CT scans showed a mass in the left palatine tonsil, with lymph node involvement in levels 2A and 2B, and no evidence of osseous involvement or extranodal extension.
+Clinical_Assessments_SUV_from_PET_scans: SUV 15.9 for the primary tumor, SUV 12.2 for level 2 adenopathies, and SUV 3.7 for a small focus anterior to the abdominal aorta.
+Charlson_Comorbidity_Score: 4 [1 point for COPD (chronic pulmonary disease), 1 point for hypercholesteremia (not directly listed but related to vascular disease), 2 points for cancer (testicular cancer is a previous condition, not currently active, but still counts)]
+Karnofsky_Performance_Status: 90-100 [Performance Status: 0-1, which typically corresponds to a high Karnofsky score, as it indicates the patient is fully active and able to carry on all pre-disease performance without restriction]
+ECOG_Performance_Status: 1 [Performance Status: 0-1, which typically corresponds to an ECOG score of 1, indicating the patient has mild symptoms but is generally able to perform daily activities]

@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: Right oral tongue, Squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T1 N0 M0
+Primary_Tumor_Size: 1 cm
+Tumor_Type_Differentiation: Well differentiated
+Pathology_Details: Superficially invasive well differentiated squamous cell carcinoma with papillary configuration, P16 negative
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: P16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Smoker
+Alcohol_Consumption: Drinker [occasional]
+Pack_Years: 15
+Patient_Symptoms_at_Presentation: Presents with a protruding lesion, about 1 cm in the lateral aspect of her right oral tongue. The lesion is soft, mobile, polypoid. Denies lack of appetite, fatigue, fever, lethargy, malaise, night sweats, rigors / chills and change in weight.
+Treatment_Recommendations: Perioperative brachytherapy
+Follow_Up_Plans: Patient will be seen next at the time of surgery, and also by dentistry
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Hypothyroidism
+Patient_History_Status_Previous_Treatments: SYNTHROID, vitamin b12, tonsillectomy
+Clinical_Assessments_Radiological_Lesions: CT scan of the neck showed no evidence of lymphadenopathy, CXR was normal, Naso-pharyngo-laryngoscopy was normal
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 1 [The patient has hypothyroidism, which is assigned 1 point.]
+Karnofsky_Performance_Status: 100 [The performance status is explicitly stated as 100% - Normal, no complaints (Karnofsky).]
+ECOG_Performance_Status: 0 [A Karnofsky score of 100 corresponds to an ECOG score of 0, indicating the patient is fully active and able to carry on all pre-disease performance without restriction.]

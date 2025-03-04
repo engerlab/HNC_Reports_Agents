@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Left tonsil, invasive moderately to poorly differentiated squamous cell carcinoma, non-keratinizing
+Pathological_TNM: Not inferred
+Clinical_TNM: T2, N2b, Mx
+Primary_Tumor_Size: 2.5- to 3-centimeter exophytic lesion, also described as 1.8 x 1.3 x 3.3 centimeters on CT scan
+Tumor_Type_Differentiation: Moderately to Poorly differentiated
+Pathology_Details: Invasive moderately to poorly differentiated squamous cell carcinoma, non-keratinizing, p16 negative
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 2
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Negative
+Immunohistochemical_profile: p16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 60
+Patient_Symptoms_at_Presentation: Sore throat, lump on the right side of his neck, mild odynophagia
+Treatment_Recommendations: Chemoradiation treatment, possibly cetuximab instead of chemotherapy
+Follow_Up_Plans: Referral to medical oncology for discussion of options, baseline audiogram, PEG tube insertion, PET scan
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Infrarenal abdominal aortic aneurysm, prostate cancer, anxiety disorder
+Patient_History_Status_Previous_Treatments: Total androgen ablation for prostate cancer, medications include Casodex, LHRH injection, diltiazem, B12, temazepam, Cozaar, Ativan
+Clinical_Assessments_Radiological_Lesions: CT scan of the neck and chest showed an enlarged left tonsil, two level II enlarged necrotic lymph nodes, and a 1.7-centimeter soft tissue nodule along the right supraclavicular space
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 4 [infrarenal abdominal aortic aneurysm repair (1 point), prostate cancer (2 points), anxiety disorder (1 point)]
+Karnofsky_Performance_Status: 100 [ECOG performance of 0, patient is well and performing all activities of daily living]
+ECOG_Performance_Status: 0 [patient appears well, no limitations on strenuous activities]

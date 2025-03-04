@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Base of tongue, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: cT1 cN2b cM0
+Primary_Tumor_Size: 2 cm
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: Metastatic poorly-differentiated carcinoma, favor squamous on the basis of positive P63 and CK5/6, P16 positive
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: >1 ({multiple level II lymph nodes})
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: Positive for P63, CK5/6, and P16
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Drinker [occasional]
+Pack_Years: 20
+Patient_Symptoms_at_Presentation: dysarthria, left post-auricular discomfort
+Treatment_Recommendations: chemo-radiotherapy
+Follow_Up_Plans: patient will be seen by Dentistry, Audiology, Gastroenterology, Medical Oncology, and by a Nutritionist, PET scan, mask fitting, CT simulation, chemotherapy, Dermatology appointment
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: basal cell carcinoma of the scalp, retinal tear, Colles fracture, patellar bursitis
+Patient_History_Status_Previous_Treatments: shave biopsy, incomplete removal of basal cell carcinoma
+Clinical_Assessments_Radiological_Lesions: CT neck scan showed a 2 cm base of tongue lesion and several ipsilateral level II lymph nodes measuring >3cm, CT chest showed a 5mm lingular nodule and a 5mm left lower lobe nodule
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 2 [1 point for basal cell carcinoma (considered a form of skin cancer, but not directly listed; using the closest relevant condition), and considering the patient's history does not explicitly mention other significant comorbidities that would add points]
+Karnofsky_Performance_Status: 90 [ECOG status is 1, which generally corresponds to a Karnofsky performance status of around 80-100, with 1 being able to perform all normal activities with only slight limitations; hence, choosing a value towards the higher end but not perfect due to symptoms and diagnosis]
+ECOG_Performance_Status: 1 [as directly stated in the examination findings]

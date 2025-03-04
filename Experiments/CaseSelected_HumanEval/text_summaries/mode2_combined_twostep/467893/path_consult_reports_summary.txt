@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Larynx, right supraglottic and subglottic regions
+Pathological_TNM: T4a, N1, M0
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 5.6 x 5.4 x 3.9 centimeters
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: Invasive, moderately differentiated squamous cell carcinoma, p16 negative
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Deep surgical margins are positive at the right piriform fossa, mucosal margins are negative for invasive carcinoma but close at 1 millimeter from the right pharyngeal mucosa
+p16_Status: Negative
+Immunohistochemical_profile: p16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Present
+Perineural_Invasion_Status: Present
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Drinker [socially]
+Pack_Years: 40
+Patient_Symptoms_at_Presentation: Progressive hoarseness of voice, no headaches, diplopia, chest pain, or shortness of breath
+Treatment_Recommendations: Adjuvant radiotherapy with concomitant chemotherapy
+Follow_Up_Plans: Patient will be CT simulated shortly and will be seen by dentistry, speech pathology, and endocrinology
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Osteoarthritis, gout, hypothyroidism
+Patient_History_Status_Previous_Treatments: Synthroid, Tylenol p.r.n.
+Clinical_Assessments_Radiological_Lesions: CT scan of the neck demonstrated the known lesion with significant local extension, chest x-ray was negative for metastatic disease
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 1 [The patient has hypertension is not mentioned but the patient has hypothyroidism which would be 1 point]
+Karnofsky_Performance_Status: 90 [ECOG performance status of 1 corresponds to a KPS of 90, indicating the patient is able to carry on normal activity with only minor symptoms]
+ECOG_Performance_Status: 1 [The patient has an ECOG performance status of 1, indicating the patient is able to carry on normal activity with only minor symptoms]

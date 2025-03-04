@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Right tongue, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T2 N0 M0
+Primary_Tumor_Size: 2.9 x 2.3 x 1.8 cm
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: Moderately-differentiated squamous cell carcinoma, no definite vascular or perineural invasion identified
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: Negative for neoplasia, closest margin 1.7 mm from tumor
+p16_Status: Negative
+Immunohistochemical_profile: P16 negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Smoker
+Alcohol_Consumption: Drinker [Mild]
+Pack_Years: 20
+Patient_Symptoms_at_Presentation: Right lateral tongue pain, mild ear pain on the right side, 3cm ulcerated lesion involving the inferior aspect of the right lateral tongue
+Treatment_Recommendations: Post-operative brachytherapy, possible adjuvant external beam radiotherapy
+Follow_Up_Plans: Admitting patient for surgery with catheter insertion, followed by brachytherapy peri-operatively, further assessment and treatment based on pathology results
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Nil
+Patient_History_Status_Previous_Treatments: Tylenol prn for pain
+Clinical_Assessments_Radiological_Lesions: CT scan of the neck shows a 2.7 x 1.7 cm enhancing mass with central ulceration involving the right anterior aspect of the oral tongue, indeterminate right level 1B node
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 2 [1 point for mild liver disease (steatotic liver) and 1 point for smoking history, no other comorbidities mentioned]
+Karnofsky_Performance_Status: 100 [Patient has no evidence of impaired alertness, inadequate appearance, premature or advanced chronologic age, uncooperativeness, developmental delays, altered mood and affect, and disorientation. The patient is also able to undergo surgery and treatment without any reported limitations.]
+ECOG_Performance_Status: 0 [Based on the Karnofsky Performance Status of 100, which corresponds to a fully active and able to carry on all pre-disease performance without restriction, equivalent to an ECOG score of 0.]

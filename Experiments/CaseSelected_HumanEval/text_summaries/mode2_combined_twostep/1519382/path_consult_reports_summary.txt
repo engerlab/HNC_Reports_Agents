@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: left tonsil, p16 positive (HPV related) squamous cell carcinoma
+Pathological_TNM: pT2N1
+Clinical_TNM: T2N1M0
+Primary_Tumor_Size: larger than 2 cm but not larger than 4 cm
+Tumor_Type_Differentiation: Not Inferred
+Pathology_Details: p16 positive (HPV related) squamous cell carcinoma, invades skeletal muscle
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1
+Lymph_Node_Status_Extranodal_Extension: Present
+Resection_Margins: Mucosal margins and deep margins involved by invasive carcinoma
+p16_Status: Positive
+Immunohistochemical_profile: p16: positive
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Drinker [rarely]
+Pack_Years: 5
+Patient_Symptoms_at_Presentation: swelling on the left aspect of his neck
+Treatment_Recommendations: chemoradiation
+Follow_Up_Plans: patient will be seen by medical oncology, dentistry, nutrition, SLP and audiology
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: None
+Patient_History_Status_Previous_Treatments: None
+Clinical_Assessments_Radiological_Lesions: PET scan did not show evidence of metastasis
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 0 [No comorbidities mentioned in the text]
+Karnofsky_Performance_Status: 100 [Normal performance status, no limitations]
+ECOG_Performance_Status: 0 [Equivalent to normal performance status, no symptoms]

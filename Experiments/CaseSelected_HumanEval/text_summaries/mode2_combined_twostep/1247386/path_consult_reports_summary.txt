@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Right floor of mouth, invasive, moderately-differentiated squamous cell carcinoma
+Pathological_TNM: T2, N1
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 2.3 cm in maximum diameter and 8 mm in depth
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: Poorly differentiated, presence of perineural and lymphovascular invasion
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1
+Lymph_Node_Status_Extranodal_Extension: Present
+Resection_Margins: 4 mm at periphery, less than 1 mm at depth
+p16_Status: Negative
+Immunohistochemical_profile: P16: negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Present
+Perineural_Invasion_Status: Present
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 45
+Patient_Symptoms_at_Presentation: Poor dentition, lesion on the right side of the floor of the mouth
+Treatment_Recommendations: Adjuvant course of external beam radiotherapy with concomitant chemotherapy
+Follow_Up_Plans: Patient will be sent for dentistry, audiogram, Medical Oncology consult, treatment to be started in the near future
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Hypercholesterolemia, high blood pressure, gout, emphysema
+Patient_History_Status_Previous_Treatments: Crestor, colchicine, Micardis
+Clinical_Assessments_Radiological_Lesions: CT scan of neck revealed no clear evidence of primary but asymmetry at the level of submandibular gland, ground-glass opacity in the right upper lobe
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 3 [1 point for hypercholesterolemia (considered under mild liver disease or diabetes without complications), 1 point for high blood pressure, 1 point for chronic pulmonary disease (emphysema)]
+Karnofsky_Performance_Status: 90 [directly stated in the physical examination]
+ECOG_Performance_Status: 0 [assuming ECOG 0 corresponds to KPS 90, as a KPS of 90 suggests the patient is able to carry on normal activity with only minor symptoms]

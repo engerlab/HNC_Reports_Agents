@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Unknown primary, metastatic squamous cell carcinoma in right neck lymph nodes
+Pathological_TNM: Tx, N2b, Mx
+Clinical_TNM: Tx, N2b, Mx
+Primary_Tumor_Size: Not inferred
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: Metastatic squamous cell carcinoma, keratinizing in 2/4 lymph nodes, p16 positive
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 2
+Lymph_Node_Status_Extranodal_Extension: Suspected (highly suspicious for extracapsular extension)
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: p16 positive
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Drinker [amount not specified]
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: No ENT or respiratory symptoms, no weight loss, right neck lump
+Treatment_Recommendations: Adjuvant course of chemoradiation
+Follow_Up_Plans: PET scan scheduled, possible research protocol discussion, referral to dentistry, medical oncology, GI for prophylactic PEG, and audiology
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: Hypertension, dyslipidemia
+Patient_History_Status_Previous_Treatments: Tonsillectomy at age 5, medications - Coversyl, Lipitor, Nexium, Aspirin
+Clinical_Assessments_Radiological_Lesions: CT scan showed multiple pathological right level II and III nodes, PET scan scheduled
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 2 [1 point each for hypertension and dyslipidemia]
+Karnofsky_Performance_Status: 100 [patient is in no acute distress, performance status evaluated at 100]
+ECOG_Performance_Status: 0 [equivalent to KPS 100, indicating the patient is fully active]

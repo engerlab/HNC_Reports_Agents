@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: Oral tongue, squamous cell carcinoma
+Pathological_TNM: pT1 pNX
+Clinical_TNM: T1 N0 M0
+Primary_Tumor_Size: 2 mm thickness, tumor size cannot be determined for one specimen, and 1.4 x 0.8 x 0.5 cm for the other
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: Squamous cell carcinoma, well differentiated and moderately differentiated, severe keratinizing dysplasia, p16 negative
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1 (8mm left supraclavicular lymph node)
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Deep margin uninvolved by invasive carcinoma for one specimen, mucosal margin involved for the same, and deep margin involved for the other specimen
+p16_Status: Negative
+Immunohistochemical_profile: p16: negative
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: Burning sensation on the right front side of the tongue, whitish color, mild mouth dryness, mild heartburn/dyspepsia
+Treatment_Recommendations: Glossectomy with brachytherapy
+Follow_Up_Plans: Patient will be seen next at the time of surgery
+HPV_Status: Negative
+Patient_History_Status_Prior_Conditions: Auto-immune hepatitis, secondary stable cirrhosis, diabetes, insulin dependent, hypertension
+Patient_History_Status_Previous_Treatments: Imuran, avapro, insuline, lyrica 150mg, prednisone 5mg, cholecystectomy
+Clinical_Assessments_Radiological_Lesions: CT brain, neck, and thorax showed no intra-cranial disease, soft tissue density at the right dorsal lateral aspect of the tongue, 8mm left supraclavicular lymph node, and no intra-thoracic disease
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 4 [1 point for diabetes without complications, 1 point for mild liver disease (cirrhosis), 1 point for hypertension, 1 point for auto-immune hepatitis]
+Karnofsky_Performance_Status: 90 [Patient has a performance status of 90% with only minor signs/symptoms]
+ECOG_Performance_Status: 1 [Equivalent to a Karnofsky score of 90%, indicating the patient is able to carry on normal activity with only minor symptoms]

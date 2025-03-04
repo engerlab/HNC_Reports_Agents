@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: Base of tongue squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T2, N3
+Primary_Tumor_Size: Not inferred
+Tumor_Type_Differentiation: Not Inferred
+Pathology_Details: Squamous cell carcinoma, p16 positive
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: Multiple {including a conglomerate of lymphadenopathy in the left level II lymph node station and other involved lymph nodes}
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: p16 positive
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 25
+Patient_Symptoms_at_Presentation: dysgeusia, dysphagia with solid foods, left otalgia
+Treatment_Recommendations: external beam radiotherapy directed to the lesion as well as the ipsilateral neck and contralateral neck with concomitant chemotherapy, accelerated radiotherapy with EGFR inhibitor
+Follow_Up_Plans: patient will meet with the research coordinator for more information on the NCIC HN.6 research protocol, patient will be sent to dentistry, medical oncology, audiology, and GI for prophylactic PEG as preparation for treatment
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: appendicectomy, inguinal hernia surgery
+Patient_History_Status_Previous_Treatments: No medication
+Clinical_Assessments_Radiological_Lesions: CT and PET scan showed a conglomerate of lymphadenopathy in the left level II lymph node station, a hypermetabolic lesion involving the base of the tongue, and other involved lymph nodes
+Clinical_Assessments_SUV_from_PET_scans: Maximum SUV of 10.3 increasing to 11.3 on late images for the lymphadenopathy, initial SUV of 11.5 increasing to 13.6 on late imaging for the primary lesion
+Charlson_Comorbidity_Score: 0 [No comorbidities mentioned]
+Karnofsky_Performance_Status: 90 [Performance status is evaluated at 90 during physical examination]
+ECOG_Performance_Status: 0 [Assuming a direct conversion from KPS, where 90-100 corresponds to ECOG 0]

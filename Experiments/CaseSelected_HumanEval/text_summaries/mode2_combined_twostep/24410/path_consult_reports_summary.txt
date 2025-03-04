@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: right cheek, Squamous cell carcinoma
+Pathological_TNM: pT2 Nx
+Clinical_TNM: Not inferred
+Primary_Tumor_Size: 0.5 x 0.3 x 0.3 cm
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: SCC with basaloid features, moderately differentiated
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: close margins (closest at 2.2 mm), deep margins not involved (closest at 1.1 mm)
+p16_Status: Not Inferred
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Drinker [1 glass of wine/day]
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: No redness, no itching, no other symptoms, tender postop scar on right cheek
+Treatment_Recommendations: Radiotherapy
+Follow_Up_Plans: Patient will receive radiotherapy before I-131 radioactive iodine treatment
+HPV_Status: Not Inferred
+Patient_History_Status_Prior_Conditions: Epilepsy
+Patient_History_Status_Previous_Treatments: Synthroid, Primidone
+Clinical_Assessments_Radiological_Lesions: Not inferred
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 1 [Epilepsy is assigned 1 point]
+Karnofsky_Performance_Status: 90 [Directly stated in the text]
+ECOG_Performance_Status: 0 [Converted from KPS of 90, which typically corresponds to ECOG 0]

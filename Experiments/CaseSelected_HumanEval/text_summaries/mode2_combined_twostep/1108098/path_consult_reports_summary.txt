@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: hard palate, adenoid cystic carcinoma
+Pathological_TNM: pT4aN1
+Clinical_TNM: T4 N1 M0
+Primary_Tumor_Size: 1.6 x 1.2 cm (and an additional large soft tissue component within the right maxillary sinus measuring 2.8 x 2.1 cm in diameter)
+Tumor_Type_Differentiation: Moderately differentiated
+Pathology_Details: moderately differentiated adenoid cystic carcinoma involving the maxillary sinus, hard palate
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: diffusely positive margins
+p16_Status: Not Inferred
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Present
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: Painless mass on the hard palate
+Treatment_Recommendations: Post-operative radiotherapy, chemotherapy on the [PROTOCOLNUMBER] 1005 or off study
+Follow_Up_Plans: Patient will be seen by dentistry, CT chest will be requested to complete staging
+HPV_Status: Not Inferred
+Patient_History_Status_Prior_Conditions: Nil
+Patient_History_Status_Previous_Treatments: Nil
+Clinical_Assessments_Radiological_Lesions: CT scan showing a bulging hypodense soft tissue lesion, permeative change and invasion of adjacent bone, involvement with an additional large soft tissue component within the right maxillary sinus
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 0 [No comorbidities are present]
+Karnofsky_Performance_Status: 100% [Performance Status is explicitly stated as 100%]
+ECOG_Performance_Status: 0 [Assuming a perfect correlation between KPS and ECOG, where 100% KPS corresponds to ECOG 0]

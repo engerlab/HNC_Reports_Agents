@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: right tonsil, oropharynx, squamous cell carcinoma
+Pathological_TNM: Not inferred
+Clinical_TNM: T3 N1 M0
+Primary_Tumor_Size: 4.5 cm
+Tumor_Type_Differentiation: Not Inferred
+Pathology_Details: P16 positive SCC
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1 {ipsilateral level 2 pathological Ln}
+Lymph_Node_Status_Extranodal_Extension: Not inferred
+Resection_Margins: Not inferred
+p16_Status: Positive
+Immunohistochemical_profile: P16 positive
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Not inferred
+Perineural_Invasion_Status: Not inferred
+Smoking_History: Non-Smoker
+Alcohol_Consumption: Not Inferred
+Pack_Years: 0
+Patient_Symptoms_at_Presentation: recurrent hemoptysis
+Treatment_Recommendations: laser excision vs radiotherapy, chemo-radiotherapy (options to be discussed in multidisciplinary clinic)
+Follow_Up_Plans: patient will be seen in the multidisciplinary clinic next week
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: coronary artery disease
+Patient_History_Status_Previous_Treatments: Iron supplement, Rosuvastatin, clopidrogrel, perindopril, bisoprolol
+Clinical_Assessments_Radiological_Lesions: CT scan neck shows right tonsillar fossa mass, CT chest is negative, naso-pharyngo-laryngoscopy was normal
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 1 [The patient has coronary artery disease, which is assigned 1 point. No other comorbidities are mentioned.]
+Karnofsky_Performance_Status: 100 [The patient's performance status is explicitly stated as 100%.]
+ECOG_Performance_Status: 0 [A KPS of 100% corresponds to an ECOG of 0, indicating the patient is fully active and able to carry on all pre-disease activities without restriction.]

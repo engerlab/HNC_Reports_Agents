@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: base of tongue, oropharynx
+Pathological_TNM: Not inferred
+Clinical_TNM: T1 N2a M0
+Primary_Tumor_Size: at least 4 mm
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: Poorly differentiated squamous cell carcinoma, P16 positive
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1
+Lymph_Node_Status_Extranodal_Extension: Present
+Resection_Margins: Margins uninvolved by invasive carcinoma
+p16_Status: Positive
+Immunohistochemical_profile: P16 positive
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Drinker [socially]
+Pack_Years: Not Inferred
+Patient_Symptoms_at_Presentation: Self-palpated mass over the right neck, no other symptoms
+Treatment_Recommendations: Post-operative chemoradiotherapy
+Follow_Up_Plans: Patient will be seen by dentistry
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: Not Inferred
+Patient_History_Status_Previous_Treatments: Nil
+Clinical_Assessments_Radiological_Lesions: Single metastatic FDG avid right cervical node on CT and PET scans, no primary malignancy site could be identified, no evidence of distant FDG avid metastasis
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 0 [No comorbidities mentioned]
+Karnofsky_Performance_Status: 100% [Based on the statement "Performance Status: 100%"]
+ECOG_Performance_Status: 0 [Converted from KPS 100%, which corresponds to ECOG 0, indicating fully active and able to carry on all pre-disease performance without restriction]

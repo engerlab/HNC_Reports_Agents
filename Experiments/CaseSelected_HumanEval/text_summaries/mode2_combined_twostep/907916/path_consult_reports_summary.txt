@@ -1,0 +1,30 @@
+Sex: F
+Anatomic_Site_of_Lesion: left retromolar trigone, mucoepidermoid carcinoma
+Pathological_TNM: pT4aN0M0
+Clinical_TNM: T4aN0
+Primary_Tumor_Size: 2x2x1.5cm
+Tumor_Type_Differentiation: Intermediate grade
+Pathology_Details: intermediate grade mucoepidermoid carcinoma, bone invasion (mandibular cortex)
+Lymph_Node_Status_Presence_Absence: Absent
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 0
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: negative but close posteriorly at less than 1 mm
+p16_Status: Not Inferred
+Immunohistochemical_profile: Not inferred
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Absent
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Non-Drinker
+Pack_Years: 30
+Patient_Symptoms_at_Presentation: Dysarthria, difficulty chewing, weight loss of 15 lbs in the last 6 months, decreased appetite, difficulty eating solid food, hearing reduced
+Treatment_Recommendations: Adjuvant course of radiation therapy to the tumor bed
+Follow_Up_Plans: Patient will be evaluated at [ORGANIZATION] for radiation treatment
+HPV_Status: Not Inferred
+Patient_History_Status_Prior_Conditions: COPD
+Patient_History_Status_Previous_Treatments: Synthroid, trazodone, zopiclone, omega 3, Spiriva, vit D, surgical resection, surgical revision for positive margins, ATB
+Clinical_Assessments_Radiological_Lesions: CT neck showed a left masticator space lesion involving the left parapharyngeal space, irregular cortex suspicious of focal invasion at the left mandible, two small satellite nodules abutting the lesion in the superior aspect of the left mylohyoid muscle, no adenopathy on imaging
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 1 [The patient has COPD, which is a condition worth 1 point. No other comorbidities were mentioned that would add to the score.]
+Karnofsky_Performance_Status: 100 [ECOG 0 corresponds to a Karnofsky performance status of 100, indicating the patient is fully active and able to carry on all pre-disease activities without restriction.]
+ECOG_Performance_Status: 0 [Indicates the patient is fully active and able to carry on all pre-disease activities without restriction.]

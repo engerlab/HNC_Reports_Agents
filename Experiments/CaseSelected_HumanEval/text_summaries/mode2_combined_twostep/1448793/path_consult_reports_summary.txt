@@ -1,0 +1,30 @@
+Sex: M
+Anatomic_Site_of_Lesion: right base of tongue, P16 positive SCC
+Pathological_TNM: pT1 N1 M0
+Clinical_TNM: T1 N1 M0
+Primary_Tumor_Size: 1.8 x 1.7 x 1 cm
+Tumor_Type_Differentiation: Poorly differentiated
+Pathology_Details: poorly differentiated squamous cell carcinoma, tumor invading muscle
+Lymph_Node_Status_Presence_Absence: Present
+Lymph_Node_Status_Number_of_Positve_Lymph_Nodes: 1
+Lymph_Node_Status_Extranodal_Extension: Absent
+Resection_Margins: margins uninvolved by invasive carcinoma, distance from closest mucosal margin: 1 cm, distance from closest deep margin: 3 mm
+p16_Status: Positive
+Immunohistochemical_profile: P16 positive
+EBER_Status: Not inferred
+Lymphovascular_Invasion_Status: Absent
+Perineural_Invasion_Status: Present
+Smoking_History: Ex-smoker
+Alcohol_Consumption: Drinker [socially]
+Pack_Years: Not Inferred
+Patient_Symptoms_at_Presentation: Dysphagia
+Treatment_Recommendations: Adjuvant radiation
+Follow_Up_Plans: Patient will be seen by dentistry
+HPV_Status: Positive
+Patient_History_Status_Prior_Conditions: Hypothyroidism, Tachycardia, HTN
+Patient_History_Status_Previous_Treatments: Synthroid, Valsartan, AV node ablation
+Clinical_Assessments_Radiological_Lesions: CT scan neck reveals a 1.5 cm right base of tongue lesion, MRI confirms the finding with a suspicious small ipsilateral neck LN, CT chest is negative
+Clinical_Assessments_SUV_from_PET_scans: Not inferred
+Charlson_Comorbidity_Score: 3 [1 point for hypertension, 1 point for hypothyroidism (mild), and 1 point for tachycardia (considered under cardiac conditions)]
+Karnofsky_Performance_Status: 100 [Patient has a performance status of 100% as mentioned in the examination]
+ECOG_Performance_Status: 0 [Equivalent to KPS 100, indicating fully active and able to carry on all pre-disease activities]
