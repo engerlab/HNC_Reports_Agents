@@ -28,7 +28,7 @@
       "- Alcohol_Consumption: (Drinker, Non-Drinker; optionally note quantity in brackets if specified.)",
       "- Pack_Years: (If the text mentions e.g. '36 pack-years', output 36. If no mention, Not inferred.)",
       "- Patient_Symptoms_at_Presentation: (List relevant symptoms or complaints, e.g. 'Odynophagia, weight loss'.)",
-      "- Recommendations: (Indicate any suggested treatment e.g. 'radiotherapy vs surgery', or 'chemo-radiotherapy'.)",
+      "- Treatment_Recommendations: (Indicate any suggested treatment e.g. 'radiotherapy vs surgery', or 'chemo-radiotherapy'.)",
       "- Follow_Up_Plans: (Any follow-up or next-step instructions. e.g. 'Return in 2 weeks for evaluation'.)",
       "- HPV_Status: (Positive or Negative. Should match p16 if the text implies p16 positivity => HPV positive.)",
       "- Patient_History_Status_Prior_Conditions: (List comorbidities or relevant conditions, e.g. 'hypertension'.)",

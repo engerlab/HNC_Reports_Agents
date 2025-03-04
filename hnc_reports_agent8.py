@@ -31,6 +31,29 @@ Columns differ by mode:
     with columns like extr_text_tokens, extr_prompt_instr_tokens, etc.
 
 When not using --precompute_tokens, the script runs normal summarization for the chosen mode only.
+
+New Features (added):
+  - You can set a fixed context window (e.g. 4096) by *not* passing --dynamic_ctx_window and 
+    specifying --ollama_context_size 4096.
+  - Subset filtering for mode=2 or other modes using a precompute CSV:
+     --subset_precompute_csv PATH
+     --only_above INT
+    This filters those rows where (extr_total_needed>only_above) or (cot_total_needed>only_above),
+    extracts the case ID (file minus ".txt"), and runs only those.
+
+Usage example for subset & fixed context:
+  python hnc_reports_agent7.py \
+    --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
+    --model_type local \
+    --temperature 0.8 \
+    --local_model "llama3.3:latest" \
+    --embedding_model ollama \
+    --input_dir "/media/yujing/One Touch3/HNC_Reports" \
+    --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPrompt37" \
+    --experiment_mode 2 \
+    --ollama_context_size 4096 \
+    --subset_precompute_csv "/Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/Token_Counts/precompute_tokens_mode2.csv" \
+    --only_above 1500
 """
 
 import os
@@ -85,7 +108,7 @@ ALL_FIELDS = [
     "Alcohol_Consumption",
     "Pack_Years",
     "Patient_Symptoms_at_Presentation",
-    "Recommendations",
+    "Treatment_Recommendations",
     "Follow_Up_Plans",
     "HPV_Status",
     "Patient_History_Status_Prior_Conditions",
@@ -265,7 +288,6 @@ class ReportSummarizer:
                 "used_ctx": used_ctx
             }
         return RunnableLambda(chain_func)
-
 
     ###########################################################################
     # Summaries
@@ -451,12 +473,6 @@ class ReportSummarizer:
                     records.append(row_base)
                 else:
                     # mode 2 => two-step => extraction + CoT
-                    # extr_text_tokens => text count
-                    # extr_prompt_instr_tokens => extraction prompt
-                    # extr_total_needed => sum
-                    # cot_text_tokens => text count
-                    # cot_prompt_instr_tokens => CoT prompt
-                    # cot_total_needed => sum
                     toks_text = len(tokenizer.encode(text, add_special_tokens=False))
 
                     # create row with all columns
@@ -501,12 +517,8 @@ class ReportSummarizer:
                 path_data = path_map.get(pid, None)
                 cons_data = cons_map.get(pid, None)
 
-                # For each subcall, we'll produce a row or multiple rows
-                # depending on the mode
-
                 if mode == 3:
                     # single-step => path_text + combined prompt => total_needed
-                    # then consult_text + combined prompt => total_needed
                     if path_data:
                         fname, text = path_data
                         row_p = {
@@ -536,8 +548,7 @@ class ReportSummarizer:
                         records.append(row_c)
 
                 else:
-                    # mode == 4 => separate two-step
-                    # path extraction, path CoT, consult extraction, consult CoT => up to 4 rows
+                    # mode == 4 => separate two-step => path_extr, path_cot, cons_extr, cons_cot
                     if path_data:
                         fname, text = path_data
                         tpath = len(tokenizer.encode(text, add_special_tokens=False))
@@ -592,216 +603,6 @@ class ReportSummarizer:
 
         return pd.DataFrame(records)
 
-
-    ###########################################################################
-    # precompute_tokens => override => produce 4 CSV
-    ###########################################################################
-    def precompute_tokens_for_all_modes(self, input_dir: str, output_dir: str):
-        """
-        We'll produce 4 CSV files:
-          precompute_tokens_mode1.csv
-          precompute_tokens_mode2.csv
-          precompute_tokens_mode3.csv
-          precompute_tokens_mode4.csv
-        """
-        for mode in [1,2,3,4]:
-            df = self._precompute_tokens_for_mode(mode, input_dir)
-            if df.empty:
-                logger.warning(f"No data for mode {mode}")
-                continue
-            outpath = os.path.join(output_dir, f"precompute_tokens_mode{mode}.csv")
-            df.to_csv(outpath, index=False)
-            logger.info(f"[Precompute] Saved => {outpath}")
-
-
-    def _precompute_tokens_for_mode(self, mode: int, input_dir: str) -> pd.DataFrame:
-        """
-        For each mode, measure token usage for each subcall and return a DataFrame.
-        The approach is explained above in docstrings.
-        """
-        logger.info(f"Precomputing mode={mode}")
-        # We'll do the same logic as in the code above, but splitted for clarity
-        # For simpler code, we do each mode's approach
-        # Then produce a DF
-        # We'll re-implement the same logic to keep code shorter
-        records = []
-
-        combined_prompt = self.prompt_combined or ""
-        extraction_prompt = self.prompt_extraction or ""
-        cot_prompt = self.prompt_cot or ""
-
-        comb_noctx = combined_prompt.replace("{context}", "")
-        comb_instr_tokens = len(tokenizer.encode(comb_noctx, add_special_tokens=False)) if comb_noctx else 0
-
-        extr_noctx = extraction_prompt.replace("{context}", "")
-        extr_instr_tokens = len(tokenizer.encode(extr_noctx, add_special_tokens=False)) if extr_noctx else 0
-
-        cot_noctx = cot_prompt.replace("{context}", "")
-        cot_instr_tokens = len(tokenizer.encode(cot_noctx, add_special_tokens=False)) if cot_noctx else 0
-
-        def gather_combined_txts():
-            items = []
-            cdir = os.path.join(input_dir, "PathConsCombined")
-            if not os.path.isdir(cdir):
-                return []
-            for root, _, fs in os.walk(cdir):
-                for fname in fs:
-                    if fname.endswith(".txt"):
-                        fp = os.path.join(root, fname)
-                        with open(fp, 'r', encoding='utf-8') as f:
-                            text = f.read()
-                        items.append((fname, text))
-            return items
-
-        def gather_separate_txts():
-            path_map = {}
-            cons_map = {}
-            pdir = os.path.join(input_dir, "PathologyReports")
-            if os.path.isdir(pdir):
-                for root, _, fs in os.walk(pdir):
-                    for fname in fs:
-                        if fname.endswith(".txt"):
-                            fp = os.path.join(root, fname)
-                            with open(fp, 'r', encoding='utf-8') as f:
-                                text = f.read()
-                            pid = os.path.splitext(fname)[0]
-                            path_map[pid] = (fname, text)
-            cdir = os.path.join(input_dir, "ConsultRedacted")
-            if os.path.isdir(cdir):
-                for root, _, fs in os.walk(cdir):
-                    for fname in fs:
-                        if fname.endswith(".txt"):
-                            fp = os.path.join(root, fname)
-                            with open(fp, 'r', encoding='utf-8') as f:
-                                text = f.read()
-                            pid = os.path.splitext(fname)[0]
-                            cons_map[pid] = (fname, text)
-            return path_map, cons_map
-
-        if mode == 1:
-            # single-step combined
-            combos = gather_combined_txts()
-            for (fname, text) in combos:
-                row = {}
-                row["file"] = fname
-                row["report_type"] = "combined"
-                row["num_input_characters"] = len(text)
-                text_toks = len(tokenizer.encode(text, add_special_tokens=False))
-                row["text_tokens"] = text_toks
-                row["prompt_instr_tokens"] = comb_instr_tokens
-                row["total_needed"] = text_toks + comb_instr_tokens
-                records.append(row)
-
-        elif mode == 2:
-            # two-step combined => extr + cot
-            combos = gather_combined_txts()
-            for (fname, text) in combos:
-                row = {}
-                row["file"] = fname
-                row["report_type"] = "combined"
-                row["num_input_characters"] = len(text)
-                text_toks = len(tokenizer.encode(text, add_special_tokens=False))
-                row["extr_text_tokens"] = text_toks
-                row["extr_prompt_instr_tokens"] = extr_instr_tokens
-                row["extr_total_needed"] = text_toks + extr_instr_tokens
-
-                row["cot_text_tokens"] = text_toks
-                row["cot_prompt_instr_tokens"] = cot_instr_tokens
-                row["cot_total_needed"] = text_toks + cot_instr_tokens
-                records.append(row)
-
-        elif mode == 3:
-            # separate single-step => path + combined single-step => row, consult + combined => row
-            path_map, cons_map = gather_separate_txts()
-            allpids = set(path_map.keys()) | set(cons_map.keys())
-            for pid in allpids:
-                pathdata = path_map.get(pid, None)
-                consdata = cons_map.get(pid, None)
-                if pathdata:
-                    fname, text = pathdata
-                    row = {}
-                    row["file"] = fname
-                    row["report_type"] = "pathology"
-                    row["subcall"] = "path"
-                    row["num_input_characters"] = len(text)
-                    toks_text = len(tokenizer.encode(text, add_special_tokens=False))
-                    row["text_tokens"] = toks_text
-                    row["prompt_instr_tokens"] = comb_instr_tokens
-                    row["total_needed"] = toks_text + comb_instr_tokens
-                    records.append(row)
-                if consdata:
-                    fname, text = consdata
-                    row2 = {}
-                    row2["file"] = fname
-                    row2["report_type"] = "consult"
-                    row2["subcall"] = "cons"
-                    row2["num_input_characters"] = len(text)
-                    toks_text = len(tokenizer.encode(text, add_special_tokens=False))
-                    row2["text_tokens"] = toks_text
-                    row2["prompt_instr_tokens"] = comb_instr_tokens
-                    row2["total_needed"] = toks_text + comb_instr_tokens
-                    records.append(row2)
-
-        else:
-            # mode 4 => separate two-step => path_extr, path_cot, cons_extr, cons_cot
-            path_map, cons_map = gather_separate_txts()
-            allpids = set(path_map.keys()) | set(cons_map.keys())
-            for pid in allpids:
-                pathdata = path_map.get(pid, None)
-                consdata = cons_map.get(pid, None)
-                if pathdata:
-                    fname, text = pathdata
-                    tpath = len(tokenizer.encode(text, add_special_tokens=False))
-                    # path_extraction
-                    row_pe = {
-                        "file": fname,
-                        "report_type": "pathology",
-                        "subcall": "path_extraction",
-                        "num_input_characters": len(text),
-                        "extr_text_tokens": tpath,
-                        "extr_prompt_instr_tokens": extr_instr_tokens,
-                        "extr_total_needed": tpath + extr_instr_tokens
-                    }
-                    records.append(row_pe)
-                    # path_cot
-                    row_pc = {
-                        "file": fname,
-                        "report_type": "pathology",
-                        "subcall": "path_cot",
-                        "num_input_characters": len(text),
-                        "cot_text_tokens": tpath,
-                        "cot_prompt_instr_tokens": cot_instr_tokens,
-                        "cot_total_needed": tpath + cot_instr_tokens
-                    }
-                    records.append(row_pc)
-                if consdata:
-                    fname, text = consdata
-                    tcons = len(tokenizer.encode(text, add_special_tokens=False))
-                    # consult extraction
-                    row_ce = {
-                        "file": fname,
-                        "report_type": "consult",
-                        "subcall": "cons_extraction",
-                        "num_input_characters": len(text),
-                        "extr_text_tokens": tcons,
-                        "extr_prompt_instr_tokens": extr_instr_tokens,
-                        "extr_total_needed": tcons + extr_instr_tokens
-                    }
-                    records.append(row_ce)
-                    # consult cot
-                    row_cc = {
-                        "file": fname,
-                        "report_type": "consult",
-                        "subcall": "cons_cot",
-                        "num_input_characters": len(text),
-                        "cot_text_tokens": tcons,
-                        "cot_prompt_instr_tokens": cot_instr_tokens,
-                        "cot_total_needed": tcons + cot_instr_tokens
-                    }
-                    records.append(row_cc)
-
-        return pd.DataFrame(records)
-
     ###########################################################################
     # Normal method => precompute_tokens
     ###########################################################################
@@ -824,7 +625,6 @@ class ReportSummarizer:
             outpath = os.path.join(output_dir, outfn)
             df.to_csv(outpath, index=False)
             logger.info(f"[Precompute] Saved => {outpath}")
-
 
     ###########################################################################
     # Normal Summarization => process_reports
@@ -1026,13 +826,12 @@ class ReportSummarizer:
                 df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0).astype(int)
         return df
 
-
 ###############################################################################
-# 5. CLI
+# 5. CLI: with new subset arguments (subset_precompute_csv, only_above)
 ###############################################################################
 def main():
     parser = argparse.ArgumentParser(
-        "HNC Summarizer Agent6, automatically generating 4 CSVs for precompute or do normal summarization."
+        "HNC Summarizer Agent7, produce 4 precompute CSV or do normal summarization, plus subset filtering."
     )
     parser.add_argument("--prompts_dir", required=True, help="Directory with JSON prompt files.")
     parser.add_argument("--model_type", default="local", choices=["local","gpt","gemini"], help="LLM backend.")
@@ -1051,6 +850,12 @@ def main():
     parser.add_argument("--precompute_tokens", action="store_true",
                         help="If set, produce 4 CSVs => precompute_tokens_mode1..4.csv, skip summarization.")
 
+    # New subset filtering arguments:
+    parser.add_argument("--subset_precompute_csv", default="",
+                        help="If provided, e.g. precompute_tokens_mode2.csv. We'll filter rows using --only_above threshold, and run only those file IDs.")
+    parser.add_argument("--only_above", type=int, default=0,
+                        help="Threshold. We keep rows where extr_total_needed>this or cot_total_needed>this. Then parse file ID.")
+
     args = parser.parse_args()
 
     summ = ReportSummarizer(
@@ -1066,19 +871,45 @@ def main():
         ollama_context_size=args.ollama_context_size
     )
 
+    # If precompute_tokens => do that and exit.
     if args.precompute_tokens:
-        # produce 4 CSVs => precompute_tokens_mode1.csv, etc.
         os.makedirs(args.output_dir, exist_ok=True)
         summ.precompute_tokens_for_all_modes(args.input_dir, args.output_dir)
         return
 
-    # Otherwise normal summarization in a single chosen mode
+    # Otherwise we do normal summarization for the chosen experiment_mode.
+    # Possibly subset from a precompute CSV (especially relevant for mode=2, but can be used for others if columns match.)
     final_case_ids = set()
+
+    if args.subset_precompute_csv and os.path.isfile(args.subset_precompute_csv) and args.only_above>0:
+        try:
+            df_sub = pd.read_csv(args.subset_precompute_csv)
+            # we look for extr_total_needed, cot_total_needed columns:
+            needed_cols = ["file","extr_total_needed","cot_total_needed"]
+            missing = [c for c in needed_cols if c not in df_sub.columns]
+            if missing:
+                logger.warning(f"subset_precompute_csv missing columns {missing}, ignoring subset filter.")
+            else:
+                thr = args.only_above
+                filtered = df_sub[(df_sub["extr_total_needed"]> thr) | (df_sub["cot_total_needed"]> thr)]
+                if not filtered.empty:
+                    for fpath in filtered["file"]:
+                        baseid = os.path.splitext(fpath)[0]  # e.g. 1115749 if file=1115749.txt
+                        final_case_ids.add(baseid)
+                    outf = os.path.join(args.output_dir, f"filtered_cases_mode{args.experiment_mode}.csv")
+                    filtered.to_csv(outf, index=False)
+                    logger.info(f"[Subset] Filtered subset saved => {outf}")
+        except Exception as e:
+            logger.error(f"Error reading subset_precompute_csv: {e}")
+
+    # Also incorporate --case_ids if user typed them:
     if args.case_ids.strip():
         for cid in args.case_ids.split(","):
-            if cid.strip():
-                final_case_ids.add(cid.strip())
+            cid = cid.strip()
+            if cid:
+                final_case_ids.add(cid)
 
+    # If final_case_ids is empty => means "use all"
     summ.process_reports(
         input_dir=args.input_dir,
         output_dir=args.output_dir,
@@ -1090,114 +921,16 @@ if __name__ == "__main__":
     import sys
     sys.exit(main())
 
-
-# 1) Precompute tokens only (no summarization):
-
-# python hnc_reports_agent7.py \
-#     --prompts_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts" \
-#     --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#     --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/Token_Counts" \
-#     --precompute_tokens
-
-
-# Summaries with mode 1 only 
-# python hnc_reports_agent7.py \
-#   --prompts_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts" \
-#   --model_type local \
-#   --local_model "llama3.3:latest" \
-#   --embedding_model ollama \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Results/ExpMode1" \
-#   --experiment_mode 1 \
-#   --dynamic_ctx_window \
-#   --margin 500
-
-
-# USING 1130120 as a test case id since it had a very long combined report (which didn't work well with hnc_reports_agent4.py)
-
-# Mode1: Combined + Single-Step Summaries
-
-# python hnc_reports_agent7.py \
+# Usage example 
+# python hnc_reports_agent8.py \
 #   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
 #   --model_type local \
 #   --temperature 0.8 \
 #   --local_model "llama3.3:latest" \
 #   --embedding_model ollama \
 #   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt33" \
-#   --experiment_mode 1 \
-#   --case_id "1130120" \
-#   --dynamic_ctx_window \
-#   --margin 1000
-
-# Mode 2: Combined + Two-Step Summaries: 
-
-# python hnc_reports_agent7.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --local_model "llama3.3:latest" \
-#   --embedding_model ollama \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt34" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt38" \
 #   --experiment_mode 2 \
-#   --case_id "1130120" \
-#   --dynamic_ctx_window \
-#   --margin 1000
-
-# Mode 3: Separate + Single-Step Summaries
-
-# python hnc_reports_agent7.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --local_model "llama3.3:latest" \
-#   --embedding_model ollama \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt35" \
-#   --experiment_mode 3 \
-#   --case_id "1130120" \
-#   --dynamic_ctx_window \
-#   --margin 1000
-
-# Mode 4: Separate + Two-Step Summaries
-
-# python hnc_reports_agent7.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --local_model "llama3.3:latest" \
-#   --embedding_model ollama \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt36" \
-#   --experiment_mode 4 \
-#   --case_id "1130120" \
-#   --dynamic_ctx_window \
-#   --margin 1000
-
-# Try on 1021737 on Mode 2 (also very long inputs)
-
-# python hnc_reports_agent7.py \
-#   --prompts_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/prompts \
-#   --model_type local \
-#   --temperature 0.8 \
-#   --local_model "llama3.3:latest" \
-#   --embedding_model ollama \
-#   --input_dir "/media/yujing/One Touch3/HNC_Reports" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents_Results/ExpPromptsEng/ExpPrompt37" \
-#   --experiment_mode 2 \
-#   --case_id "1021737" \
-#   --dynamic_ctx_window \
-#   --margin 1000
-
-# NOW DO THE PRECOMPUTATION OF THE TOKENS FOR EXPERIMENT 2 (COMBINED + TWO-STEP SUMMARIES): /Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/Token_Counts/precompute_tokens_mode2.csv
-# GET A LIST OF CASE IDS WHOSE cot_total_needed WERE BELOW VERSUS ABOVE 1500 THE CHATOLLAMA DEFAULT: run those cases!
-# THEN MAKE SURE THE CASE_ID ARGUMENT ACN PROCESS THIS .CSV LIST OF THEM ONLY IN EXP14. 
-
-# write the bash scritps! 
-
-# FOR THE COLLECTION OF FINAL RESULTS THEY CAN BE MERGED FROM EXP13 FOR THE ONES BELOW 2048 AND THE ONES ABOVE 2048 FROM EXP14.
-# PERHAPS SAVE THIS COMBINED FINAL UNIQUE 882 CASES INTO ANOTHER FOLDER? FOR PAPER 2 PROCESSING 
-
-# REDO THE 50 CASE SELECTIONS FROM AN ACTUAL RANGE OF THE INPUT TOKENS BASED ON EXP MODE2 INSTEAD OF THE NUMBER OF NOT INFERRED! 
-# DISCUSS WITH LAYA AND FARHOOD AND BE DONE!
+#   --ollama_context_size 5000 \
+#   --subset_precompute_csv "/Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/Token_Counts/precompute_tokens_mode2.csv" \
+#   --only_above 1500
