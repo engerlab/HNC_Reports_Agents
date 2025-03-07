@@ -1,5 +1,7 @@
 #!/bin/bash
 # combine_run_results.sh (revised)
+# SOURCE_EXP13 (with 2048 ollamchat default token) and SOURCE_EXP38 (with 5k tokens context window) 
+# results combiend at DEST_EXP14, where the ones in SOURCE_EXP38 replaced those same ones in SOURCE_EXP13. 
 
 ###############################################################################
 # 1) Source & Destination Paths
