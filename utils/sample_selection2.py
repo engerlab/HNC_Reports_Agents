@@ -89,7 +89,7 @@ def create_scatter_plot(df, category_name, output_dir):
     plt.scatter(df2["num_input_tokens"], df2["not_inferred_count"], alpha=0.6)
     plt.xlabel("Number of Max Input Tokens", fontsize = 18)
     plt.ylabel("Number of 'Not Inferred' Fields", fontsize = 18)
-    plt.title(f"{category_name} scatter", fontsize = 20)
+    plt.title(f"{category_name}", fontsize = 20)
     out_path = os.path.join(output_dir, f"{category_name}_scatter.png")
     plt.savefig(out_path, dpi=600, bbox_inches="tight")
     plt.close()
