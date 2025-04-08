@@ -4,7 +4,8 @@
 This project focuses on transforming unstructured clinical reports (e.g., pathology reports, consultation notes) into structured formats. This involves extracting key information, summarizing texts, and generating structured variables and embeddings for downstream tasks like survival analysis.
 
 <div align="center">
-  <img src="https://github.com/engerlab/HNC_Reports_Agents/blob/1cabc6acb89f1466c943f30ab2955b5be4809e6a/img/Head%20%26%20Neck%20Clinician-AI%20Meetings.png" 
+  <img src="https://github.com/engerlab/HNC_Reports_Agents/blob/1cabc6acb89f1466c943f30ab2955b5be4809e6a/img/Head%20%26%20Neck%20Clinician-AI%20Meetings.png](https://github.com/yujing1997/HNC_Reports_Agents/blob/16d40da64b75deb9aa89f043102e763852d847bc/img/method_reports_llm_extraction.png" 
+    
   alt="Alt text" width="75%">
 </div>
 
