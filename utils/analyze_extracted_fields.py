@@ -1,91 +1,109 @@
 #!/usr/bin/env python3
 """
-analyze_extracted_fields.py (Modified)
+analyze_extracted_fields_with_stacked_missing.py
 
-Generates:
-  - Vertical bar plots
-  - Horizontal bar plots
-  - Histograms (for numeric fields)
-with a color gradient, large fonts, and DPI=600. Renames "nan" => "Not Inferred."
+Purpose:
+  1) Creates vertical and horizontal bar plots for categorical fields,
+     excluding "Not Inferred" entries so the main distribution is uncluttered.
+  2) Additionally, for each field we generate a SINGLE "stacked bar" that
+     displays how many rows are Inferred vs Not Inferred (missing).
 
-Particular fields of interest (examples):
-  1) Horizontal bar plot for:
-     - Alcohol_Consumption
-     - ECOG_Performance_Status, Karnofsky_Performance_Status
-     - Lymph_Node_Status_Presence_Absence
-     - Pack_Years
-     - Smoking_History
-  2) Keep original vertical bar plots, too, for some fields
-  3) Histograms for numeric fields (Charlson_Comorbidity_Score, etc.)
-  4) Rename "nan" => "Not Inferred"
+Implementation Details:
+  - Uses integer positions on bars to avoid TypeErrors.
+  - Applies a minimum of 3 discrete color steps so small category sets
+    do not become too faint.
+  - Large fonts, dpi=600.
+  - The "stacked bar" is one bar per field: bottom = count(inferred),
+    stacked portion = count(not_inferred).
 
 Usage:
-  python analyze_extracted_fields.py \
+  python analyze_extracted_fields_with_stacked_missing.py \
     --path_csv "/Data/.../path_fields.csv" \
     --cons_csv "/Data/.../cons_fields.csv" \
     --out_dir  "/Data/.../Structured_Fields_plots/Exp14"
-
-Next steps:
-  - Draw connection between fields and outcomes
 """
 
 import os
 import argparse
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 import matplotlib.cm as cm
+import numpy as np
+
+
+###############################################################################
+# 1) Field to Colormap Mapping
+###############################################################################
+FIELD_COLORMAP = {
+    "Alcohol_Consumption":          "Reds",
+    "Smoking_History":              "Reds",
+    "ECOG_Performance_Status":      "Greens",
+    "Karnofsky_Performance_Status": "Greens",
+    "Lymph_Node_Status_Presence_Absence": "Purples",
+    # Fields not in this dict default to "Blues"
+}
+
+###############################################################################
+# 2) Utility Functions
+###############################################################################
+def pretty_name(field_name):
+    """
+    Replace underscores with spaces for nicer plot titles/labels.
+    E.g., "ECOG_Performance_Status" => "ECOG Performance Status"
+    """
+    return field_name.replace("_", " ")
+
+def get_colormap_for_field(field_name):
+    """Return the colormap string for the given field; default = 'Blues'."""
+    return FIELD_COLORMAP.get(field_name, "Blues")
 
 def get_color_list(n, cmap_name="Blues"):
     """
-    Create a list of n distinct colors from the given colormap.
+    Create a list of 'n' distinct colors from the given colormap.
+    We set a minimum of 3 discrete steps so that if n is small,
+    we don't end up with extremely faint bars.
     """
-    # For a categorical palette, sample the colormap in n discrete steps.
-    cmap = cm.get_cmap(cmap_name, n)
-    return [cmap(i) for i in range(n)]
+    n_use = max(n, 3)
+    cmap = cm.get_cmap(cmap_name, n_use)
+    return [cmap(i) for i in range(n_use)]
 
-def rename_nan_to_inferred(series):
+def exclude_not_inferred(series):
     """
-    Replaces any 'nan' string (case-insensitive) with "Not Inferred"
-    in the index (for bar plots) or in the values (for direct Series).
+    Return a filtered series that excludes rows with "Not Inferred" (case-insensitive),
+    and also excludes raw NaN values.
     """
-    cleaned = []
-    for val in series:
-        sval = str(val).strip().lower()
-        if sval == "nan":
-            cleaned.append("Not Inferred")
-        else:
-            cleaned.append(val)
-    return pd.Series(cleaned, index=series.index)
+    if series.isna().all():
+        return series.dropna()
 
+    s_str = series.astype(str).str.strip().str.lower()
+    mask = (s_str != "not inferred") & (s_str != "nan")
+    return series[mask]
+
+###############################################################################
+# 3) Bar Plot Functions (Vertical & Horizontal, excluding "Not Inferred")
+###############################################################################
 def make_bar_plot_vertical(series, field_name, out_dir):
     """
-    Standard (vertical) bar plot with a color gradient. 
-    Also rename 'nan' => 'Not Inferred' in the categories.
+    Vertical bar plot, excluding "Not Inferred".
+    Positions are integer, categories become xticks.
     """
-    # Value counts (including NaN)
-    counts = series.value_counts(dropna=False)
-    # Replace "nan" => "Not Inferred"
-    cleaned_index = []
-    for c in counts.index.astype(str):
-        if c.strip().lower() == "nan":
-            cleaned_index.append("Not Inferred")
-        else:
-            cleaned_index.append(c)
-    counts.index = cleaned_index
+    valid_series = exclude_not_inferred(series)
+    counts = valid_series.value_counts()
+    if counts.empty:
+        return  # no valid data to plot
 
-    # Sort categories by frequency descending (optional)
-    # counts = counts.sort_values(ascending=False)
+    x_positions = range(len(counts))
 
-    # Prepare colors
-    color_list = get_color_list(len(counts))
+    colormap_name = get_colormap_for_field(field_name)
+    color_list = get_color_list(len(counts), colormap_name)
 
     plt.figure(figsize=(8, 5))
-    plt.bar(counts.index, counts.values, color=color_list)
-    plt.title(f"{field_name}", fontsize=20)
-    plt.xlabel(field_name, fontsize=18)
+    plt.bar(x_positions, counts.values, color=color_list, width=0.8)
+    plt.title(f"{pretty_name(field_name)} (Vertical Bar=", fontsize=20)
+    plt.xlabel(pretty_name(field_name), fontsize=18)
     plt.ylabel("Count", fontsize=18)
-    plt.xticks(rotation=45, ha="right", fontsize=14)
+    plt.xticks(x_positions, [str(c) for c in counts.index],
+               rotation=45, ha="right", fontsize=14)
     plt.yticks(fontsize=14)
     plt.tight_layout()
 
@@ -95,64 +113,84 @@ def make_bar_plot_vertical(series, field_name, out_dir):
 
 def make_bar_plot_horizontal(series, field_name, out_dir):
     """
-    Horizontal bar plot with color gradient, rename 'nan' => 'Not Inferred'.
-    The largest category will appear at the top if we sort ascending.
+    Horizontal bar plot, excluding "Not Inferred".
+    Positions are integer, categories become yticks.
+    Sort ascending => largest bar at the top if you prefer.
     """
-    counts = series.value_counts(dropna=False)
-    # rename "nan" => "Not Inferred"
-    cleaned_index = []
-    for c in counts.index.astype(str):
-        if c.strip().lower() == "nan":
-            cleaned_index.append("Not Inferred")
-        else:
-            cleaned_index.append(c)
-    counts.index = cleaned_index
+    valid_series = exclude_not_inferred(series)
+    counts = valid_series.value_counts()
+    if counts.empty:
+        return
 
-    # sort ascending so largest bar is on top
+    # Sort ascending => largest bar on top
     counts = counts.sort_values(ascending=True)
 
-    color_list = get_color_list(len(counts))
+    y_positions = range(len(counts))
+    colormap_name = get_colormap_for_field(field_name)
+    color_list = get_color_list(len(counts), colormap_name)
 
     plt.figure(figsize=(8, 5))
-    plt.barh(counts.index, counts.values, color=color_list)
-    plt.title(f"{field_name}", fontsize=20)
+    plt.barh(y_positions, counts.values, color=color_list)
+    plt.title(f"{pretty_name(field_name)}", fontsize=20)
     plt.xlabel("Count", fontsize=18)
-    plt.ylabel(field_name, fontsize=18)
+    plt.ylabel(pretty_name(field_name), fontsize=18)
     plt.xticks(fontsize=14)
-    plt.yticks(fontsize=14)
+    plt.yticks(y_positions, [str(c) for c in counts.index], fontsize=14)
     plt.tight_layout()
 
     out_path = os.path.join(out_dir, f"{field_name}_bar_horizontal.png")
     plt.savefig(out_path, dpi=600)
     plt.close()
 
-def make_hist_plot(series, field_name, out_dir, bins=10):
+###############################################################################
+# 4) Single "Stacked" Bar for each field, showing Inferred vs Not Inferred
+###############################################################################
+def make_single_stacked_bar_inferred(series, field_name, out_dir):
     """
-    Histogram for numeric distribution. 
-    Force integer ticks if the range is small.
+    Creates a SINGLE stacked bar for the entire field, with two segments:
+      - Inferred Count  = # of rows that are not "Not Inferred"
+      - Not Inferred    = # of rows that are "Not Inferred"
     """
-    numeric_vals = pd.to_numeric(series, errors="coerce").dropna()
+    total_count = len(series)
+    # Convert to string to detect "Not Inferred" ignoring case
+    s_str = series.astype(str).str.strip().str.lower()
+    not_inferred_count = (s_str == "not inferred").sum()
+    inferred_count = total_count - not_inferred_count
 
-    plt.figure(figsize=(8, 5))
-    plt.hist(numeric_vals, bins=bins, color="skyblue", edgecolor="black")
-    plt.title(f"{field_name} Histogram", fontsize=20)
-    plt.xlabel(field_name, fontsize=18)
-    plt.ylabel("Count", fontsize=18)
-    plt.xticks(fontsize=14)
+    # If total_count == 0, do nothing
+    if total_count == 0:
+        return
+
+    # We'll do a single bar at x=0, with 2 segments stacked
+    # We'll color them differently so we can see the difference
+    # e.g. [Inferred, Not Inferred]
+    # colormap for the field
+    colormap_name = get_colormap_for_field(field_name)
+    cmap = cm.get_cmap(colormap_name, 2)  # just 2 steps
+    color_inferred = cmap(0)
+    color_not_inferred = cmap(1)
+
+    plt.figure(figsize=(4, 5))  # narrower figure
+    # bottom segment: inferred_count
+    plt.bar(0, inferred_count, color=color_inferred, label="Inferred")
+    # top segment: not_inferred_count
+    plt.bar(0, not_inferred_count, bottom=inferred_count,
+            color=color_not_inferred, label="Not Inferred")
+
+    plt.title(f"{pretty_name(field_name)}\nTotal N={total_count}", fontsize=18)
+    plt.xticks([0], [""])
     plt.yticks(fontsize=14)
-
-    # If the data are small integer range, force integer ticks
-    if len(numeric_vals) > 0:
-        min_val, max_val = int(numeric_vals.min()), int(numeric_vals.max())
-        # If the range is not huge, set integer ticks
-        if max_val - min_val < 15:
-            plt.xticks(range(min_val, max_val + 1))
+    plt.ylabel("Count", fontsize=16)
+    plt.legend(fontsize=12)
 
     plt.tight_layout()
-    out_path = os.path.join(out_dir, f"{field_name}_hist.png")
+    out_path = os.path.join(out_dir, f"{field_name}_stacked_inferred_bar.png")
     plt.savefig(out_path, dpi=600)
     plt.close()
 
+###############################################################################
+# 5) Main script
+###############################################################################
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--path_csv", required=True, help="path_fields.csv file path")
@@ -166,70 +204,58 @@ def main():
     df_path = pd.read_csv(args.path_csv)
     df_cons = pd.read_csv(args.cons_csv)
 
-    # Example fields
-    # 1) Horizontal bar for: Alcohol_Consumption, ECOG_Performance_Status, Karnofsky_Performance_Status,
-    #    Lymph_Node_Status_Presence_Absence, Pack_Years, Smoking_History
-    # 2) Keep original vertical bar plots, too, for certain fields
-    # 3) Hist for numeric fields
-
-    # Let's define the fields:
+    # Example fields for demonstration
     horizontal_bar_fields = [
         "Alcohol_Consumption",
         "ECOG_Performance_Status",
         "Karnofsky_Performance_Status",
         "Lymph_Node_Status_Presence_Absence",
-        "Pack_Years",
         "Smoking_History",
+        "p16_Status",
+        "Sex"
     ]
-    # We'll also do a vertical bar for these same fields, to "keep the original"
-    vertical_bar_fields = horizontal_bar_fields[:]  # copy
-
-    # Some fields are numeric => we also do a histogram (like Pack_Years, ECOG, etc.)
-    numeric_hist_fields = [
-        "Charlson_Comorbidity_Score",
+    vertical_bar_fields = [
+        "Alcohol_Consumption",
         "ECOG_Performance_Status",
         "Karnofsky_Performance_Status",
-        "Pack_Years",
+        "Lymph_Node_Status_Presence_Absence",
+        "Smoking_History",
+        "p16_Status",
+        "Sex"
     ]
 
-    # Additional small fields that have 2-3 categories: p16_Status, Sex, etc.
-    # We can do a bar plot for those as well:
-    small_cat_fields = ["p16_Status", "Sex"]
-    # We'll do vertical bar for them, plus horizontal if you like
-    # For demonstration, let's do both.
-    horizontal_bar_fields.extend(small_cat_fields)
-    vertical_bar_fields.extend(small_cat_fields)
+    # Merge the sets for iteration
+    all_fields = set(horizontal_bar_fields + vertical_bar_fields)
 
-    # Now produce plots for each field if it exists in either df_path or df_cons
-    # We'll unify them in the sense that if the field is in df_path, we plot from that, else df_cons.
-
-    def plot_field(df, field):
-        if field not in df.columns:
-            return
-
-        # 1) If field is in vertical_bar_fields => do vertical bar
-        if field in vertical_bar_fields:
-            make_bar_plot_vertical(df[field], field, args.out_dir)
-
-        # 2) If field is in horizontal_bar_fields => do horizontal bar
-        if field in horizontal_bar_fields:
-            make_bar_plot_horizontal(df[field], field, args.out_dir)
-
-        # 3) If field is in numeric_hist_fields => do a histogram
-        if field in numeric_hist_fields:
-            make_hist_plot(df[field], field, args.out_dir, bins=10)
-
-    # We'll gather all columns across path/cons in a single list, then handle duplicates
-    all_fields = set(df_path.columns) | set(df_cons.columns)
-
-    for field in sorted(all_fields):
-        # Decide which dataframe to use (some fields might appear in both)
+    # A helper to get a column from path or cons
+    def get_series(field):
         if field in df_path.columns:
-            plot_field(df_path, field)
+            return df_path[field]
         elif field in df_cons.columns:
-            plot_field(df_cons, field)
+            return df_cons[field]
+        else:
+            return None
 
-    print(f"Plots saved to: {args.out_dir}")
+    # For each field, produce vertical/horizontal bar (excluding Not Inferred)
+    # plus the single stacked bar acknowledging Not Inferred
+    for fld in all_fields:
+        coldata = get_series(fld)
+        if coldata is None:
+            continue
+
+        # Vertical
+        if fld in vertical_bar_fields:
+            make_bar_plot_vertical(coldata, fld, args.out_dir)
+
+        # Horizontal
+        if fld in horizontal_bar_fields:
+            make_bar_plot_horizontal(coldata, fld, args.out_dir)
+
+        # Single stacked bar for Inferred vs Not Inferred
+        make_single_stacked_bar_inferred(coldata, fld, args.out_dir)
+
+    print(f"Plots saved to => {args.out_dir}")
+
 
 if __name__ == "__main__":
     main()
