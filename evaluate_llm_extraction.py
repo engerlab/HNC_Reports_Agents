@@ -1,6 +1,23 @@
 #!/usr/bin/env python3
 # evaluate_llm_extractions.py
 
+"""
+Updated script that:
+1) Finds a 'Time to complete' column by name instead of assuming the last column is time.
+2) Fixes the TP/FP/TN/FN logic to match your definitions:
+     - If LLM predicted positive (value != 'Not inferred') and majority is 'Agree' => TP
+     - If LLM predicted positive and majority is 'Disagree' => FP
+     - If LLM predicted negative (value == 'Not inferred') and majority is 'Agree' => TN
+     - If LLM predicted negative and majority is 'Disagree' => FN
+3) Uses statsmodels' fleiss_kappa for more accurate values.
+4) Renames `llm_ratings.csv` => `llm_ratings_raw.csv`, 
+   plus a new `llm_ratings_summary.csv` with average & SD of each reviewer’s ratings.
+5) Adds an overall confusion matrix CSV: `confusion_matrix_overall.csv`
+   in addition to the per-field matrix.
+
+You must `pip install statsmodels` to ensure fleiss_kappa is available.
+"""
+
 import argparse
 import os
 import re
@@ -8,15 +25,15 @@ import math
 
 import pandas as pd
 import numpy as np
-from scipy import stats  # for confidence intervals if you want
 
-# 1) Import the dictionary of CSV export links
+# for Fleiss' kappa
+import statsmodels.stats.inter_rater as ir
+
 from data_sources import DATA_SOURCES
 
 ###############################################################################
 # CONFIGURATION OF EXPECTED FIELDS
 ###############################################################################
-
 EXPECTED_FIELDS = [
     "Sex",
     "Anatomic_Site_of_Lesion",
@@ -56,8 +73,8 @@ EXPECTED_FIELDS = [
 
 def extract_field_from_colname(colname: str) -> str:
     """
-    Attempt to parse the bracket [XYZ: ABC] portion to see if 'XYZ' is in our EXPECTED_FIELDS.
-    e.g. "Please indicate if you agree... [Sex: F]" -> "Sex"
+    Attempt to parse the bracket [XYZ: ABC] portion to see if 'XYZ' is in EXPECTED_FIELDS.
+    e.g. "Please indicate if you agree... [Sex: F]" -> "Sex".
     Returns the field name if matched, else None.
     """
     match = re.search(r"\[(.*?)\]", colname)
@@ -74,165 +91,208 @@ def extract_field_from_colname(colname: str) -> str:
 
 def extract_llm_value(colname: str) -> str:
     """
-    Return the portion after the colon in a bracket, e.g. "Sex: F" => "F".
-    So we can see if it's "Not inferred" or something else.
+    Return the portion after the colon in a bracket, e.g. "[Sex: F]" => "F".
+    So we can see if it's "Not inferred" or an actual value.
     """
     match = re.search(r"\[(.*?)\]", colname)
     if not match:
         return None
-    bracket_content = match.group(1)  # e.g. "Sex: F"
+    bracket_content = match.group(1)
     parts = bracket_content.split(":")
     if len(parts) < 2:
         return None
     value_part = parts[1].strip()
-    return value_part  # e.g. "F", "Not inferred", etc.
+    return value_part
+
+def find_time_column(df: pd.DataFrame) -> str:
+    """
+    Attempt to locate a column that likely represents 'Time to complete'.
+    We'll look for any column whose name includes 'time' or 'Time' or 'complete'.
+    If you know the exact column name, you can do an exact match.
+    If no match is found, returns None.
+    """
+    possible_time_cols = []
+    for col in df.columns:
+        low = col.lower()
+        if "time" in low and "complete" in low:
+            possible_time_cols.append(col)
+
+    if len(possible_time_cols) == 1:
+        return possible_time_cols[0]
+    elif len(possible_time_cols) > 1:
+        # If multiple columns look like time columns, pick the first
+        # or raise an error. For now we pick the first.
+        return possible_time_cols[0]
+    else:
+        return None
 
 def parse_single_form(df: pd.DataFrame, form_name: str) -> pd.DataFrame:
     """
     Convert the wide DataFrame (one row per reviewer submission) into a "long" format:
-    columns: [FormName, ReviewerEmail, CaseIndex, FieldName, LLM_Value, ReviewerResponse,
-              Comment, Rating, TimeToComplete].
-    
-    We assume:
-      col 0 = Timestamp,
-      col 1 = Email,
-      then sets of 32 columns per case (30 fields + 1 comment + 1 rating),
-      final col = "TimeToComplete" for the entire form.
-    
-    Adjust logic if your forms differ.
+    columns: 
+      [FormName, ReviewerEmail, CaseIndex, FieldName, LLM_Value, ReviewerResponse,
+       Comment, Rating, TimeToComplete (float or str if not convertible)]
+
+    We search for a 'Time to complete' column by name,
+    then we assume the rest of the columns are sets of 32 columns per case
+    (30 fields + 1 comment + 1 rating).
     """
-    n_cols = len(df.columns)
-    time_col_idx = n_cols - 1  # last column is "time to complete"
+
+    # A) Identify the time column if any
+    time_col = find_time_column(df)
+    if not time_col:
+        print(f"[WARNING] Could not find a 'time to complete' column in form: {form_name}.")
+        print("The script will leave TimeToComplete = None for these rows.")
+        # We can proceed without time
+    else:
+        # Attempt to convert that column to float if possible
+        # If not convertible, we'll just store it as string
+        try:
+            df[time_col] = pd.to_numeric(df[time_col], errors="coerce")
+        except Exception:
+            pass  # fallback, they remain object type
+
+    # B) We assume:
+    #    col 0 = Timestamp
+    #    col 1 = Email
+    #    The 'time to complete' col is separate
+    #    The rest must be chunked in sets of 32 columns per case
+    # We'll gather relevant columns for data chunking (all except 0,1, time_col)
+    skip_cols = set()
+    skip_cols.update(df.columns[:2])  # skip first 2
+    if time_col:
+        skip_cols.add(time_col)
+
+    data_cols = [c for c in df.columns if c not in skip_cols]
 
     long_records = []
 
     for row_i in range(len(df)):
         row_data = df.iloc[row_i]
-        reviewer_email = row_data.iloc[1]  # col=1 => email address
-        time_to_complete = row_data.iloc[time_col_idx]
+        reviewer_email = row_data.iloc[1]  # col=1 => Email
+        # Grab the time value if it exists
+        time_val = None
+        if time_col:
+            time_val = row_data[time_col]
 
-        data_cols_end = time_col_idx - 1
-        num_data_cols = data_cols_end - 2 + 1  # from col index 2..(time_col_idx-1)
-        if num_data_cols % 32 != 0:
-            print(f"[WARNING] {form_name} row {row_i}: # data cols not multiple of 32. Check parsing logic.")
-        n_cases = num_data_cols // 32
+        # chunk data_cols in sets of 32
+        # if you consistently have 5 or 6 cases, do a while loop to cut slices of 32
+        # if data_cols is not exactly multiple of 32, we adapt
+        chunk_size = 32
+        n_data_cols = len(data_cols)
+        # number of cases = n_data_cols // chunk_size or partial
+        # if forms differ in #cases, they'll yield partial last chunk. We'll skip partial chunk if needed.
+        n_cases = n_data_cols // chunk_size
+        # if there's leftover columns, we ignore them or warn
+        leftover = n_data_cols % chunk_size
+        if leftover != 0:
+            print(f"[INFO] {form_name} has leftover columns (not multiple of 32). We will parse the first {n_cases} cases only.")
+        idx = 0
+        for case_i in range(1, n_cases+1):
+            chunk_cols = data_cols[idx: idx+chunk_size]
+            idx += chunk_size
 
-        col_start = 2
-        for case_idx in range(1, n_cases+1):
-            # columns for this case => col_start..col_start+31
-            for c_field_idx in range(col_start, col_start+30):
-                colname = df.columns[c_field_idx]
-                response = row_data.iloc[c_field_idx]  # "Agree"/"Disagree"
+            # The first 30 columns in chunk => fields
+            # the 31st => comment
+            # the 32nd => rating
+            fields_part = chunk_cols[:30]
+            comment_col = chunk_cols[30] if len(chunk_cols) > 30 else None
+            rating_col = chunk_cols[31] if len(chunk_cols) > 31 else None
 
+            comment_val = row_data[comment_col] if comment_col else None
+            rating_val = row_data[rating_col] if rating_col else None
+
+            for c_field_col in fields_part:
+                colname = c_field_col
+                response = row_data[c_field_col]  # "Agree"/"Disagree" or NaN
                 field_name = extract_field_from_colname(colname)
                 llm_value = extract_llm_value(colname)
-
                 if not field_name:
+                    # skip columns that don't parse
                     continue
 
                 record = {
                     "FormName": form_name,
                     "ReviewerEmail": reviewer_email,
-                    "CaseIndex": case_idx,
+                    "CaseIndex": case_i,
                     "FieldName": field_name,
                     "LLM_Value": llm_value,
-                    "ReviewerResponse": response,
-                    "Comment": None,
-                    "Rating": None,
-                    "TimeToComplete": time_to_complete,
+                    "ReviewerResponse": str(response).strip() if pd.notna(response) else "",
+                    "Comment": comment_val,
+                    "Rating": rating_val,
+                    "TimeToComplete": time_val,
                 }
                 long_records.append(record)
 
-            # comment col
-            comment_col_idx = col_start + 30
-            comment_val = row_data.iloc[comment_col_idx] if comment_col_idx <= data_cols_end else None
-            # rating col
-            rating_col_idx = col_start + 31
-            rating_val = row_data.iloc[rating_col_idx] if rating_col_idx <= data_cols_end else None
-
-            # fill in the comment & rating for all rows from this case
-            for r in long_records:
-                if (r["FormName"] == form_name 
-                    and r["ReviewerEmail"] == reviewer_email
-                    and r["CaseIndex"] == case_idx):
-                    r["Comment"] = comment_val
-                    r["Rating"] = rating_val
-
-            col_start += 32
-
     return pd.DataFrame(long_records)
 
-def compute_fleiss_kappa_for_field(df_field: pd.DataFrame) -> float:
+def fleiss_kappa_agree_disagree(df_field: pd.DataFrame):
     """
-    Compute Fleiss' Kappa for 3 raters, 2 categories (Agree/Disagree).
+    Compute Fleiss' kappa using statsmodels, for 3 raters, 2 categories (Agree, Disagree).
+    1) For each case, count #Agree, #Disagree among the 3 raters => row = [disagree_count, agree_count]
+    2) Use statsmodels' fleiss_kappa(...) on that Nx2 array.
     """
-    df_field["AgreeBinary"] = df_field["ReviewerResponse"].apply(
-        lambda x: 1 if str(x).strip().lower() == "agree" else 0
-    )
+    # Convert "Agree" -> 1, anything else -> 0
+    df_field["IsAgree"] = df_field["ReviewerResponse"].apply(lambda x: 1 if x.lower()=="agree" else 0)
 
-    grouped = df_field.groupby("CaseIndex")["AgreeBinary"].agg(["sum","count"])
-    # sum = # of agrees, count=3 (3 reviewers)
-    # 2 categories => agrees vs disagrees
+    # group by case => sum up the 3 responses
+    grouped = df_field.groupby("CaseIndex")["IsAgree"].agg(["sum","count"]).reset_index()
+    # sum = how many "Agree"
+    # count = number of raters (should be 3)
+    # disagrees = count - sum
 
-    n_raters = 3
-    N = len(grouped)
-    if N == 0:
-        return float("nan")
+    # Build Nx2 array
+    # row i = [disagrees, agrees]
+    data_rows = []
+    for _, row in grouped.iterrows():
+        agrees = int(row["sum"])
+        total = int(row["count"])
+        disagrees = total - agrees
+        data_rows.append([disagrees, agrees])
+    arr = np.array(data_rows)
 
-    Pi_list = []
-    for i, row in grouped.iterrows():
-        agrees = row["sum"]
-        disagrees = row["count"] - agrees
-        Pi = (agrees**2 + disagrees**2 - n_raters) / (n_raters*(n_raters-1))
-        Pi_list.append(Pi)
+    if len(arr) < 1:
+        return np.nan
 
-    P_bar = np.mean(Pi_list)
-    total_agrees = df_field["AgreeBinary"].sum()
-    total_responses = len(df_field)
-    p_agree = total_agrees / total_responses
-    p_disagree = 1.0 - p_agree
-    Pe = p_agree**2 + p_disagree**2
+    # statsmodels requires aggregator
+    # But for 2 categories, we can do direct:
+    # table, cats = ir.aggregate_raters(arr)
+    # kappa = ir.fleiss_kappa(table)
+    # or we can pass arr directly to aggregate_raters
+    table, cats = ir.aggregate_raters(arr)
+    kappa_val = ir.fleiss_kappa(table)
+    return kappa_val
 
-    if abs(1 - Pe) < 1e-9:
-        return float("nan")
-    kappa = (P_bar - Pe) / (1 - Pe)
-    return kappa
 
-def majority_vote_agree(df_field_case: pd.DataFrame) -> str:
+def interpret_llm_prediction(llm_value: str) -> bool:
     """
-    For a single field+case with 3 rows (one per rater),
-    return "Agree" if >=2 say "Agree", else "Disagree".
+    Return True if LLM predicted a positive (some value),
+    False if LLM predicted 'Not inferred' or blank.
     """
-    agrees = (df_field_case["ReviewerResponse"].str.lower() == "agree").sum()
-    return "Agree" if agrees >= 2 else "Disagree"
+    if not isinstance(llm_value, str):
+        return False
+    return llm_value.strip().lower() != "not inferred"
 
-def get_tp_fp_tn_fn(llm_value: str, majority_label: str):
-    """
-    If LLM_value != "Not inferred" => predicted positive,
-    else => predicted negative.
-    If majority_label = "Agree" => ground truth positive,
-    else => ground truth negative.
-    
-    Return (TP, FP, TN, FN).
-    """
-    guessed_positive = bool(llm_value) and llm_value.strip().lower() != "not inferred"
-    ground_truth_positive = (majority_label.strip().lower() == "agree")
 
-    if guessed_positive and ground_truth_positive:
-        return (1, 0, 0, 0)
-    elif guessed_positive and not ground_truth_positive:
-        return (0, 1, 0, 0)
-    elif not guessed_positive and not ground_truth_positive:
-        return (0, 0, 1, 0)
+def get_tp_fp_tn_fn(llm_pred_positive: bool, majority_says_correct: bool):
+    """
+    Updated logic matching your definitions:
+      - If LLM_pred_positive & majority_says_correct => TP
+      - If LLM_pred_positive & majority_says_incorrect => FP
+      - If LLM_pred_negative & majority_says_correct => TN
+      - If LLM_pred_negative & majority_says_incorrect => FN
+    """
+    if llm_pred_positive and majority_says_correct:
+        return (1,0,0,0)  # TP
+    elif llm_pred_positive and not majority_says_correct:
+        return (0,1,0,0)  # FP
+    elif not llm_pred_positive and majority_says_correct:
+        return (0,0,1,0)  # TN
     else:
-        return (0, 0, 0, 1)
-
-###############################################################################
-# MAIN
-###############################################################################
+        return (0,0,0,1)  # FN
 
 def main():
-    parser = argparse.ArgumentParser(description="Evaluate LLM Extractions from Google Form CSVs")
+    parser = argparse.ArgumentParser(description="Evaluate LLM Extractions (Updated)")
     parser.add_argument(
         "--output_dir",
         default=".",
@@ -240,170 +300,207 @@ def main():
     )
     args = parser.parse_args()
 
-    output_dir = args.output_dir
-    os.makedirs(output_dir, exist_ok=True)
+    outdir = args.output_dir
+    os.makedirs(outdir, exist_ok=True)
 
-    # A) Download & parse all forms
+    # (A) Download & parse all forms
     all_parsed = []
     for form_name, csv_url in DATA_SOURCES.items():
-        print(f"Loading form: {form_name} from {csv_url}")
+        print(f"[INFO] Loading form {form_name} from {csv_url}")
         df_raw = pd.read_csv(csv_url)
         parsed_df = parse_single_form(df_raw, form_name)
         all_parsed.append(parsed_df)
 
     master_df = pd.concat(all_parsed, ignore_index=True)
-    master_csv_path = os.path.join(output_dir, "master_long_data.csv")
-    master_df.to_csv(master_csv_path, index=False)
-    print(f"=> Saved combined long data to {master_csv_path}")
 
-    # B) Compute Fleiss' Kappa by field
-    fleiss_results = []
+    # Save the "master_long_data.csv"
+    master_long_path = os.path.join(outdir, "master_long_data.csv")
+    master_df.to_csv(master_long_path, index=False)
+    print(f"=> Saved combined long data to: {master_long_path}")
+
+    # (B) Fleiss' Kappa by field using statsmodels
+    fleiss_rows = []
     for fld in EXPECTED_FIELDS:
-        df_fld = master_df[master_df["FieldName"] == fld]
+        df_fld = master_df[master_df["FieldName"] == fld].copy()
         if len(df_fld) == 0:
             continue
-        kappa_val = compute_fleiss_kappa_for_field(df_fld)
-        fleiss_results.append({"FieldName": fld, "FleissKappa": kappa_val})
+        kappa_val = fleiss_kappa_agree_disagree(df_fld)
+        fleiss_rows.append({"FieldName": fld, "FleissKappa": kappa_val})
+    df_kappa = pd.DataFrame(fleiss_rows).sort_values("FieldName").reset_index(drop=True)
 
-    df_kappa = pd.DataFrame(fleiss_results)
-    kappa_csv_path = os.path.join(output_dir, "fleiss_kappa_by_field.csv")
-    df_kappa.to_csv(kappa_csv_path, index=False)
-    print(f"=> Saved Fleiss' Kappa results to {kappa_csv_path}")
+    fleiss_kappa_csv = os.path.join(outdir, "fleiss_kappa_by_field.csv")
+    df_kappa.to_csv(fleiss_kappa_csv, index=False)
+    print(f"=> Saved Fleiss' kappa results to {fleiss_kappa_csv}")
 
-    # C) Confusion Matrix (TP, FP, TN, FN) using majority vote
+    # (C) Confusion matrix: compute majority correctness
+    # We group by (FormName, CaseIndex, FieldName) => 3 rows, see how many "Agree" vs "Disagree"
     grouped = master_df.groupby(["FormName", "CaseIndex", "FieldName"], as_index=False)
-    cm_records = []
+    confusion_records = []
     for (fm, cs, fld), subdf in grouped:
-        llm_value = subdf["LLM_Value"].iloc[0]  # same for all 3 rows in practice
-        maj_label = majority_vote_agree(subdf)
-        tp, fp, tn, fn = get_tp_fp_tn_fn(llm_value, maj_label)
-        cm_records.append({
+        # Among the 3 reviewers, how many said "Agree"?
+        num_agree = (subdf["ReviewerResponse"].str.lower() == "agree").sum()
+        # If >=2 => majority says correct
+        majority_correct = (num_agree >= 2)
+
+        # LLM predicted positive if any of the row's LLM_Value != "Not inferred" 
+        # but in practice it should be the same for all 3. We'll just take the first:
+        llm_value = subdf["LLM_Value"].iloc[0]
+        pred_positive = interpret_llm_prediction(llm_value)
+
+        tp, fp, tn, fn = get_tp_fp_tn_fn(pred_positive, majority_correct)
+        confusion_records.append({
             "FormName": fm,
             "CaseIndex": cs,
             "FieldName": fld,
             "LLM_Value": llm_value,
-            "MajorityLabel": maj_label,
+            "MajoritySaysCorrect": majority_correct,
             "TP": tp, "FP": fp, "TN": tn, "FN": fn
         })
-    df_cm = pd.DataFrame(cm_records)
-    cm_csv_path = os.path.join(output_dir, "confusion_matrix_raw.csv")
-    df_cm.to_csv(cm_csv_path, index=False)
-    print(f"=> Saved confusion matrix (raw) to {cm_csv_path}")
+    df_cm = pd.DataFrame(confusion_records)
+
+    # Save confusion_matrix_raw
+    cm_raw_path = os.path.join(outdir, "confusion_matrix_raw.csv")
+    df_cm.to_csv(cm_raw_path, index=False)
+    print(f"=> Saved confusion_matrix_raw to {cm_raw_path}")
 
     # Summarize by field
     summary_cm = df_cm.groupby("FieldName")[["TP","FP","TN","FN"]].sum().reset_index()
 
-    def metrics(row):
+    # add metrics
+    def calc_metrics(row):
         TP = row["TP"]; FP = row["FP"]; TN = row["TN"]; FN = row["FN"]
         total = TP+FP+TN+FN
-        accuracy = (TP + TN) / total if total > 0 else np.nan
-        precision = TP / (TP + FP) if (TP + FP) > 0 else np.nan
-        recall = TP / (TP + FN) if (TP + FN) > 0 else np.nan
-        if precision is not np.nan and recall is not np.nan and precision+recall>0:
-            f1 = 2*precision*recall/(precision+recall)
-        else:
-            f1 = np.nan
-        return pd.Series({"Accuracy":accuracy,"Precision":precision,"Recall":recall,"F1":f1})
-
-    metrics_df = summary_cm.apply(metrics, axis=1)
-    final_metrics = pd.concat([summary_cm, metrics_df], axis=1)
-    metrics_csv_path = os.path.join(output_dir, "extraction_metrics_by_field.csv")
-    final_metrics.to_csv(metrics_csv_path, index=False)
-    print(f"=> Saved extraction metrics by field to {metrics_csv_path}")
-
-    # D) Extract free-text comments
-    comment_groups = master_df.groupby(["FormName","CaseIndex","ReviewerEmail"], as_index=False)
-    comment_records = []
-    for (fm, cs, rv), subdf in comment_groups:
-        cvals = subdf["Comment"].dropna().unique()
-        comment_str = ""
-        if len(cvals) > 0:
-            comment_str = " | ".join(map(str, cvals))
-        comment_records.append({
-            "FormName": fm,
-            "CaseIndex": cs,
-            "ReviewerEmail": rv,
-            "Comment": comment_str
+        acc = (TP + TN)/total if total>0 else np.nan
+        prec = TP/(TP+FP) if (TP+FP)>0 else np.nan
+        rec = TP/(TP+FN) if (TP+FN)>0 else np.nan
+        f1 = (2*prec*rec)/(prec+rec) if prec is not np.nan and rec is not np.nan and (prec+rec)>0 else np.nan
+        return pd.Series({
+            "TP":TP, "FP":FP, "TN":TN, "FN":FN,
+            "Accuracy": acc,
+            "Precision": prec,
+            "Recall": rec,
+            "F1": f1
         })
-    df_comments = pd.DataFrame(comment_records)
-    comments_csv_path = os.path.join(output_dir, "reviewer_comments.csv")
-    df_comments.to_csv(comments_csv_path, index=False)
-    print(f"=> Saved reviewer comments to {comments_csv_path}")
 
-    # E) Extract LLM satisfaction ratings
-    rating_records = []
-    for (fm, cs, rv), subdf in comment_groups:
-        rvals = subdf["Rating"].dropna().unique()
-        rating_val = rvals[0] if len(rvals) > 0 else None
-        rating_records.append({
-            "FormName": fm,
-            "CaseIndex": cs,
-            "ReviewerEmail": rv,
-            "Rating": rating_val
-        })
-    df_ratings = pd.DataFrame(rating_records)
-    ratings_csv_path = os.path.join(output_dir, "llm_ratings.csv")
-    df_ratings.to_csv(ratings_csv_path, index=False)
-    print(f"=> Saved LLM ratings to {ratings_csv_path}")
+    df_field_metrics = summary_cm.apply(calc_metrics, axis=1)
+    metrics_by_field = pd.concat([summary_cm["FieldName"], df_field_metrics], axis=1)
+    field_metrics_path = os.path.join(outdir, "extraction_metrics_by_field.csv")
+    metrics_by_field.to_csv(field_metrics_path, index=False)
+    print(f"=> Saved per-field extraction metrics to {field_metrics_path}")
 
-    # F) Time analysis
-    time_groups = master_df.groupby(["FormName","ReviewerEmail"], as_index=False)
-    time_records = []
-    for (fm, rv), subdf in time_groups:
+    # Also produce an overall confusion matrix across ALL fields
+    overall_vals = df_cm[["TP","FP","TN","FN"]].sum()
+    TP = overall_vals["TP"]
+    FP = overall_vals["FP"]
+    TN = overall_vals["TN"]
+    FN = overall_vals["FN"]
+    total = TP+FP+TN+FN
+    acc = (TP+TN)/total if total>0 else np.nan
+    prec = TP/(TP+FP) if (TP+FP)>0 else np.nan
+    rec = TP/(TP+FN) if (TP+FN)>0 else np.nan
+    f1 = (2*prec*rec)/(prec+rec) if prec is not np.nan and rec is not np.nan and (prec+rec)>0 else np.nan
+
+    df_overall = pd.DataFrame([{
+        "TP": TP, "FP": FP, "TN": TN, "FN": FN,
+        "Accuracy": acc, "Precision": prec, "Recall": rec, "F1": f1
+    }])
+    overall_cm_path = os.path.join(outdir, "confusion_matrix_overall.csv")
+    df_overall.to_csv(overall_cm_path, index=False)
+    print(f"=> Saved overall confusion matrix to {overall_cm_path}")
+
+    # (D) LLM ratings
+    # rename the raw to "llm_ratings_raw.csv"
+    # but also produce a summary: average & SD rating per reviewer
+
+    # first group by (FormName, CaseIndex, ReviewerEmail) to get unique rating
+    # actually we can just do group by the same, or simpler approach:
+    df_ratings = master_df[["FormName","CaseIndex","ReviewerEmail","Rating"]].drop_duplicates()
+    # rename the file
+    rating_raw_path = os.path.join(outdir, "llm_ratings_raw.csv")
+    df_ratings.to_csv(rating_raw_path, index=False)
+    print(f"=> Saved raw LLM ratings to {rating_raw_path}")
+
+    # Summarize: average rating for each reviewer across all forms & cases
+    # ignoring non-numeric or missing ratings
+    df_ratings["NumericRating"] = pd.to_numeric(df_ratings["Rating"], errors="coerce")
+    reviewer_stats = df_ratings.groupby("ReviewerEmail")["NumericRating"].agg(["count","mean","std"])
+    reviewer_stats = reviewer_stats.reset_index()
+    # rename columns
+    reviewer_stats.rename(columns={
+        "count":"N_cases",
+        "mean":"MeanRating",
+        "std":"SDRating"
+    }, inplace=True)
+
+    rating_summary_path = os.path.join(outdir, "llm_ratings_summary.csv")
+    reviewer_stats.to_csv(rating_summary_path, index=False)
+    print(f"=> Saved LLM rating summary to {rating_summary_path}")
+
+    # (E) Reviewer times
+    # In parse_single_form, we store "TimeToComplete" from the recognized column, if found
+    df_time = master_df[["FormName","ReviewerEmail","CaseIndex","TimeToComplete"]].drop_duplicates()
+    # One row per (Form, Reviewer, Case)
+    # But the time is at the form level, so it repeats for each case => we group by (Form, Reviewer)
+    # then take the unique time
+    time_groups = df_time.groupby(["FormName","ReviewerEmail"], as_index=False)
+    recs = []
+    for (fm,rv), subdf in time_groups:
         tvals = subdf["TimeToComplete"].dropna().unique()
-        if len(tvals) == 0:
-            time_val = None
+        if len(tvals)==1:
+            tval = tvals[0]
+        elif len(tvals)>1:
+            # user reported multiple times? we pick the first or average?
+            tval = tvals[0]
+            print(f"[WARNING] multiple distinct times found for {fm}-{rv}: {tvals}. Using first={tval}")
         else:
-            time_val = tvals[0]
-        num_cases = subdf["CaseIndex"].nunique()
-        time_records.append({
+            tval = None
+        n_cases = subdf["CaseIndex"].nunique()
+        recs.append({
             "FormName": fm,
             "ReviewerEmail": rv,
-            "TimeMinutesForWholeForm": time_val,
-            "NumCasesInForm": num_cases,
+            "TimeMinutesForWholeForm": tval,
+            "NumCasesInForm": n_cases
         })
+    df_times = pd.DataFrame(recs)
 
-    df_times = pd.DataFrame(time_records)
     def compute_avg_time(row):
         if pd.isna(row["TimeMinutesForWholeForm"]) or row["NumCasesInForm"]==0:
             return None
         return float(row["TimeMinutesForWholeForm"])/row["NumCasesInForm"]
+
     df_times["AvgTimePerCase"] = df_times.apply(compute_avg_time, axis=1)
+    times_raw_path = os.path.join(outdir, "reviewer_times_raw.csv")
+    df_times.to_csv(times_raw_path, index=False)
+    print(f"=> Saved reviewer_times_raw to {times_raw_path}")
 
-    times_csv_path = os.path.join(output_dir, "reviewer_times_raw.csv")
-    df_times.to_csv(times_csv_path, index=False)
-    print(f"=> Saved reviewer time data to {times_csv_path}")
-
+    # overall average time per case
     overall_times = df_times.dropna(subset=["AvgTimePerCase"])["AvgTimePerCase"].values
     if len(overall_times) > 0:
         mean_time = np.mean(overall_times)
         sd_time = np.std(overall_times, ddof=1)
         n = len(overall_times)
-        sem = sd_time / math.sqrt(n)
+        sem = sd_time/math.sqrt(n) if n>1 else 0
         z_95 = 1.96
         lower = mean_time - z_95*sem
         upper = mean_time + z_95*sem
-
-        print(f"Overall average time per case = {mean_time:.2f} min (95% CI: {lower:.2f}–{upper:.2f}), n={n}")
-        summary_time = pd.DataFrame([{
+        df_time_summary = pd.DataFrame([{
             "MeanTimePerCase": mean_time,
             "SD": sd_time,
             "N": n,
             "CI_95_Lower": lower,
-            "CI_95_Upper": upper,
+            "CI_95_Upper": upper
         }])
-        time_summary_path = os.path.join(output_dir, "time_per_case_summary.csv")
-        summary_time.to_csv(time_summary_path, index=False)
-        print(f"=> Saved summary time stats to {time_summary_path}")
+        time_summary_path = os.path.join(outdir, "time_per_case_summary.csv")
+        df_time_summary.to_csv(time_summary_path, index=False)
+        print(f"=> Overall average time ~ {mean_time:.2f} mins (95% CI: {lower:.2f}-{upper:.2f}), n={n}")
+        print(f"=> Saved time_per_case_summary to {time_summary_path}")
     else:
-        print("[INFO] No time data found for computing averages.")
+        print("[INFO] No valid numeric 'TimeToComplete' data found. Skipped summary stats.")
 
     print("Analysis complete!")
 
 if __name__ == "__main__":
     main()
 
-
-# Execute script
-
-# python /Data/Yujing/HNC_OutcomePred/Reports_Agents/evaluate_llm_extraction.py --output_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/Clinician_Evaluation/tmp
+# Usage 
+# python /Data/Yujing/HNC_OutcomePred/Reports_Agents/evaluate_llm_extraction.py --output_dir /Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/Clinician_Evaluation/
