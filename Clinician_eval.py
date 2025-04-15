@@ -42,19 +42,5 @@ def main():
     # print("\n--- Descriptive Statistics ---")
     # print(df.describe(include='all'))
     
-    # You can do further analysis below...
-    # e.g., checking columns, grouping, etc.
-    # --------------------------------------
-    # Example: If there's a 'Timestamp' column, convert to datetime:
-    # if 'Timestamp' in df.columns:
-    #     df['Timestamp'] = pd.to_datetime(df['Timestamp'])
-    #     print("\n--- Converted Timestamp Column ---")
-    #     print(df['Timestamp'].head())
-    
-    # Example: Value counts of a multiple-choice column "How did you hear about us?"
-    # if 'How did you hear about us?' in df.columns:
-    #     print("\n--- 'How did you hear about us?' Value Counts ---")
-    #     print(df['How did you hear about us?'].value_counts())
-
 if __name__ == "__main__":
     main()
