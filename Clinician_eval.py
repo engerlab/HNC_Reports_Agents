@@ -27,6 +27,8 @@ def main():
     print("\n--- First 5 Rows ---")
     print(df.head())
     print(df.columns)
+    print(f"\n--- Number of Rows: {len(df)} ---")
+    print(f"--- Number of Columns: {len(df.columns)} ---")
     
     # 3. Basic info/stats about the DataFrame
     print("\n--- DataFrame Info ---")
