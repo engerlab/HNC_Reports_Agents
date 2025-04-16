@@ -1,0 +1,1494 @@
+FormName,CaseIndex,FieldName,LLM_Value,MajoritySaysCorrect,TP,FP,TN,FN
+Group1_Consultation_Notes_Only,1,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Anatomic_Site_of_Lesion,"Left buccal mucosa, Squamous cell carcinoma",True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Charlson_Comorbidity_Score,"5 [1 point for coronary artery disease, 1 point for hypertension, 1 point for hypercholesterolemia, 1 point for gastroesophageal reflux, and 1 point for hypothyroidism",False,0,1,0,0
+Group1_Consultation_Notes_Only,1,Clinical_Assessments_Radiological_Lesions,Naso-pharyngo-laryngoscopy was normal,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,1,Clinical_TNM,T2 N0 M0,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,1,ECOG_Performance_Status,"0 [Assuming a conversion from KPS to ECOG, where a KPS of 90 corresponds to an ECOG of 0",True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Follow_Up_Plans,Patient will proceed with radiation therapy after the wound in her check heals,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,HPV_Status,Negative,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Immunohistochemical_profile,P16 negative,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Karnofsky_Performance_Status,90 [Given directly in the text as KPS of 90,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Lymph_Node_Status_Extranodal_Extension,Absent,False,0,1,0,0
+Group1_Consultation_Notes_Only,1,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Pack_Years,60,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Pathological_TNM,pT2NXM0,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Pathology_Details,"Moderately differentiated Squamous cell carcinoma, P16 negative",True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Patient_History_Status_Previous_Treatments,"Tylenol, oxycodone after the surgery",True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Patient_History_Status_Prior_Conditions,"Coronary artery disease, gastroesophageal reflux, hypercholesterolemia, hypertension, hypothyroidism",True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Patient_Symptoms_at_Presentation,"Pain at implanted teeth in the left upper buccal area, inflammation, difficulty in eating",True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Perineural_Invasion_Status,Absent,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Primary_Tumor_Size,"2.4 x 1.5 x 0.4 cm, thickness of 0.4 mm",True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Resection_Margins,"Close margin 3 mm to mucosa, and 1mm deep close margin",True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Sex,F,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Smoking_History,Ex-smoker,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Treatment_Recommendations,"Post operative radiation therapy, total dose of 45 Gy/ 18 fractions to the tumor bed and ipsilateral level 1b and level II LN",True,1,0,0,0
+Group1_Consultation_Notes_Only,1,Tumor_Type_Differentiation,Moderately differentiated,True,1,0,0,0
+Group1_Consultation_Notes_Only,1,p16_Status,Negative,True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Alcohol_Consumption,Drinker [occasional,True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Anatomic_Site_of_Lesion,"floor of mouth, squamous cell carcinoma",True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Charlson_Comorbidity_Score,"2 [1 point for myocardial infarction (MI), 1 point for no other conditions mentioned that fit the criteria",False,0,1,0,0
+Group1_Consultation_Notes_Only,2,Clinical_Assessments_Radiological_Lesions,"CT scan showed a 2.5 x 1.6 x 3.4 cm enhancing lesion located at his left neck near the hyoid bone, PET scan showed increased uptake of this lesion",True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,2,Clinical_TNM,T1N2cM0,False,0,1,0,0
+Group1_Consultation_Notes_Only,2,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,2,ECOG_Performance_Status,1 [patient has some symptoms but is fully active,True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Follow_Up_Plans,"patient will be assessed by dentistry before treatment commences, return for CT simulation and mask fitting shortly",True,1,0,0,0
+Group1_Consultation_Notes_Only,2,HPV_Status,Negative,True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Immunohistochemical_profile,p16 negative,True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Karnofsky_Performance_Status,"90 [ECOG of 1 corresponds to a KPS score of around 80-100, given the patient has some symptoms but is fully active",True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,2,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,"5/126 (initially), 2/5 (at recurrence)",True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Lymphovascular_Invasion_Status,Present,True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Pack_Years,525,False,0,1,0,0
+Group1_Consultation_Notes_Only,2,Pathological_TNM,Not inferred,False,0,0,0,1
+Group1_Consultation_Notes_Only,2,Pathology_Details,"moderately differentiated squamous cell carcinoma, p16 negative",True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Patient_History_Status_Previous_Treatments,"ASA 81mg po qd, lactulose, Tylenol 650 po mg TID, oxycodone 10mg po 4-6 hrs PRN, Carbotaxol x 4 cycles",True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Patient_History_Status_Prior_Conditions,"myocardial infarction (MI), supraventricular tachycardia (SVT)",True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Patient_Symptoms_at_Presentation,"trismus, no neurological symptoms, no odynophagia, no dysphagia, stable weight",True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Perineural_Invasion_Status,Present,True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Primary_Tumor_Size,1.7cm,True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Resection_Margins,"negative margins (initially), 2mm (at recurrence)",True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Sex,M,True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Smoking_History,Ex-smoker,True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Treatment_Recommendations,hyperfractionated course of radiation therapy,True,1,0,0,0
+Group1_Consultation_Notes_Only,2,Tumor_Type_Differentiation,Moderately differentiated,True,1,0,0,0
+Group1_Consultation_Notes_Only,2,p16_Status,Negative,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Alcohol_Consumption,Drinker [socially,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Anatomic_Site_of_Lesion,"base of tongue, oropharynx",True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Charlson_Comorbidity_Score,0 [No comorbidities mentioned,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Clinical_Assessments_Radiological_Lesions,"Single metastatic FDG avid right cervical node on CT and PET scans, no primary malignancy site could be identified, no evidence of distant FDG avid metastasis",True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,3,Clinical_TNM,T1 N2a M0,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,3,ECOG_Performance_Status,"0 [Converted from KPS 100%, which corresponds to ECOG 0, indicating fully active and able to carry on all pre-disease performance without restriction",True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Follow_Up_Plans,Patient will be seen by dentistry,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,HPV_Status,Positive,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Immunohistochemical_profile,P16 positive,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Karnofsky_Performance_Status,"100% [Based on the statement ""Performance Status",True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Lymph_Node_Status_Extranodal_Extension,Present,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Pack_Years,Not Inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,3,Pathological_TNM,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,3,Pathology_Details,"Poorly differentiated squamous cell carcinoma, P16 positive",True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Patient_History_Status_Previous_Treatments,Nil,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Patient_History_Status_Prior_Conditions,Not Inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,3,Patient_Symptoms_at_Presentation,"Self-palpated mass over the right neck, no other symptoms",True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Perineural_Invasion_Status,Absent,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Primary_Tumor_Size,at least 4 mm,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Resection_Margins,Margins uninvolved by invasive carcinoma,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Sex,M,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Smoking_History,Ex-smoker,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Treatment_Recommendations,Post-operative chemoradiotherapy,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group1_Consultation_Notes_Only,3,p16_Status,Positive,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Anatomic_Site_of_Lesion,"left retromolar trigone, mucoepidermoid carcinoma",True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Charlson_Comorbidity_Score,"1 [The patient has COPD, which is a condition worth 1 point. No other comorbidities were mentioned that would add to the score.",True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Clinical_Assessments_Radiological_Lesions,"CT neck showed a left masticator space lesion involving the left parapharyngeal space, irregular cortex suspicious of focal invasion at the left mandible, two small satellite nodules abutting the lesion in the superior aspect of the left mylohyoid muscle, no adenopathy on imaging",True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,4,Clinical_TNM,T4aN0,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,4,ECOG_Performance_Status,0 [Indicates the patient is fully active and able to carry on all pre-disease activities without restriction.,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Follow_Up_Plans,Patient will be evaluated at [ORGANIZATION,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,HPV_Status,Not Inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,4,Immunohistochemical_profile,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,4,Karnofsky_Performance_Status,"100 [ECOG 0 corresponds to a Karnofsky performance status of 100, indicating the patient is fully active and able to carry on all pre-disease activities without restriction.",True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Pack_Years,30,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Pathological_TNM,pT4aN0M0,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Pathology_Details,"intermediate grade mucoepidermoid carcinoma, bone invasion (mandibular cortex)",True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Patient_History_Status_Previous_Treatments,"Synthroid, trazodone, zopiclone, omega 3, Spiriva, vit D, surgical resection, surgical revision for positive margins, ATB",True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Patient_History_Status_Prior_Conditions,COPD,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Patient_Symptoms_at_Presentation,"Dysarthria, difficulty chewing, weight loss of 15 lbs in the last 6 months, decreased appetite, difficulty eating solid food, hearing reduced",True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Perineural_Invasion_Status,Absent,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Primary_Tumor_Size,2x2x1.5cm,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Resection_Margins,negative but close posteriorly at less than 1 mm,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Sex,F,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Smoking_History,Ex-smoker,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Treatment_Recommendations,Adjuvant course of radiation therapy to the tumor bed,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,Tumor_Type_Differentiation,Intermediate grade,True,1,0,0,0
+Group1_Consultation_Notes_Only,4,p16_Status,Not Inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,5,Alcohol_Consumption,Ex-Drinker [12 beers/day for 50 years,True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Anatomic_Site_of_Lesion,"Left tonsil, squamous cell carcinoma",True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Clinical_TNM,cT3N1M0,True,1,0,0,0
+Group1_Consultation_Notes_Only,5,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,5,Follow_Up_Plans,"cardiology consultation + stress testing, research nurse to contact patient about trial to reduce mucositis",True,1,0,0,0
+Group1_Consultation_Notes_Only,5,HPV_Status,Positive,True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Immunohistochemical_profile,p16+,True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,"2 {one in level 2A and one in level 2B, with the largest measuring 2.5 x 1.9 x 4.5 cm}",True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Lymphovascular_Invasion_Status,Suspected [lymph node involvement and compression of the left jugular vein,False,0,1,0,0
+Group1_Consultation_Notes_Only,5,Pack_Years,70,True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Pathological_TNM,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,5,Pathology_Details,"Squamous cell carcinoma, p16+",True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Patient_History_Status_Prior_Conditions,"COPD, testicular cancer, hypercholesteremia",True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Patient_Symptoms_at_Presentation,"atypical chest pain, slight pain on swallowing, hard left submandibular mass",True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,5,Primary_Tumor_Size,1.7 x 2.2 x 4.9 cm,True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Resection_Margins,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,5,Sex,M,True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Smoking_History,Ex-smoker,True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Treatment_Recommendations,concurrent chemoradiotherapy (cisplatin + standard 35 session radiotherapy),True,1,0,0,0
+Group1_Consultation_Notes_Only,5,Tumor_Type_Differentiation,Not Inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,5,p16_Status,Positive,True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Alcohol_Consumption,Drinker [amount not specified,True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Anatomic_Site_of_Lesion,"Unknown primary, metastatic squamous cell carcinoma in right neck lymph nodes",True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Charlson_Comorbidity_Score,"4 [1 point for COPD (chronic pulmonary disease), 1 point for hypercholesteremia (not directly listed but related to vascular disease), 2 points for cancer (testicular cancer is a previous condition, not currently active, but still counts)",True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Clinical_Assessments_Radiological_Lesions,"CT scan showed multiple pathological right level II and III nodes, PET scan scheduled",True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Clinical_Assessments_SUV_from_PET_scans,"SUV 15.9 for the primary tumor, SUV 12.2 for level 2 adenopathies, and SUV 3.7 for a small focus anterior to the abdominal aorta.",True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Clinical_TNM,"Tx, N2b, Mx",True,1,0,0,0
+Group1_Consultation_Notes_Only,6,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,6,ECOG_Performance_Status,1 [Performance Status,True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Follow_Up_Plans,"PET scan scheduled, possible research protocol discussion, referral to dentistry, medical oncology, GI for prophylactic PEG, and audiology",True,1,0,0,0
+Group1_Consultation_Notes_Only,6,HPV_Status,Positive,True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Immunohistochemical_profile,p16 positive,True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Karnofsky_Performance_Status,90-100 [Performance Status,True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Lymph_Node_Status_Extranodal_Extension,Suspected (highly suspicious for extracapsular extension),True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,2,True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,6,Pack_Years,0,True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Pathological_TNM,"Tx, N2b, Mx",True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Pathology_Details,"Metastatic squamous cell carcinoma, keratinizing in 2/4 lymph nodes, p16 positive",True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Patient_History_Status_Previous_Treatments,"Tonsillectomy at age 5, medications - Coversyl, Lipitor, Nexium, Aspirin",True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Patient_History_Status_Prior_Conditions,"Hypertension, dyslipidemia",True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Patient_Symptoms_at_Presentation,"No ENT or respiratory symptoms, no weight loss, right neck lump",True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,6,Primary_Tumor_Size,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,6,Resection_Margins,Not inferred,True,0,0,1,0
+Group1_Consultation_Notes_Only,6,Smoking_History,Non-Smoker,True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Treatment_Recommendations,Adjuvant course of chemoradiation,True,1,0,0,0
+Group1_Consultation_Notes_Only,6,Tumor_Type_Differentiation,Poorly differentiated,False,0,1,0,0
+Group1_Consultation_Notes_Only,6,p16_Status,Positive,True,1,0,0,0
+Group1_Pathology_Report_Only,1,Alcohol_Consumption,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,Anatomic_Site_of_Lesion,"Right lateral tongue border, floor of mouth, mandible, cervical skin, squamous cell carcinoma",True,1,0,0,0
+Group1_Pathology_Report_Only,1,Charlson_Comorbidity_Score,"0 [No comorbidities are mentioned in the text, therefore a score of 0 is assigned.",True,1,0,0,0
+Group1_Pathology_Report_Only,1,Clinical_Assessments_Radiological_Lesions,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,Clinical_TNM,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,ECOG_Performance_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,Follow_Up_Plans,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,HPV_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,Immunohistochemical_profile,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,Karnofsky_Performance_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group1_Pathology_Report_Only,1,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group1_Pathology_Report_Only,1,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group1_Pathology_Report_Only,1,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group1_Pathology_Report_Only,1,Pack_Years,0,True,1,0,0,0
+Group1_Pathology_Report_Only,1,Pathological_TNM,pT4a pN0,True,1,0,0,0
+Group1_Pathology_Report_Only,1,Pathology_Details,"Squamous cell carcinoma, well to moderately differentiated",True,1,0,0,0
+Group1_Pathology_Report_Only,1,Patient_History_Status_Previous_Treatments,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,Patient_History_Status_Prior_Conditions,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,Patient_Symptoms_at_Presentation,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,Perineural_Invasion_Status,Present,True,1,0,0,0
+Group1_Pathology_Report_Only,1,Primary_Tumor_Size,5.3 x 4.4 x 2.5 cm,True,1,0,0,0
+Group1_Pathology_Report_Only,1,Resection_Margins,"Mucosal margins uninvolved by invasive carcinoma, distance of invasive carcinoma from closest margin",True,1,0,0,0
+Group1_Pathology_Report_Only,1,Sex,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,Smoking_History,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,Treatment_Recommendations,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,1,Tumor_Type_Differentiation,Well to moderately differentiated,True,1,0,0,0
+Group1_Pathology_Report_Only,1,p16_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Alcohol_Consumption,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Anatomic_Site_of_Lesion,"nasal supratip, invasive squamous cell carcinoma",True,1,0,0,0
+Group1_Pathology_Report_Only,2,Charlson_Comorbidity_Score,0 [No comorbidities are present in the provided text,True,1,0,0,0
+Group1_Pathology_Report_Only,2,Clinical_Assessments_Radiological_Lesions,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Clinical_TNM,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,ECOG_Performance_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Follow_Up_Plans,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,HPV_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Immunohistochemical_profile,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Karnofsky_Performance_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Lymph_Node_Status_Presence_Absence,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group1_Pathology_Report_Only,2,Pack_Years,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Pathological_TNM,pT cannot be determined,True,1,0,0,0
+Group1_Pathology_Report_Only,2,Pathology_Details,"Invasive squamous cell carcinoma, well differentiated, tumor extends to deep margin, dermis level of invasion",True,1,0,0,0
+Group1_Pathology_Report_Only,2,Patient_History_Status_Previous_Treatments,Previously biopsied,True,1,0,0,0
+Group1_Pathology_Report_Only,2,Patient_History_Status_Prior_Conditions,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Patient_Symptoms_at_Presentation,"5 years of growing keratotic lesion on nose, large cutaneous horn with underlying nodule",True,1,0,0,0
+Group1_Pathology_Report_Only,2,Perineural_Invasion_Status,Absent,True,1,0,0,0
+Group1_Pathology_Report_Only,2,Primary_Tumor_Size,"at least 2 mm (depth), 2.0 x 1.9 x 1.0 cm (macroscopic dimensions)",True,1,0,0,0
+Group1_Pathology_Report_Only,2,Resection_Margins,Peripheral and Deep margins involved by invasive carcinoma,True,1,0,0,0
+Group1_Pathology_Report_Only,2,Sex,F,True,1,0,0,0
+Group1_Pathology_Report_Only,2,Smoking_History,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Treatment_Recommendations,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,2,Tumor_Type_Differentiation,Well differentiated,True,1,0,0,0
+Group1_Pathology_Report_Only,2,p16_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Alcohol_Consumption,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Anatomic_Site_of_Lesion,"Right true vocal cord, invasive squamous cell carcinoma",True,1,0,0,0
+Group1_Pathology_Report_Only,3,Charlson_Comorbidity_Score,0 [No comorbidities mentioned in the text,True,1,0,0,0
+Group1_Pathology_Report_Only,3,Clinical_Assessments_Radiological_Lesions,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Clinical_TNM,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,ECOG_Performance_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Follow_Up_Plans,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,HPV_Status,Negative,True,1,0,0,0
+Group1_Pathology_Report_Only,3,Immunohistochemical_profile,p16 negative,True,1,0,0,0
+Group1_Pathology_Report_Only,3,Karnofsky_Performance_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Lymph_Node_Status_Presence_Absence,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Pack_Years,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Pathological_TNM,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Pathology_Details,"invasive, well to moderately differentiated squamous cell carcinoma; p16 negative",True,1,0,0,0
+Group1_Pathology_Report_Only,3,Patient_History_Status_Previous_Treatments,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Patient_History_Status_Prior_Conditions,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Patient_Symptoms_at_Presentation,Vocal cord mass,True,1,0,0,0
+Group1_Pathology_Report_Only,3,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Primary_Tumor_Size,0.8 x 0.3 x 0.3cm,True,1,0,0,0
+Group1_Pathology_Report_Only,3,Resection_Margins,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Sex,M,False,0,1,0,0
+Group1_Pathology_Report_Only,3,Smoking_History,Smoker,True,1,0,0,0
+Group1_Pathology_Report_Only,3,Treatment_Recommendations,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,3,Tumor_Type_Differentiation,Moderately differentiated,False,0,1,0,0
+Group1_Pathology_Report_Only,3,p16_Status,Negative,True,1,0,0,0
+Group1_Pathology_Report_Only,4,Alcohol_Consumption,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Anatomic_Site_of_Lesion,"Left neck mass, squamous cell carcinoma",True,1,0,0,0
+Group1_Pathology_Report_Only,4,Charlson_Comorbidity_Score,0 [No comorbidities mentioned in the report,True,1,0,0,0
+Group1_Pathology_Report_Only,4,Clinical_Assessments_Radiological_Lesions,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Clinical_TNM,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,EBER_Status,Negative,True,1,0,0,0
+Group1_Pathology_Report_Only,4,ECOG_Performance_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Follow_Up_Plans,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,HPV_Status,Negative,True,1,0,0,0
+Group1_Pathology_Report_Only,4,Immunohistochemical_profile,"CKAE1-AE3(+), CK5/6(+), p63(+), p40(+), Melan-A(-), SOX-10(-), ERG(-), CK7(-), CD31(-), Pax-8(-), TTF-1(-), Napsin A(-), p16(-)",True,1,0,0,0
+Group1_Pathology_Report_Only,4,Karnofsky_Performance_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1 {involved lymph node level 2},True,1,0,0,0
+Group1_Pathology_Report_Only,4,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group1_Pathology_Report_Only,4,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Pack_Years,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Pathological_TNM,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Pathology_Details,"Squamous cell carcinoma, poorly differentiated",True,1,0,0,0
+Group1_Pathology_Report_Only,4,Patient_History_Status_Previous_Treatments,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Patient_History_Status_Prior_Conditions,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Patient_Symptoms_at_Presentation,Left neck mass,True,1,0,0,0
+Group1_Pathology_Report_Only,4,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Primary_Tumor_Size,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Resection_Margins,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Sex,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Smoking_History,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Treatment_Recommendations,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,4,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group1_Pathology_Report_Only,4,p16_Status,Negative,True,1,0,0,0
+Group1_Pathology_Report_Only,5,Alcohol_Consumption,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,Anatomic_Site_of_Lesion,"Left sinonasal mucosa and left middle turbinate, Non-keratinizing squamous cell carcinoma",True,1,0,0,0
+Group1_Pathology_Report_Only,5,Charlson_Comorbidity_Score,0 [No comorbidities mentioned in the provided text,True,1,0,0,0
+Group1_Pathology_Report_Only,5,Clinical_Assessments_Radiological_Lesions,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,Clinical_TNM,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,ECOG_Performance_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,Follow_Up_Plans,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,HPV_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,Immunohistochemical_profile,"Not inferred, but mentioned as ""see previous biopsy""",True,1,0,0,0
+Group1_Pathology_Report_Only,5,Karnofsky_Performance_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group1_Pathology_Report_Only,5,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group1_Pathology_Report_Only,5,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group1_Pathology_Report_Only,5,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group1_Pathology_Report_Only,5,Pack_Years,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,Pathological_TNM,"pT1, pNX, pM not applicable",True,1,0,0,0
+Group1_Pathology_Report_Only,5,Pathology_Details,"Non-keratinizing squamous cell carcinoma, exophytic/papillary type of growth with focal areas of invasion into the stroma",True,1,0,0,0
+Group1_Pathology_Report_Only,5,Patient_History_Status_Previous_Treatments,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,Patient_History_Status_Prior_Conditions,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,Patient_Symptoms_at_Presentation,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,Perineural_Invasion_Status,Absent,True,1,0,0,0
+Group1_Pathology_Report_Only,5,Primary_Tumor_Size,"Cannot be assessed (fragmented specimen), but largest aggregate size is 5.5 x 5.0 x 1.8cm",True,1,0,0,0
+Group1_Pathology_Report_Only,5,Resection_Margins,Cannot be assessed,True,1,0,0,0
+Group1_Pathology_Report_Only,5,Sex,Not inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,Smoking_History,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,Treatment_Recommendations,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,Tumor_Type_Differentiation,Not Inferred,True,0,0,1,0
+Group1_Pathology_Report_Only,5,p16_Status,Not Inferred,True,0,0,1,0
+Group1_Pathology_and_Consultation_Report,1,Alcohol_Consumption,Drinker [2-3 times per week,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Anatomic_Site_of_Lesion,"oropharynx, right tonsil, squamous cell carcinoma",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Charlson_Comorbidity_Score,"2 [1 point for hypertension (HTA), 1 point for chronic sinusitis is not typically counted in Charlson score but gout is also not, so only clear one is HTA",False,0,1,0,0
+Group1_Pathology_and_Consultation_Report,1,Clinical_Assessments_Radiological_Lesions,"CT scan showed a right jugulodigastric node measuring 3.3 x 3.1 cm, PET scan showed the right level IIA node with an SUV of 8.8",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Clinical_Assessments_SUV_from_PET_scans,"right level IIA node SUV of 8.8, left tonsil SUV of 4.9, right tonsil SUV of 7.6",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Clinical_TNM,T1 N2a M0,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Pathology_and_Consultation_Report,1,ECOG_Performance_Status,0 [patient has no symptoms and is fully active,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Follow_Up_Plans,"Consultation to dentistry, speech therapist, and audiology are requested, patient will be contacted for planning",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,HPV_Status,Positive,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Immunohistochemical_profile,P16 positive,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Karnofsky_Performance_Status,100 [ECOG 0 indicates the patient is fully active and able to carry on all pre-disease performance without restriction,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Pack_Years,35,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Pathological_TNM,T1 N2a,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Pathology_Details,"poorly differentiated squamous cell carcinoma, P16 positive",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Patient_History_Status_Previous_Treatments,"allopurinol, atorvastatin, irbesartan/HCT, amlodipine, trans-oral robotic resection and right neck dissection",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Patient_History_Status_Prior_Conditions,"Gout, remote hernia repair, HTA, chronic sinusitis",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Patient_Symptoms_at_Presentation,"No symptoms mentioned, but findings include slight overweight, residual thread on the right tonsil tumor bed, and a 1cm soft lump at the site of the tumor bed",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Perineural_Invasion_Status,Absent,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Primary_Tumor_Size,1.8x1x1 cm,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Resection_Margins,closest margin at 1mm on the lateral side,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Sex,M,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Smoking_History,Ex-smoker,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Treatment_Recommendations,Adjuvant course of radiation therapy to the tumor bed and the bilateral neck,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,1,p16_Status,Positive,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Alcohol_Consumption,"Non-Drinker [heavy drinker, discontinued 3-4 years ago",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Anatomic_Site_of_Lesion,"Left and Right buccal mucosa, Squamous cell carcinoma",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Charlson_Comorbidity_Score,"1 [1 point for COPD, a chronic pulmonary disease",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Clinical_Assessments_Radiological_Lesions,CT neck showed Significant asymmetric thickening and enhancement involving the left buccal soft tissues without any evidence of lymphadenopathy,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group1_Pathology_and_Consultation_Report,2,Clinical_TNM,"T1N0 (Right), T4a N0 M0 (Left)",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Pathology_and_Consultation_Report,2,ECOG_Performance_Status,0 [no evidence of disease or impairment in daily activities,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Follow_Up_Plans,"Patient will be seen by dentistry, coordination with ENT referring physician for radiation treatments after re-operation",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,HPV_Status,Positive,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Immunohistochemical_profile,p16+,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Karnofsky_Performance_Status,100 [normal examination and no limitations mentioned,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Pack_Years,50,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Pathological_TNM,"pT1N0 (Right), pT4a N0 M0 (Left)",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Pathology_Details,"Squamous cell carcinoma with mild dysplasia and parakeratosis, chronic non-specific inflammation",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Patient_History_Status_Previous_Treatments,"Spiriva, Ventolin, hernia repair",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Patient_History_Status_Prior_Conditions,COPD,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Patient_Symptoms_at_Presentation,"Left facial swelling, oral leukoplakia, no pain, no dysphagia, no odynophagia",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Perineural_Invasion_Status,Absent,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Primary_Tumor_Size,"1.7x1.8 cm (Left), 0.4 x 0.4 x 0.2 cm (Right)",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Resection_Margins,"Positive deep margins (Right), Negative but close at 1.1 cm (Left)",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Sex,M,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Smoking_History,Ex-smoker,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Treatment_Recommendations,"Post-operative radiation to the Left buccal area, re-operation of the right buccal mucosa",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,Tumor_Type_Differentiation,Well differentiated,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,2,p16_Status,Positive,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Anatomic_Site_of_Lesion,"Right floor of mouth, invasive, moderately-differentiated squamous cell carcinoma",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Charlson_Comorbidity_Score,"3 [1 point for hypercholesterolemia (considered under mild liver disease or diabetes without complications), 1 point for high blood pressure, 1 point for chronic pulmonary disease (emphysema)",False,0,1,0,0
+Group1_Pathology_and_Consultation_Report,3,Clinical_Assessments_Radiological_Lesions,"CT scan of neck revealed no clear evidence of primary but asymmetry at the level of submandibular gland, ground-glass opacity in the right upper lobe",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group1_Pathology_and_Consultation_Report,3,Clinical_TNM,Not inferred,True,0,0,1,0
+Group1_Pathology_and_Consultation_Report,3,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Pathology_and_Consultation_Report,3,ECOG_Performance_Status,"0 [assuming ECOG 0 corresponds to KPS 90, as a KPS of 90 suggests the patient is able to carry on normal activity with only minor symptoms",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Follow_Up_Plans,"Patient will be sent for dentistry, audiogram, Medical Oncology consult, treatment to be started in the near future",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,HPV_Status,Negative,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Immunohistochemical_profile,P16,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Karnofsky_Performance_Status,90 [directly stated in the physical examination,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Extranodal_Extension,Present,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Lymphovascular_Invasion_Status,Present,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Pack_Years,45,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Pathological_TNM,"T2, N1",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Pathology_Details,"Poorly differentiated, presence of perineural and lymphovascular invasion",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Patient_History_Status_Previous_Treatments,"Crestor, colchicine, Micardis",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Patient_History_Status_Prior_Conditions,"Hypercholesterolemia, high blood pressure, gout, emphysema",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Patient_Symptoms_at_Presentation,"Poor dentition, lesion on the right side of the floor of the mouth",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Perineural_Invasion_Status,Present,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Primary_Tumor_Size,2.3 cm in maximum diameter and 8 mm in depth,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Resection_Margins,"4 mm at periphery, less than 1 mm at depth",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Sex,M,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Smoking_History,Ex-smoker,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Treatment_Recommendations,Adjuvant course of external beam radiotherapy with concomitant chemotherapy,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,Tumor_Type_Differentiation,Moderately differentiated,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,3,p16_Status,Negative,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Alcohol_Consumption,Drinker [socially,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Anatomic_Site_of_Lesion,"Larynx, right supraglottic and subglottic regions",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Charlson_Comorbidity_Score,1 [The patient has hypertension is not mentioned but the patient has hypothyroidism which would be 1 point,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Clinical_Assessments_Radiological_Lesions,"CT scan of the neck demonstrated the known lesion with significant local extension, chest x-ray was negative for metastatic disease",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group1_Pathology_and_Consultation_Report,4,Clinical_TNM,Not inferred,True,0,0,1,0
+Group1_Pathology_and_Consultation_Report,4,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Pathology_and_Consultation_Report,4,ECOG_Performance_Status,"1 [The patient has an ECOG performance status of 1, indicating the patient is able to carry on normal activity with only minor symptoms",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Follow_Up_Plans,"Patient will be CT simulated shortly and will be seen by dentistry, speech pathology, and endocrinology",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,HPV_Status,Negative,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Immunohistochemical_profile,p16 negative,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Karnofsky_Performance_Status,"90 [ECOG performance status of 1 corresponds to a KPS of 90, indicating the patient is able to carry on normal activity with only minor symptoms",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Lymphovascular_Invasion_Status,Present,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Pack_Years,40,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Pathological_TNM,"T4a, N1, M0",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Pathology_Details,"Invasive, moderately differentiated squamous cell carcinoma, p16 negative",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Patient_History_Status_Previous_Treatments,"Synthroid, Tylenol p.r.n.",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Patient_History_Status_Prior_Conditions,"Osteoarthritis, gout, hypothyroidism",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Patient_Symptoms_at_Presentation,"Progressive hoarseness of voice, no headaches, diplopia, chest pain, or shortness of breath",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Perineural_Invasion_Status,Present,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Primary_Tumor_Size,5.6 x 5.4 x 3.9 centimeters,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Resection_Margins,"Deep surgical margins are positive at the right piriform fossa, mucosal margins are negative for invasive carcinoma but close at 1 millimeter from the right pharyngeal mucosa",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Sex,M,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Smoking_History,Ex-smoker,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Treatment_Recommendations,Adjuvant radiotherapy with concomitant chemotherapy,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,Tumor_Type_Differentiation,Moderately differentiated,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,4,p16_Status,Negative,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Alcohol_Consumption,Drinker [rarely,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Anatomic_Site_of_Lesion,"left tonsil, p16 positive (HPV related) squamous cell carcinoma",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Charlson_Comorbidity_Score,0 [No comorbidities mentioned in the text,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Clinical_Assessments_Radiological_Lesions,PET scan did not show evidence of metastasis,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group1_Pathology_and_Consultation_Report,5,Clinical_TNM,T2N1M0,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,EBER_Status,Not inferred,True,0,0,1,0
+Group1_Pathology_and_Consultation_Report,5,ECOG_Performance_Status,"0 [Equivalent to normal performance status, no symptoms",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Follow_Up_Plans,"patient will be seen by medical oncology, dentistry, nutrition, SLP and audiology",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,HPV_Status,Positive,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Immunohistochemical_profile,p16,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Karnofsky_Performance_Status,"100 [Normal performance status, no limitations",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Extranodal_Extension,Present,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Pack_Years,5,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Pathological_TNM,pT2N1,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Pathology_Details,"p16 positive (HPV related) squamous cell carcinoma, invades skeletal muscle",True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Patient_History_Status_Previous_Treatments,None,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Patient_History_Status_Prior_Conditions,None,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Patient_Symptoms_at_Presentation,swelling on the left aspect of his neck,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Perineural_Invasion_Status,Absent,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Primary_Tumor_Size,larger than 2 cm but not larger than 4 cm,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Resection_Margins,Mucosal margins and deep margins involved by invasive carcinoma,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Sex,M,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Smoking_History,Ex-smoker,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Treatment_Recommendations,chemoradiation,True,1,0,0,0
+Group1_Pathology_and_Consultation_Report,5,Tumor_Type_Differentiation,Not Inferred,True,0,0,1,0
+Group1_Pathology_and_Consultation_Report,5,p16_Status,Positive,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Anatomic_Site_of_Lesion,"oral tongue, squamous cell carcinoma",True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Charlson_Comorbidity_Score,"1 [Assigned 1 point for DVT (considered under cerebrovascular disease or transient ischemic attack), no other conditions mentioned",True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Clinical_Assessments_Radiological_Lesions,"CT scan and CXR are pending, naso-pharyngo-laryngoscopy was normal",True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,1,Clinical_TNM,T1 N0 M0,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,EBER_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,1,ECOG_Performance_Status,"0 [Converted from KPS, where 100% corresponds to ECOG 0",True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Follow_Up_Plans,Patient will be seen next after tests are completed,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,HPV_Status,Negative,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Immunohistochemical_profile,P16 negative,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Karnofsky_Performance_Status,100 [Based on the performance status mentioned in the examination as 100%,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,1,Pack_Years,0,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Pathological_TNM,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,1,Pathology_Details,"well differentiated squamous cell carcinoma, P16 negative",True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Patient_History_Status_Previous_Treatments,ASA,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Patient_History_Status_Prior_Conditions,"DVT, sleep apnea",True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Patient_Symptoms_at_Presentation,"Discomfort, felt mass on the right aspect of the oral tongue",True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,1,Primary_Tumor_Size,1.5 cm,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Resection_Margins,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,1,Sex,M,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Smoking_History,Non-Smoker,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Treatment_Recommendations,Perioperative brachytherapy,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,Tumor_Type_Differentiation,Well differentiated,True,1,0,0,0
+Group2_Consultation_Notes_Only,1,p16_Status,Negative,True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Alcohol_Consumption,Drinker [3-5 beers per day,True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Anatomic_Site_of_Lesion,"Skin of the upper back area, mixed basaloid and squamous carcinoma",True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Charlson_Comorbidity_Score,"0 [No comorbidities mentioned other than the patient's current cancer diagnosis, which does not contribute points in this scoring system without additional complications",True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Clinical_Assessments_Radiological_Lesions,"Neck CT showed a 1.5 cm hypodense mass at the left posterior neck, PET scan showed isolated uptake (SUV 13) at the left level 5B lymph node",True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Clinical_Assessments_SUV_from_PET_scans,"SUV 13 at the left level 5B lymph node, maximal SUV of 2.9 at bilateral subsentimetric lymph nodes (deemed reactive)",True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Clinical_TNM,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,2,EBER_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,2,ECOG_Performance_Status,"0 [Based on KPS conversion, a KPS score of 100% corresponds to an ECOG performance status of 0",True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Follow_Up_Plans,"Patient to return at the time of CT simulation, consultation for consideration of concomitant chemotherapy",True,1,0,0,0
+Group2_Consultation_Notes_Only,2,HPV_Status,Not Inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,2,Immunohistochemical_profile,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,2,Karnofsky_Performance_Status,"100 [Patient has full function of left arm, denies any limitation in mobility or sensory abnormalities, and review of systems is quite negative",True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Lymph_Node_Status_Extranodal_Extension,Present,True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,5,True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Lymphovascular_Invasion_Status,Present,True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Pack_Years,25,True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Pathological_TNM,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,2,Pathology_Details,"Mixed basaloid and squamous carcinoma, superficial and infiltrating basal cell carcinoma with focal squamoid features",True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Patient_History_Status_Previous_Treatments,None mentioned,True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Patient_History_Status_Prior_Conditions,Chronic lower back pain,True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Patient_Symptoms_at_Presentation,"Chronic lower back pain, poor dentition, no other symptoms",True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Perineural_Invasion_Status,Present,True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Primary_Tumor_Size,"Approximately 5 cm (original lesion), 1.5 cm (hypodense mass at the left posterior neck)",True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Resection_Margins,"Focal close, less than 1 mm, deep margins",True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Sex,M,True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Smoking_History,Smoker,True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Treatment_Recommendations,"Adjuvant external beam radiotherapy, possible concomitant systemic treatment or concomitant chemotherapy",True,1,0,0,0
+Group2_Consultation_Notes_Only,2,Tumor_Type_Differentiation,Poorly differentiated,False,0,1,0,0
+Group2_Consultation_Notes_Only,2,p16_Status,Not Inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,3,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Anatomic_Site_of_Lesion,"hard palate, adenoid cystic carcinoma",True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Charlson_Comorbidity_Score,0 [No comorbidities are present,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Clinical_Assessments_Radiological_Lesions,"CT scan showing a bulging hypodense soft tissue lesion, permeative change and invasion of adjacent bone, involvement with an additional large soft tissue component within the right maxillary sinus",True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,3,Clinical_TNM,T4 N1 M0,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,EBER_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,3,ECOG_Performance_Status,"0 [Assuming a perfect correlation between KPS and ECOG, where 100% KPS corresponds to ECOG 0",True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Follow_Up_Plans,"Patient will be seen by dentistry, CT chest will be requested to complete staging",True,1,0,0,0
+Group2_Consultation_Notes_Only,3,HPV_Status,Not Inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,3,Immunohistochemical_profile,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,3,Karnofsky_Performance_Status,100% [Performance Status is explicitly stated as 100%,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,3,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,3,Pack_Years,0,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Pathological_TNM,pT4aN1,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Pathology_Details,"moderately differentiated adenoid cystic carcinoma involving the maxillary sinus, hard palate",True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Patient_History_Status_Previous_Treatments,Nil,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Patient_History_Status_Prior_Conditions,Nil,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Patient_Symptoms_at_Presentation,Painless mass on the hard palate,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Perineural_Invasion_Status,Present,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Primary_Tumor_Size,1.6 x 1.2 cm (and an additional large soft tissue component within the right maxillary sinus measuring 2.8 x 2.1 cm in diameter),True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Resection_Margins,diffusely positive margins,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Sex,M,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Smoking_History,Non-Smoker,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Treatment_Recommendations,"Post-operative radiotherapy, chemotherapy on the [PROTOCOLNUMBER",True,1,0,0,0
+Group2_Consultation_Notes_Only,3,Tumor_Type_Differentiation,Moderately differentiated,True,1,0,0,0
+Group2_Consultation_Notes_Only,3,p16_Status,Not Inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,4,Alcohol_Consumption,Not Inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,4,Anatomic_Site_of_Lesion,"oropharynx, Squamous cell carcinoma",True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Charlson_Comorbidity_Score,0 [No comorbidities mentioned in the text,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Clinical_Assessments_Radiological_Lesions,"CT scan of the neck revealed a 2.2 cm right tonsillar fossa lesion, Naso-pharyngo-laryngoscopy was unremarkable",True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,4,Clinical_TNM,T3 N0 Mx,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,EBER_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,4,ECOG_Performance_Status,"0 [A KPS of 100 corresponds to an ECOG of 0, indicating the patient is fully active and able to carry on all pre-disease activities without restriction",True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Follow_Up_Plans,"Patient will be seen by dentistry, eligible for the proactive trial, PET in treatment position is requested",True,1,0,0,0
+Group2_Consultation_Notes_Only,4,HPV_Status,Positive,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Immunohistochemical_profile,P16 positive,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Karnofsky_Performance_Status,100 [The patient has a performance status of 100% as stated in the examination section,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,4,Pack_Years,5,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Pathological_TNM,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,4,Pathology_Details,"poorly differentiated squamous cell carcinoma, P16 positive",True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Patient_History_Status_Previous_Treatments,"D TABS, DEXILANT, LAX A DAY, NAPROXEN",True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Patient_History_Status_Prior_Conditions,Nil,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Patient_Symptoms_at_Presentation,"Right odynophagia, occasional hematemesis",True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,4,Primary_Tumor_Size,more than 4 cm,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Resection_Margins,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,4,Sex,F,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Smoking_History,Ex-smoker,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Treatment_Recommendations,Chemo-radiotherapy,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group2_Consultation_Notes_Only,4,p16_Status,Positive,True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Anatomic_Site_of_Lesion,"oropharynx, left tonsil, squamous cell carcinoma",True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Charlson_Comorbidity_Score,"3 [1 point for hypertension (HTN), 1 point for mild liver disease is not mentioned but DLP could be related to a condition like this however it is unclear what DLP stands for so we will ignore it and 1 point for GERD or peptic ulcer disease",True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Clinical_Assessments_Radiological_Lesions,"CT (left tonsil mass, multiple left sided cervical LNs), MRI (4 cm mass in the left tonsil, left sided cervical LAPs)",True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,5,Clinical_TNM,T2 N2b Mx,True,1,0,0,0
+Group2_Consultation_Notes_Only,5,EBER_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,5,ECOG_Performance_Status,"0 [The patient has an ECOG score of 0, indicating the patient is fully active and able to carry on all pre-disease performance without restriction",True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Follow_Up_Plans,Patient will be seen by dentistry,True,1,0,0,0
+Group2_Consultation_Notes_Only,5,HPV_Status,Positive,True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Immunohistochemical_profile,p16+ve,True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Karnofsky_Performance_Status,"100 [ECOG 0 corresponds to a KPS of 100, as ECOG 0 indicates the patient is fully active and able to carry on all pre-disease performance without restriction",True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,5,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,5,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,5,Pack_Years,0,True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Pathological_TNM,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,5,Pathology_Details,poorly differentiated p16+ve squamous cell carcinoma,True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Patient_History_Status_Previous_Treatments,"Statin, Cadesartan, Nexium",True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Patient_History_Status_Prior_Conditions,"DLP, HTN, GERD",True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Patient_Symptoms_at_Presentation,Mild sore throat,True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,5,Primary_Tumor_Size,"3.8 cm (CT), 4 cm (MRI)",True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Resection_Margins,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,5,Sex,M,True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Smoking_History,Non-Smoker,True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Treatment_Recommendations,Chemo-radiotherapy,True,1,0,0,0
+Group2_Consultation_Notes_Only,5,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group2_Consultation_Notes_Only,5,p16_Status,Positive,True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Alcohol_Consumption,Not Inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,6,Anatomic_Site_of_Lesion,"Larynx, squamous cell carcinoma",True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Charlson_Comorbidity_Score,2 [1 point for hypertension and 1 point for hyperlipidemia,False,0,1,0,0
+Group2_Consultation_Notes_Only,6,Clinical_Assessments_Radiological_Lesions,"CT scan of the neck revealed a mass at the level of the left true vocal cord extending to the paraglottic space, no suspicious adenopathy, ill-defined mass in the left thyroid lobe with multiple calcifications",True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,6,Clinical_TNM,"T3, N0, Mx",True,1,0,0,0
+Group2_Consultation_Notes_Only,6,EBER_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,6,ECOG_Performance_Status,"0 [Assuming ECOG 0 corresponds to KPS 100, indicating the patient is fully active and able to carry on all pre-disease performance without restriction",True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Follow_Up_Plans,"The patient will be seen in medical oncology, gastroenterology for insertion of a PEG tube, dentistry, and audiology testing will be performed, CT simulated and seen in follow-up shortly",True,1,0,0,0
+Group2_Consultation_Notes_Only,6,HPV_Status,Negative,True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Immunohistochemical_profile,p16 negative,True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Karnofsky_Performance_Status,100 [The patient is described as a well-appearing gentleman in no acute distress with a KPS of 100,True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,6,Pack_Years,0,True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Pathological_TNM,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,6,Pathology_Details,"Invasive well-differentiated squamous cell carcinoma, p16 negative",True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Patient_History_Status_Previous_Treatments,"Lopressor, Norvasc, Atacand, Crestor, ASA, Remote appendectomy",True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Patient_History_Status_Prior_Conditions,"Hypertension, Hyperlipidemia",True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Patient_Symptoms_at_Presentation,Hoarseness of voice,True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,6,Primary_Tumor_Size,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,6,Resection_Margins,Not inferred,True,0,0,1,0
+Group2_Consultation_Notes_Only,6,Sex,M,True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Smoking_History,Non-Smoker,True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Treatment_Recommendations,Radiotherapy,True,1,0,0,0
+Group2_Consultation_Notes_Only,6,Tumor_Type_Differentiation,Well differentiated,True,1,0,0,0
+Group2_Consultation_Notes_Only,6,p16_Status,Negative,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Alcohol_Consumption,Drinker [socially,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Anatomic_Site_of_Lesion,"right base of tongue, P16 positive SCC",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Charlson_Comorbidity_Score,"3 [1 point for hypertension, 1 point for hypothyroidism (mild), and 1 point for tachycardia (considered under cardiac conditions)",False,0,1,0,0
+Group2_Pathology_and_Consultation_Report,1,Clinical_Assessments_Radiological_Lesions,"CT scan neck reveals a 1.5 cm right base of tongue lesion, MRI confirms the finding with a suspicious small ipsilateral neck LN, CT chest is negative",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,1,Clinical_TNM,T1 N1 M0,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,EBER_Status,Not inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,1,ECOG_Performance_Status,"0 [Equivalent to KPS 100, indicating fully active and able to carry on all pre-disease activities",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Follow_Up_Plans,Patient will be seen by dentistry,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,HPV_Status,Positive,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Immunohistochemical_profile,P16 positive,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Karnofsky_Performance_Status,100 [Patient has a performance status of 100% as mentioned in the examination,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Pack_Years,Not Inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,1,Pathological_TNM,pT1 N1 M0,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Pathology_Details,"poorly differentiated squamous cell carcinoma, tumor invading muscle",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Patient_History_Status_Previous_Treatments,"Synthroid, Valsartan, AV node ablation",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Patient_History_Status_Prior_Conditions,"Hypothyroidism, Tachycardia, HTN",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Patient_Symptoms_at_Presentation,Dysphagia,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Perineural_Invasion_Status,Present,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Primary_Tumor_Size,1.8 x 1.7 x 1 cm,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Resection_Margins,"margins uninvolved by invasive carcinoma, distance from closest mucosal margin",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Sex,M,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Smoking_History,Ex-smoker,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Treatment_Recommendations,Adjuvant radiation,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,1,p16_Status,Positive,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Anatomic_Site_of_Lesion,"Oral tongue, squamous cell carcinoma",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Charlson_Comorbidity_Score,"4 [1 point for diabetes without complications, 1 point for mild liver disease (cirrhosis), 1 point for hypertension, 1 point for auto-immune hepatitis",False,0,1,0,0
+Group2_Pathology_and_Consultation_Report,2,Clinical_Assessments_Radiological_Lesions,"CT brain, neck, and thorax showed no intra-cranial disease, soft tissue density at the right dorsal lateral aspect of the tongue, 8mm left supraclavicular lymph node, and no intra-thoracic disease",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,2,Clinical_TNM,T1 N0 M0,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,EBER_Status,Not inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,2,ECOG_Performance_Status,"1 [Equivalent to a Karnofsky score of 90%, indicating the patient is able to carry on normal activity with only minor symptoms",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Follow_Up_Plans,Patient will be seen next at the time of surgery,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,HPV_Status,Negative,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Immunohistochemical_profile,p16,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Karnofsky_Performance_Status,90 [Patient has a performance status of 90% with only minor signs/symptoms,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1 (8mm left supraclavicular lymph node),True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Pack_Years,0,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Pathological_TNM,pT1 pNX,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Pathology_Details,"Squamous cell carcinoma, well differentiated and moderately differentiated, severe keratinizing dysplasia, p16 negative",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Patient_History_Status_Previous_Treatments,"Imuran, avapro, insuline, lyrica 150mg, prednisone 5mg, cholecystectomy",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Patient_History_Status_Prior_Conditions,"Auto-immune hepatitis, secondary stable cirrhosis, diabetes, insulin dependent, hypertension",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Patient_Symptoms_at_Presentation,"Burning sensation on the right front side of the tongue, whitish color, mild mouth dryness, mild heartburn/dyspepsia",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Perineural_Invasion_Status,Absent,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Primary_Tumor_Size,"2 mm thickness, tumor size cannot be determined for one specimen, and 1.4 x 0.8 x 0.5 cm for the other",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Resection_Margins,"Deep margin uninvolved by invasive carcinoma for one specimen, mucosal margin involved for the same, and deep margin involved for the other specimen",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Sex,F,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Smoking_History,Non-Smoker,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Treatment_Recommendations,Glossectomy with brachytherapy,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,Tumor_Type_Differentiation,Moderately differentiated,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,2,p16_Status,Negative,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Alcohol_Consumption,Drinker [amount not specified,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Anatomic_Site_of_Lesion,"Left gingivo-buccal mucosa, oral cavity, squamous cell carcinoma",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Charlson_Comorbidity_Score,"2 [1 point for hypertension, 1 point for history of tumor (thyroidectomy)",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Clinical_Assessments_Radiological_Lesions,"CT neck reveals an enhancing area of soft tissue thickening measuring 2.7 x 1.0 cm, CT chest reveals Solitary right lower lobe nodule measuring 5 mm, Naso-pharyngo-laryngoscopy was normal",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,3,Clinical_TNM,T4a N2b M0,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,EBER_Status,Not inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,3,ECOG_Performance_Status,"0 [inferred from Karnofsky Performance Status of 100%, corresponding to ECOG 0, which represents fully active and able to carry on all pre-disease performance without restriction",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Follow_Up_Plans,Patient will be seen by dentistry and at the time of surgery,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,HPV_Status,Negative,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Immunohistochemical_profile,P16 immunostaining negative,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Karnofsky_Performance_Status,"100% [based on the statement ""Performance Status",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Extranodal_Extension,Present,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,4,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Pack_Years,Not Inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,3,Pathological_TNM,T4a N2b M0,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Pathology_Details,"Moderately to poorly differentiated squamous cell carcinoma, tumor involving buccal mucosa and muscle, retromolar trigone and invading mandibular bone",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Patient_History_Status_Previous_Treatments,"Synthroid, coversyl",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Patient_History_Status_Prior_Conditions,"Hypertension, history of thyroidectomy for tumor 40 years ago",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Patient_Symptoms_at_Presentation,"Slowly growing ulcer over the left gingiva, residual sialocele",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Perineural_Invasion_Status,Absent,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Primary_Tumor_Size,4.1 x 3.5 x 0.8 cm,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Resection_Margins,"Mucosal margins uninvolved by invasive carcinoma, distance of invasive carcinoma from closest margin",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Sex,M,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Smoking_History,Ex-smoker,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Treatment_Recommendations,Post-operative chemoradiotherapy,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,Tumor_Type_Differentiation,Moderately to poorly differentiated,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,3,p16_Status,Negative,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Alcohol_Consumption,Drinker [Mild,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Anatomic_Site_of_Lesion,"Right tongue, squamous cell carcinoma",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Charlson_Comorbidity_Score,"2 [1 point for mild liver disease (steatotic liver) and 1 point for smoking history, no other comorbidities mentioned",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Clinical_Assessments_Radiological_Lesions,"CT scan of the neck shows a 2.7 x 1.7 cm enhancing mass with central ulceration involving the right anterior aspect of the oral tongue, indeterminate right level 1B node",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,4,Clinical_TNM,T2 N0 M0,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,EBER_Status,Not inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,4,ECOG_Performance_Status,"0 [Based on the Karnofsky Performance Status of 100, which corresponds to a fully active and able to carry on all pre-disease performance without restriction, equivalent to an ECOG score of 0.",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Follow_Up_Plans,"Admitting patient for surgery with catheter insertion, followed by brachytherapy peri-operatively, further assessment and treatment based on pathology results",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,HPV_Status,Negative,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Immunohistochemical_profile,P16 negative,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Karnofsky_Performance_Status,"100 [Patient has no evidence of impaired alertness, inadequate appearance, premature or advanced chronologic age, uncooperativeness, developmental delays, altered mood and affect, and disorientation. The patient is also able to undergo surgery and treatment without any reported limitations.",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Pack_Years,20,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Pathological_TNM,Not inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,4,Pathology_Details,"Moderately-differentiated squamous cell carcinoma, no definite vascular or perineural invasion identified",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Patient_History_Status_Previous_Treatments,Tylenol prn for pain,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Patient_History_Status_Prior_Conditions,Nil,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Patient_Symptoms_at_Presentation,"Right lateral tongue pain, mild ear pain on the right side, 3cm ulcerated lesion involving the inferior aspect of the right lateral tongue",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Perineural_Invasion_Status,Absent,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Primary_Tumor_Size,2.9 x 2.3 x 1.8 cm,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Resection_Margins,"Negative for neoplasia, closest margin 1.7 mm from tumor",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Sex,M,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Smoking_History,Smoker,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Treatment_Recommendations,"Post-operative brachytherapy, possible adjuvant external beam radiotherapy",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,Tumor_Type_Differentiation,Moderately differentiated,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,4,p16_Status,Negative,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Anatomic_Site_of_Lesion,"Larynx, squamous cell carcinoma",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Charlson_Comorbidity_Score,"2 [1 point for high blood pressure (hypertension), 1 point for glaucoma is not directly listed but can be considered under mild liver disease or other conditions without clear points assigned; however, given the direct options provided and typical scoring, we focus on clearly identifiable conditions like hypertension",False,0,1,0,0
+Group2_Pathology_and_Consultation_Report,5,Clinical_Assessments_Radiological_Lesions,"CT scan neck revealed infiltrative enhancing mass, CT chest is clear",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,5,Clinical_TNM,T4 N1 M0,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,EBER_Status,Not inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,5,ECOG_Performance_Status,"0 [Assuming ECOG 0 corresponds to a Karnofsky score of 90-100, indicating the patient is fully active and able to carry on all pre-disease activities without restriction",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Follow_Up_Plans,Patient will be seen next in planning,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,HPV_Status,Negative,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Immunohistochemical_profile,p16 negative,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Karnofsky_Performance_Status,"90 [The performance status is explicitly mentioned as 90% in the text, indicating a high level of functioning",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Lymphovascular_Invasion_Status,Present,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Pack_Years,0,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Pathological_TNM,T4 N1 M0,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Pathology_Details,"Moderately to poorly differentiated squamous cell carcinoma, p16 immunostain negative",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Patient_History_Status_Previous_Treatments,"Laser resection for vocal cord cancer, drops for glaucoma, telmisartan, amlodipine",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Patient_History_Status_Prior_Conditions,"High blood pressure, glaucoma, benign prostate hyperplasia",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Patient_Symptoms_at_Presentation,"Shortness of breath, difficulty swallowing, weight loss",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group2_Pathology_and_Consultation_Report,5,Primary_Tumor_Size,"3.2 x 2.8 x 3.7 cm, 4 cm transglottic",True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Resection_Margins,Close deep margins at 0.2mm,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Sex,M,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Smoking_History,Non-Smoker,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Treatment_Recommendations,Post-operative radiotherapy,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group2_Pathology_and_Consultation_Report,5,p16_Status,Negative,True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Anatomic_Site_of_Lesion,Base of tongue squamous cell carcinoma,True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Charlson_Comorbidity_Score,0 [No comorbidities mentioned,True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Clinical_Assessments_Radiological_Lesions,"CT and PET scan showed a conglomerate of lymphadenopathy in the left level II lymph node station, a hypermetabolic lesion involving the base of the tongue, and other involved lymph nodes",True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Clinical_Assessments_SUV_from_PET_scans,"Maximum SUV of 10.3 increasing to 11.3 on late images for the lymphadenopathy, initial SUV of 11.5 increasing to 13.6 on late imaging for the primary lesion",True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Clinical_TNM,"T2, N3",True,1,0,0,0
+Group3_Consultation_Notes_Only,1,EBER_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,1,ECOG_Performance_Status,"0 [Assuming a direct conversion from KPS, where 90-100 corresponds to ECOG 0",True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Follow_Up_Plans,"patient will meet with the research coordinator for more information on the NCIC HN.6 research protocol, patient will be sent to dentistry, medical oncology, audiology, and GI for prophylactic PEG as preparation for treatment",True,1,0,0,0
+Group3_Consultation_Notes_Only,1,HPV_Status,Positive,True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Immunohistochemical_profile,p16 positive,True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Karnofsky_Performance_Status,90 [Performance status is evaluated at 90 during physical examination,True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,1,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,Multiple {including a conglomerate of lymphadenopathy in the left level II lymph node station and other involved lymph nodes},True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,1,Pack_Years,25,True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Pathological_TNM,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,1,Pathology_Details,"Squamous cell carcinoma, p16 positive",True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Patient_History_Status_Previous_Treatments,No medication,True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Patient_History_Status_Prior_Conditions,"appendicectomy, inguinal hernia surgery",True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Patient_Symptoms_at_Presentation,"dysgeusia, dysphagia with solid foods, left otalgia",True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,1,Primary_Tumor_Size,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,1,Resection_Margins,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,1,Sex,M,True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Smoking_History,Ex-smoker,True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Treatment_Recommendations,"external beam radiotherapy directed to the lesion as well as the ipsilateral neck and contralateral neck with concomitant chemotherapy, accelerated radiotherapy with EGFR inhibitor",True,1,0,0,0
+Group3_Consultation_Notes_Only,1,Tumor_Type_Differentiation,Not Inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,1,p16_Status,Positive,True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Alcohol_Consumption,Drinker [occasional,True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Anatomic_Site_of_Lesion,"Hypopharynx and soft palate, synchronous primaries of moderately-differentiated invasive squamous cell carcinoma",True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Charlson_Comorbidity_Score,"4 [2 points for coronary artery disease, 1 point for hypercholesterolemia, and 1 point for previous cancer (superficial bladder transitional cell carcinoma)",False,0,1,0,0
+Group3_Consultation_Notes_Only,2,Clinical_Assessments_Radiological_Lesions,"CT scan of the head and neck region showed a left hypopharyngeal mass extending to the left paraglottic fat and abutting the left thyroid cartilage, no significant lymphadenopathies; flexible nasopharyngolaryngoscopy revealed an immobile left vocal cord and a mass involving the left piriform sinus",True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,2,Clinical_TNM,"T3N1 for hypopharyngeal primary, T2N0 for soft palate primary",True,1,0,0,0
+Group3_Consultation_Notes_Only,2,EBER_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,2,ECOG_Performance_Status,"0 [Assuming a KPS of 90 corresponds to an ECOG of 0, as they are both measures of performance status",True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Follow_Up_Plans,"Dental evaluation, baseline audiogram, PET scan, speech therapy with modified barium swallow",True,1,0,0,0
+Group3_Consultation_Notes_Only,2,HPV_Status,Negative,True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Immunohistochemical_profile,p16 negative,True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Karnofsky_Performance_Status,"90 [Based on the statement ""Performance status is evaluated at 90""",True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,2,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1 {left level 3 lymph node measuring about 1.5 centimeters},True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,2,Pack_Years,Not Inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,2,Pathological_TNM,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,2,Pathology_Details,"Moderately-differentiated squamous cell carcinoma, p16 negative",True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Patient_History_Status_Previous_Treatments,"Intravesical chemotherapy, lorazepam, Apo-Verap, Asaphen, Novo-Triptyn, Lipitor, Flovent, salbutamol inhalators, Flomax",True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Patient_History_Status_Prior_Conditions,"Superficial bladder transitional cell carcinoma, coronary artery disease, hypercholesterolemia",True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Patient_Symptoms_at_Presentation,"Dysphagia, pneumonia",True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,2,Primary_Tumor_Size,"15 x 22 millimeters for hypopharyngeal mass, 2 x 1 centimeters in diameter for soft palate lesion",True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Resection_Margins,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,2,Sex,M,True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Smoking_History,Ex-smoker,True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Treatment_Recommendations,Radical course of external beam radiotherapy with concomitant chemotherapy,True,1,0,0,0
+Group3_Consultation_Notes_Only,2,Tumor_Type_Differentiation,Moderately differentiated,True,1,0,0,0
+Group3_Consultation_Notes_Only,2,p16_Status,Negative,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Alcohol_Consumption,Drinker [1 glass of wine/day,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Anatomic_Site_of_Lesion,"right cheek, Squamous cell carcinoma",True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Charlson_Comorbidity_Score,1 [Epilepsy is assigned 1 point,False,0,1,0,0
+Group3_Consultation_Notes_Only,3,Clinical_Assessments_Radiological_Lesions,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,3,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,3,Clinical_TNM,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,3,EBER_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,3,ECOG_Performance_Status,"0 [Converted from KPS of 90, which typically corresponds to ECOG 0",True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Follow_Up_Plans,Patient will receive radiotherapy before I-131 radioactive iodine treatment,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,HPV_Status,Not Inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,3,Immunohistochemical_profile,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,3,Karnofsky_Performance_Status,90 [Directly stated in the text,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Pack_Years,0,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Pathological_TNM,pT2 Nx,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Pathology_Details,"SCC with basaloid features, moderately differentiated",True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Patient_History_Status_Previous_Treatments,"Synthroid, Primidone",True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Patient_History_Status_Prior_Conditions,Epilepsy,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Patient_Symptoms_at_Presentation,"No redness, no itching, no other symptoms, tender postop scar on right cheek",True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,3,Primary_Tumor_Size,0.5 x 0.3 x 0.3 cm,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Resection_Margins,"close margins (closest at 2.2 mm), deep margins not involved (closest at 1.1 mm)",True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Sex,F,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Smoking_History,Non-Smoker,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Treatment_Recommendations,Radiotherapy,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,Tumor_Type_Differentiation,Moderately differentiated,True,1,0,0,0
+Group3_Consultation_Notes_Only,3,p16_Status,Not Inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,4,Alcohol_Consumption,Not Inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,4,Anatomic_Site_of_Lesion,"right tonsil, oropharynx, squamous cell carcinoma",True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Charlson_Comorbidity_Score,"1 [The patient has coronary artery disease, which is assigned 1 point. No other comorbidities are mentioned.",True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Clinical_Assessments_Radiological_Lesions,"CT scan neck shows right tonsillar fossa mass, CT chest is negative, naso-pharyngo-laryngoscopy was normal",True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,4,Clinical_TNM,T3 N1 M0,True,1,0,0,0
+Group3_Consultation_Notes_Only,4,EBER_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,4,ECOG_Performance_Status,"0 [A KPS of 100% corresponds to an ECOG of 0, indicating the patient is fully active and able to carry on all pre-disease activities without restriction.",True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Follow_Up_Plans,patient will be seen in the multidisciplinary clinic next week,True,1,0,0,0
+Group3_Consultation_Notes_Only,4,HPV_Status,Positive,True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Immunohistochemical_profile,P16 positive,True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Karnofsky_Performance_Status,100 [The patient's performance status is explicitly stated as 100%.,True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,4,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1 {ipsilateral level 2 pathological Ln},True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,4,Pack_Years,0,True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Pathological_TNM,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,4,Pathology_Details,P16 positive SCC,True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Patient_History_Status_Previous_Treatments,"Iron supplement, Rosuvastatin, clopidrogrel, perindopril, bisoprolol",True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Patient_History_Status_Prior_Conditions,coronary artery disease,True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Patient_Symptoms_at_Presentation,recurrent hemoptysis,True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,4,Primary_Tumor_Size,4.5 cm,True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Resection_Margins,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,4,Sex,M,True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Smoking_History,Non-Smoker,True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Treatment_Recommendations,"laser excision vs radiotherapy, chemo-radiotherapy (options to be discussed in multidisciplinary clinic)",True,1,0,0,0
+Group3_Consultation_Notes_Only,4,Tumor_Type_Differentiation,Not Inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,4,p16_Status,Positive,True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Alcohol_Consumption,Drinker [6 ounces of gin per day,True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Anatomic_Site_of_Lesion,"right tonsil, invasive squamous cell carcinoma",True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Charlson_Comorbidity_Score,0 [No comorbidities mentioned,True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Clinical_Assessments_Radiological_Lesions,"CT scan of the neck revealed an increase in the size and number of cervical lymph nodes, with the largest lymph node measuring 17 mm in the right submandibular region; CT scan of the chest showed no evidence of parenchymal or mediastinal abnormalities",True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,5,Clinical_TNM,"T4, N2c, Mx",True,1,0,0,0
+Group3_Consultation_Notes_Only,5,EBER_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,5,ECOG_Performance_Status,"1 [Converted from KPS, where a KPS score of 90 corresponds approximately to an ECOG score of 1, indicating the patient is restricted in strenuous activity but is ambulatory and able to do light work",True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Follow_Up_Plans,"Patient to review consent form and notify of decision, consultations with Dentistry, Audiology, Gastroenterology, PET CT scan for staging and radiotherapy planning purposes",True,1,0,0,0
+Group3_Consultation_Notes_Only,5,HPV_Status,Not Inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,5,Immunohistochemical_profile,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,5,Karnofsky_Performance_Status,"90 [Directly stated in the report, indicating the patient has a good performance status with some symptoms or signs of disease but is still able to carry on normal activities",True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,5,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,"Multiple (lymph nodes in the bilateral neck region, with the largest measuring approximately 2 cm)",True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Lymphovascular_Invasion_Status,Present,True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Pack_Years,0,True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Pathological_TNM,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,5,Pathology_Details,Moderately to poorly differentiated (Grade 3/3) invasive squamous cell carcinoma with evidence of lymphovascular invasion,True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Patient_History_Status_Previous_Treatments,Codeine,True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Patient_History_Status_Prior_Conditions,Non-contributory,True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Patient_Symptoms_at_Presentation,"Dysphagia, mild odynophagia, increase in size of right neck mass, new palpable lesions, weight loss (15-20 pounds)",True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,5,Primary_Tumor_Size,Approximately 3.5 cm in the anterior/posterior and transverse dimensions,True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Resection_Margins,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,5,Sex,M,True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Smoking_History,Non-Smoker,True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Treatment_Recommendations,"Concurrent chemoradiation therapy, possibility of participating in the RTOG 0522 trial evaluating the benefit of Cetuximab with concurrent chemoradiation therapy",True,1,0,0,0
+Group3_Consultation_Notes_Only,5,Tumor_Type_Differentiation,Moderately to poorly differentiated,True,1,0,0,0
+Group3_Consultation_Notes_Only,5,p16_Status,Not Inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,6,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Anatomic_Site_of_Lesion,"Thyroid, anaplastic thyroid carcinoma",True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Charlson_Comorbidity_Score,"1 [Epilepsy is a condition that contributes to the score but isn't directly listed in the Charlson Comorbidity Index; however, considering it as a condition similar to those requiring points and hypothyroidism without complications as 1 point each",False,0,1,0,0
+Group3_Consultation_Notes_Only,6,Clinical_Assessments_Radiological_Lesions,"CT neck shows marked enlargement of the thyroid, pathologic lymphadenopathy including level 7 nodes, right JD, left lateral retropharyngeal node, right level 5, left level 5, and right level 3",True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,6,Clinical_TNM,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,6,EBER_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,6,ECOG_Performance_Status,2 [Given directly in the text,True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Follow_Up_Plans,patient will be evaluated by medical oncology on [DATE,True,1,0,0,0
+Group3_Consultation_Notes_Only,6,HPV_Status,Not Inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,6,Immunohistochemical_profile,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,6,Karnofsky_Performance_Status,"80 [Assuming ECOG 2 corresponds roughly to a KPS of 80, given that an ECOG of 2 indicates the patient is capable of self-care but unable to carry out work activities",True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,6,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,26,True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Lymphovascular_Invasion_Status,Present,True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Pack_Years,Not Inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,6,Pathological_TNM,pT4bN1b,True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Pathology_Details,"Anaplastic thyroid carcinoma with extensive lymphovascular invasion, positive margins",True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Patient_History_Status_Previous_Treatments,"Phenytoin, ASA, synthroid, calcium and vitamin D supplement, tubal ligation",True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Patient_History_Status_Prior_Conditions,"epilepsy, hypothyroidism",True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Patient_Symptoms_at_Presentation,"generalized weakness, hair fall, dryness of skin, constipation, weight gain, dyspnea, dysphagia, hoarseness of the voice",True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Consultation_Notes_Only,6,Primary_Tumor_Size,"7.9 x 4.7 cm, largest foci 5.8x5.1x3 cm",True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Resection_Margins,Positive,True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Sex,F,True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Smoking_History,Smoker,True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Treatment_Recommendations,adjuvant chemoradiotherapy,True,1,0,0,0
+Group3_Consultation_Notes_Only,6,Tumor_Type_Differentiation,Anaplastic,True,1,0,0,0
+Group3_Consultation_Notes_Only,6,p16_Status,Not Inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,1,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Anatomic_Site_of_Lesion,"post cricoid region, squamous cell carcinoma",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Charlson_Comorbidity_Score,"2 [1 point for hypertension, 1 point for hypothyroidism (mild liver disease is not mentioned, but these conditions are scored)",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Clinical_Assessments_Radiological_Lesions,"CT scan showed enlargement of both aryepiglottic folds with the mass originating from the postcricoid area invading both cricoids, MRI confirmed the finding and commented about abnormal signal intensity of the entire larynx, cricoid, thyroid, and right arytenoid cartilage",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,1,Clinical_TNM,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,1,EBER_Status,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,1,ECOG_Performance_Status,"1 [ converted from KPS of 70, where a KPS of 70-80 corresponds to an ECOG of 1",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Follow_Up_Plans,Assessment by [PERSON,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,HPV_Status,Negative,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Immunohistochemical_profile,P16,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Karnofsky_Performance_Status,70 [directly stated in the text,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Lymphovascular_Invasion_Status,Present,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Pack_Years,0,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Pathological_TNM,"T4, N0",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Pathology_Details,"Invasive moderately differentiated squamous cell carcinoma, grade 2/3, with perineural invasion and lymphovascular invasion",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Patient_History_Status_Previous_Treatments,"Thyroidectomy, Atenolol, thyroxine, lansoprazole, Tylenol p.r.n., ferrous sulfate",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Patient_History_Status_Prior_Conditions,"Hypertension, hypothyroidism",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Patient_Symptoms_at_Presentation,"Progressive dysphagia, dyspnea, stridor, weight loss of six pounds",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Perineural_Invasion_Status,Present,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Primary_Tumor_Size,3.2 x 2.9 x 1.4 cm,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Resection_Margins,"close margin less than 1 millimeter for the deep margin, initial positive margin at the esophageal mucosa was revised and found to be negative",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Sex,F,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Smoking_History,Non-Smoker,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Treatment_Recommendations,"Adjuvant radiation therapy, consideration of concurrent chemotherapy",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,Tumor_Type_Differentiation,Moderately differentiated,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,1,p16_Status,Negative,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Alcohol_Consumption,Drinker [occasional,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Anatomic_Site_of_Lesion,"Right oral tongue, Squamous cell carcinoma",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Charlson_Comorbidity_Score,"1 [The patient has hypothyroidism, which is assigned 1 point.",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Clinical_Assessments_Radiological_Lesions,"CT scan of the neck showed no evidence of lymphadenopathy, CXR was normal, Naso-pharyngo-laryngoscopy was normal",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,2,Clinical_TNM,T1 N0 M0,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,EBER_Status,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,2,ECOG_Performance_Status,"0 [A Karnofsky score of 100 corresponds to an ECOG score of 0, indicating the patient is fully active and able to carry on all pre-disease performance without restriction.",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Follow_Up_Plans,"Patient will be seen next at the time of surgery, and also by dentistry",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,HPV_Status,Negative,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Immunohistochemical_profile,P16 negative,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Karnofsky_Performance_Status,"100 [The performance status is explicitly stated as 100% - Normal, no complaints (Karnofsky).",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Pack_Years,15,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Pathological_TNM,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,2,Pathology_Details,"Superficially invasive well differentiated squamous cell carcinoma with papillary configuration, P16 negative",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Patient_History_Status_Previous_Treatments,"SYNTHROID, vitamin b12, tonsillectomy",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Patient_History_Status_Prior_Conditions,Hypothyroidism,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Patient_Symptoms_at_Presentation,"Presents with a protruding lesion, about 1 cm in the lateral aspect of her right oral tongue. The lesion is soft, mobile, polypoid. Denies lack of appetite, fatigue, fever, lethargy, malaise, night sweats, rigors / chills and change in weight.",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,2,Primary_Tumor_Size,1 cm,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Resection_Margins,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,2,Sex,F,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Smoking_History,Smoker,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Treatment_Recommendations,Perioperative brachytherapy,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,Tumor_Type_Differentiation,Well differentiated,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,2,p16_Status,Negative,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Alcohol_Consumption,Drinker [occasion,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Anatomic_Site_of_Lesion,"Nasopharynx, left lateral, Non-keratinizing carcinoma, undifferentiated",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Charlson_Comorbidity_Score,"2 [1 point for BPH (mild liver disease or diabetes without complications is not present but borderline hypercholesterolemia and other conditions like GERD can be considered under mild conditions), 1 point for other conditions that could contribute to a score, though not explicitly listed as contributing factors",False,0,1,0,0
+Group3_Pathology_and_Consultation_Report,3,Clinical_Assessments_Radiological_Lesions,"CT scan showed 1.6 cm asymmetry of left nasopharynx with enhancement extending to Rosenmuller's fossa, MRI showed abnormal thickening of left nasopharyngeal tissues, measuring 1.7 in maximum dimension with an associated left mastoid effusion",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,3,Clinical_TNM,T1N0-1,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,EBER_Status,Strong positive staining,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,ECOG_Performance_Status,"0-1 [Patient in no acute distress, able to perform daily activities",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Follow_Up_Plans,"Complete staging by obtaining a CT of the chest, referral to medical oncology, dentistry, audiology, and speech and language pathology for pre-treatment evaluation",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,HPV_Status,Negative,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Immunohistochemical_profile,"Cytokeratin AE1/AE3 positive, CK19 positive, CD45 negative, P16 negative",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Karnofsky_Performance_Status,"90-100 [The patient has an ECOG of 0-1 and is in no acute distress with normal examination results except for the nasopharynx mass, indicating a high performance status",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,3,Pack_Years,0,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Pathological_TNM,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,3,Pathology_Details,"Non-keratinizing carcinoma, undifferentiated, EBER strong positive staining, cytokeratin AE1/AE3 and CK19 positive, CD45 negative, P16 negative",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Patient_History_Status_Previous_Treatments,"Flomax, Crestor",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Patient_History_Status_Prior_Conditions,"BPH, GERD, Borderline hypercholesterolemia, Hiatal hernia repair, Nasal septum repair, Cholecystectomy, Elbow fracture and repair",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Patient_Symptoms_at_Presentation,"Increased mucous production in the back of throat, occasionally blood-tinged, blocked ears, halitosis, dry mouth, nasal congestion, new snoring when sleeping on right side, mild dysphagia",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,3,Primary_Tumor_Size,1.7 cm (from MRI),True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Resection_Margins,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,3,Sex,M,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Smoking_History,Non-Smoker,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Treatment_Recommendations,Chemoradiation,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,3,p16_Status,Negative,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Alcohol_Consumption,Drinker [occasionally,False,0,1,0,0
+Group3_Pathology_and_Consultation_Report,4,Anatomic_Site_of_Lesion,"Right lateral tongue, Moderately differentiated squamous cell carcinoma",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Charlson_Comorbidity_Score,0 [No comorbidities mentioned in the text,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Clinical_Assessments_Radiological_Lesions,"CT scan of the neck is unremarkable, CXR is normal, Naso-pharyngo-laryngoscopy was normal",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,4,Clinical_TNM,T1 N0 M0,False,0,1,0,0
+Group3_Pathology_and_Consultation_Report,4,EBER_Status,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,4,ECOG_Performance_Status,"0 [A KPS of 100% corresponds to an ECOG of 0, indicating the patient is fully active and able to carry on all pre-disease activities",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Follow_Up_Plans,Patient will be seen next at the time of surgery,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,HPV_Status,Negative,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Immunohistochemical_profile,P16 negative,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Karnofsky_Performance_Status,"100 [The patient has a performance status of 100%, indicating normal activity with no symptoms",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,4,Pack_Years,0,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Pathological_TNM,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,4,Pathology_Details,"Moderately differentiated squamous cell carcinoma invading into muscle, Depth of invasion",False,0,1,0,0
+Group3_Pathology_and_Consultation_Report,4,Patient_History_Status_Previous_Treatments,Nil,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Patient_History_Status_Prior_Conditions,Nil,False,0,1,0,0
+Group3_Pathology_and_Consultation_Report,4,Patient_Symptoms_at_Presentation,Persistent ulcer on the right side of the oral tongue,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Perineural_Invasion_Status,Present,False,0,1,0,0
+Group3_Pathology_and_Consultation_Report,4,Primary_Tumor_Size,1 cm in diameter and 5 mm in depth,False,0,1,0,0
+Group3_Pathology_and_Consultation_Report,4,Resection_Margins,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,4,Sex,M,False,0,1,0,0
+Group3_Pathology_and_Consultation_Report,4,Smoking_History,Non-Smoker,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Treatment_Recommendations,"Perioperative brachytherapy, surgical resection",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,Tumor_Type_Differentiation,Moderately differentiated,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,4,p16_Status,Negative,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Anatomic_Site_of_Lesion,"Right lateral tongue, invasive moderately differentiated squamous cell carcinoma",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Charlson_Comorbidity_Score,"3 [1 point for hypertension, 1 point for hypothyroidism, 1 point for dyslipidemia",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Clinical_Assessments_Radiological_Lesions,"CT scan of the neck showed a right anterolateral tongue lesion, measuring 2.5 cm in greatest dimensions, and invading up to 9 mm in depth; Naso-pharyngo-laryngoscopy was normal",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,5,Clinical_TNM,T2 N0 M0,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,EBER_Status,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,5,ECOG_Performance_Status,"0 [Patient has an ECOG score of 0, indicating no symptoms and full activity",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Follow_Up_Plans,"Patient will be seen next at the time of surgery, will be seen by dentistry",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,HPV_Status,Negative,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Immunohistochemical_profile,P16 negative,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Karnofsky_Performance_Status,"100 [ECOG 0 corresponds to a KPS of 100, indicating perfect health and no evidence of disease",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,5,Pack_Years,0,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Pathological_TNM,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,5,Pathology_Details,"Invasive, moderately differentiated squamous cell carcinoma, P16 negative, depth of tumor penetration at least 4 mm",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Patient_History_Status_Previous_Treatments,"Rosuvastatin, amlodipine, glyburide, atacand, metformin, synthroid",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Patient_History_Status_Prior_Conditions,"Hypertension, hypothyroidism, dyslipidemia",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Patient_Symptoms_at_Presentation,"Pain on the right side of her oral tongue, hard polypoid mass on the right lateral tongue",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,5,Primary_Tumor_Size,"2.5 cm (from CT scan), 3 cm (from oral cavity examination)",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Resection_Margins,Not inferred,True,0,0,1,0
+Group3_Pathology_and_Consultation_Report,5,Sex,F,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Smoking_History,Non-Smoker,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Treatment_Recommendations,"Partial glossectomy and cervical neck dissection, perioperative brachytherapy",True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,Tumor_Type_Differentiation,Moderately differentiated,True,1,0,0,0
+Group3_Pathology_and_Consultation_Report,5,p16_Status,Negative,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Anatomic_Site_of_Lesion,"Right base of tongue, poorly differentiated squamous cell carcinoma",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Charlson_Comorbidity_Score,"4 [Hypertension (1 point), Hypothyroidism (1 point), previous Kidney Hematoma could imply some renal disease but specifics are unclear so not counting additional points for it, and history of dyslipidemia also implies potential vascular issues but again without clear evidence of complications or severity, no additional points assigned",False,0,1,0,0
+Group4_Pathology_and_Consultation_Report,1,Clinical_Assessments_Radiological_Lesions,"CT Neck showed 2.6 cm right BOT mass and 5cm necrotic left level 2a node, CT angiography of the thorax, abdomen and pelvis showed a new 1.7 cm nodule in the RLL which could potentially be metastatic",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,1,Clinical_TNM,T2 N2c MX,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,EBER_Status,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,1,ECOG_Performance_Status,0 [Patient has an ECOG score of 0 indicating no symptoms and full activity,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Follow_Up_Plans,Full body PET scan to rule out metastatic disease before initiating treatment,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,HPV_Status,Negative,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Immunohistochemical_profile,p16 negative,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Karnofsky_Performance_Status,"100 [Based on ECOG score of 0 which typically corresponds to a KPS score of 100 as the patient is fully active, able to carry on all pre-disease performance without restriction",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Extranodal_Extension,Present (extracapsular extension noted on CT Neck),True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1 (left level II necrotic node),True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,1,Pack_Years,"0.5 (assuming 'a couple of cigarettes a day' is approximately 2-3 cigarettes per day, and with a 10 year history, this would be roughly equivalent to 0.5 pack-years per year, given that 1 pack-year is 20 cigarettes per day for 1 year)",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Pathological_TNM,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,1,Pathology_Details,"Invasive poorly differentiated squamous cell carcinoma, p16 negative",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Patient_History_Status_Previous_Treatments,"Warfarin 5mg, Cromolyn 2% eye solution, atorvastatin 40mg, Ferrous sulfate, amlodipine 5mg, jentadueto, ASA 81 mg, pantaprazole 40mg, valsartan 160 mg, synthroid 75 mcg, docusate sodium",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Patient_History_Status_Prior_Conditions,"Hypertension (HTN), Dyslipidemia (DLP), Hypothyroidism, Kidney Hematoma, Cataracts, Insomnia",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Patient_Symptoms_at_Presentation,"Left neck mass, no dysphagia, odynophagia, dysphonia, choking with feeds, chest infections, or respiratory symptoms",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,1,Primary_Tumor_Size,2.6 cm,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Resection_Margins,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,1,Sex,F,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Smoking_History,Ex-smoker,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Treatment_Recommendations,"Primary chemoradiotherapy, external beam 67.5 Gy in 30 fractions",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,1,p16_Status,Negative,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Anatomic_Site_of_Lesion,"right parotid and facial skin, squamous cell carcinoma",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Charlson_Comorbidity_Score,"2 [1 point for hypertension, 1 point for dyslipidemia",False,0,1,0,0
+Group4_Pathology_and_Consultation_Report,2,Clinical_Assessments_Radiological_Lesions,"CT scan of the neck showed a lesion in the parotid gland measuring 2.7 cm in greatest dimension, with evidence of inflammation around it",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,2,Clinical_TNM,Tx N2b Mx,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,EBER_Status,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,2,ECOG_Performance_Status,1 [patient has no significant symptoms and can perform daily activities,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Follow_Up_Plans,"Patient will be seen by dentistry, audiology, and nutrition, and followed up during treatment",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,HPV_Status,Not Inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,2,Immunohistochemical_profile,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,2,Karnofsky_Performance_Status,"90 [ECOG 1 corresponds to a Karnofsky performance status of 90, as ECOG 1 indicates the patient is able to carry on normal activity with only minor symptoms",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Extranodal_Extension,Present,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,2,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Pack_Years,5,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Pathological_TNM,pTX N2b M0,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Pathology_Details,poorly differentiated squamous cell carcinoma,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Patient_History_Status_Previous_Treatments,"Amlodipine, crestor, lopresor, naproxen, ASA, HCTZ, ramipril, excision of basal cell carcinoma and keratoacanthoma",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Patient_History_Status_Prior_Conditions,"Hypertension, dyslipidemia, basal cell carcinoma, keratoacanthoma",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Patient_Symptoms_at_Presentation,"Right parotid mass, post-operative scar issues",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Perineural_Invasion_Status,Absent,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Primary_Tumor_Size,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,2,Resection_Margins,"Deep margin involved by invasive carcinoma, peripheral margins uninvolved",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Sex,M,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Smoking_History,Ex-smoker,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Treatment_Recommendations,Adjuvant radiotherapy,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,2,p16_Status,Not Inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,3,Alcohol_Consumption,Not Inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,3,Anatomic_Site_of_Lesion,"Oral cavity, left superior alveolar ridge, invasive squamous cell carcinoma",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Charlson_Comorbidity_Score,"4 [1 point for diabetes with complications (uncontrolled IDDM), 1 point for CHF, 1 point for myocardial infarction (implied by CABG), and 1 point for dyslipidemia",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Clinical_Assessments_Radiological_Lesions,"CT scan showed a 3.7cm left superior alveolar ridge lesion invading alveolar bone, no suspicious lymphadenopathy",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,3,Clinical_TNM,T4 N0 M0,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,EBER_Status,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,3,ECOG_Performance_Status,1-2 [The patient has some limitations in daily activities but is still able to care for herself,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Follow_Up_Plans,Reassess the patient in 3-4 weeks to review the final pathology and ensure full recovery from surgery,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,HPV_Status,Negative,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Immunohistochemical_profile,p16 negative,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Karnofsky_Performance_Status,"70-80 [Based on ECOG score of 1-2 post-op, which corresponds to a KPS score of 70-80, indicating the patient is able to care for herself but may need assistance with some tasks",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Lymphovascular_Invasion_Status,Absent,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Pack_Years,0,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Pathological_TNM,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,3,Pathology_Details,"Invasive squamous cell carcinoma, well differentiated, p16 negative",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Patient_History_Status_Previous_Treatments,"ASA, Lipitor, metoprolol, altace, zantac, atrovent, Imodium, insulin, CABG",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Patient_History_Status_Prior_Conditions,"Uncontrolled IDDM, dyslipidemia, CHF",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Patient_Symptoms_at_Presentation,"Painful left alveolar ridge lesion, weakness, discomfort",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Perineural_Invasion_Status,Absent,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Primary_Tumor_Size,3.7cm,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Resection_Margins,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,3,Sex,F,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Smoking_History,Not Inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,3,Treatment_Recommendations,Adjuvant radiation to the surgical bed +/- neck with 60Gy in 30 fractions,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,Tumor_Type_Differentiation,Well differentiated,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,3,p16_Status,Negative,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Anatomic_Site_of_Lesion,"Right oropharynx, tongue base / tonsil area, poorly-differentiated squamous cell carcinoma",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Charlson_Comorbidity_Score,"2 [1 point for cardiac stent (myocardial infarction or peripheral vascular disease) and 1 point for Gout is not directly listed but could be considered under mild liver disease or other conditions, however the exact points are uncertain without direct mapping",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Clinical_Assessments_Radiological_Lesions,"CT scan of the neck demonstrates a 3.3 x 3.2 cm soft tissue mass, nasopharyngoscopy revealed right tonsillar/base of tongue lesion with exophytic component",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,4,Clinical_TNM,cT3 N0,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,EBER_Status,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,4,ECOG_Performance_Status,"0 [patient is fully active, no restrictions",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Follow_Up_Plans,"patient to complete staging work up with CT scan of the chest, to be seen by Audiology, dentistry, and medical oncology, CT-simulation",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,HPV_Status,Positive,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Immunohistochemical_profile,P16 positive,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Karnofsky_Performance_Status,"100 [ECOG 0 implies fully active, able to carry on all pre-disease performance without restriction, equivalent to KPS 100",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,4,Pack_Years,35,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Pathological_TNM,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,4,Pathology_Details,"Poorly-differentiated squamous cell carcinoma invading into skeletal muscle, P16 positive",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Patient_History_Status_Previous_Treatments,"ASA, Crestor, Allopurinol",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Patient_History_Status_Prior_Conditions,"cardiac stent, Gout",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Patient_Symptoms_at_Presentation,"sore throat, difficulty swallowing, cough with whiteish sputum and clots of blood, dysphagia, weight loss (8IB/4 weeks), shortness of breath, otalgia of the right ear",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,4,Primary_Tumor_Size,3.3 x 3.2 cm,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Resection_Margins,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,4,Sex,M,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Smoking_History,Ex-smoker,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Treatment_Recommendations,combined chemoradiation,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,4,p16_Status,Positive,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Alcohol_Consumption,Drinker [occasional,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Anatomic_Site_of_Lesion,"Base of tongue, squamous cell carcinoma",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Charlson_Comorbidity_Score,"2 [1 point for basal cell carcinoma (considered a form of skin cancer, but not directly listed; using the closest relevant condition), and considering the patient's history does not explicitly mention other significant comorbidities that would add points",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Clinical_Assessments_Radiological_Lesions,"CT neck scan showed a 2 cm base of tongue lesion and several ipsilateral level II lymph nodes measuring >3cm, CT chest showed a 5mm lingular nodule and a 5mm left lower lobe nodule",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,5,Clinical_TNM,cT1 cN2b cM0,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,EBER_Status,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,5,ECOG_Performance_Status,1 [as directly stated in the examination findings,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Follow_Up_Plans,"patient will be seen by Dentistry, Audiology, Gastroenterology, Medical Oncology, and by a Nutritionist, PET scan, mask fitting, CT simulation, chemotherapy, Dermatology appointment",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,HPV_Status,Positive,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Immunohistochemical_profile,"Positive for P63, CK5/6, and P16",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Karnofsky_Performance_Status,"90 [ECOG status is 1, which generally corresponds to a Karnofsky performance status of around 80-100, with 1 being able to perform all normal activities with only slight limitations; hence, choosing a value towards the higher end but not perfect due to symptoms and diagnosis",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,>1 ({multiple level II lymph nodes}),True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,5,Pack_Years,20,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Pathological_TNM,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,5,Pathology_Details,"Metastatic poorly-differentiated carcinoma, favor squamous on the basis of positive P63 and CK5/6, P16 positive",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Patient_History_Status_Previous_Treatments,"shave biopsy, incomplete removal of basal cell carcinoma",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Patient_History_Status_Prior_Conditions,"basal cell carcinoma of the scalp, retinal tear, Colles fracture, patellar bursitis",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Patient_Symptoms_at_Presentation,"dysarthria, left post-auricular discomfort",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,5,Primary_Tumor_Size,2 cm,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Resection_Margins,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,5,Sex,M,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Smoking_History,Ex-smoker,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Treatment_Recommendations,chemo-radiotherapy,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,5,p16_Status,Positive,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Alcohol_Consumption,Drinker [4-5 times/day,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Anatomic_Site_of_Lesion,"Right vocal cord, squamous cell carcinoma",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Charlson_Comorbidity_Score,1 [Assigned 1 point for hypertension,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Clinical_Assessments_Radiological_Lesions,"CT scan of the neck and larynx with contrast showed thickening of the right vocal cord, dilated right side ventricle, scelerosed right arytenoids cartilage; Laryngoscope showed right side lesion involving the anterior commissure",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,6,Clinical_TNM,"T2, N0",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,EBER_Status,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,6,ECOG_Performance_Status,"0 [Assuming ECOG 0 corresponds to KPS 100, as the patient has no limitations on their activities",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Follow_Up_Plans,Patient will be followed at the time of CT simulation and started with radiotherapy as soon as possible,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,HPV_Status,Negative,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Immunohistochemical_profile,P16,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Karnofsky_Performance_Status,100 [The patient is in no acute distress and has a KPS of 100,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,6,Pack_Years,30,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Pathological_TNM,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,6,Pathology_Details,"Invasive, moderately-differentiated squamous cell carcinoma; P16",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Patient_History_Status_Previous_Treatments,"Medication for high blood pressure, Appendectomy",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Patient_History_Status_Prior_Conditions,High blood pressure,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Patient_Symptoms_at_Presentation,"Hoarseness in voice, no odynophagia, no difficulty breathing, no weight loss",True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,6,Primary_Tumor_Size,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,6,Resection_Margins,Not inferred,True,0,0,1,0
+Group4_Pathology_and_Consultation_Report,6,Sex,M,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Smoking_History,Smoker,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Treatment_Recommendations,Radiotherapy,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,Tumor_Type_Differentiation,Moderately differentiated,True,1,0,0,0
+Group4_Pathology_and_Consultation_Report,6,p16_Status,Negative,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Anatomic_Site_of_Lesion,"Left tonsil, invasive moderately to poorly differentiated squamous cell carcinoma, non-keratinizing",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Charlson_Comorbidity_Score,"4 [infrarenal abdominal aortic aneurysm repair (1 point), prostate cancer (2 points), anxiety disorder (1 point)",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Clinical_Assessments_Radiological_Lesions,"CT scan of the neck and chest showed an enlarged left tonsil, two level II enlarged necrotic lymph nodes, and a 1.7-centimeter soft tissue nodule along the right supraclavicular space",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,1,Clinical_TNM,"T2, N2b, Mx",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,EBER_Status,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,1,ECOG_Performance_Status,"0 [patient appears well, no limitations on strenuous activities",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Follow_Up_Plans,"Referral to medical oncology for discussion of options, baseline audiogram, PEG tube insertion, PET scan",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,HPV_Status,Negative,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Immunohistochemical_profile,p16 negative,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Karnofsky_Performance_Status,"100 [ECOG performance of 0, patient is well and performing all activities of daily living",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,2,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,1,Pack_Years,60,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Pathological_TNM,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,1,Pathology_Details,"Invasive moderately to poorly differentiated squamous cell carcinoma, non-keratinizing, p16 negative",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Patient_History_Status_Previous_Treatments,"Total androgen ablation for prostate cancer, medications include Casodex, LHRH injection, diltiazem, B12, temazepam, Cozaar, Ativan",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Patient_History_Status_Prior_Conditions,"Infrarenal abdominal aortic aneurysm, prostate cancer, anxiety disorder",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Patient_Symptoms_at_Presentation,"Sore throat, lump on the right side of his neck, mild odynophagia",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,1,Primary_Tumor_Size,"2.5- to 3-centimeter exophytic lesion, also described as 1.8 x 1.3 x 3.3 centimeters on CT scan",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Resection_Margins,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,1,Sex,M,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Smoking_History,Ex-smoker,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Treatment_Recommendations,"Chemoradiation treatment, possibly cetuximab instead of chemotherapy",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,Tumor_Type_Differentiation,Moderately to Poorly differentiated,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,1,p16_Status,Negative,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Alcohol_Consumption,Drinker [amount not specified,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Anatomic_Site_of_Lesion,"Larynx, supraglottic larynx, glottis, subglottic larynx",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Charlson_Comorbidity_Score,"3 [1 point for hypertension, 1 point for CAD post angioplasty, and 1 point is not assigned as there are no other mentioned comorbidities that fit the criteria",False,0,1,0,0
+Group5_Pathology_and_Consultation_Report,2,Clinical_Assessments_Radiological_Lesions,"Transglottic neoplasm, invasion of the thyroid cartilage and anterior displacement of the strap muscles, subglottic extension, narrowing of the airway",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,2,Clinical_TNM,T4aN2cM0,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,EBER_Status,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,2,ECOG_Performance_Status,"0 [assuming a KPS of 90 corresponds to an ECOG of 0, as a KPS of 80-100 generally corresponds to an ECOG of 0",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Follow_Up_Plans,Patient will be seen next in planning,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,HPV_Status,Not Inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,2,Immunohistochemical_profile,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,2,Karnofsky_Performance_Status,90 [based on the provided performance status of 90%,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Extranodal_Extension,Present,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,9,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Lymphovascular_Invasion_Status,Present,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Pack_Years,Not Inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,2,Pathological_TNM,pT4a pN3b M0,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Pathology_Details,"Squamous cell carcinoma, moderately to poorly differentiated",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Patient_History_Status_Previous_Treatments,"salbutamol, flovent, temisartan, meoprololrocaltrol, synthroid, finasteride, atorvastatin",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Patient_History_Status_Prior_Conditions,"Hypertension, CAD post angioplasty",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Patient_Symptoms_at_Presentation,"Progressive dysphagia, dysphonia",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Perineural_Invasion_Status,Absent,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Primary_Tumor_Size,3.4 x 2.8 x 1.9 cm,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Resection_Margins,"margins uninvolved by invasive carcinoma, distance from closest mucosal margin",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Sex,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,2,Smoking_History,Smoker,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Treatment_Recommendations,Post-operative chemoradiotherapy,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,2,p16_Status,Not Inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,3,Alcohol_Consumption,Non-Drinker,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Anatomic_Site_of_Lesion,"Right parapharyngeal space, high-grade sarcoma",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Charlson_Comorbidity_Score,"2 [Assigning 2 points for the cancer (high-grade sarcoma), no other comorbidities mentioned",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Clinical_Assessments_Radiological_Lesions,"Metastatic disease to the lungs with at least 10 nodules, progression of parapharyngeal mass with new erosion of the right pterygoid plate and posterior maxillary sinus wall",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,3,Clinical_TNM,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,3,EBER_Status,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,3,ECOG_Performance_Status,2 [Indicated in the physical examination section,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Follow_Up_Plans,Continue with palliative chemotherapy,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,HPV_Status,Not Inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,3,Immunohistochemical_profile,"Positive for vimentin, negative for S100, TTF1, AE1.3, SMA, thyroglobulin, P63, myogenin, MART-1, calponin, CK8/18, CK5/6, CD34, and CD31",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Karnofsky_Performance_Status,"70 [ECOG 2 is equivalent to a KPS of around 70, indicating the patient has some symptoms but is still able to care for herself",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Extranodal_Extension,Absent,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,0,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Lymph_Node_Status_Presence_Absence,Absent,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,3,Pack_Years,0,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Pathological_TNM,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,3,Pathology_Details,"High-grade malignant pleomorphic and spindle cell tumor, positive for vimentin only",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Patient_History_Status_Previous_Treatments,"Gemcitabine/taxotere, concurrent chemo-radiation therapy with carbo/taxol and 60 Gy in 25 fractions, weekly vinorelbine",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Patient_History_Status_Prior_Conditions,None mentioned,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Patient_Symptoms_at_Presentation,"Pain over the right hemiface and neck, referred otalgia, mild nausea, weight loss of 4 lbs since January, trismus",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Perineural_Invasion_Status,"Suspected [tumor invading nerve-rich areas like the skull base, masticator space, or perineural tracts",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Primary_Tumor_Size,~5x5 cm,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Resection_Margins,Positive,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Sex,F,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Smoking_History,Non-Smoker,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Treatment_Recommendations,Palliative chemotherapy,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,3,p16_Status,Not Inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,4,Alcohol_Consumption,Drinker [half bottle of wine daily,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Anatomic_Site_of_Lesion,"Larynx, anterior commissure, right vocal cord",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Charlson_Comorbidity_Score,"4 [1 point for DLP (likely diabetes), 1 point for OSA (considered a chronic pulmonary disease), 2 points for history of colon cancer (solid tumor without metastasis)",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Clinical_Assessments_Radiological_Lesions,"CT of the neck showed a lesion in the anterior 2/3 of the right vocal cord invading the anterior commissure, CT of the chest showed nodules suspicious for lung adenoCA vs infection",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,4,Clinical_TNM,T2 N2b Mx,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,EBER_Status,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,4,ECOG_Performance_Status,"1 [patient has a performance status of ECOG 1, indicating minor symptoms but still able to carry out daily activities",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Follow_Up_Plans,"Patient will be seen by dentistry, med-onc, and respirology",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,HPV_Status,Negative,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Immunohistochemical_profile,P16 negative,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Karnofsky_Performance_Status,"90 [ECOG 1 corresponds to a KPS score of approximately 90, indicating the patient is able to carry on normal activity with only minor symptoms",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,2 (enlarged LN in level 3 measured 1.1cm and another node in level 2 measured 6mm),True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,4,Pack_Years,>50,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Pathological_TNM,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,4,Pathology_Details,"Invasive, moderately differentiated keratinizing squamous cell carcinoma, P16 negative",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Patient_History_Status_Previous_Treatments,"Rosuvastatin, surgery, CRT for colon CA",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Patient_History_Status_Prior_Conditions,"DLP, OSA, colon CA",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Patient_Symptoms_at_Presentation,Hoarseness,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,4,Primary_Tumor_Size,"1.8 cm below the cord, with involvement of the anterior commissure and subglottic region",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Resection_Margins,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,4,Sex,M,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Smoking_History,Ex-smoker,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Treatment_Recommendations,Concurrent chemoradiation,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,Tumor_Type_Differentiation,Moderately differentiated,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,4,p16_Status,Negative,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Alcohol_Consumption,Drinker [5-10 drinks a week,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Anatomic_Site_of_Lesion,"Right tonsil, invasive basaloid squamous cell carcinoma",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Charlson_Comorbidity_Score,"0 [The patient has no significant past medical history and no comorbidities are mentioned, therefore the score is 0",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Clinical_Assessments_Radiological_Lesions,"CT scan results not available, rhinopharyngolaryngoscopy showed a localized right tonsil ulcerating mass",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,5,Clinical_TNM,"T2, N1",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,EBER_Status,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,5,ECOG_Performance_Status,"0 [The patient has an ECOG performance status of 0, indicating the patient is fully active and able to carry on all pre-disease activities without restriction",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Follow_Up_Plans,"Obtain a copy of the CT scan, request for a PET/CT and planning position, requests for a PEG tube and for the audiology team were done, patient will read the consent form and call with his answer regarding participation in the HN.6 protocol",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,HPV_Status,Positive,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Immunohistochemical_profile,p16 positive,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Karnofsky_Performance_Status,"100 [The ECOG performance status of 0 corresponds to a Karnofsky Performance Status of 100, indicating the patient is fully active and able to carry on all pre-disease activities without restriction",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1 {right jugulodigastric node of 2 centimeters},True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Lymphovascular_Invasion_Status,Absent {no definite lymphovascular invasion identified},True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Pack_Years,0,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Pathological_TNM,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,5,Pathology_Details,"Invasive basaloid squamous cell carcinoma, p16 positive",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Patient_History_Status_Previous_Treatments,Nil,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Patient_History_Status_Prior_Conditions,Not Inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,5,Patient_Symptoms_at_Presentation,"Palpable right cervical lymph node, low-intensity right ear pain, no pain associated with the lymph node, no dysphagia, odynophagia, or dysphonia",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Perineural_Invasion_Status,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,5,Primary_Tumor_Size,2 cm {localized right tonsil ulcerating mass},True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Resection_Margins,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,5,Sex,M,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Smoking_History,Non-Smoker,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Treatment_Recommendations,"Chemoradiation to a dose of 67.5 Gy in 30 fractions by IMRT, possibility to participate in the HN.6 protocol",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,Tumor_Type_Differentiation,Poorly differentiated,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,5,p16_Status,Positive,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Alcohol_Consumption,Not Inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,6,Anatomic_Site_of_Lesion,"Base of tongue, squamous cell carcinoma",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Charlson_Comorbidity_Score,"1 [The patient has hypertension (high blood pressure), which is assigned 1 point. There are no other comorbidities mentioned.",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Clinical_Assessments_Radiological_Lesions,"CT scan shows a 6.9 x 5.3 cm solid enhancing mass, PET scan reveals large base of tongue tumor with ipsilateral metastatic nodes",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Clinical_Assessments_SUV_from_PET_scans,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,6,Clinical_TNM,T4N1M0,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,EBER_Status,Negative,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,ECOG_Performance_Status,"0 [A KPS of 90 corresponds to an ECOG of 0, indicating the patient is fully active and able to carry on all pre-disease activities without restriction.",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Follow_Up_Plans,"patient will be seen by dentistry, offered participation to the proactive study",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,HPV_Status,Positive,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Immunohistochemical_profile,"P16-positive, P40 immunostains support the diagnosis",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Karnofsky_Performance_Status,90 [The performance status is directly stated as 90% in the examination section.,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Lymph_Node_Status_Extranodal_Extension,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,6,Lymph_Node_Status_Number_of_Positve_Lymph_Nodes,1 (left level 2 node measuring 2.4 x 2.2 cm),True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Lymph_Node_Status_Presence_Absence,Present,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Lymphovascular_Invasion_Status,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,6,Pack_Years,0,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Pathological_TNM,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,6,Pathology_Details,P16-positive (HPV-related) squamous cell carcinoma,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Patient_History_Status_Previous_Treatments,pill for blood pressure,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Patient_History_Status_Prior_Conditions,high blood pressure,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Patient_Symptoms_at_Presentation,"change of voice, left otalgia, mild dysphagia, weight loss",True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Perineural_Invasion_Status,Suspected [involvement of nerves in the tongue base and surrounding areas,False,0,1,0,0
+Group5_Pathology_and_Consultation_Report,6,Primary_Tumor_Size,6.9 x 5.3 cm,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Resection_Margins,Not inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,6,Sex,M,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Smoking_History,Non-Smoker,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Treatment_Recommendations,combined chemoradiation,True,1,0,0,0
+Group5_Pathology_and_Consultation_Report,6,Tumor_Type_Differentiation,Not Inferred,True,0,0,1,0
+Group5_Pathology_and_Consultation_Report,6,p16_Status,Positive,True,1,0,0,0
