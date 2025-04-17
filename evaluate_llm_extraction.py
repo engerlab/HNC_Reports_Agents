@@ -2,7 +2,7 @@
 # evaluate_llm_extractions.py
 
 """
-Updated script that:
+This script evaluates the LLM extractions from the clinician evaluation forms.
 1) Finds a 'Time to complete' column by name instead of assuming the last column is time.
 2) Fixes the TP/FP/TN/FN logic to match your definitions:
      - If LLM predicted positive (value != 'Not inferred') and majority is 'Agree' => TP
@@ -15,7 +15,7 @@ Updated script that:
 5) Adds an overall confusion matrix CSV: `confusion_matrix_overall.csv`
    in addition to the per-field matrix.
 
-You must `pip install statsmodels` to ensure fleiss_kappa is available.
+`pip install statsmodels` to ensure fleiss_kappa is available.
 """
 
 import argparse
