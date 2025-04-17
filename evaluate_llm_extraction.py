@@ -16,6 +16,9 @@ This script evaluates the LLM extractions from the clinician evaluation forms.
    in addition to the per-field matrix.
 
 `pip install statsmodels` to ensure fleiss_kappa is available.
+To double check: 
+- Were the right columns all correctly parsed from the individual evaluation Google Forms? 
+
 """
 
 import argparse
