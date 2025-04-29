@@ -55,6 +55,26 @@ import seaborn as sns
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
+###############################################################################
+# Global settings
+###############################################################################
+# Consistent colour palette for the three not‑inferred bins
+BIN_PALETTE = {
+    "low": "#2ca02c",     # green
+    "medium": "#ff7f0e",  # orange
+    "high": "#d62728",    # red
+}
+BIN_ORDER = ["low", "medium", "high"]
+
+
+def categorize_not_inferred(x: float | int) -> str:
+    """Bin the *not inferred* count into one of three textual categories."""
+    if x < 10:
+        return "low"
+    elif x <= 20:
+        return "medium"
+    else:
+        return "high"
 
 ###############################################################################
 # 1) ID loading for path_only, consult_only, both
@@ -85,8 +105,21 @@ def create_scatter_plot(df, category_name, output_dir):
     if df2.empty:
         logger.warning(f"{category_name}: no data for scatter plot.")
         return
+    df2["bin_not_inferred"] = df2["not_inferred_count"].apply(categorize_not_inferred)
+
     plt.figure(figsize=(6,4))
-    plt.scatter(df2["num_input_tokens"], df2["not_inferred_count"], alpha=0.6)
+    # plt.scatter(df2["num_input_tokens"], df2["not_inferred_count"], alpha=0.6)
+    for bin_label in BIN_ORDER:
+        sub = df2[df2["bin_not_inferred"] == bin_label]
+        if sub.empty:
+            continue
+        plt.scatter(
+            sub["num_input_tokens"],
+            sub["not_inferred_count"],
+            alpha=0.65,
+            label=bin_label,
+            color=BIN_PALETTE[bin_label],
+        )
     plt.xlabel("Number of Max Input Tokens", fontsize = 18)
     plt.ylabel("Number of 'Not Inferred' Fields", fontsize = 18)
     plt.title(f"{category_name}", fontsize = 20)
@@ -100,6 +133,8 @@ def create_jointplot(df, category_name, output_dir):
     if df2.empty:
         logger.warning(f"{category_name}: no data for jointplot.")
         return
+    df2["bin_not_inferred"] = df2["not_inferred_count"].apply(categorize_not_inferred)
+    sns.set_context("talk", font_scale=1.05)
 
     def categorize_not_inferred(x):
         if x < 10:
@@ -113,12 +148,21 @@ def create_jointplot(df, category_name, output_dir):
     sns.set_context("talk", font_scale=1.05)  
     # "talk" context and "font_scale=1.3" are just examples; you can use "paper", "poster", etc.
 
+    # g = sns.jointplot(
+    #     data=df2,
+    #     x="num_input_tokens",
+    #     y="not_inferred_count",
+    #     hue="bin_not_inferred",
+    #     alpha=0.6
+    # )
     g = sns.jointplot(
         data=df2,
         x="num_input_tokens",
         y="not_inferred_count",
         hue="bin_not_inferred",
-        alpha=0.6
+        hue_order=BIN_ORDER,
+        palette=BIN_PALETTE,
+        alpha=0.6,
     )
     # 3) Adjust axis labels, tick labels, title, etc.
     g.ax_joint.set_xlabel("Number of Max Input Tokens", fontsize=18)
@@ -409,7 +453,7 @@ if __name__ == "__main__":
 #   --path_only "/Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/patient_stats/path_only_ids.csv" \
 #   --consult_only "/Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/patient_stats/consult_only_ids.csv" \
 #   --both "/Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/patient_stats/both_ids.csv" \
-#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/CaseSelection/Exp14" \
+#   --output_dir "/Data/Yujing/HNC_OutcomePred/Reports_Agents/Results/CaseSelection/Exp14/Tmp" \
 #   --mode stratified \
 #   --n_path 5 --n_consult 18 --n_both 27 \
 #   --mode cutoff --both_cutoff 8 --path_cutoff 20 --cons_cutoff 10

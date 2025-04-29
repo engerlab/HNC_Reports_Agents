@@ -229,17 +229,29 @@ def parse_single_form(df: pd.DataFrame, form_name: str) -> pd.DataFrame:
 
     return pd.DataFrame(long_records)
 
-def fleiss_kappa_agree_disagree(df_field: pd.DataFrame):
+def fleiss_kappa_agree_disagree(df_field: pd.DataFrame, output_dir, field_name):
     """
     Compute Fleiss' kappa using statsmodels, for 3 raters, 2 categories (Agree, Disagree).
     1) For each case, count #Agree, #Disagree among the 3 raters => row = [disagree_count, agree_count]
     2) Use statsmodels' fleiss_kappa(...) on that Nx2 array.
     """
     # Convert "Agree" -> 1, anything else -> 0
-    df_field["IsAgree"] = df_field["ReviewerResponse"].apply(lambda x: 1 if x.lower()=="agree" else 0)
+    df_field = df_field.copy() # avoid modifying the original
+    df_field["IsAgree"] = df_field["ReviewerResponse"].apply(
+        lambda x: 1 if str(x).strip().lower() == "agree" else 0
+    )
+    print(f"df_field: {df_field.head()}")
+    # Save the "per-rater" table for debugging
+    # Just the columns you want to confirm
+    debug_per_rater_path = os.path.join(output_dir, "InterRater",f"{field_name}_debug_per_rater.csv")
+    df_field_to_save = df_field[["CaseIndex", "ReviewerEmail", "FieldName", "ReviewerResponse", "IsAgree"]]
+    df_field_to_save.to_csv(debug_per_rater_path, index=False)
+    print(f"[DEBUG] Saved per-rater table => {debug_per_rater_path}")
+
 
     # group by case => sum up the 3 responses
     grouped = df_field.groupby("CaseIndex")["IsAgree"].agg(["sum","count"]).reset_index()
+
     # sum = how many "Agree"
     # count = number of raters (should be 3)
     # disagrees = count - sum
@@ -327,7 +339,11 @@ def main():
         df_fld = master_df[master_df["FieldName"] == fld].copy()
         if len(df_fld) == 0:
             continue
-        kappa_val = fleiss_kappa_agree_disagree(df_fld)
+        kappa_val = fleiss_kappa_agree_disagree(df_fld, output_dir=outdir, field_name=fld)
+        if pd.isna(kappa_val):
+            print(f"[WARNING] Fleiss' kappa for {fld} is NaN. Skipping.")
+            continue
+        # Save the kappa value
         fleiss_rows.append({"FieldName": fld, "FleissKappa": kappa_val})
     df_kappa = pd.DataFrame(fleiss_rows).sort_values("FieldName").reset_index(drop=True)
 

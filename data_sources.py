@@ -42,10 +42,10 @@ DATA_SOURCES = {
         "17Ez8FietjIPbF_vXN_b4fszAPuS91o9dfNvqXji6Grw/"
         "export?format=csv&id=17Ez8FietjIPbF_vXN_b4fszAPuS91o9dfNvqXji6Grw&gid=1344127612"
     ),
-    # "Group5_Pathology_and_Consultation_Report": (
-    #     "https://docs.google.com/spreadsheets/d/"
-    #     "1pyid17d2nmkPg-q2zqu1g9kMpyv1MCuB7AJ49vjuZp0/"
-    #     "export?format=csv&id=1pyid17d2nmkPg-q2zqu1g9kMpyv1MCuB7AJ49vjuZp0"
-    #     # If there's a gid=xxx, add it here
-    # ),
+    "Group5_Pathology_and_Consultation_Report": (
+        "https://docs.google.com/spreadsheets/d/"
+        "1pyid17d2nmkPg-q2zqu1g9kMpyv1MCuB7AJ49vjuZp0/"
+        "export?format=csv&id=1pyid17d2nmkPg-q2zqu1g9kMpyv1MCuB7AJ49vjuZp0"
+        # If there's a gid=xxx, add it here
+    ),
 }

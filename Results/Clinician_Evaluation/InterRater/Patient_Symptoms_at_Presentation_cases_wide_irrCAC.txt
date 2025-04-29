@@ -1,0 +1,3 @@
+### irrCAC Fleiss results ###
+{'est': {'coefficient_value': -0.05634, 'coefficient_name': "Fleiss' kappa", 'confidence_interval': (-0.09548, -0.01719), 'p_value': 0.00569250809892452, 'z': -2.89211, 'se': 0.01948, 'pa': 0.89333, 'pe': 0.89902}, 'weights': array([[1., 0.],
+       [0., 1.]]), 'categories': [0, 1]}
